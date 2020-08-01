@@ -46,13 +46,15 @@ export default function Header() {
 const HeaderStyled = styled.header`
 	width: 100%;
 	height: 100%;
-	position: sticky;
+	position: fixed;
+	top: 12px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 55px;
 
 	.top {
 		display: flex;
 		justify-content: space-between;
-		position: relative;
-		top: -30px;
 
 		.title {
 			font-size: 15px;
@@ -69,7 +71,8 @@ const HeaderStyled = styled.header`
 	.pictos {
 		position: absolute;
 		top: 50%;
-		right: -36px;
+		right: 19px;
+		transform: translateY(-50%);
 		display: flex;
 		justify-content: center;
 		align-items: center;
