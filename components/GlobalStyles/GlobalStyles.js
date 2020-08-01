@@ -15,9 +15,9 @@ const theme = {
 		'break-tablet': '768px',
 		'break-medium': '1024px',
 		'break-large': '1210px',
-		'break-header': '1400px',
+		'break-header': '1600px',
+		'break-header-xl': '1700px',
 	},
-	box: '92%',
 };
 
 const GlobalStyles = () => (
@@ -39,10 +39,10 @@ const GlobalStyles = () => (
 					background-color: ${theme.colors.primary};
 
 					#__next {
-						width: ${theme.box};
-						height: ${theme.box};
+						width: 100%;
+						height: 100%;
 						position: relative;
-						margin: auto;
+						padding: 45px 55px;
 					}
 				}
 

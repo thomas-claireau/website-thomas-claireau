@@ -3,17 +3,19 @@ import styled from '@emotion/styled';
 export default function Header() {
 	return (
 		<HeaderStyled>
-			<div className="title --uppercase --light">
-				<span>Thomas / Claireau</span>
-				<span className="--hide">Fullstack web developper</span>
+			<div className="top">
+				<div className="title --uppercase --light">
+					<span>Thomas / Claireau</span>
+					<span className="--hide">Fullstack web developper</span>
+				</div>
+				<a
+					href="mailto:contact@thomas-claireau.fr"
+					className="title contact --uppercase --light"
+				>
+					Contact
+					<i className="fa fa-envelope-o" aria-hidden="true"></i>
+				</a>
 			</div>
-			<a
-				href="mailto:contact@thomas-claireau.fr"
-				className="title contact --uppercase --light"
-			>
-				Contact
-				<i className="fa fa-envelope-o" aria-hidden="true"></i>
-			</a>
 			<div className="pictos">
 				<a
 					href="https://github.com/thomas-claireau"
@@ -42,37 +44,39 @@ export default function Header() {
 }
 
 const HeaderStyled = styled.header`
-	width: ${(props) => props.theme.box};
+	width: 100%;
 	height: 100%;
-	position: fixed;
-	top: 10px;
-	left: 50%;
-	transform: translateX(-50%);
-	display: flex;
-	justify-content: space-between;
+	position: sticky;
 
-	.title {
-		font-size: 15px;
-		font-weight: bold;
-		line-height: 20px;
-		letter-spacing: 1.5px;
+	.top {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		top: -30px;
 
-		i {
-			margin-left: 10px;
+		.title {
+			font-size: 15px;
+			font-weight: bold;
+			line-height: 20px;
+			letter-spacing: 1.5px;
+
+			i {
+				margin-left: 10px;
+			}
 		}
 	}
 
 	.pictos {
 		position: absolute;
 		top: 50%;
-		right: -40px;
+		right: -36px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
 
 		a {
-			&:not(:first-child) {
+			&:not(:first-of-type) {
 				margin-top: 15px;
 			}
 
