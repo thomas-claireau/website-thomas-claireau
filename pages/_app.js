@@ -1,6 +1,7 @@
 import { ThemeProvider } from 'emotion-theming';
 import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import Header from 'components/Header';
+import Box from 'components/Box';
 
 function MyApp({ Component, pageProps }) {
 	return (
@@ -8,7 +9,9 @@ function MyApp({ Component, pageProps }) {
 			<ThemeProvider theme={theme}>
 				<GlobalStyles />
 				<Header />
-				<Component {...pageProps} />
+				<Box>
+					<Component {...pageProps} />
+				</Box>
 			</ThemeProvider>
 		</>
 	);
