@@ -1,6 +1,5 @@
 import { ThemeProvider } from 'emotion-theming';
 import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
-import Header from 'components/Header';
 import Box from 'components/Box';
 
 //lib
@@ -12,7 +11,6 @@ function MyApp({ Component, pageProps }) {
 			<ThemeProvider theme={theme}>
 				<GlobalStyles />
 				<Box>
-					<Header />
 					<Component {...pageProps} />
 				</Box>
 			</ThemeProvider>
