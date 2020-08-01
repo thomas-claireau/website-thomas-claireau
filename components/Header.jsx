@@ -7,14 +7,43 @@ export default function Header() {
 				<span>Thomas / Claireau</span>
 				<span className="--hide">Fullstack web developper</span>
 			</div>
-			<div className="title contact --uppercase --light">Contact</div>
-			<div className="pictos"></div>
+			<a
+				href="mailto:contact@thomas-claireau.fr"
+				className="title contact --uppercase --light"
+			>
+				Contact
+				<i className="fa fa-envelope-o" aria-hidden="true"></i>
+			</a>
+			<div className="pictos">
+				<a
+					href="https://github.com/thomas-claireau"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<i className="fa fa-github-alt" aria-hidden="true"></i>
+				</a>
+				<a
+					href="https://twitter.com/thomas_claireau"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<i className="fa fa-twitter" aria-hidden="true"></i>
+				</a>
+				<a
+					href="https://www.linkedin.com/in/thomas-claireau/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<i className="fa fa-linkedin" aria-hidden="true"></i>
+				</a>
+			</div>
 		</HeaderStyled>
 	);
 }
 
 const HeaderStyled = styled.header`
-	width: ${(props) => props.theme.width};
+	width: ${(props) => props.theme.box};
+	height: 100%;
 	position: fixed;
 	top: 10px;
 	left: 50%;
@@ -27,5 +56,30 @@ const HeaderStyled = styled.header`
 		font-weight: bold;
 		line-height: 20px;
 		letter-spacing: 1.5px;
+
+		i {
+			margin-left: 10px;
+		}
+	}
+
+	.pictos {
+		position: absolute;
+		top: 50%;
+		right: -40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		a {
+			&:not(:first-child) {
+				margin-top: 15px;
+			}
+
+			i {
+				color: ${(props) => props.theme.colors.secondary};
+				font-size: 20px;
+			}
+		}
 	}
 `;

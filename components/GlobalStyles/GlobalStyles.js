@@ -17,7 +17,7 @@ const theme = {
 		'break-large': '1210px',
 		'break-header': '1400px',
 	},
-	width: '92%',
+	box: '92%',
 };
 
 const GlobalStyles = () => (
@@ -28,6 +28,10 @@ const GlobalStyles = () => (
 				body {
 					width: 100vw;
 					height: 100vh;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
 					position: relative;
 					margin: 0;
 					padding: 0;
@@ -35,8 +39,8 @@ const GlobalStyles = () => (
 					background-color: ${theme.colors.primary};
 
 					#__next {
-						width: ${theme.width};
-						height: 100%;
+						width: ${theme.box};
+						height: ${theme.box};
 						position: relative;
 						margin: auto;
 					}
@@ -53,6 +57,11 @@ const GlobalStyles = () => (
 					font-size: 56px;
 					line-height: 65px;
 					letter-spacing: 1.96px;
+				}
+
+				a {
+					display: block;
+					text-decoration: none;
 				}
 			`}
 		/>
