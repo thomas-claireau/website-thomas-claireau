@@ -84,7 +84,7 @@ const HeaderStyled = styled.header`
 			}
 
 			i {
-				color: ${(props) => props.theme.colors.secondary};
+				color: ${(props) => props.theme.colors.light};
 				font-size: 20px;
 			}
 		}

@@ -6,8 +6,8 @@ const theme = {
 		mainFont: 'Open Sans',
 	},
 	colors: {
-		primary: '#34485e',
-		secondary: '#ecf0f0',
+		dark: '#34485e',
+		light: '#ecf0f0',
 	},
 	breakpoints: {
 		'break-mini': '375px',
@@ -36,7 +36,7 @@ const GlobalStyles = () => (
 					margin: 0;
 					padding: 0;
 					font-family: ${theme.fonts.mainFont};
-					background-color: ${theme.colors.primary};
+					background-color: ${theme.colors.dark};
 
 					#__next {
 						width: 100%;
@@ -54,8 +54,9 @@ const GlobalStyles = () => (
 
 				h1,
 				.h1 {
-					font-size: 56px;
+					font-size: 65px;
 					line-height: 65px;
+					font-weight: bold;
 					letter-spacing: 1.96px;
 				}
 

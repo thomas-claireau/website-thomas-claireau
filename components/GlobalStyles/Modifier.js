@@ -12,11 +12,19 @@ const Modifier = () => (
 				}
 
 				.--dark {
-					color: ${theme.colors.primary};
+					color: ${theme.colors.dark};
+				}
+
+				.--bg-dark {
+					background-color: ${theme.colors.dark};
 				}
 
 				.--light {
-					color: ${theme.colors.secondary};
+					color: ${theme.colors.light};
+				}
+
+				.--bg-light {
+					background-color: ${theme.colors.light};
 				}
 
 				.--uppercase {
