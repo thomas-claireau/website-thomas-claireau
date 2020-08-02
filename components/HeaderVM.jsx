@@ -1,14 +1,28 @@
 import styled from '@emotion/styled';
+import { Global, css } from '@emotion/core';
 import BurgerMenu from './BurgerMenu';
 
-export default function HeaderVM() {
+export default function HeaderVM({ onClick }) {
+	const handleClick = function () {
+		onClick();
+	};
+
 	return (
-		<HeaderVMStyled>
+		<HeaderVMStyled className="header-mobile">
+			<Global
+				styles={css`
+					#__next.--menu-open {
+						.header-mobile {
+							display: none;
+						}
+					}
+				`}
+			/>
 			<div className="left">
 				<div className="title --uppercase --light">Thomas / Claireau</div>
 			</div>
 			<div className="right">
-				<BurgerMenu />
+				<BurgerMenu action="open" onClick={handleClick} />
 			</div>
 		</HeaderVMStyled>
 	);

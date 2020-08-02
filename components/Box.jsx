@@ -1,13 +1,26 @@
-import { cloneElement } from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 import Header from 'components/Header';
 import HeaderVM from 'components/HeaderVM';
+import MenuVM from 'components/MenuVM';
 
 export default function Box({ children }) {
+	const [menu, setMenu] = useState(false);
+
+	const handleClick = function () {
+		const __next = document.querySelector('#__next');
+
+		if (!__next) return;
+
+		__next.classList.toggle('--menu-open');
+		setMenu(!menu);
+	};
+
 	return (
-		<BoxStyled className="box">
+		<BoxStyled className={`box`}>
 			<Header />
-			<HeaderVM />
+			<HeaderVM onClick={handleClick} />
+			{menu && <MenuVM onClick={handleClick} />}
 			{children}
 		</BoxStyled>
 	);

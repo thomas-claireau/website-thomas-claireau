@@ -1,9 +1,16 @@
 import styled from '@emotion/styled';
+import { Global, css } from '@emotion/core';
 import SocialLogos from './SocialLogos';
 
 export default function Header() {
 	return (
 		<HeaderStyled>
+			<Global
+				styles={css`
+					#__next .box.--menu-open {
+					}
+				`}
+			/>
 			<div className="top">
 				<div className="left">
 					<div className="title --uppercase --light">
@@ -21,7 +28,7 @@ export default function Header() {
 					</a>
 				</div>
 			</div>
-			<SocialLogos />
+			<SocialLogos className="desktop" />
 		</HeaderStyled>
 	);
 }

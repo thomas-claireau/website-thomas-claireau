@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
-export default function BurgerMenu() {
+export default function BurgerMenu({ action, onClick }) {
 	const handleClick = function (e) {
-		console.log('passe');
+		onClick();
 	};
 
 	return (
-		<BurgerMenuStyled className="burger-menu" onClick={handleClick}>
+		<BurgerMenuStyled className={`burger-menu ${action}`} onClick={handleClick}>
 			<span></span>
 			<span></span>
 			<span></span>
@@ -21,11 +21,39 @@ const BurgerMenuStyled = styled.div`
 	align-items: center;
 	flex-direction: column;
 
+	&.open {
+		span {
+			background-color: ${(props) => props.theme.colors.light};
+		}
+	}
+
+	&.close {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+
+		span {
+			height: 2.4px;
+			background-color: ${(props) => props.theme.colors.dark};
+
+			&:nth-of-type(1) {
+				transform: rotate(45deg);
+			}
+
+			&:nth-of-type(2) {
+				transform: rotate(-45deg) translate(5px, -3px);
+			}
+
+			&:last-of-type {
+				display: none;
+			}
+		}
+	}
+
 	span {
 		width: 100%;
 		height: 2px;
 		display: block;
-		background-color: ${(props) => props.theme.colors.light};
 		transition: all 0.3s ease-in-out;
 		transform: rotate(0deg) translate(0);
 
