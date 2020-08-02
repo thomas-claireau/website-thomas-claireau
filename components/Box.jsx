@@ -35,16 +35,24 @@ const BoxStyled = styled.section`
 	> section.container {
 		width: 100%;
 		height: 100%;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
 		position: relative;
 		overflow-x: hidden;
 		overflow-y: scroll;
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			flex-direction: column;
 			overflow: visible;
+		}
+
+		> .main-content {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				flex-direction: column;
+			}
 		}
 	}
 `;

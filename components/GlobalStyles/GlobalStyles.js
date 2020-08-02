@@ -69,6 +69,7 @@ const GlobalStyles = () => (
 
 				h1,
 				.h1 {
+					margin: 0;
 					font-size: 65px;
 					line-height: 65px;
 					font-weight: bold;
@@ -89,6 +90,11 @@ const GlobalStyles = () => (
 				a {
 					display: block;
 					text-decoration: none;
+				}
+
+				p {
+					margin: 20px 0 0 0;
+					padding: 0;
 				}
 			`}
 		/>

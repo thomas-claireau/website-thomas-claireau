@@ -11,46 +11,58 @@ function Home() {
 				<title>Thomas Claireau | Fullstack Web Developer</title>
 			</Head>
 			<Container>
-				<h1 className="--hide">Thomas Claireau, Fullstack Web Developper</h1>
-				<Col direction="left" bg="--bg-dark">
-					<TitleStyled className="h1 left --light desktop">
-						<span>I'm a fu</span>
-						<span>web dev</span>
-					</TitleStyled>
-					<TitleStyled className="h1 left --light mobile">I'm a fullstack</TitleStyled>
-				</Col>
-				<Col direction="right" bg="--bg-light">
-					<TitleStyled className="h1 --dark desktop">
-						<span>llstack</span>
-						<span>elopper</span>
-					</TitleStyled>
-					<TitleStyled className="h1 left --dark mobile">web developper</TitleStyled>
-				</Col>
+				<HomeStyled>
+					<h1 className="--hide">Thomas Claireau, Fullstack Web Developper</h1>
+					<Col direction="left" bg="--bg-dark" align="center">
+						<div className="title h1 left --light desktop">
+							<span>I'm a fu</span>
+							<span>web dev</span>
+						</div>
+						<div className="title h1 left --light mobile">I'm a fullstack</div>
+					</Col>
+					<Col direction="right" bg="--bg-light" align="center">
+						<div className="title h1 --dark desktop">
+							<span>llstack</span>
+							<span>elopper</span>
+						</div>
+						<div className="title h1 left --dark mobile">web developper</div>
+					</Col>
+				</HomeStyled>
 			</Container>
 		</>
 	);
 }
 
-const TitleStyled = styled.div`
+const HomeStyled = styled.div`
+	width: 100%;
+	height: 100%;
 	display: flex;
-	flex-direction: column;
 
-	&.desktop {
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+		flex-direction: column;
+	}
+
+	.title {
+		display: flex;
+		flex-direction: column;
+
+		&.desktop {
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				display: none;
+			}
+		}
+
+		&.mobile {
 			display: none;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				display: inherit;
+			}
 		}
-	}
 
-	&.mobile {
-		display: none;
-
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			display: inherit;
+		&.left {
+			align-items: flex-end;
 		}
-	}
-
-	&.left {
-		align-items: flex-end;
 	}
 `;
 
