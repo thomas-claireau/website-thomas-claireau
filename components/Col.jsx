@@ -31,12 +31,19 @@ export default function Col({ direction, bg, children }) {
 		padding-top: ${space};
 		padding-bottom: ${space};
 		${padding}
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			padding-top: calc(${space} - 40px);
+			padding-bottom: calc(${space} - 40px);
+			align-items: ${!isHome ? 'center' : direction == 'left' ? 'flex-end' : 'flex-start'};
+			justify-content: center;
+		}
 	`;
 
 	return (
 		<ColStyled className={`${direction} --bg-${bg}`}>
 			{children}
-			{direction == 'left' && <Menu space={space} />}
+			{direction == 'left' && <Menu space={space} className="desktop" />}
 		</ColStyled>
 	);
 }

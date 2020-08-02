@@ -25,5 +25,9 @@ const BoxStyled = styled.section`
 		position: relative;
 		overflow-x: hidden;
 		overflow-y: scroll;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			flex-direction: column;
+		}
 	}
 `;
