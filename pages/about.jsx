@@ -4,6 +4,18 @@ import Head from 'next/head';
 import Container from 'components/Container';
 import Col from 'components/Col';
 
+import JavascriptSVG from 'public/assets/img/javascript.svg';
+import WebpackSVG from 'public/assets/img/webpack.svg';
+import NodeJsSVG from 'public/assets/img/nodejs.svg';
+import ReactSVG from 'public/assets/img/reactjs.svg';
+import VueJsSVG from 'public/assets/img/vuejs.svg';
+import CssSVG from 'public/assets/img/css.svg';
+import SassSVG from 'public/assets/img/sass.svg';
+import BootstrapSVG from 'public/assets/img/bootstrap.svg';
+import PhpSVG from 'public/assets/img/php.svg';
+import WordpressSVG from 'public/assets/img/wordpress.svg';
+import SymfonySVG from 'public/assets/img/symfony.svg';
+
 function About() {
 	return (
 		<>
@@ -12,7 +24,41 @@ function About() {
 			</Head>
 			<Container>
 				<AboutStyled className="main-content">
-					<Col direction="left" bg="--bg-light" align="center"></Col>
+					<Col direction="left" bg="--bg-light" align="center">
+						<div className="top">
+							<div>
+								<div className="parent">
+									<JavascriptSVG />
+								</div>
+								<div className="children">
+									<WebpackSVG />
+									<NodeJsSVG />
+									<ReactSVG />
+									<VueJsSVG />
+								</div>
+							</div>
+						</div>
+						<div className="bottom">
+							<div className="left">
+								<div className="parent">
+									<CssSVG />
+								</div>
+								<div className="children">
+									<SassSVG />
+									<BootstrapSVG />
+								</div>
+							</div>
+							<div className="right">
+								<div className="parent">
+									<PhpSVG />
+								</div>
+								<div className="children">
+									<WordpressSVG />
+									<SymfonySVG />
+								</div>
+							</div>
+						</div>
+					</Col>
 					<Col direction="right" bg="--bg-dark" align="flex-start">
 						<h1 className="--uppercase">
 							<span className="--hide">Thomas Claireau</span>
@@ -49,6 +95,80 @@ function About() {
 }
 
 const AboutStyled = styled.div`
+	> .left {
+		div {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&.parent {
+				width: fit-content;
+			}
+		}
+
+		> div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			&.bottom {
+				margin-top: 80px;
+				justify-content: space-between;
+				flex-direction: row;
+			}
+
+			> div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+
+				> .children {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+		}
+
+		.parent {
+			&:hover {
+				+ .children {
+					svg {
+						filter: grayscale(0%);
+					}
+				}
+			}
+
+			svg {
+				width: auto;
+				height: 130px;
+			}
+		}
+
+		.children {
+			margin-top: 25px;
+
+			svg {
+				width: auto;
+				min-height: 60px;
+				height: 60px;
+				filter: grayscale(100%);
+				transition: all 0.3s ease-in-out;
+
+				&:hover {
+					filter: grayscale(0%);
+					transition: all 0.3s ease-in-out;
+				}
+
+				&:not(:first-of-type) {
+					margin-left: 20px;
+				}
+			}
+		}
+	}
 	.right {
 		color: ${(props) => props.theme.colors.light};
 
@@ -64,7 +184,7 @@ const AboutStyled = styled.div`
 				width: 100%;
 			}
 
-			> *:first-child {
+			> *:first-of-type {
 				margin: 0;
 				padding: 0;
 			}
