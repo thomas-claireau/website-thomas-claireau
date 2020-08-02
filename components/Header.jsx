@@ -7,7 +7,16 @@ export default function Header() {
 		<HeaderStyled>
 			<Global
 				styles={css`
-					#__next .box.--menu-open {
+					#__next.--menu-open {
+						header {
+							z-index: -1;
+
+							.top {
+								position: initial;
+								opacity: 1;
+								z-index: inherit;
+							}
+						}
 					}
 				`}
 			/>
@@ -23,7 +32,7 @@ export default function Header() {
 						href="mailto:contact@thomas-claireau.fr"
 						className="title contact --uppercase --light"
 					>
-						Contact
+						<span>Contact</span>
 						<i className="fa fa-envelope-o" aria-hidden="true"></i>
 					</a>
 				</div>
@@ -42,9 +51,19 @@ const HeaderStyled = styled.header`
 	transform: translateX(-50%);
 	padding: 0 55px;
 
+	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+		padding: 0 20px;
+	}
+
 	.top {
 		display: flex;
 		justify-content: space-between;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			position: absolute;
+			opacity: 0;
+			z-index: -1;
+		}
 
 		.title {
 			font-size: 15px;
@@ -54,6 +73,15 @@ const HeaderStyled = styled.header`
 
 			i {
 				margin-left: 10px;
+			}
+		}
+
+		.right {
+			span {
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-small']}) {
+					display: none;
+				}
 			}
 		}
 	}

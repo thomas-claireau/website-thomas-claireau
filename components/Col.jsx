@@ -37,6 +37,14 @@ export default function Col({ bg, direction, children }) {
 			align-items: ${!isHome ? 'center' : direction == 'left' ? 'flex-end' : 'flex-start'};
 			justify-content: center;
 		}
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+			padding: calc(${space} - 50px);
+		}
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-small']}) {
+			padding: calc(${space} - 55px);
+		}
 	`;
 
 	return (

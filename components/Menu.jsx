@@ -29,6 +29,35 @@ const MenuStyled = styled.nav`
 		}
 	}
 
+	&.mobile {
+		display: none;
+		margin-top: 50px;
+		position: initial;
+		bottom: auto;
+		left: auto;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			display: inherit;
+		}
+
+		ul {
+			flex-direction: column;
+			padding: 0;
+
+			li {
+				&:not(:first-of-type) {
+					margin-left: 0px;
+					margin-top: 20px;
+				}
+
+				a {
+					color: ${(props) => props.theme.colors.dark};
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
 	ul {
 		display: flex;
 		justify-content: center;

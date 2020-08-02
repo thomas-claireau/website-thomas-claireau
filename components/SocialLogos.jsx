@@ -31,7 +31,8 @@ const SocialLogosStyled = styled.div`
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-medium']}) {
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			display: none;
 		}
 
@@ -43,6 +44,24 @@ const SocialLogosStyled = styled.div`
 			i {
 				color: ${(props) => props.theme.colors.light};
 				font-size: 20px;
+			}
+		}
+	}
+
+	&.mobile {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		margin-top: 80px;
+
+		a {
+			&:not(:first-of-type) {
+				margin-left: 20px;
+			}
+
+			i {
+				color: ${(props) => props.theme.colors.dark};
+				font-size: 25px;
 			}
 		}
 	}

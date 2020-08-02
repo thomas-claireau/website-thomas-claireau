@@ -39,6 +39,10 @@ const HeaderVMStyled = styled.div`
 	padding: 30px 55px;
 	z-index: 2;
 
+	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+		padding: 30px 20px;
+	}
+
 	.title {
 		font-size: 15px;
 		font-weight: bold;
@@ -50,7 +54,7 @@ const HeaderVMStyled = styled.div`
 		}
 	}
 
-	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-medium']}) {
+	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 		display: flex;
 	}
 `;

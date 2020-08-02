@@ -15,7 +15,7 @@ export default function BurgerMenu({ action, onClick }) {
 }
 
 const BurgerMenuStyled = styled.div`
-	width: 30px;
+	width: 25px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -41,7 +41,7 @@ const BurgerMenuStyled = styled.div`
 			}
 
 			&:nth-of-type(2) {
-				transform: rotate(-45deg) translate(5px, -3px);
+				transform: rotate(-45deg) translate(5px, -4px);
 			}
 
 			&:last-of-type {

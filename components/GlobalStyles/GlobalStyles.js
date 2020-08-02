@@ -45,10 +45,18 @@ const GlobalStyles = () => (
 						padding: 45px 55px;
 						transition: all 0.3s ease-in-out;
 
+						@media screen and (max-width: ${theme.breakpoints['break-tablet']}) {
+							padding: 45px 20px;
+						}
+
 						&:not(.--menu-open) {
-							@media screen and (max-width: ${theme.breakpoints['break-medium']}) {
+							@media screen and (max-width: ${theme.breakpoints['break-large']}) {
 								padding: 0;
 							}
+						}
+
+						&.--menu-open {
+							overflow: hidden;
 						}
 					}
 				}
@@ -65,6 +73,17 @@ const GlobalStyles = () => (
 					line-height: 65px;
 					font-weight: bold;
 					letter-spacing: 1.96px;
+
+					@media screen and (max-width: ${theme.breakpoints['break-tablet']}) {
+						font-size: 45px;
+						line-height: 50px;
+						letter-spacing: 1px;
+					}
+
+					@media screen and (max-width: ${theme.breakpoints['break-small']}) {
+						font-size: 30px;
+						line-height: 40px;
+					}
 				}
 
 				a {
