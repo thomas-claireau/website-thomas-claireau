@@ -5,17 +5,21 @@ export default function Header() {
 	return (
 		<HeaderStyled>
 			<div className="top">
-				<div className="title --uppercase --light">
-					<span>Thomas / Claireau</span>
-					<span className="--hide">Fullstack web developper</span>
+				<div className="left">
+					<div className="title --uppercase --light">
+						<span>Thomas / Claireau</span>
+						<span className="--hide">Fullstack web developper</span>
+					</div>
 				</div>
-				<a
-					href="mailto:contact@thomas-claireau.fr"
-					className="title contact --uppercase --light"
-				>
-					Contact
-					<i className="fa fa-envelope-o" aria-hidden="true"></i>
-				</a>
+				<div className="right">
+					<a
+						href="mailto:contact@thomas-claireau.fr"
+						className="title contact --uppercase --light"
+					>
+						Contact
+						<i className="fa fa-envelope-o" aria-hidden="true"></i>
+					</a>
+				</div>
 			</div>
 			<SocialLogos />
 		</HeaderStyled>

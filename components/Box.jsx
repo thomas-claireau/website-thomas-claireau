@@ -1,10 +1,13 @@
+import { cloneElement } from 'react';
 import styled from '@emotion/styled';
 import Header from 'components/Header';
+import HeaderVM from 'components/HeaderVM';
 
 export default function Box({ children }) {
 	return (
 		<BoxStyled className="box">
 			<Header />
+			<HeaderVM />
 			{children}
 		</BoxStyled>
 	);

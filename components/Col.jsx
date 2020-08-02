@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import Menu from './Menu';
 
-export default function Col({ direction, bg, children }) {
+export default function Col({ bg, direction, children }) {
 	const router = useRouter();
 	const isHome = router.pathname == '/';
 	const space = '60px';
@@ -33,15 +33,14 @@ export default function Col({ direction, bg, children }) {
 		${padding}
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			padding-top: calc(${space} - 40px);
-			padding-bottom: calc(${space} - 40px);
+			padding: calc(${space} - 40px);
 			align-items: ${!isHome ? 'center' : direction == 'left' ? 'flex-end' : 'flex-start'};
 			justify-content: center;
 		}
 	`;
 
 	return (
-		<ColStyled className={`${direction} --bg-${bg}`}>
+		<ColStyled className={`${direction} ${bg}`}>
 			{children}
 			{direction == 'left' && <Menu space={space} className="desktop" />}
 		</ColStyled>

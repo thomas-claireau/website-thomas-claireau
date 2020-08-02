@@ -12,14 +12,14 @@ function Home() {
 			</Head>
 			<Container>
 				<h1 className="--hide">Thomas Claireau, Fullstack Web Developper</h1>
-				<Col direction="left" bg="dark">
+				<Col direction="left" bg="--bg-dark">
 					<TitleStyled className="h1 left --light desktop">
 						<span>I'm a fu</span>
 						<span>web dev</span>
 					</TitleStyled>
 					<TitleStyled className="h1 left --light mobile">I'm a fullstack</TitleStyled>
 				</Col>
-				<Col direction="right" bg="light">
+				<Col direction="right" bg="--bg-light">
 					<TitleStyled className="h1 --dark desktop">
 						<span>llstack</span>
 						<span>elopper</span>
