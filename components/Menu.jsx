@@ -5,6 +5,8 @@ import BoxContext from '../contexts/BoxContext';
 export default function Menu({ space, className }) {
 	const { theme } = useContext(BoxContext);
 
+	if (!theme) return null;
+
 	const MenuStyled = styled.nav`
 		position: absolute;
 		bottom: ${(props) => props.space};
