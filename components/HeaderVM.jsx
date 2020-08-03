@@ -7,6 +7,8 @@ import BoxContext from '../contexts/BoxContext';
 export default function HeaderVM({ onClick }) {
 	const { theme } = useContext(BoxContext);
 
+	console.log(theme);
+
 	const HeaderVMStyled = styled.div`
 		width: 100%;
 		display: none;
@@ -27,7 +29,6 @@ export default function HeaderVM({ onClick }) {
 			font-weight: bold;
 			line-height: 20px;
 			letter-spacing: 1.5px;
-			color: ${(props) => props.theme.colors[theme.right]};
 
 			i {
 				margin-left: 10px;
