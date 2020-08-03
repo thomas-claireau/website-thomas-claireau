@@ -96,7 +96,11 @@ function About() {
 
 const AboutStyled = styled.div`
 	> .left {
-		padding: 100px 40px 40px 40px;
+		padding: 100px 40px 200px 40px;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			padding: 100px 40px 40px 40px;
+		}
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-mini']}) {
 			padding: 100px 20px 20px 20px;
@@ -230,8 +234,12 @@ const AboutStyled = styled.div`
 	}
 
 	> .right {
-		padding: 40px;
+		padding: 40px 40px 40px 80px;
 		color: ${(props) => props.theme.colors.light};
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			padding: 40px;
+		}
 
 		.texte {
 			width: 80%;

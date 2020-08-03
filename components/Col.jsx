@@ -51,7 +51,7 @@ export default function Col({ bg, direction, align, children }) {
 	return (
 		<ColStyled className={`${direction} ${bg}`}>
 			{children}
-			{direction == 'left' && <Menu space={space} className="desktop" />}
+			{direction == 'left' && <Menu space={space} className="desktop" bg={bg} />}
 		</ColStyled>
 	);
 }
