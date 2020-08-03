@@ -16,7 +16,6 @@ export default function HeaderVM({ onClick }) {
 		top: 0px;
 		left: 50%;
 		transform: translateX(-50%);
-		background-color: ${(props) => props.theme.colors[theme.left]};
 		z-index: 2;
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
