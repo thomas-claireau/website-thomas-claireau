@@ -24,7 +24,7 @@ function About() {
 			</Head>
 			<Container>
 				<AboutStyled className="main-content">
-					<Col direction="left" bg="--bg-light" align="center">
+					<Col direction="left" align="center">
 						<div className="top">
 							<div>
 								<div className="parent">
@@ -59,7 +59,7 @@ function About() {
 							</div>
 						</div>
 					</Col>
-					<Col direction="right" bg="--bg-dark" align="flex-start">
+					<Col direction="right" align="flex-start">
 						<h1 className="--uppercase">
 							<span className="--hide">Thomas Claireau</span>
 							<span>About me</span>
@@ -239,6 +239,10 @@ const AboutStyled = styled.div`
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			padding: 40px;
+		}
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+			padding: 20px;
 		}
 
 		.texte {

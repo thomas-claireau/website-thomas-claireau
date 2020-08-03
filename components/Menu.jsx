@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import styled from '@emotion/styled';
+import BoxContext from '../contexts/BoxContext';
 
-export default function Menu({ space, className, bg }) {
+export default function Menu({ space, className }) {
+	const { theme } = useContext(BoxContext);
+
 	const MenuStyled = styled.nav`
 		position: absolute;
 		bottom: ${(props) => props.space};
@@ -34,8 +38,7 @@ export default function Menu({ space, className, bg }) {
 					}
 
 					a {
-						color: ${(props) =>
-							bg == '--bg-dark' ? props.theme.colors.light : props.theme.colors.dark};
+						color: ${(props) => props.theme.colors.dark};
 						font-weight: bold;
 					}
 				}
@@ -58,8 +61,7 @@ export default function Menu({ space, className, bg }) {
 				}
 
 				a {
-					color: ${(props) =>
-						bg == '--bg-dark' ? props.theme.colors.light : props.theme.colors.dark};
+					color: ${(props) => props.theme.colors[theme.right]};
 				}
 			}
 		}

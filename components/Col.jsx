@@ -1,14 +1,19 @@
+import { useRouter } from 'next/router';
+import { useContext } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-import { useRouter } from 'next/router';
 
 import Menu from './Menu';
+import BoxContext from '../contexts/BoxContext';
 
-export default function Col({ bg, direction, align, children }) {
+export default function Col({ direction, align, children }) {
 	const router = useRouter();
 	const isHome = router.pathname == '/';
 	const space = '60px';
 	let padding;
+
+	let { theme } = useContext(BoxContext);
+	theme = theme[direction];
 
 	if (isHome) {
 		padding = css`
@@ -32,6 +37,7 @@ export default function Col({ bg, direction, align, children }) {
 		padding-bottom: ${space};
 		${padding}
 		${!isHome ? 'flex-direction: column;' : ''}
+		background-color: ${(props) => props.theme.colors[theme]};
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			padding: calc(${space} - 40px);
@@ -49,9 +55,9 @@ export default function Col({ bg, direction, align, children }) {
 	`;
 
 	return (
-		<ColStyled className={`${direction} ${bg}`}>
+		<ColStyled className={`${direction}`}>
 			{children}
-			{direction == 'left' && <Menu space={space} className="desktop" bg={bg} />}
+			{direction == 'left' && <Menu space={space} className="desktop" />}
 		</ColStyled>
 	);
 }

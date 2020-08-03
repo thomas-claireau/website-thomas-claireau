@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import styled from '@emotion/styled';
 import Header from 'components/Header';
 import HeaderVM from 'components/HeaderVM';
@@ -51,6 +51,7 @@ const BoxStyled = styled.section`
 			align-items: center;
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				height: auto;
 				flex-direction: column;
 			}
 		}
