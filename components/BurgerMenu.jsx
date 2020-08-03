@@ -5,8 +5,6 @@ import BoxContext from '../contexts/BoxContext';
 export default function BurgerMenu({ action, onClick }) {
 	const { theme } = useContext(BoxContext);
 
-	if (!theme) return null;
-
 	const BurgerMenuStyled = styled.div`
 		width: 25px;
 		display: flex;

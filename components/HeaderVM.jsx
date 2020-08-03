@@ -7,8 +7,6 @@ import BoxContext from '../contexts/BoxContext';
 export default function HeaderVM({ onClick }) {
 	const { theme } = useContext(BoxContext);
 
-	if (!theme) return null;
-
 	const HeaderVMStyled = styled.div`
 		width: 100%;
 		display: none;
