@@ -96,14 +96,24 @@ function About() {
 
 const AboutStyled = styled.div`
 	> .left {
+		padding: 100px 40px 40px 40px;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-mini']}) {
+			padding: 100px 20px 20px 20px;
+		}
+
 		div {
 			width: 100%;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				width: auto;
+			}
+
 			&.parent {
-				width: fit-content;
+				width: auto;
 			}
 		}
 
@@ -117,6 +127,12 @@ const AboutStyled = styled.div`
 				margin-top: 80px;
 				justify-content: space-between;
 				flex-direction: row;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-large']}) {
+					margin-top: 20px;
+					flex-direction: column;
+				}
 			}
 
 			> div {
@@ -124,6 +140,18 @@ const AboutStyled = styled.div`
 				justify-content: center;
 				align-items: center;
 				flex-direction: column;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-large']}) {
+					flex-direction: row;
+				}
+
+				&:not(:first-of-type) {
+					@media screen and (max-width: ${(props) =>
+							props.theme.breakpoints['break-large']}) {
+						margin-top: 25px;
+					}
+				}
 
 				> .children {
 					display: flex;
@@ -145,11 +173,25 @@ const AboutStyled = styled.div`
 			svg {
 				width: auto;
 				height: 130px;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-large']}) {
+					height: 100px;
+				}
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-tablet']}) {
+					height: 60px;
+				}
 			}
 		}
 
 		.children {
 			margin-top: 25px;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				margin-top: 0px;
+			}
 
 			svg {
 				width: auto;
@@ -157,6 +199,23 @@ const AboutStyled = styled.div`
 				height: 60px;
 				filter: grayscale(100%);
 				transition: all 0.3s ease-in-out;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-large']}) {
+					margin-left: 20px;
+					filter: grayscale(0%);
+				}
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-small']}) {
+					min-height: 40px;
+					height: 40px;
+				}
+
+				@media screen and (max-width: ${(props) => props.theme.breakpoints['break-mini']}) {
+					min-height: 30px;
+					height: 30px;
+				}
 
 				&:hover {
 					filter: grayscale(0%);
@@ -169,7 +228,9 @@ const AboutStyled = styled.div`
 			}
 		}
 	}
-	.right {
+
+	> .right {
+		padding: 40px;
 		color: ${(props) => props.theme.colors.light};
 
 		.texte {
@@ -182,6 +243,7 @@ const AboutStyled = styled.div`
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 				width: 100%;
+				margin-top: 30px;
 			}
 
 			> *:first-of-type {
