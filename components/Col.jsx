@@ -8,7 +8,7 @@ import BoxContext from '../contexts/BoxContext';
 
 export default function Col({ direction, align, children }) {
 	const router = useRouter();
-	const isHome = router.pathname == '/';
+	const isHome = router.pathname == '/' || router.pathname == '/404';
 	const space = '60px';
 	let padding;
 

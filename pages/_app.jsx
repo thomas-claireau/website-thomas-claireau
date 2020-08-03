@@ -19,6 +19,10 @@ function MyApp({ Component, pageProps }) {
 			left: 'light',
 			right: 'dark',
 		},
+		'/404': {
+			left: 'dark',
+			right: 'light',
+		},
 	};
 
 	return (

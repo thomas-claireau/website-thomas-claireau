@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BoxContext from '../contexts/BoxContext';
-import DefaultErrorPage from 'next/error';
-import { Head } from 'next/document';
+import CustomErrorPage from '../pages/404';
+import Head from 'next/head';
 
 function ContextWrapper({ children, colorScheme }) {
 	const [theme] = useState(colorScheme);
@@ -9,7 +9,10 @@ function ContextWrapper({ children, colorScheme }) {
 	if (!theme) {
 		return (
 			<>
-				<DefaultErrorPage statusCode={404} />
+				<Head>
+					<meta name="robots" content="noindex" />
+				</Head>
+				<CustomErrorPage statusCode={404} />
 			</>
 		);
 	}
