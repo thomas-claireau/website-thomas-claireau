@@ -7,7 +7,7 @@ export default function Header() {
 		<HeaderStyled>
 			<Global
 				styles={css`
-					#__next.--menu-open {
+					#app.--menu-open {
 						header {
 							z-index: -1;
 

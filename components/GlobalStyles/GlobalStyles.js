@@ -41,6 +41,11 @@ const GlobalStyles = () => (
 					#__next {
 						width: 100%;
 						height: 100%;
+					}
+
+					#app {
+						width: 100%;
+						height: 100%;
 						position: relative;
 						padding: 45px 55px;
 						transition: all 0.3s ease-in-out;

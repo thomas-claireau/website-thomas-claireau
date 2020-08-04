@@ -48,7 +48,7 @@ export default function HeaderVM({ onClick }) {
 		<HeaderVMStyled className="header-mobile">
 			<Global
 				styles={css`
-					#__next.--menu-open {
+					#app.--menu-open {
 						.header-mobile {
 							display: none;
 						}

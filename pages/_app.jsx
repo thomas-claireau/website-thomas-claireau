@@ -32,9 +32,11 @@ function MyApp({ Component, pageProps }) {
 				<ThemeProvider theme={theme}>
 					<GlobalStyles />
 					<ContextWrapper colorScheme={colorScheme[router.pathname]}>
-						<Box>
-							<Component {...pageProps} />
-						</Box>
+						<div id="app">
+							<Box>
+								<Component {...pageProps} />
+							</Box>
+						</div>
 					</ContextWrapper>
 				</ThemeProvider>
 			</AnimatePresence>

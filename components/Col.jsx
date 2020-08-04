@@ -55,17 +55,10 @@ export default function Col({ direction, align, children }) {
 		}
 	`;
 
-	// const animLeft = {
-	// 	visible: { opacity: 1, x: 0 },
-	// 	hidden: { opacity: 0, x: -400 }
-	// },
-
-	// const animRight = { opacity: 1,  }
-
 	return (
 		<ColStyled
-			initial={{ x: direction == 'left' ? -2000 : 2000 }}
-			animate={{ x: 0 }}
+			initial={{ x: direction == 'left' ? -2000 : 2000, opacity: 0 }}
+			animate={{ x: 0, opacity: 1 }}
 			transition={{ ease: 'easeOut', duration: 0.4 }}
 			className={`${direction}`}
 		>

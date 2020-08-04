@@ -8,11 +8,11 @@ export default function Box({ children }) {
 	const [menu, setMenu] = useState(false);
 
 	const handleClick = function () {
-		const __next = document.querySelector('#__next');
+		const app = document.querySelector('#app');
 
-		if (!__next) return;
+		if (!app) return;
 
-		__next.classList.toggle('--menu-open');
+		app.classList.toggle('--menu-open');
 		setMenu(!menu);
 	};
 
