@@ -12,6 +12,7 @@
     "@emotion/styled": "^10.0.27",
     "emotion-theming": "^10.0.27",
     "font-awesome": "^4.7.0",
+    "framer-motion": "^2.3.0",
     "next": "9.5.0",
     "next-react-svg": "1.1.2",
     "react": "16.13.1",

@@ -3,6 +3,7 @@ import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import Box from 'components/Box';
 import ContextWrapper from 'components/ContextWrapper';
 import { useRouter } from 'next/router';
+import { AnimatePresence } from 'framer-motion';
 
 //lib
 import 'node_modules/font-awesome/css/font-awesome.min.css';
@@ -27,14 +28,16 @@ function MyApp({ Component, pageProps }) {
 
 	return (
 		<>
-			<ThemeProvider theme={theme}>
-				<GlobalStyles />
-				<ContextWrapper colorScheme={colorScheme[router.pathname]}>
-					<Box>
-						<Component {...pageProps} />
-					</Box>
-				</ContextWrapper>
-			</ThemeProvider>
+			<AnimatePresence exitBeforeEnter>
+				<ThemeProvider theme={theme}>
+					<GlobalStyles />
+					<ContextWrapper colorScheme={colorScheme[router.pathname]}>
+						<Box>
+							<Component {...pageProps} />
+						</Box>
+					</ContextWrapper>
+				</ThemeProvider>
+			</AnimatePresence>
 		</>
 	);
 }

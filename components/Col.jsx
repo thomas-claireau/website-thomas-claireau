@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+import { motion } from 'framer-motion';
 
 import Menu from './Menu';
 import BoxContext from '../contexts/BoxContext';
@@ -26,7 +27,7 @@ export default function Col({ direction, align, children }) {
 		`;
 	}
 
-	const ColStyled = styled.div`
+	const ColStyled = styled(motion.div)`
 		width: 100%;
 		height: 100%;
 		display: flex;
@@ -54,8 +55,20 @@ export default function Col({ direction, align, children }) {
 		}
 	`;
 
+	// const animLeft = {
+	// 	visible: { opacity: 1, x: 0 },
+	// 	hidden: { opacity: 0, x: -400 }
+	// },
+
+	// const animRight = { opacity: 1,  }
+
 	return (
-		<ColStyled className={`${direction}`}>
+		<ColStyled
+			initial={{ x: direction == 'left' ? -2000 : 2000 }}
+			animate={{ x: 0 }}
+			transition={{ ease: 'easeOut', duration: 0.4 }}
+			className={`${direction}`}
+		>
 			{children}
 			{direction == 'left' && <Menu space={space} className="desktop" />}
 		</ColStyled>
