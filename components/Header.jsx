@@ -22,10 +22,10 @@ export default function Header() {
 			/>
 			<div className="top">
 				<div className="left">
-					<div className="title --uppercase --light">
+					<a href="/" className="title --uppercase --light">
 						<span>Thomas / Claireau</span>
 						<span className="--hide">Fullstack web developper</span>
-					</div>
+					</a>
 				</div>
 				<div className="right">
 					<a
