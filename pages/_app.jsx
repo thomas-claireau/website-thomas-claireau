@@ -1,9 +1,11 @@
 import { ThemeProvider } from 'emotion-theming';
+import styled from '@emotion/styled';
 import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import Box from 'components/Box';
 import ContextWrapper from 'components/ContextWrapper';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 //lib
 import 'node_modules/font-awesome/css/font-awesome.min.css';
@@ -26,22 +28,58 @@ function MyApp({ Component, pageProps }) {
 		},
 	};
 
+	const stagger = {
+		animate: {
+			transition: {
+				staggerChildren: 0.1,
+			},
+		},
+	};
+
+	const variants = {
+		hidden: {
+			paddingTop: 0,
+			paddingBottom: 0,
+			paddingLeft: 0,
+			paddingRight: 0,
+		},
+		visible: {
+			paddingTop: 45,
+			paddingRight: 55,
+			paddingBottom: 45,
+			paddingLeft: 55,
+		},
+	};
+
 	return (
 		<>
 			<AnimatePresence exitBeforeEnter>
 				<ThemeProvider theme={theme}>
 					<GlobalStyles />
 					<ContextWrapper colorScheme={colorScheme[router.pathname]}>
-						<div id="app">
-							<Box>
-								<Component {...pageProps} />
-							</Box>
-						</div>
+						<RootStyled variants={stagger}>
+							<motion.div
+								initial="hidden"
+								animate="visible"
+								transition={{ duration: 0.2 }}
+								variants={variants}
+								id="app"
+							>
+								<Box>
+									<Component {...pageProps} />
+								</Box>
+							</motion.div>
+						</RootStyled>
 					</ContextWrapper>
 				</ThemeProvider>
 			</AnimatePresence>
 		</>
 	);
 }
+
+const RootStyled = styled(motion.div)`
+	width: 100%;
+	height: 100%;
+`;
 
 export default MyApp;
