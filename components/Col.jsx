@@ -57,8 +57,8 @@ export default function Col({ direction, align, children }) {
 
 	return (
 		<ColStyled
-			initial={{ x: direction == 'left' ? -2000 : 2000, opacity: 0 }}
-			animate={{ x: 0, opacity: 1 }}
+			initial={{ x: direction == 'left' ? -2000 : 2000 }}
+			animate={{ x: 0 }}
 			transition={{ ease: 'easeOut', duration: 0.4 }}
 			className={`${direction}`}
 		>
