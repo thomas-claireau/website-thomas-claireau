@@ -51,12 +51,12 @@ const GlobalStyles = () => (
 						transition: all 0.3s ease-in-out;
 
 						@media screen and (max-width: ${theme.breakpoints['break-tablet']}) {
-							padding: 45px 20px;
+							padding: 45px 20px !important;
 						}
 
 						&:not(.--menu-open) {
 							@media screen and (max-width: ${theme.breakpoints['break-large']}) {
-								padding: 0;
+								padding: 0 !important;
 							}
 						}
 
