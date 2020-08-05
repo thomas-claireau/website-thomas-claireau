@@ -95,6 +95,10 @@ const GlobalStyles = () => (
 				a {
 					display: block;
 					text-decoration: none;
+
+					&.active {
+						pointer-events: none;
+					}
 				}
 
 				p {

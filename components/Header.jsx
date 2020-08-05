@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
 import SocialLogos from './SocialLogos';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Header() {
+	const router = useRouter();
+
 	return (
 		<HeaderStyled>
 			<Global
@@ -22,10 +26,16 @@ export default function Header() {
 			/>
 			<div className="top">
 				<div className="left">
-					<a href="/" className="title --uppercase --light">
-						<span>Thomas / Claireau</span>
-						<span className="--hide">Fullstack web developper</span>
-					</a>
+					<Link href="/">
+						<a
+							className={`title --uppercase --light ${
+								router.pathname === '/' ? 'active' : ''
+							}`}
+						>
+							<span>Thomas / Claireau</span>
+							<span className="--hide">Fullstack web developper</span>
+						</a>
+					</Link>
 				</div>
 				<div className="right">
 					<a

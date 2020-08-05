@@ -1,9 +1,12 @@
 import { useContext } from 'react';
 import styled from '@emotion/styled';
 import BoxContext from '../contexts/BoxContext';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function Menu({ space, className }) {
 	const { theme } = useContext(BoxContext);
+	const router = useRouter();
 
 	const MenuStyled = styled.nav`
 		position: absolute;
@@ -62,6 +65,21 @@ export default function Menu({ space, className }) {
 
 				a {
 					color: ${(props) => props.theme.colors[theme.right]};
+
+					&.active {
+						position: relative;
+
+						&:before {
+							content: '';
+							width: 70%;
+							height: 2px;
+							position: absolute;
+							bottom: -5px;
+							left: 50%;
+							transform: translateX(-50%);
+							background-color: ${(props) => props.theme.colors[theme.right]};
+						}
+					}
 				}
 			}
 		}
@@ -71,13 +89,19 @@ export default function Menu({ space, className }) {
 		<MenuStyled space={space} className={className}>
 			<ul>
 				<li>
-					<a href="/about/">About</a>
+					<Link href="/about">
+						<a className={router.pathname === '/about' ? 'active' : ''}>About</a>
+					</Link>
 				</li>
 				<li>
-					<a href="/works/">Works</a>
+					<Link href="/works">
+						<a className={router.pathname === '/works' ? 'active' : ''}>Works</a>
+					</Link>
 				</li>
 				<li>
-					<a href="/blog/">Blog</a>
+					<Link href="/blog">
+						<a className={router.pathname === '/blog' ? 'active' : ''}>Blog</a>
+					</Link>
 				</li>
 			</ul>
 		</MenuStyled>

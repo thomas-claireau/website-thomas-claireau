@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BoxContext from '../contexts/BoxContext';
 import CustomErrorPage from '../pages/404';
 import Head from 'next/head';
 
 function ContextWrapper({ children, colorScheme }) {
-	const [theme] = useState(colorScheme);
+	const [theme, setTheme] = useState(colorScheme);
 
-	if (!theme) {
+	useEffect(() => {
+		setTheme(colorScheme);
+	}, [colorScheme]);
+
+	if (!theme || theme == null) {
 		return (
 			<>
 				<Head>

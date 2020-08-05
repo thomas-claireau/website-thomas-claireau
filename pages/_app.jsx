@@ -51,6 +51,8 @@ function MyApp({ Component, pageProps }) {
 		},
 	};
 
+	console.log(colorScheme[router.pathname]);
+
 	return (
 		<>
 			<AnimatePresence exitBeforeEnter>
