@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 //lib
 import 'node_modules/font-awesome/css/font-awesome.min.css';
+import 'swiper/swiper.scss';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
@@ -50,8 +51,6 @@ function MyApp({ Component, pageProps }) {
 			paddingLeft: 55,
 		},
 	};
-
-	console.log(colorScheme[router.pathname]);
 
 	return (
 		<>

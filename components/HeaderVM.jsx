@@ -12,8 +12,8 @@ export default function HeaderVM({ onClick }) {
 		width: 100%;
 		display: none;
 		justify-content: space-between;
-		padding: 30px 55px;
-		position: fixed;
+		padding: 30px;
+		position: absolute;
 		top: 0px;
 		left: 50%;
 		transform: translateX(-50%);
@@ -28,7 +28,7 @@ export default function HeaderVM({ onClick }) {
 			font-weight: bold;
 			line-height: 20px;
 			letter-spacing: 1.5px;
-			color: ${(props) => props.theme.colors.dark};
+			color: ${(props) => props.theme.colors.light};
 
 			i {
 				margin-left: 10px;

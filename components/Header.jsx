@@ -83,7 +83,7 @@ const HeaderStyled = styled.header`
 			color: ${(props) => props.theme.colors.light};
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				color: ${(props) => props.theme.colors.dark};
+				color: ${(props) => props.theme.colors.light};
 			}
 
 			i {

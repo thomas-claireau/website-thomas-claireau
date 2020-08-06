@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import Head from 'next/head';
 import Container from 'components/Container';
 import Col from 'components/Col';
+import ContentVM from 'components/ContentVM';
 
 function Home() {
 	return (
@@ -12,8 +13,8 @@ function Home() {
 			</Head>
 			<Container>
 				<HomeStyled>
-					<h1 className="--hide">Thomas Claireau, Fullstack Web Developper</h1>
 					<Col direction="left" bg="--bg-dark" align="center">
+						<h1 className="--hide">I'm a fullstack web developper</h1>
 						<div className="title h1 left --light desktop">
 							<span>I'm a fu</span>
 							<span>web dev</span>
@@ -25,6 +26,9 @@ function Home() {
 							<span>elopper</span>
 						</div>
 					</Col>
+					<ContentVM>
+						<h1>I'm a fullstack web developper</h1>
+					</ContentVM>
 				</HomeStyled>
 			</Container>
 		</>

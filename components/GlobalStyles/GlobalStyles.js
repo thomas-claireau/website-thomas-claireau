@@ -39,7 +39,7 @@ const GlobalStyles = () => (
 					background-color: ${theme.colors.dark};
 
 					@media screen and (max-width: ${theme.breakpoints['break-large']}) {
-						background-color: ${theme.colors.light};
+						background-color: ${theme.colors.dark};
 					}
 
 					#__next {
@@ -84,14 +84,20 @@ const GlobalStyles = () => (
 					font-weight: bold;
 					letter-spacing: 1.96px;
 
+					@media screen and (max-width: ${theme.breakpoints['break-large']}) {
+						width: 80%;
+						color: ${theme.colors.light};
+					}
+
 					@media screen and (max-width: ${theme.breakpoints['break-tablet']}) {
+						width: 100%;
 						font-size: 45px;
 						line-height: 50px;
 						letter-spacing: 1px;
 					}
 
 					@media screen and (max-width: ${theme.breakpoints['break-small']}) {
-						font-size: 30px;
+						font-size: 40px;
 						line-height: 40px;
 					}
 				}
