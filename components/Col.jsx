@@ -12,6 +12,7 @@ export default function Col({ direction, align, children }) {
 	const isHome = router.pathname == '/' || router.pathname == '/404';
 	const space = '60px';
 	let padding;
+	let variants = {};
 
 	let { theme } = useContext(BoxContext);
 	theme = theme[direction];
@@ -20,6 +21,11 @@ export default function Col({ direction, align, children }) {
 		padding = css`
 			${`padding-${direction}`}: space;
 		`;
+
+		variants = {
+			hidden: { x: direction == 'left' ? -2000 : 2000 },
+			visible: { x: 0 },
+		};
 	} else {
 		padding = css`
 			padding-right: ${space};
@@ -41,24 +47,15 @@ export default function Col({ direction, align, children }) {
 		background-color: ${(props) => props.theme.colors[theme]};
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			padding: calc(${space} - 40px);
-			align-items: ${!isHome ? align : direction == 'left' ? 'flex-end' : 'flex-start'};
-			justify-content: center;
-		}
-
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
-			padding: calc(${space} - 50px);
-		}
-
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-small']}) {
-			padding: calc(${space} - 55px);
+			display: none;
 		}
 	`;
 
 	return (
 		<ColStyled
-			initial={{ x: direction == 'left' ? -2000 : 2000 }}
-			animate={{ x: 0 }}
+			variants={variants}
+			initial="hidden"
+			animate="visible"
 			transition={{ ease: 'easeOut', duration: 0.4 }}
 			className={`${direction}`}
 		>

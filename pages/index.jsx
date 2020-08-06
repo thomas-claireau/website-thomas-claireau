@@ -18,14 +18,12 @@ function Home() {
 							<span>I'm a fu</span>
 							<span>web dev</span>
 						</div>
-						<div className="title h1 left --light mobile">I'm a fullstack</div>
 					</Col>
 					<Col direction="right" bg="--bg-light" align="center">
 						<div className="title h1 --dark desktop">
 							<span>llstack</span>
 							<span>elopper</span>
 						</div>
-						<div className="title h1 left --dark mobile">web developper</div>
 					</Col>
 				</HomeStyled>
 			</Container>

@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import Link from 'next/link';
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
 import BurgerMenu from './BurgerMenu';
@@ -16,7 +17,6 @@ export default function HeaderVM({ onClick }) {
 		top: 0px;
 		left: 50%;
 		transform: translateX(-50%);
-		background-color: ${(props) => props.theme.colors[theme.left]};
 		z-index: 2;
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
@@ -28,7 +28,7 @@ export default function HeaderVM({ onClick }) {
 			font-weight: bold;
 			line-height: 20px;
 			letter-spacing: 1.5px;
-			color: ${(props) => props.theme.colors[theme.right]};
+			color: ${(props) => props.theme.colors.dark};
 
 			i {
 				margin-left: 10px;
@@ -56,7 +56,9 @@ export default function HeaderVM({ onClick }) {
 				`}
 			/>
 			<div className="left">
-				<div className="title --uppercase">Thomas / Claireau</div>
+				<Link href="/">
+					<a className="title --uppercase">Thomas / Claireau</a>
+				</Link>
 			</div>
 			<div className="right">
 				<BurgerMenu action="open" onClick={handleClick} />

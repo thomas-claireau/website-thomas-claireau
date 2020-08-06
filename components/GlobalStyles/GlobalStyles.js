@@ -38,6 +38,10 @@ const GlobalStyles = () => (
 					font-family: ${theme.fonts.mainFont};
 					background-color: ${theme.colors.dark};
 
+					@media screen and (max-width: ${theme.breakpoints['break-large']}) {
+						background-color: ${theme.colors.light};
+					}
+
 					#__next {
 						width: 100%;
 						height: 100%;

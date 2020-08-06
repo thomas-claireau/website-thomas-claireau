@@ -28,7 +28,7 @@ export default function Header() {
 				<div className="left">
 					<Link href="/">
 						<a
-							className={`title --uppercase --light ${
+							className={`title --uppercase ${
 								router.pathname === '/' ? 'active' : ''
 							}`}
 						>
@@ -40,7 +40,7 @@ export default function Header() {
 				<div className="right">
 					<a
 						href="mailto:contact@thomas-claireau.fr"
-						className="title contact --uppercase --light"
+						className="title contact --uppercase"
 					>
 						<span>Contact</span>
 						<i className="fa fa-envelope-o" aria-hidden="true"></i>
@@ -80,6 +80,11 @@ const HeaderStyled = styled.header`
 			font-weight: bold;
 			line-height: 20px;
 			letter-spacing: 1.5px;
+			color: ${(props) => props.theme.colors.light};
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				color: ${(props) => props.theme.colors.dark};
+			}
 
 			i {
 				margin-left: 10px;
