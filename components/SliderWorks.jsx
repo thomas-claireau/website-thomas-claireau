@@ -12,5 +12,5 @@ export default function SliderWorks({ children }) {
 		}
 	`;
 
-	return <div>coucou</div>;
+	return <Swiper>coucou</Swiper>;
 }
