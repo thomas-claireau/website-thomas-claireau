@@ -36,10 +36,9 @@ const BoxStyled = styled.section`
 		width: 100%;
 		height: 100%;
 		position: relative;
-		/* overflow: hidden; */
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			overflow: visible;
+			overflow: auto;
 		}
 
 		> .main-content {

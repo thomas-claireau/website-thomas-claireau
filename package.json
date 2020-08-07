@@ -16,9 +16,7 @@
 		"next": "9.5.0",
 		"next-react-svg": "1.1.2",
 		"react": "16.13.1",
+		"swiper": "^6.1.1",
 		"react-dom": "16.13.1"
-	},
-	"devDependencies": {
-		"swiper": "^6.1.1"
 	}
 }
