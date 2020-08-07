@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Container from 'components/Container';
 import MenuBottom from 'components/MenuBottom';
-// import SliderWorks from 'components/SliderWorks';
+import SliderWorks from 'components/SliderWorks';
 
 export default function ContentVM({ children }) {
 	const ContentVMStyled = styled.div`
@@ -20,7 +20,7 @@ export default function ContentVM({ children }) {
 			<Container>
 				{children}
 				<MenuBottom></MenuBottom>
-				{/* <SliderWorks></SliderWorks> */}
+				<SliderWorks></SliderWorks>
 			</Container>
 		</ContentVMStyled>
 	);
