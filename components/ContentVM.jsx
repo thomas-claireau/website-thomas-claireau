@@ -6,8 +6,6 @@ import SliderWorks from 'components/SliderWorks';
 export default function ContentVM({ children }) {
 	const ContentVMStyled = styled.div`
 		display: none;
-		width: 100%;
-		height: 100%;
 		padding-top: 120px;
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
