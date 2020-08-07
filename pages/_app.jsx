@@ -1,3 +1,7 @@
+//lib
+import 'node_modules/font-awesome/css/font-awesome.min.css';
+import 'swiper/swiper.scss';
+
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
@@ -6,10 +10,6 @@ import ContextWrapper from 'components/ContextWrapper';
 import { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
-
-//lib
-import 'node_modules/font-awesome/css/font-awesome.min.css';
-import 'swiper/swiper.scss';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();

@@ -1,29 +1,21 @@
-import styled from '@emotion/styled';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Swiper from 'swiper';
+import { useRef, useEffect } from 'react';
 
 export default function SliderWorks({ children }) {
-	const SliderWorksStyled = styled.div`
-		.swiper-container {
-			width: 100%;
-			height: 100%;
-		}
-	`;
+	const swiper = useRef(null);
 
-	// if (!process.browser) return null;
+	useEffect(() => {
+		swiper.current = new Swiper('.swiper-container', {});
+	}, []);
 
-	// if (process.browser) {
 	return (
-		<SliderWorksStyled className="slider-works">
-			{/* <Swiper>
-					<SwiperSlide>Slide 1</SwiperSlide>
-					<SwiperSlide>Slide 2</SwiperSlide>
-					<SwiperSlide>Slide 3</SwiperSlide>
-					<SwiperSlide>Slide 4</SwiperSlide>
-					...
-				</Swiper> */}
-		</SliderWorksStyled>
+		<div className="swiper-container">
+			<div className="swiper-wrapper">
+				<div className="swiper-slide">slide 1</div>
+				<div className="swiper-slide">slide 2</div>
+				<div className="swiper-slide">slide 3</div>
+				<div className="swiper-slide">slide 4</div>
+			</div>
+		</div>
 	);
-	// }
-
-	// return <div>Chargement</div>;
 }
