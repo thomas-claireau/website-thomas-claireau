@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Head from 'next/head';
-import Container from 'components/Container';
+import { NextSeo } from 'next-seo';
 import Col from 'components/Col';
 
 import JavascriptSVG from 'public/assets/img/javascript.svg';
@@ -17,12 +16,19 @@ import WordpressSVG from 'public/assets/img/wordpress.svg';
 import SymfonySVG from 'public/assets/img/symfony.svg';
 
 function About() {
+	const SEO = {
+		title: 'Thomas Claireau | About page',
+		description: 'Just a description of my stack',
+		openGraph: {
+			title: 'Thomas Claireau | About page',
+			description: 'Just a description of my stack',
+			url: 'https://thomas-claireau.fr/about',
+		},
+	};
+
 	return (
 		<>
-			<Head>
-				<title>Thomas Claireau | About me</title>
-			</Head>
-
+			<NextSeo {...SEO} />
 			<AboutStyled className="main-content">
 				<Col direction="left" align="center">
 					<div className="top">

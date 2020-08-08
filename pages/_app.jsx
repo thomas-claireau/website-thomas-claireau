@@ -10,7 +10,8 @@ import ContextWrapper from 'components/ContextWrapper';
 import Router, { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
@@ -55,6 +56,7 @@ function MyApp({ Component, pageProps }) {
 
 	return (
 		<>
+			<DefaultSeo {...SEO} />
 			<AnimatePresence exitBeforeEnter>
 				<ThemeProvider theme={theme}>
 					<GlobalStyles />

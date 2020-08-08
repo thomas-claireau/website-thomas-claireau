@@ -1,34 +1,52 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Container from 'components/Container';
 import Col from 'components/Col';
 import ContentVM from 'components/ContentVM';
 import SliderWorks from 'components/SliderWorks';
+import fetch from 'isomorphic-unfetch';
 
-function Home() {
+function Home({ fields }) {
+	const {
+		titre_haut_gauche,
+		titre_haut_droite,
+		titre_bas_gauche,
+		titre_bas_droite,
+		header,
+	} = fields;
+
+	const { meta_description, meta_title, title } = header;
+
+	const SEO = {
+		title: meta_title,
+		description: meta_description,
+		openGraph: {
+			title: 'Thomas Claireau | About page',
+			description: 'Just a description of my stack',
+		},
+	};
+
 	return (
 		<>
-			<Head>
-				<title>Thomas Claireau | Fullstack Web Developer</title>
-			</Head>
+			<NextSeo {...SEO} />
 			<HomeStyled>
 				<Col direction="left" bg="--bg-dark" align="center">
 					<h1 className="--hide">I'm a fullstack web developper</h1>
 					<div className="title h1 left --light desktop">
-						<span>I'm a fu</span>
-						<span>web dev</span>
+						<span>{titre_haut_gauche}</span>
+						<span>{titre_bas_gauche}</span>
 					</div>
 				</Col>
 				<Col direction="right" bg="--bg-light" align="center">
 					<div className="title h1 --dark desktop">
-						<span>llstack</span>
-						<span>elopper</span>
+						<span>{titre_haut_droite}</span>
+						<span>{titre_bas_droite}</span>
 					</div>
 				</Col>
 				<ContentVM>
 					<Container>
-						<h1>I'm a fullstack web developper</h1>
+						<h1>{title}</h1>
 					</Container>
 					<SliderWorks></SliderWorks>
 				</ContentVM>
@@ -69,5 +87,18 @@ const HomeStyled = styled.div`
 		}
 	}
 `;
+
+export async function getServerSideProps() {
+	const { API_URL } = process.env;
+
+	const res = await fetch(`${API_URL}/accueil`);
+	const data = await res.json();
+
+	return {
+		props: {
+			fields: data,
+		},
+	};
+}
 
 export default Home;

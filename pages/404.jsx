@@ -8,7 +8,6 @@ export default function Custom404() {
 	return (
 		<>
 			<Head>
-				<title>Thomas Claireau | 404 Not Found</title>
 				<meta name="robots" content="noindex"></meta>
 			</Head>
 			<NotFoundStyled>
