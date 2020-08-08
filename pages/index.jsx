@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Container from 'components/Container';
 import Col from 'components/Col';
 import ContentVM from 'components/ContentVM';
+import SliderWorks from 'components/SliderWorks';
 
 function Home() {
 	return (
@@ -28,6 +29,7 @@ function Home() {
 					</Col>
 					<ContentVM>
 						<h1>I'm a fullstack web developper</h1>
+						<SliderWorks></SliderWorks>
 					</ContentVM>
 				</HomeStyled>
 			</Container>

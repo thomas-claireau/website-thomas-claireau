@@ -1,8 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import Header from 'components/Header';
 import HeaderVM from 'components/HeaderVM';
 import MenuVM from 'components/MenuVM';
+import Router from 'next/router';
 
 export default function Box({ children }) {
 	const [menu, setMenu] = useState(false);
@@ -15,6 +16,24 @@ export default function Box({ children }) {
 		app.classList.toggle('--menu-open');
 		setMenu(!menu);
 	};
+
+	const handleRouteChange = function () {
+		const app = document.querySelector('#app');
+
+		if (!app) return;
+
+		app.classList.remove('--menu-open');
+
+		setMenu(false);
+	};
+
+	useEffect(() => {
+		Router.events.on('routeChangeStart', handleRouteChange);
+
+		return () => {
+			Router.events.off('routeChangeStart', handleRouteChange);
+		};
+	}, []);
 
 	return (
 		<BoxStyled className={`box`}>

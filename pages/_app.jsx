@@ -7,9 +7,10 @@ import styled from '@emotion/styled';
 import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import Box from 'components/Box';
 import ContextWrapper from 'components/ContextWrapper';
-import { useRouter } from 'next/router';
+import Router, { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();

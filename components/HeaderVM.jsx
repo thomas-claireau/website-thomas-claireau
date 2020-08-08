@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
 import BurgerMenu from './BurgerMenu';
-import BoxContext from '../contexts/BoxContext';
 
 export default function HeaderVM({ onClick }) {
-	const { theme } = useContext(BoxContext);
+	const router = useRouter();
 
 	const HeaderVMStyled = styled.div`
 		width: 100%;
@@ -61,7 +60,9 @@ export default function HeaderVM({ onClick }) {
 			/>
 			<div className="left">
 				<Link href="/">
-					<a className="title --uppercase">Thomas / Claireau</a>
+					<a className={`title --uppercase ${router.pathname === '/' ? 'active' : ''}`}>
+						Thomas / Claireau
+					</a>
 				</Link>
 			</div>
 			<div className="right">

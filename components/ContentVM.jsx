@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import Container from 'components/Container';
 import MenuBottom from 'components/MenuBottom';
-import SliderWorks from 'components/SliderWorks';
 
 export default function ContentVM({ children }) {
 	const ContentVMStyled = styled.div`
@@ -13,10 +12,6 @@ export default function ContentVM({ children }) {
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			display: inherit;
 		}
-
-		/* @media screen and (max-width: ${(props) => props.theme.breakpoints['break-mini']}) {
-			margin-top: 250px;
-		} */
 
 		> .container {
 			width: 100%;
@@ -33,7 +28,6 @@ export default function ContentVM({ children }) {
 			<Container>
 				{children}
 				<MenuBottom></MenuBottom>
-				<SliderWorks></SliderWorks>
 			</Container>
 		</ContentVMStyled>
 	);

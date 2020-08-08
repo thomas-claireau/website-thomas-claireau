@@ -85,24 +85,21 @@ export default function Menu({ space, className }) {
 		}
 	`;
 
+	const arbo = ['About', 'Works', 'Blog'];
+
 	return (
 		<MenuStyled space={space} className={className}>
 			<ul>
-				<li>
-					<Link href="/about">
-						<a className={router.pathname === '/about' ? 'active' : ''}>About</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/works">
-						<a className={router.pathname === '/works' ? 'active' : ''}>Works</a>
-					</Link>
-				</li>
-				<li>
-					<Link href="/blog">
-						<a className={router.pathname === '/blog' ? 'active' : ''}>Blog</a>
-					</Link>
-				</li>
+				{arbo.map((item, index) => {
+					const slug = `/${item.toLowerCase()}`;
+					return (
+						<li key={index}>
+							<Link href={slug}>
+								<a className={router.pathname === slug ? 'active' : ''}>{item}</a>
+							</Link>
+						</li>
+					);
+				})}
 			</ul>
 		</MenuStyled>
 	);

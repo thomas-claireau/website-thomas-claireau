@@ -13,8 +13,6 @@ export default function Header() {
 				styles={css`
 					#app.--menu-open {
 						header {
-							z-index: -1;
-
 							.top {
 								position: initial;
 								opacity: 1;
