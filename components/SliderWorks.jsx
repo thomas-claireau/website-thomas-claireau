@@ -1,37 +1,25 @@
 import styled from '@emotion/styled';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useState, useEffect } from 'react';
+import SwiperCore, { Autoplay } from 'swiper';
 import Link from 'next/link';
 
+import Container from 'components/Container';
+
 export default function SliderWorks({ children }) {
-	const [width, setWidth] = useState(null);
 	const test = ['slide 1 ', 'slide 2', 'slide 3', 'slide 4'];
-
-	function reportWindowSize() {
-		setWidth(window.innerWidth - 50 + 'px');
-		return window.innerWidth - 50 + 'px';
-	}
-
-	useEffect(() => {
-		if (process.browser) {
-			setWidth(reportWindowSize());
-			window.onresize = reportWindowSize;
-		}
-	}, []);
+	SwiperCore.use([Autoplay]);
 
 	const SliderWorksStyled = styled.div`
+		width: 100%;
+		height: 100%;
 		display: flex;
 		justify-content: flex-start;
 		align-items: flex-start;
 		flex-direction: column;
-		margin-top: 150px;
 
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
-			margin-top: 100px;
-		}
-
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-small']}) {
-			margin-top: 50px;
+		> .container {
+			padding-bottom: 20px;
+			width: 100%;
 		}
 
 		.title {
@@ -50,9 +38,13 @@ export default function SliderWorks({ children }) {
 		}
 
 		.swiper-container {
-			width: ${width};
+			width: 100%;
 			height: 40vh;
 			margin-top: 20px;
+
+			.swiper-wrapper {
+				transition-timing-function: linear !important;
+			}
 
 			.swiper-slide {
 				img {
@@ -75,13 +67,26 @@ export default function SliderWorks({ children }) {
 
 	return (
 		<SliderWorksStyled className="slider-works">
-			<div className="title">
-				My work
-				<Link href="/works">
-					<a>View all work</a>
-				</Link>
-			</div>
-			<Swiper slidesPerView={1} spaceBetween={30} breakpoints={breakpoints}>
+			<Container>
+				<div className="title">
+					My work
+					<Link href="/works">
+						<a>View all work</a>
+					</Link>
+				</div>
+			</Container>
+			<Swiper
+				slidesPerView={1}
+				spaceBetween={30}
+				breakpoints={breakpoints}
+				freeMode={true}
+				loop={true}
+				speed={8000}
+				autoplay={{
+					delay: 0,
+					disableOnInteraction: false,
+				}}
+			>
 				{test.map((item, index) => {
 					return (
 						<SwiperSlide key={index}>

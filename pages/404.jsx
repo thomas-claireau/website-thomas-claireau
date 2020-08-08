@@ -11,22 +11,20 @@ export default function Custom404() {
 				<title>Thomas Claireau | 404 Not Found</title>
 				<meta name="robots" content="noindex"></meta>
 			</Head>
-			<Container>
-				<NotFoundStyled>
-					<Col direction="left" bg="--bg-dark" align="center">
-						<div className="title h1 left --light desktop">
-							<span>404 No</span>
-						</div>
-						<div className="title h1 left --light mobile">404</div>
-					</Col>
-					<Col direction="right" bg="--bg-light" align="center">
-						<div className="title h1 --dark desktop">
-							<span>t Found</span>
-						</div>
-						<div className="title h1 left --dark mobile">Not Found</div>
-					</Col>
-				</NotFoundStyled>
-			</Container>
+			<NotFoundStyled>
+				<Col direction="left" bg="--bg-dark" align="center">
+					<div className="title h1 left --light desktop">
+						<span>404 No</span>
+					</div>
+					<div className="title h1 left --light mobile">404</div>
+				</Col>
+				<Col direction="right" bg="--bg-light" align="center">
+					<div className="title h1 --dark desktop">
+						<span>t Found</span>
+					</div>
+					<div className="title h1 left --dark mobile">Not Found</div>
+				</Col>
+			</NotFoundStyled>
 		</>
 	);
 }

@@ -12,27 +12,27 @@ function Home() {
 			<Head>
 				<title>Thomas Claireau | Fullstack Web Developer</title>
 			</Head>
-			<Container>
-				<HomeStyled>
-					<Col direction="left" bg="--bg-dark" align="center">
-						<h1 className="--hide">I'm a fullstack web developper</h1>
-						<div className="title h1 left --light desktop">
-							<span>I'm a fu</span>
-							<span>web dev</span>
-						</div>
-					</Col>
-					<Col direction="right" bg="--bg-light" align="center">
-						<div className="title h1 --dark desktop">
-							<span>llstack</span>
-							<span>elopper</span>
-						</div>
-					</Col>
-					<ContentVM>
+			<HomeStyled>
+				<Col direction="left" bg="--bg-dark" align="center">
+					<h1 className="--hide">I'm a fullstack web developper</h1>
+					<div className="title h1 left --light desktop">
+						<span>I'm a fu</span>
+						<span>web dev</span>
+					</div>
+				</Col>
+				<Col direction="right" bg="--bg-light" align="center">
+					<div className="title h1 --dark desktop">
+						<span>llstack</span>
+						<span>elopper</span>
+					</div>
+				</Col>
+				<ContentVM>
+					<Container>
 						<h1>I'm a fullstack web developper</h1>
-						<SliderWorks></SliderWorks>
-					</ContentVM>
-				</HomeStyled>
-			</Container>
+					</Container>
+					<SliderWorks></SliderWorks>
+				</ContentVM>
+			</HomeStyled>
 		</>
 	);
 }

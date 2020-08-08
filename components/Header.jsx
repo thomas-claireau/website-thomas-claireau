@@ -11,12 +11,15 @@ export default function Header() {
 		<HeaderStyled>
 			<Global
 				styles={css`
-					#app.--menu-open {
-						header {
-							.top {
-								position: initial;
-								opacity: 1;
-								z-index: inherit;
+					#app {
+						&.--menu-open {
+							header {
+								z-index: 1;
+								.top {
+									position: initial;
+									opacity: 1;
+									z-index: 1;
+								}
 							}
 						}
 					}
@@ -58,6 +61,10 @@ const HeaderStyled = styled.header`
 	left: 50%;
 	transform: translateX(-50%);
 	padding: 0 55px;
+
+	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+		z-index: -1;
+	}
 
 	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
 		padding: 0 20px;

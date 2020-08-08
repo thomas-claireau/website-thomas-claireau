@@ -7,28 +7,24 @@ export default function ContentVM({ children }) {
 		width: 100%;
 		height: 100%;
 		display: none;
-		margin: 100px 0 50px 0;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-direction: column;
+		margin: 170px 0 150px 0;
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			display: inherit;
+			display: flex;
 		}
 
-		> .container {
-			width: 100%;
-			height: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: flex-start;
-			flex-direction: column;
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+			margin: 100px 0 150px 0;
 		}
 	`;
 
 	return (
 		<ContentVMStyled className="content-vm">
-			<Container>
-				{children}
-				<MenuBottom></MenuBottom>
-			</Container>
+			{children}
+			<MenuBottom></MenuBottom>
 		</ContentVMStyled>
 	);
 }

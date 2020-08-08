@@ -51,26 +51,20 @@ const BoxStyled = styled.section`
 	position: relative;
 	box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.35);
 
-	> section.container {
+	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-small']}) {
+		box-shadow: none;
+	}
+
+	> .main-content {
 		width: 100%;
 		height: 100%;
-		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			overflow: auto;
-		}
-
-		> .main-content {
-			width: 100%;
-			height: 100%;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				height: auto;
-				flex-direction: column;
-			}
+			height: auto;
+			flex-direction: column;
 		}
 	}
 `;
