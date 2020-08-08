@@ -13,6 +13,7 @@ export default function MenuBottom({ children }) {
 		left: 0;
 		padding: 15px 20px;
 		background-color: ${(props) => props.theme.colors.light};
+		z-index: 10000;
 
 		a {
 			display: flex;

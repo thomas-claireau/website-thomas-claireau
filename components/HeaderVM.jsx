@@ -19,6 +19,10 @@ export default function HeaderVM({ onClick }) {
 		transform: translateX(-50%);
 		z-index: 2;
 
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			background-color: ${(props) => props.theme.colors.dark};
+		}
+
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
 			padding: 30px 20px;
 		}

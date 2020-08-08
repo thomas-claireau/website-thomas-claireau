@@ -8,9 +8,10 @@ const theme = {
 	colors: {
 		dark: '#34485e',
 		light: '#ecf0f0',
+		link: '#6565cd',
 	},
 	breakpoints: {
-		'break-mini': '375px',
+		'break-mini': '374px',
 		'break-small': '425px',
 		'break-tablet': '768px',
 		'break-medium': '1024px',
