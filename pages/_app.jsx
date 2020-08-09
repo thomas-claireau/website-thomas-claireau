@@ -12,8 +12,9 @@ import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { DefaultSeo } from 'next-seo';
 import SEO from '../next-seo.config';
+import fetch from 'isomorphic-unfetch';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, globalInformations }) {
 	const router = useRouter();
 
 	const colorScheme = {
@@ -65,7 +66,10 @@ function MyApp({ Component, pageProps }) {
 			<AnimatePresence exitBeforeEnter>
 				<ThemeProvider theme={theme}>
 					<GlobalStyles />
-					<ContextWrapper colorScheme={colorScheme[router.pathname]}>
+					<ContextWrapper
+						colorScheme={colorScheme[router.pathname]}
+						globalInformations={globalInformations}
+					>
 						<RootStyled variants={stagger}>
 							<motion.div
 								initial="hidden"
@@ -85,5 +89,16 @@ function MyApp({ Component, pageProps }) {
 		</>
 	);
 }
+
+MyApp.getInitialProps = async () => {
+	const { API_URL } = process.env;
+
+	const res = await fetch(`${API_URL}/global-informations`);
+	const data = await res.json();
+
+	return {
+		globalInformations: data ? data : null,
+	};
+};
 
 export default MyApp;

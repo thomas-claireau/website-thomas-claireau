@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Header from 'components/Header';
 
-export default function SocialLogos({ className, children }) {
+export default function SocialLogos({ className, items }) {
 	const SocialLogosStyled = styled.div`
 		&.desktop {
 			position: absolute;
@@ -50,19 +50,17 @@ export default function SocialLogos({ className, children }) {
 
 	return (
 		<SocialLogosStyled className={`social-logos ${className}`}>
-			<a href="https://github.com/thomas-claireau" target="_blank" rel="noopener noreferrer">
-				<i className="fa fa-github-alt" aria-hidden="true"></i>
-			</a>
-			<a href="https://twitter.com/thomas_claireau" target="_blank" rel="noopener noreferrer">
-				<i className="fa fa-twitter" aria-hidden="true"></i>
-			</a>
-			<a
-				href="https://www.linkedin.com/in/thomas-claireau/"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				<i className="fa fa-linkedin" aria-hidden="true"></i>
-			</a>
+			{items.map((item) => {
+				const { id, picto_slug_fontawesome, link } = item;
+
+				if (id && picto_slug_fontawesome && link) {
+					return (
+						<a key={id} href={link} target="_blank" rel="noopener noreferrer">
+							<i className={picto_slug_fontawesome} aria-hidden="true"></i>
+						</a>
+					);
+				}
+			})}
 		</SocialLogosStyled>
 	);
 }

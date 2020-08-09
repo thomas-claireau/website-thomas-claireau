@@ -3,9 +3,13 @@ import { Global, css } from '@emotion/core';
 import SocialLogos from './SocialLogos';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import BoxContext from '../contexts/BoxContext';
 
 export default function Header() {
 	const router = useRouter();
+	const { global_informations } = useContext(BoxContext);
+	const { title_box, social_logo, contact_email, contact_label } = global_informations;
 
 	const HeaderStyled = styled.header`
 		width: 100%;
@@ -88,22 +92,18 @@ export default function Header() {
 								router.pathname === '/' ? 'active' : ''
 							}`}
 						>
-							<span>Thomas / Claireau</span>
-							<span className="--hide">Fullstack web developper</span>
+							<span>{title_box}</span>
 						</a>
 					</Link>
 				</div>
 				<div className="right">
-					<a
-						href="mailto:contact@thomas-claireau.fr"
-						className="title contact --uppercase"
-					>
-						<span>Contact</span>
+					<a href={`mailto:${contact_email}`} className="title contact --uppercase">
+						<span>{contact_label}</span>
 						<i className="fa fa-envelope-o" aria-hidden="true"></i>
 					</a>
 				</div>
 			</div>
-			<SocialLogos className="desktop" />
+			<SocialLogos className="desktop" items={social_logo} />
 		</HeaderStyled>
 	);
 }

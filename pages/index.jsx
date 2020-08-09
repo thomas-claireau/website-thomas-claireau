@@ -83,7 +83,7 @@ function Home({ fields }) {
 					<Container>
 						<h1>{title}</h1>
 					</Container>
-					<SliderWorks></SliderWorks>
+					{/* <SliderWorks></SliderWorks> */}
 				</ContentVM>
 			</HomeStyled>
 		</>
