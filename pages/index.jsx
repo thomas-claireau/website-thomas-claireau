@@ -27,6 +27,41 @@ function Home({ fields }) {
 		},
 	};
 
+	const HomeStyled = styled.div`
+		width: 100%;
+		height: 100%;
+		display: flex;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			flex-direction: column;
+		}
+
+		.title {
+			display: flex;
+			flex-direction: column;
+
+			&.desktop {
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-large']}) {
+					display: none;
+				}
+			}
+
+			&.mobile {
+				display: none;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-large']}) {
+					display: inherit;
+				}
+			}
+
+			&.left {
+				align-items: flex-end;
+			}
+		}
+	`;
+
 	return (
 		<>
 			<NextSeo {...SEO} />
@@ -54,39 +89,6 @@ function Home({ fields }) {
 		</>
 	);
 }
-
-const HomeStyled = styled.div`
-	width: 100%;
-	height: 100%;
-	display: flex;
-
-	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-		flex-direction: column;
-	}
-
-	.title {
-		display: flex;
-		flex-direction: column;
-
-		&.desktop {
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				display: none;
-			}
-		}
-
-		&.mobile {
-			display: none;
-
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				display: inherit;
-			}
-		}
-
-		&.left {
-			align-items: flex-end;
-		}
-	}
-`;
 
 export async function getServerSideProps() {
 	const { API_URL } = process.env;

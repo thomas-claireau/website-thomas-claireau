@@ -7,6 +7,61 @@ import { useRouter } from 'next/router';
 export default function Header() {
 	const router = useRouter();
 
+	const HeaderStyled = styled.header`
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 12px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 0 55px;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			z-index: -1;
+		}
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+			padding: 0 20px;
+		}
+
+		.top {
+			display: flex;
+			justify-content: space-between;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				position: absolute;
+				opacity: 0;
+				z-index: -1;
+			}
+
+			.title {
+				font-size: 15px;
+				font-weight: bold;
+				line-height: 20px;
+				letter-spacing: 1.5px;
+				color: ${(props) => props.theme.colors.light};
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-large']}) {
+					color: ${(props) => props.theme.colors.light};
+				}
+
+				i {
+					margin-left: 10px;
+				}
+			}
+
+			.right {
+				span {
+					@media screen and (max-width: ${(props) =>
+							props.theme.breakpoints['break-small']}) {
+						display: none;
+					}
+				}
+			}
+		}
+	`;
+
 	return (
 		<HeaderStyled>
 			<Global
@@ -52,57 +107,3 @@ export default function Header() {
 		</HeaderStyled>
 	);
 }
-
-const HeaderStyled = styled.header`
-	width: 100%;
-	height: 100%;
-	position: fixed;
-	top: 12px;
-	left: 50%;
-	transform: translateX(-50%);
-	padding: 0 55px;
-
-	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-		z-index: -1;
-	}
-
-	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
-		padding: 0 20px;
-	}
-
-	.top {
-		display: flex;
-		justify-content: space-between;
-
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			position: absolute;
-			opacity: 0;
-			z-index: -1;
-		}
-
-		.title {
-			font-size: 15px;
-			font-weight: bold;
-			line-height: 20px;
-			letter-spacing: 1.5px;
-			color: ${(props) => props.theme.colors.light};
-
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				color: ${(props) => props.theme.colors.light};
-			}
-
-			i {
-				margin-left: 10px;
-			}
-		}
-
-		.right {
-			span {
-				@media screen and (max-width: ${(props) =>
-						props.theme.breakpoints['break-small']}) {
-					display: none;
-				}
-			}
-		}
-	}
-`;

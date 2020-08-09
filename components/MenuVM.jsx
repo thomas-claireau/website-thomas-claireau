@@ -8,6 +8,23 @@ export default function MenuVM({ onClick }) {
 		onClick();
 	};
 
+	const MenuVMStyled = styled.div`
+		width: 100%;
+		height: 100%;
+		position: relative;
+		padding: 100px 50px;
+		background-color: ${(props) => props.theme.colors.light};
+		z-index: 1;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+			padding: 100px 30px;
+		}
+
+		.title {
+			color: ${(props) => props.theme.colors.dark};
+		}
+	`;
+
 	return (
 		<MenuVMStyled className="menu-mobile">
 			<BurgerMenu action="close" onClick={handleClick} />
@@ -17,20 +34,3 @@ export default function MenuVM({ onClick }) {
 		</MenuVMStyled>
 	);
 }
-
-const MenuVMStyled = styled.div`
-	width: 100%;
-	height: 100%;
-	position: relative;
-	padding: 100px 50px;
-	background-color: ${(props) => props.theme.colors.light};
-	z-index: 1;
-
-	@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
-		padding: 100px 30px;
-	}
-
-	.title {
-		color: ${(props) => props.theme.colors.dark};
-	}
-`;

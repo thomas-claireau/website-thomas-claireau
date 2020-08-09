@@ -9,6 +9,15 @@ export default function SliderWorks({ children }) {
 	const test = ['slide 1 ', 'slide 2', 'slide 3', 'slide 4'];
 	SwiperCore.use([Autoplay]);
 
+	const breakpoints = {
+		1024: {
+			slidesPerView: 3,
+		},
+		650: {
+			slidesPerView: 2,
+		},
+	};
+
 	const SliderWorksStyled = styled.div`
 		width: 100%;
 		height: 100%;
@@ -55,15 +64,6 @@ export default function SliderWorks({ children }) {
 			}
 		}
 	`;
-
-	const breakpoints = {
-		1024: {
-			slidesPerView: 3,
-		},
-		650: {
-			slidesPerView: 2,
-		},
-	};
 
 	return (
 		<SliderWorksStyled className="slider-works">

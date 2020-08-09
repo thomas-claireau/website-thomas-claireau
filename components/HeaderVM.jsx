@@ -7,6 +7,10 @@ import BurgerMenu from './BurgerMenu';
 export default function HeaderVM({ onClick }) {
 	const router = useRouter();
 
+	const handleClick = function () {
+		onClick();
+	};
+
 	const HeaderVMStyled = styled.div`
 		width: 100%;
 		display: none;
@@ -42,10 +46,6 @@ export default function HeaderVM({ onClick }) {
 			display: flex;
 		}
 	`;
-
-	const handleClick = function () {
-		onClick();
-	};
 
 	return (
 		<HeaderVMStyled className="header-mobile">

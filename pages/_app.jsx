@@ -54,6 +54,11 @@ function MyApp({ Component, pageProps }) {
 		},
 	};
 
+	const RootStyled = styled(motion.div)`
+		width: 100%;
+		height: 100%;
+	`;
+
 	return (
 		<>
 			<DefaultSeo {...SEO} />
@@ -80,10 +85,5 @@ function MyApp({ Component, pageProps }) {
 		</>
 	);
 }
-
-const RootStyled = styled(motion.div)`
-	width: 100%;
-	height: 100%;
-`;
 
 export default MyApp;

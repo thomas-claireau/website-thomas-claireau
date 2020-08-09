@@ -5,6 +5,10 @@ import BoxContext from '../contexts/BoxContext';
 export default function BurgerMenu({ action, onClick }) {
 	const { theme } = useContext(BoxContext);
 
+	const handleClick = function (e) {
+		onClick();
+	};
+
 	const BurgerMenuStyled = styled.div`
 		width: 25px;
 		display: flex;
@@ -58,10 +62,6 @@ export default function BurgerMenu({ action, onClick }) {
 			}
 		}
 	`;
-
-	const handleClick = function (e) {
-		onClick();
-	};
 
 	return (
 		<BurgerMenuStyled className={`burger-menu ${action}`} onClick={handleClick}>
