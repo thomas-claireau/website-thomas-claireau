@@ -7,19 +7,7 @@ import ContentVM from 'components/ContentVM';
 import SliderWorks from 'components/SliderWorks';
 import fetch from 'isomorphic-unfetch';
 
-function Home() {
-	const fields = {
-		titre_haut_gauche: 'test',
-		titre_haut_droite: 'test',
-		titre_bas_gauche: 'test',
-		titre_bas_droite: 'test',
-		header: {
-			meta_description: 'test',
-			meta_title: 'test',
-			title: 'test',
-		},
-	};
-
+function Home({ fields }) {
 	const {
 		titre_haut_gauche,
 		titre_haut_droite,
@@ -100,6 +88,19 @@ function Home() {
 			</HomeStyled>
 		</>
 	);
+}
+
+export async function getServerSideProps() {
+	const { API_URL } = process.env;
+
+	const res = await fetch(`${API_URL}/accueil`);
+	const data = await res.json();
+
+	return {
+		props: {
+			fields: data,
+		},
+	};
 }
 
 export default Home;
