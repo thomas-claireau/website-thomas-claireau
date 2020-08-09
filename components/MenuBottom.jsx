@@ -1,8 +1,13 @@
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
 import Link from 'next/link';
+import { useContext } from 'react';
+import BoxContext from '../contexts/BoxContext';
 
 export default function MenuBottom({ children }) {
+	const { global_informations } = useContext(BoxContext);
+	const { menu_bottom_mobile: menu } = global_informations;
+
 	const MenuBottomStyled = styled.div`
 		width: 100%;
 		display: flex;
@@ -40,22 +45,22 @@ export default function MenuBottom({ children }) {
 					}
 				`}
 			/>
-			<Link href="/works">
-				<a>
-					<i className="fa fa-code-fork" aria-hidden="true"></i>
-					Works
-				</a>
-			</Link>
-			<Link href="/about">
-				<a>
-					<i className="fa fa-rocket" aria-hidden="true"></i>
-					Skills
-				</a>
-			</Link>
-			<a href="mailto:thomas.claireau@gmail.com">
-				<i className="fa fa-envelope-o" aria-hidden="true"></i>
-				Contact
-			</a>
+			{menu.map((item) => {
+				const { id, label, link, picto_fontawesome: picto, interne_link } = item;
+				return interne_link ? (
+					<Link key={id} href={link}>
+						<a>
+							<i className={picto} aria-hidden="true"></i>
+							{label}
+						</a>
+					</Link>
+				) : (
+					<a key={id} href={link}>
+						<i className={picto} aria-hidden="true"></i>
+						{label}
+					</a>
+				);
+			})}
 		</MenuBottomStyled>
 	);
 }
