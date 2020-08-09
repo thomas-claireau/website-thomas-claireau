@@ -11,11 +11,30 @@ import Router, { useRouter } from 'next/router';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { DefaultSeo } from 'next-seo';
-import SEO from '../next-seo.config';
 import fetch from 'isomorphic-unfetch';
 
 function MyApp({ Component, pageProps, globalInformations }) {
 	const router = useRouter();
+
+	const { meta_datas } = globalInformations;
+	const { title, description, open_graph, twitter, canonical } = meta_datas;
+
+	const SEO = {
+		title,
+		description,
+		canonical,
+		openGraph: {
+			type: open_graph.type,
+			locale: open_graph.locale,
+			url: canonical,
+			title: title,
+			site_name: open_graph.site_name,
+		},
+		twitter: {
+			handle: twitter.handle,
+			cardType: twitter.card_type,
+		},
+	};
 
 	const colorScheme = {
 		'/': {

@@ -19,11 +19,11 @@ function Home({ fields }) {
 	const { meta_description, meta_title, title } = header;
 
 	const SEO = {
-		title: meta_title,
+		// title: meta_title,
 		description: meta_description,
 		openGraph: {
-			title: 'Thomas Claireau | About page',
-			description: 'Just a description of my stack',
+			title: meta_title,
+			description: meta_description,
 		},
 	};
 
