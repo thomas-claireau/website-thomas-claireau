@@ -10,6 +10,18 @@ import fetch from 'isomorphic-unfetch';
 function Home({ fields }) {
 	console.log(process.env.API_URL);
 
+	fields = {
+		titre_haut_gauche: 'test',
+		titre_haut_droite: 'test',
+		titre_bas_gauche: 'test',
+		titre_bas_droite: 'test',
+		header: {
+			meta_description: 'test',
+			meta_title: 'test',
+			title: 'test',
+		},
+	};
+
 	const {
 		titre_haut_gauche,
 		titre_haut_droite,
@@ -95,12 +107,14 @@ function Home({ fields }) {
 export async function getServerSideProps() {
 	const { API_URL } = process.env;
 
-	const res = await fetch(`${API_URL}/accueil`);
-	const data = await res.json();
+	console.log(API_URL);
+
+	// const res = await fetch(`${API_URL}/accueil`);
+	// const data = await res.json();
 
 	return {
 		props: {
-			fields: data,
+			// fields: data,
 		},
 	};
 }
