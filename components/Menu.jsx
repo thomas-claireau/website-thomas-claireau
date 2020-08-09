@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 export default function Menu({ space, className }) {
-	const { theme } = useContext(BoxContext);
+	const { theme, global_informations } = useContext(BoxContext);
+	const { menu } = global_informations;
 	const router = useRouter();
 
 	const MenuStyled = styled.nav`
@@ -85,17 +86,16 @@ export default function Menu({ space, className }) {
 		}
 	`;
 
-	const arbo = ['About', 'Works', 'Blog'];
-
 	return (
 		<MenuStyled space={space} className={className}>
 			<ul>
-				{arbo.map((item, index) => {
-					const slug = `/${item.toLowerCase()}`;
+				{menu.map((item) => {
+					const { id, label, link } = item;
+
 					return (
-						<li key={index}>
-							<Link href={slug}>
-								<a className={router.pathname === slug ? 'active' : ''}>{item}</a>
+						<li key={id}>
+							<Link href={link}>
+								<a className={router.pathname === link ? 'active' : ''}>{label}</a>
 							</Link>
 						</li>
 					);
