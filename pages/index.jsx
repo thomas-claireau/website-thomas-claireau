@@ -14,6 +14,7 @@ function Home({ fields }) {
 		titre_bas_gauche,
 		titre_bas_droite,
 		header,
+		slider_works
 	} = fields;
 
 	const { meta_description, meta_title, title } = header;
@@ -83,7 +84,7 @@ function Home({ fields }) {
 					<Container>
 						<h1>{title}</h1>
 					</Container>
-					<SliderWorks></SliderWorks>
+					<SliderWorks data={slider_works}></SliderWorks>
 				</ContentVM>
 			</HomeStyled>
 		</>

@@ -2,8 +2,13 @@ import styled from '@emotion/styled';
 import SocialLogos from './SocialLogos';
 import BurgerMenu from './BurgerMenu';
 import Menu from './Menu';
+import { useContext } from 'react';
+import BoxContext from '../contexts/BoxContext';
 
 export default function MenuVM({ onClick }) {
+	const { global_informations } = useContext(BoxContext);
+	const { social_logo } = global_informations;
+
 	const handleClick = function () {
 		onClick();
 	};
@@ -30,7 +35,7 @@ export default function MenuVM({ onClick }) {
 			<BurgerMenu action="close" onClick={handleClick} />
 			<div className="title h1 --uppercase">Home</div>
 			<Menu className="mobile" />
-			<SocialLogos className="mobile" />
+			<SocialLogos className="mobile" items={social_logo} />
 		</MenuVMStyled>
 	);
 }

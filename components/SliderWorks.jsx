@@ -5,8 +5,9 @@ import Link from 'next/link';
 
 import Container from 'components/Container';
 
-export default function SliderWorks({ children }) {
-	const test = ['slide 1 ', 'slide 2', 'slide 3', 'slide 4'];
+export default function SliderWorks({ data }) {
+	const { API_URL } = process.env;
+	const { title, view_all_label, view_all_link, slide_work } = data;
 	SwiperCore.use([Autoplay]);
 
 	const breakpoints = {
@@ -69,9 +70,9 @@ export default function SliderWorks({ children }) {
 		<SliderWorksStyled className="slider-works">
 			<Container>
 				<div className="title">
-					My work
-					<Link href="/works">
-						<a>View all work</a>
+					{title}
+					<Link href={view_all_link}>
+						<a>{view_all_label}</a>
 					</Link>
 				</div>
 			</Container>
@@ -87,12 +88,14 @@ export default function SliderWorks({ children }) {
 					disableOnInteraction: false,
 				}}
 			>
-				{test.map((item, index) => {
+				{slide_work.map((item) => {
+					const { id, MainImage: main_image } = item.projet;
+
 					return (
-						<SwiperSlide key={index}>
-							<Link href={`/works/${index}`}>
+						<SwiperSlide key={id}>
+							<Link href={`${view_all_link}/${id}`}>
 								<a>
-									<img src="https://picsum.photos/300/400" />
+									<img src={API_URL + main_image.url} />
 								</a>
 							</Link>
 						</SwiperSlide>
