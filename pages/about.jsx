@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import Col from 'components/Col';
-import CustomErrorPage from '../pages/404';
+import FetchingError from 'components/FetchingError';
 
 import JavascriptSVG from 'public/assets/img/javascript.svg';
 import WebpackSVG from 'public/assets/img/webpack.svg';
@@ -21,17 +21,17 @@ function About({ fields }) {
 	const { API_URL } = process.env;
 	const { header, left, right } = fields;
 
-	if (!header || !left || !right) return null;
+	if (!header || !left || !right) return <FetchingError />;
 
 	const { languages } = left;
 	const { description } = right;
 
-	if (!languages || !description) return null;
+	if (!languages || !description) return <FetchingError />;
 
 	const top = languages[0];
 	const bottom = languages.filter((item, index) => index !== 0);
 
-	if (!top || bottom) return null;
+	if (!top || !bottom) return <FetchingError />;
 
 	const SEO = {
 		title: header.meta_title,
@@ -42,6 +42,8 @@ function About({ fields }) {
 			url: 'https://thomas-claireau.fr/about',
 		},
 	};
+
+	const setLogos = function () {};
 
 	const AboutStyled = styled.div`
 		> .left {

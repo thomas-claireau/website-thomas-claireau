@@ -43,6 +43,14 @@ const GlobalStyles = () => (
 						background-color: ${theme.colors.dark};
 					}
 
+					&.fetching-error {
+						overflow: hidden;
+
+						> *:not(.fetching-error) {
+							filter: blur(5px);
+						}
+					}
+
 					#__next {
 						width: 100%;
 						height: 100%;
