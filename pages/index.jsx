@@ -14,13 +14,13 @@ function Home({ fields }) {
 		titre_bas_gauche,
 		titre_bas_droite,
 		header,
-		slider_works
+		slider_works,
 	} = fields;
 
 	const { meta_description, meta_title, title } = header;
 
 	const SEO = {
-		// title: meta_title,
+		title: meta_title,
 		description: meta_description,
 		openGraph: {
 			title: meta_title,

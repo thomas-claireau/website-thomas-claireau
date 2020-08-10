@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
+import dynamic from 'next/dynamic';
 import Col from 'components/Col';
+import CustomErrorPage from '../pages/404';
 
 import JavascriptSVG from 'public/assets/img/javascript.svg';
 import WebpackSVG from 'public/assets/img/webpack.svg';
@@ -15,13 +17,28 @@ import PhpSVG from 'public/assets/img/php.svg';
 import WordpressSVG from 'public/assets/img/wordpress.svg';
 import SymfonySVG from 'public/assets/img/symfony.svg';
 
-function About() {
+function About({ fields }) {
+	const { API_URL } = process.env;
+	const { header, left, right } = fields;
+
+	if (!header || !left || !right) return null;
+
+	const { languages } = left;
+	const { description } = right;
+
+	if (!languages || !description) return null;
+
+	const top = languages[0];
+	const bottom = languages.filter((item, index) => index !== 0);
+
+	if (!top || bottom) return null;
+
 	const SEO = {
-		title: 'Thomas Claireau | About page',
-		description: 'Just a description of my stack',
+		title: header.meta_title,
+		description: header.meta_description,
 		openGraph: {
-			title: 'Thomas Claireau | About page',
-			description: 'Just a description of my stack',
+			title: header.meta_title,
+			description: header.meta_description,
 			url: 'https://thomas-claireau.fr/about',
 		},
 	};
@@ -90,7 +107,7 @@ function About() {
 						}
 					}
 
-					> .children {
+					> .childrens {
 						display: flex;
 						justify-content: center;
 						align-items: center;
@@ -100,7 +117,7 @@ function About() {
 
 			.parent {
 				&:hover {
-					+ .children {
+					+ .childrens {
 						svg {
 							filter: grayscale(0%);
 						}
@@ -123,7 +140,7 @@ function About() {
 				}
 			}
 
-			.children {
+			.childrens {
 				margin-top: 25px;
 
 				@media screen and (max-width: ${(props) =>
@@ -213,7 +230,7 @@ function About() {
 							<div className="parent">
 								<JavascriptSVG />
 							</div>
-							<div className="children">
+							<div className="childrens">
 								<WebpackSVG />
 								<NodeJsSVG />
 								<ReactSVG />
@@ -226,7 +243,7 @@ function About() {
 							<div className="parent">
 								<CssSVG />
 							</div>
-							<div className="children">
+							<div className="childrens">
 								<SassSVG />
 								<BootstrapSVG />
 							</div>
@@ -235,7 +252,7 @@ function About() {
 							<div className="parent">
 								<PhpSVG />
 							</div>
-							<div className="children">
+							<div className="childrens">
 								<WordpressSVG />
 								<SymfonySVG />
 							</div>
@@ -273,6 +290,19 @@ function About() {
 			</AboutStyled>
 		</>
 	);
+}
+
+export async function getServerSideProps() {
+	const { API_URL } = process.env;
+
+	const res = await fetch(`${API_URL}/a-propos`);
+	const data = await res.json();
+
+	return {
+		props: {
+			fields: data,
+		},
+	};
 }
 
 export default About;
