@@ -23,7 +23,7 @@ export default function FetchingError() {
 		position: absolute;
 
 		.content {
-			width: 50%;
+			width: 800px;
 			min-height: 250px;
 			position: absolute;
 			top: 50%;
@@ -37,6 +37,28 @@ export default function FetchingError() {
 			background-color: ${(props) => props.theme.colors.light};
 			color: ${(props) => props.theme.colors.dark};
 			box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.35);
+			text-align: center;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				width: 80%;
+			}
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+				width: 90%;
+			}
+		}
+
+		.email {
+			margin-top: 20px;
+			font-size: 25px;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-small']}) {
+				font-size: 20px;
+			}
+
+			a {
+				color: ${(props) => props.theme.colors.dark};
+			}
 		}
 
 		.social-logos {
@@ -45,6 +67,28 @@ export default function FetchingError() {
 			left: auto;
 			right: auto;
 			flex-direction: row;
+			margin-top: 50px;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				display: inherit;
+			}
+
+			a {
+				&:not(:first-of-type) {
+					margin-top: 0;
+					margin-left: 20px;
+				}
+
+				i {
+					color: ${(props) => props.theme.colors.dark};
+					font-size: 30px;
+
+					@media screen and (max-width: ${(props) =>
+							props.theme.breakpoints['break-small']}) {
+						font-size: 25px;
+					}
+				}
+			}
 		}
 	`;
 
