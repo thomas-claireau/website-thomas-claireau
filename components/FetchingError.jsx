@@ -2,14 +2,19 @@ import styled from '@emotion/styled';
 import { useContext } from 'react';
 import BoxContext from '../contexts/BoxContext';
 import SocialLogos from './SocialLogos';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { theme } from 'components/GlobalStyles/GlobalStyles';
 
 export default function FetchingError() {
-	const { global_informations } = useContext(BoxContext);
-	const { social_logo } = global_informations;
+	// const [socialLogos, setSocialLogos] = useState(null);
+	// const { global_informations } = useContext(BoxContext);
 
-	useLayoutEffect(() => {
+	// if (global_informations) {
+	// 	setSocialLogos(global_informations.social_logo);
+	// }
+
+	useEffect(() => {
 		const bodyElt = document.querySelector('body');
 
 		if (bodyElt) {
@@ -34,16 +39,16 @@ export default function FetchingError() {
 			align-items: center;
 			flex-direction: column;
 			margin: auto;
-			background-color: ${(props) => props.theme.colors.light};
-			color: ${(props) => props.theme.colors.dark};
+			background-color: ${theme.colors.light};
+			color: ${theme.colors.dark};
 			box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.35);
 			text-align: center;
 
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			@media screen and (max-width: ${theme.breakpoints['break-large']}) {
 				width: 80%;
 			}
 
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+			@media screen and (max-width: ${theme.breakpoints['break-tablet']}) {
 				width: 90%;
 			}
 		}
@@ -52,12 +57,12 @@ export default function FetchingError() {
 			margin-top: 20px;
 			font-size: 25px;
 
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-small']}) {
+			@media screen and (max-width: ${theme.breakpoints['break-small']}) {
 				font-size: 20px;
 			}
 
 			a {
-				color: ${(props) => props.theme.colors.dark};
+				color: ${theme.colors.dark};
 			}
 		}
 
@@ -69,7 +74,7 @@ export default function FetchingError() {
 			flex-direction: row;
 			margin-top: 50px;
 
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			@media screen and (max-width: ${theme.breakpoints['break-large']}) {
 				display: inherit;
 			}
 
@@ -80,11 +85,10 @@ export default function FetchingError() {
 				}
 
 				i {
-					color: ${(props) => props.theme.colors.dark};
+					color: ${theme.colors.dark};
 					font-size: 30px;
 
-					@media screen and (max-width: ${(props) =>
-							props.theme.breakpoints['break-small']}) {
+					@media screen and (max-width: ${theme.breakpoints['break-small']}) {
 						font-size: 25px;
 					}
 				}
@@ -101,7 +105,7 @@ export default function FetchingError() {
 					<div className="email">
 						<a href="mailto:contact@thomas-claireau.fr">contact@thomas-claireau.fr</a>
 					</div>
-					{social_logo && <SocialLogos className="desktop" items={social_logo} />}
+					{/* {socialLogos && <SocialLogos className="desktop" items={socialLogos} />} */}
 				</div>
 			</FetchingErrorStyled>,
 			document.body

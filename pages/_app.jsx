@@ -12,11 +12,15 @@ import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 import { DefaultSeo } from 'next-seo';
 import fetch from 'isomorphic-unfetch';
+import FetchingError from 'components/FetchingError';
 
 function MyApp({ Component, pageProps, globalInformations }) {
 	const router = useRouter();
 
 	const { meta_datas } = globalInformations;
+
+	if (!meta_datas) return <FetchingError />;
+
 	const { title, description, open_graph, twitter, canonical } = meta_datas;
 
 	const SEO = {

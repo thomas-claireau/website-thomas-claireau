@@ -5,9 +5,12 @@ import Container from 'components/Container';
 import Col from 'components/Col';
 import ContentVM from 'components/ContentVM';
 import SliderWorks from 'components/SliderWorks';
+import FetchingError from 'components/FetchingError';
 import fetch from 'isomorphic-unfetch';
 
 function Home({ fields }) {
+	if (!fields) return <FetchingError />;
+
 	const {
 		titre_haut_gauche,
 		titre_haut_droite,
@@ -16,6 +19,15 @@ function Home({ fields }) {
 		header,
 		slider_works,
 	} = fields;
+
+	if (
+		!header ||
+		!titre_haut_gauche ||
+		!titre_haut_droite ||
+		!titre_bas_gauche ||
+		!titre_bas_droite
+	)
+		return <FetchingError />;
 
 	const { meta_description, meta_title, title } = header;
 

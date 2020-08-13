@@ -28,6 +28,8 @@ function About({ fields }) {
 
 	if (!languages || !description) return <FetchingError />;
 
+	console.log(description);
+
 	const top = languages[0];
 	const bottom = languages.filter((item, index) => index !== 0);
 
@@ -264,30 +266,9 @@ function About({ fields }) {
 				<Col direction="right" align="flex-start">
 					<h1 className="--uppercase">
 						<span className="--hide">Thomas Claireau</span>
-						<span>About me</span>
+						<span>{header.title}</span>
 					</h1>
-					<div className="texte">
-						<p>
-							Run outside as soon as door open. Eat all the power cords refuse to
-							drink water except out of someone’s glass purr so eat all the power
-							cords but purr, and sit on human meow. Dream about hunting birds. Kitty
-							kitty kitty poochy, yet intrigued by the shower.
-						</p>
-						<p>
-							Hiss and stare at nothing then run suddenly away. Stare out the window
-							destroy couch, and meow meow loudly just to annoy owners for spit up on
-							light gray carpet instead of adjacent linoleum but need to chase tail.
-							Stare out the window nap all day claw drapes ask for petting and make a
-							weird face.
-						</p>
-						<p>
-							Knock dish off table rub face on owner need to chase tail, yet freak
-							human out make funny noise mow mow mow mow mow mow success now attack
-							human, attack feet. Present belly, scratch hand when stroked pounce on
-							unsuspecting person yet chase mice. Hide head under blanket so no one
-							can see. Slap owner’s face until human fills food dish.
-						</p>
-					</div>
+					<div className="texte">{description}</div>
 				</Col>
 			</AboutStyled>
 		</>
