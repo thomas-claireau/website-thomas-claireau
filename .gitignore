@@ -2,6 +2,7 @@
 
 .env
 *.zip
+deploy.md
 
 # dependencies
 /node_modules
