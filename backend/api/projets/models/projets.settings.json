@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projets",
+  "info": {
+    "name": "Projets"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "year": {
+      "type": "date"
+    },
+    "categories": {
+      "collection": "categories"
+    },
+    "github": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "short_description": {
+      "type": "text"
+    },
+    "main_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "others_images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "resume": {
+      "type": "richtext"
+    },
+    "results": {
+      "type": "richtext"
+    }
+  }
+}
