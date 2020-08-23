@@ -5,8 +5,8 @@
 
 rsync -az -O --force --delete --progress --exclude-from=".rsyncignore" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
 ssh -p $PORT $USERNAME@$HOST '
-	cd /var/www/html && npm i && npm run build;
-	cd /var/www/html/backend && npm i && NODE_ENV=production npm run build;
+	cd $PROJECT && npm i && npm run build;
+	cd $PROJECT/backend && npm i && NODE_ENV=production npm run build;
 	pm2 restart frontend
 	pm2 restart backend
 	exit;
