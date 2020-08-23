@@ -8,7 +8,7 @@ ssh -p $PORT $USERNAME@$HOST '
 	cd /var/www/html;
 	npm install;
 	npm run build;
-	cd /backend;
+	cd /var/www/html/backend;
 	npm install;
 	NODE_ENV=production npm run build;
 	exit;
