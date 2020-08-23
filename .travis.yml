@@ -9,4 +9,4 @@ before_install:
   - ssh-add ./deploy_key
   - chmod +x deploy
 script:
-  - ./deploy live
+  - ./deploy
