@@ -8,12 +8,12 @@ ssh -p $PORT $USERNAME@$HOST '
 	echo "start";
 	pwd;
 	echo "first cd";
-	cd /$PROJECT;
+	cd /var/www/html;
 	pwd;
 	npm install;
 	npm run build;
 	echo "second cd";
-	cd /$PROJECT/backend;
+	cd /var/www/html;
 	pwd;
 	npm install;
 	NODE_ENV=production npm run build;
