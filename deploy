@@ -11,6 +11,9 @@ ssh -p $PORT $USERNAME@$HOST '
 	cd /var/www/html/backend;
 	npm install;
 	NODE_ENV=production npm run build;
+
+	pm2 restart frontend
+	pm2 restart backend
 	exit;
 '
 
