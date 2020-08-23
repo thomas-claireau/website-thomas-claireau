@@ -5,10 +5,10 @@
 
 rsync -az -O --force --delete --progress --exclude-from=".rsyncignore" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
 ssh -p $PORT $USERNAME@$HOST '
-	cd /var/www/html;
+	cd $PROJECT;
 	npm install;
 	npm run build;
-	cd /var/www/html/backend;
+	cd $PROJECT/backend;
 	npm install;
 	NODE_ENV=production npm run build;
 
