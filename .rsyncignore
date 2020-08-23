@@ -1,3 +1,6 @@
+.git
+deploy
+deploy_key.enc
 .next
 node_modules
 .env
@@ -6,7 +9,7 @@ node_modules
 deploy.md
 deploy.sh
 deploy_key
-rsync_exclude.txt
+.rsyncignore
 README.md
 
 backend/.cache

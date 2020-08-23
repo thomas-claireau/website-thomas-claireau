@@ -2,7 +2,7 @@
 # set -xe
 
 echo "Running dry-run"
-rsync --dry-run -az --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
+rsync --dry-run -az --force --delete --progress --exclude-from=.rsyncignore -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
 
 # if [ $TRAVIS_BRANCH == 'recette' ]; then
 # ERRORSTRING="Error. Please make sure you've indicated correct parameters"
