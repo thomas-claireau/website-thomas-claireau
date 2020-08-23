@@ -54,6 +54,10 @@
     },
     "results": {
       "type": "richtext"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }
