@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_a_propos_left_contents",
+  "info": {
+    "name": "Left content",
+    "icon": "align-left"
+  },
+  "options": {},
+  "attributes": {
+    "language": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nested.languages"
+    }
+  }
+}

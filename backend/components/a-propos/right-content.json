@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_a_propos_right_contents",
+  "info": {
+    "name": "Right content",
+    "icon": "align-right"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

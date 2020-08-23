@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_nested_languages",
+  "info": {
+    "name": "Languages",
+    "icon": "assistive-listening-systems"
+  },
+  "options": {},
+  "attributes": {
+    "main_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "others_images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

@@ -9,11 +9,27 @@
     "timestamps": true
   },
   "attributes": {
-    "Titre": {
+    "titre_haut_gauche": {
       "type": "string"
     },
-    "Description": {
+    "titre_haut_droite": {
       "type": "string"
+    },
+    "titre_bas_gauche": {
+      "type": "string"
+    },
+    "titre_bas_droite": {
+      "type": "string"
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.header"
+    },
+    "slide_work": {
+      "type": "component",
+      "repeatable": true,
+      "component": "accueil.slider-works"
     }
   }
 }

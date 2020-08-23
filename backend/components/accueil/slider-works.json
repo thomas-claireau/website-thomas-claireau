@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_accueil_slider_works",
+  "info": {
+    "name": "Slider works",
+    "icon": "align-center"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "view_all_label": {
+      "type": "string"
+    },
+    "view_all_link": {
+      "type": "string"
+    },
+    "projet": {
+      "model": "projets"
+    }
+  }
+}
