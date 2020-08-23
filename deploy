@@ -4,7 +4,16 @@
 # ssh -p $PORT $USERNAME@$HOST 'cd /var/www/html; pwd'
 
 echo "Running dry-run"
-rsync dry-run -az --force --delete --progress --exclude-from=".rsyncignore" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
+rsync -az --force --delete --progress --exclude-from=".rsyncignore" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
+ssh -p $PORT $USERNAME@$HOST '
+	cd /var/www/html;
+	npm install;
+	npm run build;
+	cd /backend;
+	npm install;
+	NODE_ENV=production npm run build;
+	exit;
+'
 
 # if [ $TRAVIS_BRANCH == 'recette' ]; then
 # ERRORSTRING="Error. Please make sure you've indicated correct parameters"

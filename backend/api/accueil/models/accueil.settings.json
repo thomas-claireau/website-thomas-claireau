@@ -11,6 +11,9 @@
   "attributes": {
     "Titre": {
       "type": "string"
+    },
+    "Description": {
+      "type": "string"
     }
   }
 }
