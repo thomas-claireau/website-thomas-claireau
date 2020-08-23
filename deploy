@@ -3,8 +3,7 @@
 
 # ssh -p $PORT $USERNAME@$HOST 'cd /var/www/html; pwd'
 
-echo "Running dry-run"
-rsync -az --force --delete --progress --exclude-from=".rsyncignore" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
+rsync -az -O --force --delete --progress --exclude-from=".rsyncignore" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
 ssh -p $PORT $USERNAME@$HOST '
 	cd /var/www/html;
 	npm install;
