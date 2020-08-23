@@ -3,6 +3,7 @@
 .env
 *.zip
 deploy.md
+deploy_key
 
 # dependencies
 /node_modules

@@ -1,0 +1,17 @@
+.next
+node_modules
+.env
+.gitignore
+.travis.yml
+deploy.md
+deploy.sh
+deploy_key
+rsync_exclude.txt
+README.md
+
+backend/.cache
+backend/build
+backend/node_modules
+backend/.env
+backend/.gitignore
+backend/README.md
