@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/global-informations",
+      "handler": "global-informations.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/global-informations",
+      "handler": "global-informations.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/global-informations",
+      "handler": "global-informations.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

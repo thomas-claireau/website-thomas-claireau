@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_global_meta_datas",
+  "info": {
+    "name": "Meta datas",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "canonical": {
+      "type": "string"
+    },
+    "open_graph": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nested.open-graph"
+    },
+    "twitter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "nested.twitter"
+    }
+  }
+}

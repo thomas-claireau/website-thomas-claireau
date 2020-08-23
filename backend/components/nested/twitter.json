@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_nested_twitters",
+  "info": {
+    "name": "Twitter",
+    "icon": "adjust"
+  },
+  "options": {},
+  "attributes": {
+    "handle": {
+      "type": "string"
+    },
+    "card_type": {
+      "type": "string"
+    },
+    "avatar": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
