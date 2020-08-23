@@ -1,8 +1,4 @@
 #!/bin/sh
-# set -xe
-
-# ssh -p $PORT $USERNAME@$HOST 'cd /var/www/html; pwd'
-
 rsync -az -O --force --delete --progress --exclude-from=".rsyncignore" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
 ssh -p $PORT $USERNAME@$HOST "
 	cd $PROJECT && npm i && npm run build;
@@ -11,23 +7,3 @@ ssh -p $PORT $USERNAME@$HOST "
 	pm2 restart backend
 	exit;
 "
-
-# if [ $TRAVIS_BRANCH == 'recette' ]; then
-# ERRORSTRING="Error. Please make sure you've indicated correct parameters"
-
-# if [ $# -eq 0 ]; then
-# 	echo "$ERRORSTRING"
-# elif [[ "$1" == "live" ]]; then
-# 	if [[ -z $2 ]]; then
-# 		echo "Running dry-run"
-# 		rsync --dry-run -az --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
-# 	elif [[ "$2" == "go" ]]; then
-# 		echo "Running actual deploy"
-# 		rsync -az --force --delete --progress --exclude-from=rsync_exclude.txt -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJECT"
-# 	else
-# 		echo "$ERRORSTRING"
-# 	fi
-# fi
-# else
-# 	echo "Not deploying, since this branch isn't recette."
-# fi
