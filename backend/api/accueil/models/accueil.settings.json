@@ -30,6 +30,9 @@
       "type": "component",
       "repeatable": false,
       "component": "accueil.slider-works"
+    },
+    "titre_mobile": {
+      "type": "string"
     }
   }
 }
