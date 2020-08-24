@@ -5,6 +5,8 @@
 deploy.md
 deploy_key
 
+public/assets/img/languages-icon
+
 # dependencies
 /node_modules
 /.pnp
