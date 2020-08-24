@@ -1,10 +1,10 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import Query from '../components/query';
 import INDEX_QUERY from '../apollo/queries/index';
 
 import styled from '@emotion/styled';
 
+import Query from 'components/Query';
 import Container from 'components/Container';
 import Col from 'components/Col';
 import ContentVM from 'components/ContentVM';

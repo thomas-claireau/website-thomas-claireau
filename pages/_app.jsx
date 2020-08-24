@@ -1,6 +1,5 @@
 import Router, { useRouter } from 'next/router';
 import { DefaultSeo } from 'next-seo';
-import Query from '../components/query';
 import GLOBAL_QUERY_APP from '../apollo/queries/global/_app';
 
 import { ApolloProvider } from '@apollo/react-hooks';
@@ -12,6 +11,7 @@ import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
 
 import styled from '@emotion/styled';
+import Query from 'components/Query';
 import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import Box from 'components/Box';
 import ContextWrapper from 'components/ContextWrapper';

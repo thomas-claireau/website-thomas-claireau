@@ -1,4 +1,4 @@
-import Query from '../components/query';
+import Query from 'components/Query';
 import MENU_QUERY from '../apollo/queries/global/menu';
 import { useContext } from 'react';
 import styled from '@emotion/styled';
