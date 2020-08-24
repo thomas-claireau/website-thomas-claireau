@@ -15,8 +15,10 @@
     "view_all_link": {
       "type": "string"
     },
-    "projet": {
-      "model": "projets"
+    "projet_relation": {
+      "type": "component",
+      "repeatable": true,
+      "component": "nested.projet"
     }
   }
 }

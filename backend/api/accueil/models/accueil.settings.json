@@ -28,7 +28,7 @@
     },
     "slide_work": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "accueil.slider-works"
     }
   }
