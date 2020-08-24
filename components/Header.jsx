@@ -9,7 +9,12 @@ import BoxContext from '../contexts/BoxContext';
 export default function Header() {
 	const router = useRouter();
 	const { global_informations } = useContext(BoxContext);
-	const { title_box, social_logo, contact_email, contact_label } = global_informations;
+	// const { title_box, social_logo, contact_email, contact_label } = global_informations;
+
+	const title_box = false;
+	const social_logo = false;
+	const contact_email = false;
+	const contact_label = false;
 
 	const HeaderStyled = styled.header`
 		width: 100%;

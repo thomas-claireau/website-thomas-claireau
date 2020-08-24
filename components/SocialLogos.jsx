@@ -50,17 +50,18 @@ export default function SocialLogos({ className, items }) {
 
 	return (
 		<SocialLogosStyled className={`social-logos ${className}`}>
-			{items.map((item) => {
-				const { id, picto_slug_fontawesome, link } = item;
+			{items &&
+				items.map((item) => {
+					const { id, picto_slug_fontawesome, link } = item;
 
-				if (id && picto_slug_fontawesome && link) {
-					return (
-						<a key={id} href={link} target="_blank" rel="noopener noreferrer">
-							<i className={picto_slug_fontawesome} aria-hidden="true"></i>
-						</a>
-					);
-				}
-			})}
+					if (id && picto_slug_fontawesome && link) {
+						return (
+							<a key={id} href={link} target="_blank" rel="noopener noreferrer">
+								<i className={picto_slug_fontawesome} aria-hidden="true"></i>
+							</a>
+						);
+					}
+				})}
 		</SocialLogosStyled>
 	);
 }

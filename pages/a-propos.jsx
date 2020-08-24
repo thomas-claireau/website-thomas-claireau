@@ -1,51 +1,34 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
-import dynamic from 'next/dynamic';
 import Col from 'components/Col';
 import FetchingError from 'components/FetchingError';
 
-import JavascriptSVG from 'public/assets/img/javascript.svg';
-import WebpackSVG from 'public/assets/img/webpack.svg';
-import NodeJsSVG from 'public/assets/img/nodejs.svg';
-import ReactSVG from 'public/assets/img/reactjs.svg';
-import VueJsSVG from 'public/assets/img/vuejs.svg';
-import CssSVG from 'public/assets/img/css.svg';
-import SassSVG from 'public/assets/img/sass.svg';
-import BootstrapSVG from 'public/assets/img/bootstrap.svg';
-import PhpSVG from 'public/assets/img/php.svg';
-import WordpressSVG from 'public/assets/img/wordpress.svg';
-import SymfonySVG from 'public/assets/img/symfony.svg';
-
 function About({ fields }) {
-	const { API_URL } = process.env;
-	const { header, left, right } = fields;
+	// const { API_URL } = process.env;
+	// const { header, left, right } = fields;
 
-	if (!header || !left || !right) return <FetchingError />;
+	// if (!header || !left || !right) return <FetchingError />;
 
-	const { languages } = left;
-	const { description } = right;
+	// const { languages } = left;
+	// const { description } = right;
 
-	if (!languages || !description) return <FetchingError />;
+	// if (!languages || !description) return <FetchingError />;
 
-	console.log(description);
+	// const top = languages[0];
+	// const bottom = languages.filter((item, index) => index !== 0);
 
-	const top = languages[0];
-	const bottom = languages.filter((item, index) => index !== 0);
+	// if (!top || !bottom) return <FetchingError />;
 
-	if (!top || !bottom) return <FetchingError />;
-
-	const SEO = {
-		title: header.meta_title,
-		description: header.meta_description,
-		openGraph: {
-			title: header.meta_title,
-			description: header.meta_description,
-			url: 'https://thomas-claireau.fr/about',
-		},
-	};
-
-	const setLogos = function () {};
+	// const SEO = {
+	// 	title: header.meta_title,
+	// 	description: header.meta_description,
+	// 	openGraph: {
+	// 		title: header.meta_title,
+	// 		description: header.meta_description,
+	// 		url: 'https://thomas-claireau.fr/about',
+	// 	},
+	// };
 
 	const AboutStyled = styled.div`
 		> .left {
@@ -226,7 +209,7 @@ function About({ fields }) {
 
 	return (
 		<>
-			<NextSeo {...SEO} />
+			{/* <NextSeo {...SEO} />
 			<AboutStyled className="main-content">
 				<Col direction="left" align="center">
 					<div className="top">
@@ -270,22 +253,9 @@ function About({ fields }) {
 					</h1>
 					<div className="texte">{description}</div>
 				</Col>
-			</AboutStyled>
+			</AboutStyled> */}
 		</>
 	);
-}
-
-export async function getServerSideProps() {
-	const { API_URL } = process.env;
-
-	const res = await fetch(`${API_URL}/a-propos`);
-	const data = await res.json();
-
-	return {
-		props: {
-			fields: data,
-		},
-	};
 }
 
 export default About;

@@ -18,8 +18,6 @@ export default function BurgerMenu({ action, onClick }) {
 
 		&.open {
 			span {
-				background-color: ${(props) => props.theme.colors[theme.right]};
-
 				@media screen and (max-width: ${(props) =>
 						props.theme.breakpoints['break-large']}) {
 					background-color: ${(props) => props.theme.colors.light};

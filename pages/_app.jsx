@@ -1,44 +1,23 @@
-//lib
+import Router, { useRouter } from 'next/router';
+import { DefaultSeo } from 'next-seo';
+import Query from '../components/query';
+import GLOBAL_QUERY_APP from '../apollo/queries/global/_app';
+
+import { ApolloProvider } from '@apollo/react-hooks';
+import withData from '../utils/apollo';
+import { ThemeProvider } from 'emotion-theming';
 import 'font-awesome/css/font-awesome.min.css';
 // import 'swiper/swiper.scss';
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
-import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import Box from 'components/Box';
 import ContextWrapper from 'components/ContextWrapper';
-import Router, { useRouter } from 'next/router';
-import { AnimatePresence } from 'framer-motion';
-import { motion } from 'framer-motion';
-import { DefaultSeo } from 'next-seo';
-import fetch from 'isomorphic-unfetch';
-import FetchingError from 'components/FetchingError';
 
-function MyApp({ Component, pageProps, globalInformations }) {
+function MyApp({ Component, pageProps, apollo }) {
 	const router = useRouter();
-
-	const { meta_datas } = globalInformations;
-
-	if (!meta_datas) return <FetchingError />;
-
-	const { title, description, open_graph, twitter, canonical } = meta_datas;
-
-	const SEO = {
-		title,
-		description,
-		canonical,
-		openGraph: {
-			type: open_graph.type,
-			locale: open_graph.locale,
-			url: canonical,
-			title: title,
-			site_name: open_graph.site_name,
-		},
-		twitter: {
-			handle: twitter.handle,
-			cardType: twitter.card_type,
-		},
-	};
 
 	const colorScheme = {
 		'/': {
@@ -84,44 +63,38 @@ function MyApp({ Component, pageProps, globalInformations }) {
 	`;
 
 	return (
-		<>
-			<DefaultSeo {...SEO} />
-			<AnimatePresence exitBeforeEnter>
-				<ThemeProvider theme={theme}>
-					<GlobalStyles />
-					<ContextWrapper
-						colorScheme={colorScheme[router.pathname]}
-						globalInformations={globalInformations}
-					>
-						<RootStyled variants={stagger}>
-							<motion.div
-								initial="hidden"
-								animate="visible"
-								transition={{ duration: 0.2 }}
-								variants={variants}
-								id="app"
-							>
-								<Box>
-									<Component {...pageProps} />
-								</Box>
-							</motion.div>
-						</RootStyled>
-					</ContextWrapper>
-				</ThemeProvider>
-			</AnimatePresence>
-		</>
+		<ApolloProvider client={apollo}>
+			<Query query={GLOBAL_QUERY_APP} id={null}>
+				{({ data: { global } }) => {
+					return (
+						<>
+							<DefaultSeo {...global.meta_data} />
+							<AnimatePresence exitBeforeEnter>
+								<ThemeProvider theme={theme}>
+									<GlobalStyles />
+									<ContextWrapper colorScheme={colorScheme[router.pathname]}>
+										<RootStyled variants={stagger}>
+											<motion.div
+												initial="hidden"
+												animate="visible"
+												transition={{ duration: 0.2 }}
+												variants={variants}
+												id="app"
+											>
+												<Box>
+													<Component {...pageProps} />
+												</Box>
+											</motion.div>
+										</RootStyled>
+									</ContextWrapper>
+								</ThemeProvider>
+							</AnimatePresence>
+						</>
+					);
+				}}
+			</Query>
+		</ApolloProvider>
 	);
 }
 
-MyApp.getInitialProps = async () => {
-	const { API_URL } = process.env;
-
-	const res = await fetch(`${API_URL}/global-informations`);
-	const data = await res.json();
-
-	return {
-		globalInformations: data ? data : null,
-	};
-};
-
-export default MyApp;
+export default withData(MyApp);
