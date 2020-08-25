@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
 								>
 									<RootStyled id="app">
 										<Box>
-											<Component {...pageProps} />
+											<Component {...pageProps} key={router.route} />
 										</Box>
 									</RootStyled>
 								</ContextWrapper>

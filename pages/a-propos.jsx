@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import A_PROPOS_QUERY from '../apollo/queries/a-propos';
 import { setParagraph } from 'utils/editor.js';
 import Svg from 'utils/svg';
+import { motion } from 'framer-motion';
 
 import Col from 'components/Col';
 import Query from 'components/Query';
@@ -219,6 +220,16 @@ function About() {
 		}
 	`;
 
+	const toTop = {
+		hidden: { opacity: 0, y: '-100%' },
+		visible: { opacity: 1, y: 0 },
+	};
+
+	const toBottom = {
+		hidden: { opacity: 0, y: '100%' },
+		visible: { opacity: 1, y: 0 },
+	};
+
 	return (
 		<Query query={A_PROPOS_QUERY} id={null}>
 			{({ data }) => {
@@ -242,29 +253,47 @@ function About() {
 						<NextSeo {...SEO} />
 						<AboutStyled className="main-content">
 							<Col direction="left" align="center">
-								<div className="top">
+								<motion.div
+									className="top"
+									variants={toTop}
+									initial="hidden"
+									animate="visible"
+								>
 									<Logos obj={top} />
-								</div>
-								<div className="bottom">
+								</motion.div>
+								<motion.div
+									className="bottom"
+									variants={toTop}
+									initial="hidden"
+									animate="visible"
+								>
 									<div className="left">
 										<Logos obj={bottom[0]} />
 									</div>
 									<div className="right">
 										<Logos obj={bottom[1]} />
 									</div>
-								</div>
+								</motion.div>
 							</Col>
 							<Col direction="right" align="flex-start">
-								<h1 className="--uppercase">
+								<motion.h1
+									className="--uppercase"
+									variants={toBottom}
+									initial="hidden"
+									animate="visible"
+								>
 									<span className="--hide">Thomas Claireau</span>
 									<span>{about.header.title}</span>
-								</h1>
-								<div
+								</motion.h1>
+								<motion.div
 									className="texte"
 									dangerouslySetInnerHTML={{
 										__html: setParagraph(about.right_content.description),
 									}}
-								></div>
+									variants={toBottom}
+									initial="hidden"
+									animate="visible"
+								></motion.div>
 							</Col>
 						</AboutStyled>
 					</>

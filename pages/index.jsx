@@ -1,6 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import INDEX_QUERY from '../apollo/queries/index';
+import { motion } from 'framer-motion';
 
 import styled from '@emotion/styled';
 
@@ -15,6 +16,7 @@ function Home() {
 		width: 100%;
 		height: 100%;
 		display: flex;
+		overflow: hidden;
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			flex-direction: column;

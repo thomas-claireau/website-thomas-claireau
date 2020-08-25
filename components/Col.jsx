@@ -23,7 +23,7 @@ export default function Col({ direction, align, children }) {
 		`;
 
 		variants = {
-			hidden: { x: direction == 'left' ? -2000 : 2000 },
+			hidden: { x: direction == 'left' ? '-50%' : '50%' },
 			visible: { x: 0 },
 		};
 	} else {
@@ -53,7 +53,12 @@ export default function Col({ direction, align, children }) {
 	`;
 
 	return (
-		<ColStyled className={`${direction}`}>
+		<ColStyled
+			className={`${direction}`}
+			variants={variants}
+			initial="hidden"
+			animate="visible"
+		>
 			{children}
 			{direction == 'left' && <Menu space={space} className="desktop" />}
 		</ColStyled>
