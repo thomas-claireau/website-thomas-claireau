@@ -16,6 +16,7 @@ const A_PROPOS_QUERY = gql`
 						url
 					}
 					others_images {
+						id
 						name
 						url
 					}

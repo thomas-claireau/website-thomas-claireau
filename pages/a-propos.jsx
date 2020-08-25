@@ -4,22 +4,27 @@ import { NextSeo } from 'next-seo';
 import dynamic from 'next/dynamic';
 import A_PROPOS_QUERY from '../apollo/queries/a-propos';
 import { setParagraph } from 'utils/editor.js';
+import Svg from 'utils/svg';
 
 import Col from 'components/Col';
 import Query from 'components/Query';
 
-function test(obj) {
+function Logos({ obj }) {
 	const images = {
-		main: obj.main_image.url,
+		main: <Svg url={obj.main_image.url} />,
 		others: [...obj.others_images],
 	};
 
-	console.log(images);
-
 	return (
 		<>
-			<div className="parent"></div>
-			<div className="childrens"></div>
+			<div className="parent">
+				<Svg url={obj.main_image.url} />
+			</div>
+			<div className="childrens">
+				{obj.others_images.map((item) => {
+					return <Svg key={item.id} url={item.url} />;
+				})}
+			</div>
 		</>
 	);
 }
@@ -38,7 +43,7 @@ function About() {
 			}
 
 			div {
-				width: 100%;
+				width: fit-content;
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -68,6 +73,21 @@ function About() {
 							props.theme.breakpoints['break-large']}) {
 						margin-top: 20px;
 						flex-direction: column;
+					}
+
+					> .right {
+						margin-left: 100px;
+
+						@media screen and (max-width: ${(props) =>
+								props.theme.breakpoints['break-large']}) {
+							margin-left: 0px;
+						}
+					}
+				}
+
+				&.top {
+					> div {
+						flex-direction: row;
 					}
 				}
 
@@ -130,6 +150,12 @@ function About() {
 					margin-top: 0px;
 				}
 
+				.svg-container {
+					&:not(:first-of-type) {
+						margin-left: 20px;
+					}
+				}
+
 				svg {
 					width: auto;
 					min-height: 60px;
@@ -158,10 +184,6 @@ function About() {
 					&:hover {
 						filter: grayscale(0%);
 						transition: all 0.3s ease-in-out;
-					}
-
-					&:not(:first-of-type) {
-						margin-left: 20px;
 					}
 				}
 			}
@@ -211,11 +233,6 @@ function About() {
 				const top = languages[0];
 				const bottom = languages.filter((item, index) => index !== 0);
 
-				// console.log(top);
-				// console.log(bottom);
-
-				test(top);
-
 				const SEO = {
 					title: about.header.meta_title,
 					description: about.header.meta_description,
@@ -231,30 +248,14 @@ function About() {
 						<AboutStyled className="main-content">
 							<Col direction="left" align="center">
 								<div className="top">
-									<div>
-										<div className="parent">{/* <JavascriptSVG /> */}</div>
-										<div className="childrens">
-											{/* <WebpackSVG />
-								<NodeJsSVG />
-								<ReactSVG />
-								<VueJsSVG /> */}
-										</div>
-									</div>
+									<Logos obj={top} />
 								</div>
 								<div className="bottom">
 									<div className="left">
-										<div className="parent">{/* <CssSVG /> */}</div>
-										<div className="childrens">
-											{/* <SassSVG />
-								<BootstrapSVG /> */}
-										</div>
+										<Logos obj={bottom[0]} />
 									</div>
 									<div className="right">
-										<div className="parent">{/* <PhpSVG /> */}</div>
-										<div className="childrens">
-											{/* <WordpressSVG />
-								<SymfonySVG /> */}
-										</div>
+										<Logos obj={bottom[1]} />
 									</div>
 								</div>
 							</Col>
