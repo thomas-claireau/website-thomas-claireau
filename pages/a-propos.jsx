@@ -10,11 +10,6 @@ import Col from 'components/Col';
 import Query from 'components/Query';
 
 function Logos({ obj }) {
-	const images = {
-		main: <Svg url={obj.main_image.url} />,
-		others: [...obj.others_images],
-	};
-
 	return (
 		<>
 			<div className="parent">

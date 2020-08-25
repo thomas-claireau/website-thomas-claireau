@@ -52,13 +52,7 @@ export default function Col({ direction, align, children }) {
 	`;
 
 	return (
-		<ColStyled
-			variants={variants}
-			initial="hidden"
-			animate="visible"
-			transition={{ ease: 'easeOut', duration: 0.4 }}
-			className={`${direction}`}
-		>
+		<ColStyled className={`${direction}`}>
 			{children}
 			{direction == 'left' && <Menu space={space} className="desktop" />}
 		</ColStyled>

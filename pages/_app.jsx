@@ -6,7 +6,6 @@ import styled from '@emotion/styled';
 import 'font-awesome/css/font-awesome.min.css';
 import 'swiper/swiper.scss';
 import { AnimatePresence } from 'framer-motion';
-import { motion } from 'framer-motion';
 
 import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
 import Box from 'components/Box';

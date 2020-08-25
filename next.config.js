@@ -1,6 +1,8 @@
 const path = require('path');
+const withReactSvg = require('next-react-svg');
 
-module.exports = {
+module.exports = withReactSvg({
+	include: path.resolve(__dirname, 'public/assets/img'),
 	webpack(config) {
 		config.resolve.alias['components'] = path.join(__dirname, 'components');
 		config.resolve.alias['public'] = path.join(__dirname, 'public');
@@ -13,4 +15,4 @@ module.exports = {
 	env: {
 		API_URL: process.env.API_URL,
 	},
-};
+});
