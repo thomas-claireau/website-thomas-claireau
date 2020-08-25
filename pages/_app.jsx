@@ -31,30 +31,7 @@ function MyApp({ Component, pageProps }) {
 		},
 	};
 
-	const stagger = {
-		animate: {
-			transition: {
-				staggerChildren: 0.1,
-			},
-		},
-	};
-
-	const variants = {
-		hidden: {
-			paddingTop: 0,
-			paddingBottom: 0,
-			paddingLeft: 0,
-			paddingRight: 0,
-		},
-		visible: {
-			paddingTop: 45,
-			paddingRight: 55,
-			paddingBottom: 45,
-			paddingLeft: 55,
-		},
-	};
-
-	const RootStyled = styled(motion.div)`
+	const RootStyled = styled.div`
 		width: 100%;
 		height: 100%;
 	`;
@@ -72,18 +49,10 @@ function MyApp({ Component, pageProps }) {
 									colorScheme={colorScheme[router.pathname]}
 									global={data.global}
 								>
-									<RootStyled variants={stagger}>
-										<motion.div
-											initial="hidden"
-											animate="visible"
-											transition={{ duration: 0.2 }}
-											variants={variants}
-											id="app"
-										>
-											<Box>
-												<Component {...pageProps} />
-											</Box>
-										</motion.div>
+									<RootStyled id="app">
+										<Box>
+											<Component {...pageProps} />
+										</Box>
 									</RootStyled>
 								</ContextWrapper>
 							</ThemeProvider>
