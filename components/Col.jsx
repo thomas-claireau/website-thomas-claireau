@@ -5,7 +5,7 @@ import { css } from '@emotion/core';
 import { motion } from 'framer-motion';
 
 import Menu from './Menu';
-import BoxContext from '../contexts/BoxContext';
+import BoxContext from 'contexts/BoxContext';
 
 export default function Col({ direction, align, children }) {
 	const router = useRouter();

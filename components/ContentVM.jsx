@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import Container from 'components/Container';
 import MenuBottom from 'components/MenuBottom';
 
 export default function ContentVM({ children }) {

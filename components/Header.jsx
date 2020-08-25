@@ -1,20 +1,16 @@
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
-import SocialLogos from './SocialLogos';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
-import BoxContext from '../contexts/BoxContext';
+
+import BoxContext from 'contexts/BoxContext';
+import SocialLogos from './SocialLogos';
 
 export default function Header() {
 	const router = useRouter();
-	const { global_informations } = useContext(BoxContext);
-	// const { title_box, social_logo, contact_email, contact_label } = global_informations;
-
-	const title_box = false;
-	const social_logo = false;
-	const contact_email = false;
-	const contact_label = false;
+	const { global } = useContext(BoxContext);
+	const { title_box, social_logo, contact_email, contact_label } = global;
 
 	const HeaderStyled = styled.header`
 		width: 100%;

@@ -6,8 +6,8 @@ import Link from 'next/link';
 import Container from 'components/Container';
 
 export default function SliderWorks({ data }) {
-	const { API_URL } = process.env;
-	const { title, view_all_label, view_all_link, slide_work } = data;
+	const { title, view_all_label, view_all_link, projet_relation: projets } = data;
+
 	SwiperCore.use([Autoplay]);
 
 	const breakpoints = {
@@ -88,14 +88,16 @@ export default function SliderWorks({ data }) {
 					disableOnInteraction: false,
 				}}
 			>
-				{slide_work.map((item) => {
-					const { id, MainImage: main_image } = item.projet;
+				{projets.map(({ projet }) => {
+					const { id, main_image } = projet;
+
+					if (!id || !main_image) return;
 
 					return (
 						<SwiperSlide key={id}>
 							<Link href={`${view_all_link}/${id}`}>
 								<a>
-									<img src={API_URL + main_image.url} />
+									<img src={main_image.url} />
 								</a>
 							</Link>
 						</SwiperSlide>

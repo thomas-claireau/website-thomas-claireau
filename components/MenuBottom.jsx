@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
 import Link from 'next/link';
 import { useContext } from 'react';
-import BoxContext from '../contexts/BoxContext';
 
-export default function MenuBottom({ children }) {
-	const { global_informations } = useContext(BoxContext);
-	const { menu_bottom_mobile: menu } = global_informations;
+import BoxContext from 'contexts/BoxContext';
+
+function MenuBottom({ children }) {
+	const { global } = useContext(BoxContext);
 
 	const MenuBottomStyled = styled.div`
 		width: 100%;
@@ -45,22 +45,25 @@ export default function MenuBottom({ children }) {
 					}
 				`}
 			/>
-			{menu.map((item) => {
-				const { id, label, link, picto_fontawesome: picto, interne_link } = item;
-				return interne_link ? (
-					<Link key={id} href={link}>
-						<a>
+			{global.menu_bottom_mobile &&
+				global.menu_bottom_mobile.map((item) => {
+					const { id, label, link, slug_picto_fontawesome: picto, interne_link } = item;
+					return interne_link ? (
+						<Link key={id} href={link}>
+							<a>
+								<i className={picto} aria-hidden="true"></i>
+								{label}
+							</a>
+						</Link>
+					) : (
+						<a key={id} href={link}>
 							<i className={picto} aria-hidden="true"></i>
 							{label}
 						</a>
-					</Link>
-				) : (
-					<a key={id} href={link}>
-						<i className={picto} aria-hidden="true"></i>
-						{label}
-					</a>
-				);
-			})}
+					);
+				})}
 		</MenuBottomStyled>
 	);
 }
+
+export default MenuBottom;

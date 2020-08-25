@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
 import Col from 'components/Col';
-import FetchingError from 'components/FetchingError';
 
 function About({ fields }) {
 	// const { API_URL } = process.env;

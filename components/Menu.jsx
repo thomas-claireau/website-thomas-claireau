@@ -1,13 +1,12 @@
-import Query from 'components/Query';
-import MENU_QUERY from '../apollo/queries/global/menu';
 import { useContext } from 'react';
 import styled from '@emotion/styled';
-import BoxContext from '../contexts/BoxContext';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export default function Menu({ space, className }) {
-	const { theme } = useContext(BoxContext);
+import BoxContext from 'contexts/BoxContext';
+
+function Menu({ space, className }) {
+	const { theme, global } = useContext(BoxContext);
 
 	const router = useRouter();
 
@@ -89,33 +88,25 @@ export default function Menu({ space, className }) {
 	`;
 
 	return (
-		<Query query={MENU_QUERY} id={null}>
-			{({ data: { global } }) => {
-				return (
-					<MenuStyled space={space} className={className}>
-						<ul>
-							{global.menu &&
-								global.menu.map((item) => {
-									const { id, label, link } = item;
+		<MenuStyled space={space} className={className}>
+			<ul>
+				{global.item_menu_desktop &&
+					global.item_menu_desktop.map((item) => {
+						const { id, label, link } = item;
 
-									return (
-										<li key={id}>
-											<Link href={link}>
-												<a
-													className={
-														router.pathname === link ? 'active' : ''
-													}
-												>
-													{label}
-												</a>
-											</Link>
-										</li>
-									);
-								})}
-						</ul>
-					</MenuStyled>
-				);
-			}}
-		</Query>
+						return (
+							<li key={id}>
+								<Link href={link}>
+									<a className={router.pathname === link ? 'active' : ''}>
+										{label}
+									</a>
+								</Link>
+							</li>
+						);
+					})}
+			</ul>
+		</MenuStyled>
 	);
 }
+
+export default Menu;

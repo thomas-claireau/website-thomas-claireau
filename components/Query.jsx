@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
+import { withApollo } from '../libs/apollo';
 
 const Query = ({ children, query, id }) => {
 	const { data, loading, error } = useQuery(query, {
@@ -13,4 +14,4 @@ const Query = ({ children, query, id }) => {
 	return children({ data });
 };
 
-export default Query;
+export default withApollo({ ssr: true })(Query);

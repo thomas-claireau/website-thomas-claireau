@@ -1,10 +1,6 @@
-import { useContext } from 'react';
 import styled from '@emotion/styled';
-import BoxContext from '../contexts/BoxContext';
 
 export default function BurgerMenu({ action, onClick }) {
-	const { theme } = useContext(BoxContext);
-
 	const handleClick = function (e) {
 		onClick();
 	};

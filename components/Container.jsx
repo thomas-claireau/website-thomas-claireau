@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { useRouter } from 'next/router';
 
 export default function Container({ children }) {
 	const ContainerStyled = styled.section`

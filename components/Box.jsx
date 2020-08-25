@@ -1,9 +1,10 @@
+import Router from 'next/router';
 import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
+
 import Header from 'components/Header';
 import HeaderVM from 'components/HeaderVM';
 import MenuVM from 'components/MenuVM';
-import Router from 'next/router';
 
 export default function Box({ children }) {
 	const [menu, setMenu] = useState(false);

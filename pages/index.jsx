@@ -4,13 +4,13 @@ import INDEX_QUERY from '../apollo/queries/index';
 
 import styled from '@emotion/styled';
 
-import Query from 'components/Query';
 import Container from 'components/Container';
 import Col from 'components/Col';
 import ContentVM from 'components/ContentVM';
 import SliderWorks from 'components/SliderWorks';
+import Query from 'components/Query';
 
-function Home({ fields }) {
+function Home() {
 	const HomeStyled = styled.div`
 		width: 100%;
 		height: 100%;
@@ -48,7 +48,9 @@ function Home({ fields }) {
 
 	return (
 		<Query query={INDEX_QUERY} id={null}>
-			{({ data: { accueil } }) => {
+			{({ data }) => {
+				const accueil = data.accueil;
+
 				const SEO = {
 					title: accueil.header.meta_title,
 					description: accueil.header.meta_description,
@@ -75,12 +77,12 @@ function Home({ fields }) {
 									<span>{accueil.titre_bas_droite}</span>
 								</div>
 							</Col>
-							{/* <ContentVM>
+							<ContentVM>
 								<Container>
 									<h1>{accueil.titre_mobile}</h1>
 								</Container>
 								<SliderWorks data={accueil.slide_work}></SliderWorks>
-							</ContentVM> */}
+							</ContentVM>
 						</HomeStyled>
 					</>
 				);
