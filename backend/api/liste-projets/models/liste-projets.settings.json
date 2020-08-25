@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "liste_projets",
+  "info": {
+    "name": "Liste projets"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.header"
+    }
+  }
+}
