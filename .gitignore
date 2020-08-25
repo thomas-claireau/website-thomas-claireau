@@ -4,6 +4,7 @@
 *.zip
 deploy.md
 deploy_key
+yarn.lock
 
 public/assets/img/languages-icon
 
