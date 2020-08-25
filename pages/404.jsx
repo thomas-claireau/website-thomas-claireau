@@ -15,6 +15,7 @@ export default function Custom404() {
 		}
 
 		.title {
+			width: 100%;
 			display: flex;
 			flex-direction: column;
 
