@@ -8,6 +8,7 @@ module.exports = withReactSvg({
 		config.resolve.alias['public'] = path.join(__dirname, 'public');
 		config.resolve.alias['node_modules'] = path.join(__dirname, 'node_modules');
 		config.resolve.alias['contexts'] = path.join(__dirname, 'contexts');
+		config.resolve.alias['utils'] = path.join(__dirname, 'utils');
 
 		return config;
 	},

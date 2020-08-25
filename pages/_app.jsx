@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }) {
 			left: 'dark',
 			right: 'light',
 		},
-		'/about': {
+		'/a-propos': {
 			left: 'light',
 			right: 'dark',
 		},
