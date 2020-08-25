@@ -1,6 +1,7 @@
 import Router from 'next/router';
 import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
+import { Global, css } from '@emotion/core';
 
 import Header from 'components/Header';
 import HeaderVM from 'components/HeaderVM';
@@ -42,7 +43,7 @@ export default function Box({ children }) {
 		position: relative;
 		box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.35);
 
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-small']}) {
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			box-shadow: none;
 		}
 
@@ -62,6 +63,17 @@ export default function Box({ children }) {
 
 	return (
 		<BoxStyled className={`box`}>
+			<Global
+				styles={css`
+					#app {
+						&.--menu-open {
+							.box {
+								box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.35);
+							}
+						}
+					}
+				`}
+			/>
 			<Header />
 			<HeaderVM onClick={handleClick} />
 			{menu && <MenuVM onClick={handleClick} />}

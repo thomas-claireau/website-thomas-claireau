@@ -20,7 +20,7 @@ function Home() {
 			flex-direction: column;
 		}
 
-		.title {
+		> div > .title {
 			display: flex;
 			flex-direction: column;
 
@@ -44,11 +44,25 @@ function Home() {
 				align-items: flex-end;
 			}
 		}
+
+		.description {
+			margin-top: 50px;
+			font-size: 20px;
+			font-weight: 300;
+
+			&.left {
+				margin-right: 7px;
+			}
+
+			&.right {
+				margin-left: 5px;
+			}
+		}
 	`;
 
 	return (
 		<Query query={INDEX_QUERY} id={null}>
-			{({ data }) => {
+			{({ data, loading }) => {
 				const accueil = data.accueil;
 
 				const SEO = {
@@ -64,22 +78,29 @@ function Home() {
 					<>
 						<NextSeo {...SEO} />
 						<HomeStyled>
-							<Col direction="left" bg="--bg-dark" align="center">
+							<Col direction="left" bg="--bg-dark" align="flex-end">
 								<h1 className="--hide">{accueil.titre_mobile}</h1>
 								<div className="title h1 left --light desktop">
 									<span>{accueil.titre_haut_gauche}</span>
 									<span>{accueil.titre_bas_gauche}</span>
 								</div>
+								<p className="description left --light">
+									{accueil.description_gauche}
+								</p>
 							</Col>
-							<Col direction="right" bg="--bg-light" align="center">
+							<Col direction="right" bg="--bg-light" align="flex-start">
 								<div className="title h1 --dark desktop">
 									<span>{accueil.titre_haut_droite}</span>
 									<span>{accueil.titre_bas_droite}</span>
 								</div>
+								<p className="description right --dark">
+									{accueil.description_droite}
+								</p>
 							</Col>
 							<ContentVM>
 								<Container>
 									<h1>{accueil.titre_mobile}</h1>
+									<p className="--light">{accueil.header.meta_description}</p>
 								</Container>
 								<SliderWorks data={accueil.slide_work}></SliderWorks>
 							</ContentVM>

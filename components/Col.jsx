@@ -37,8 +37,9 @@ export default function Col({ direction, align, children }) {
 		width: 100%;
 		height: 100%;
 		display: flex;
-		justify-content: ${!isHome ? 'center' : direction == 'left' ? 'flex-end' : 'flex-start'};
+		justify-content: center;
 		align-items: ${align};
+		flex-direction: ${isHome ? 'column' : 'row'};
 		position: relative;
 		padding-top: ${space};
 		padding-bottom: ${space};

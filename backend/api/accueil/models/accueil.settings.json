@@ -33,6 +33,12 @@
     },
     "titre_mobile": {
       "type": "string"
+    },
+    "description_gauche": {
+      "type": "text"
+    },
+    "description_droite": {
+      "type": "text"
     }
   }
 }

@@ -7,6 +7,8 @@ const INDEX_QUERY = gql`
 			titre_haut_droite
 			titre_bas_gauche
 			titre_bas_droite
+			description_gauche
+			description_droite
 			titre_mobile
 			header {
 				title

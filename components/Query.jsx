@@ -14,7 +14,7 @@ const Query = ({ children, query, id }) => {
 
 	if (error) return <Error error={error} />;
 
-	return children({ data });
+	return children({ data, loading });
 };
 
 export default withApollo({ ssr: true })(Query);
