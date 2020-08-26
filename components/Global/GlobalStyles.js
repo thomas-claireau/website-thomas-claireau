@@ -26,6 +26,10 @@ const GlobalStyles = () => (
 		<Modifier />
 		<Global
 			styles={css`
+				:root {
+					--swiper-theme-color: ${theme.colors.dark};
+				}
+
 				body {
 					width: 100vw;
 					height: 100vh;

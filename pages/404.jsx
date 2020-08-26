@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Head from 'next/head';
-import Container from 'components/Container';
-import Col from 'components/Col';
+import Container from 'components/Global/Layout/Container';
+import Col from 'components/Global/Layout/Col';
 
 export default function Custom404() {
 	const NotFoundStyled = styled.div`

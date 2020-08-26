@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import MenuBottom from 'components/MenuBottom';
+import MenuBottom from 'components/Global/Menus/MenuBottom';
 
 export default function ContentVM({ children }) {
 	const ContentVMStyled = styled.div`

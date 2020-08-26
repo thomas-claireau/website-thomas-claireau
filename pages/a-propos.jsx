@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
-import dynamic from 'next/dynamic';
 import A_PROPOS_QUERY from '../apollo/queries/a-propos';
 import { setParagraph } from 'utils/editor.js';
 import Svg from 'utils/svg';
 import { motion } from 'framer-motion';
 
-import Col from 'components/Col';
-import Query from 'components/Query';
+import Col from 'components/Global/Layout/Col';
+import Query from 'components/Global/Query';
 
 function Logos({ obj }) {
 	return (

@@ -3,14 +3,16 @@ import { DefaultSeo } from 'next-seo';
 import GLOBAL_QUERY_APP from '../apollo/queries/_app';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
+import { AnimatePresence } from 'framer-motion';
 import 'font-awesome/css/font-awesome.min.css';
 import 'swiper/swiper.scss';
-import { AnimatePresence } from 'framer-motion';
+import 'swiper/components/effect-fade/effect-fade.scss';
+import 'swiper/components/pagination/pagination.scss';
 
-import { theme, GlobalStyles } from 'components/GlobalStyles/GlobalStyles';
-import Box from 'components/Box';
-import ContextWrapper from 'components/ContextWrapper';
-import Query from 'components/Query';
+import { theme, GlobalStyles } from 'components/Global/GlobalStyles';
+import Box from 'components/Global/Layout/Box';
+import ContextWrapper from 'components/Global/ContextWrapper';
+import Query from 'components/Global/Query';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
@@ -23,6 +25,10 @@ function MyApp({ Component, pageProps }) {
 		'/a-propos': {
 			left: 'light',
 			right: 'dark',
+		},
+		'/projets': {
+			left: 'dark',
+			right: 'light',
 		},
 		'/404': {
 			left: 'dark',

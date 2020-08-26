@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useContext } from 'react';
 
 import BoxContext from 'contexts/BoxContext';
-import SocialLogos from './SocialLogos';
+import SocialLogos from 'components/Global/SocialLogos';
 
 export default function Header() {
 	const router = useRouter();

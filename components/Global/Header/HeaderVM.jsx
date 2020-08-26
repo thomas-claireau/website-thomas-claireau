@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
 
-import BurgerMenu from './BurgerMenu';
+import BurgerMenu from 'components/Global/Menus/BurgerMenu';
 
 export default function HeaderVM({ onClick }) {
 	const router = useRouter();

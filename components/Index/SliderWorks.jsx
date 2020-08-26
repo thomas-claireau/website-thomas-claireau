@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 import Link from 'next/link';
 
-import Container from 'components/Container';
+import Container from 'components/Global/Layout/Container';
 
 export default function SliderWorks({ data }) {
 	const { title, view_all_label, view_all_link, projet_relation: projets } = data;

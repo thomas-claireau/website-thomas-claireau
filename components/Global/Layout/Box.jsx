@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { Global, css } from '@emotion/core';
 
-import Header from 'components/Header';
-import HeaderVM from 'components/HeaderVM';
-import MenuVM from 'components/MenuVM';
+import Header from 'components/Global/Header/Header';
+import HeaderVM from 'components/Global/Header/HeaderVM';
+import MenuVM from 'components/Global/Menus/MenuVM';
 
 export default function Box({ children }) {
 	const [menu, setMenu] = useState(false);

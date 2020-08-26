@@ -1,15 +1,14 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import INDEX_QUERY from '../apollo/queries/index';
-import { motion } from 'framer-motion';
 
 import styled from '@emotion/styled';
 
-import Container from 'components/Container';
-import Col from 'components/Col';
-import ContentVM from 'components/ContentVM';
-import SliderWorks from 'components/SliderWorks';
-import Query from 'components/Query';
+import Container from 'components/Global/Layout/Container';
+import Col from 'components/Global/Layout/Col';
+import ContentVM from 'components/Global/Layout/ContentVM';
+import SliderWorks from 'components/Index/SliderWorks';
+import Query from 'components/Global/Query';
 
 function Home() {
 	const HomeStyled = styled.div`

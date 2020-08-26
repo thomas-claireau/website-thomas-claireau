@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { useContext } from 'react';
 
-import SocialLogos from './SocialLogos';
-import BurgerMenu from './BurgerMenu';
-import Menu from './Menu';
+import SocialLogos from 'components/Global/SocialLogos';
+import BurgerMenu from 'components/Global/Menus/BurgerMenu';
+import Menu from 'components/Global/Menus/Menu';
 import BoxContext from 'contexts/BoxContext';
 
 export default function MenuVM({ onClick }) {

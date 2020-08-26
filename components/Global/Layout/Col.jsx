@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { motion } from 'framer-motion';
 
-import Menu from './Menu';
+import Menu from 'components/Global/Menus/Menu';
 import BoxContext from 'contexts/BoxContext';
 
 export default function Col({ direction, align, children }) {
@@ -36,7 +36,7 @@ export default function Col({ direction, align, children }) {
 	const ColStyled = styled(motion.div)`
 		width: 100%;
 		height: 100%;
-		display: flex!important;
+		display: flex !important;
 		justify-content: center;
 		align-items: ${align};
 		flex-direction: ${isHome ? 'column' : 'row'};
@@ -45,7 +45,8 @@ export default function Col({ direction, align, children }) {
 		padding-bottom: ${space};
 		${padding}
 		${!isHome ? 'flex-direction: column;' : ''}
-		background-color: ${(props) => props.theme.colors[theme]};
+		background-color: ${(props) =>
+			props.theme.colors[theme]};
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			display: none !important;
