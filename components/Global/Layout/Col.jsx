@@ -49,7 +49,7 @@ export default function Col({ direction, align, children }) {
 			props.theme.colors[theme]};
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			display: none !important;
+			${isHome ? 'display: none !important;' : ''}
 		}
 	`;
 
