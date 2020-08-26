@@ -10,7 +10,7 @@ function MenuBottom({ children }) {
 
 	const MenuBottomStyled = styled.div`
 		width: 100%;
-		display: flex;
+		display: none;
 		justify-content: space-between;
 		align-items: center;
 		position: fixed;
@@ -19,6 +19,11 @@ function MenuBottom({ children }) {
 		padding: 15px 20px;
 		background-color: ${(props) => props.theme.colors.light};
 		z-index: 10000;
+		box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.2);
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			display: flex;
+		}
 
 		a {
 			display: flex;
