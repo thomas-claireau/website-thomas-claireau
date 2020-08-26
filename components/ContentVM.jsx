@@ -13,6 +13,7 @@ export default function ContentVM({ children }) {
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			display: flex;
+			margin: 300px 0 150px 0;
 		}
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {

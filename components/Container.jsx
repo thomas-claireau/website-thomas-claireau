@@ -14,6 +14,7 @@ export default function Container({ children, ...props }) {
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
 			padding-right: 10px;
 			padding-left: 10px;
+			padding-bottom: 30px;
 		}
 	`;
 

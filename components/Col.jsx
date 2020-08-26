@@ -36,7 +36,7 @@ export default function Col({ direction, align, children }) {
 	const ColStyled = styled(motion.div)`
 		width: 100%;
 		height: 100%;
-		display: flex;
+		display: flex!important;
 		justify-content: center;
 		align-items: ${align};
 		flex-direction: ${isHome ? 'column' : 'row'};
