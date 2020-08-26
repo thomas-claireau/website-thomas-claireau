@@ -6,14 +6,13 @@ export default function ContentVM({ children }) {
 		width: 100%;
 		height: 100%;
 		display: none;
-		justify-content: flex-start;
-		align-items: flex-start;
+		justify-content: center;
+		align-items: center;
 		flex-direction: column;
 		margin: 170px 0 150px 0;
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			display: flex;
-			margin: 300px 0 150px 0;
 		}
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {

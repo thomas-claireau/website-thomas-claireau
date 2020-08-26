@@ -21,7 +21,6 @@ export default function SliderWorks({ data }) {
 
 	const SliderWorksStyled = styled.div`
 		width: 100%;
-		height: 100%;
 		display: flex;
 		justify-content: flex-start;
 		align-items: flex-start;
@@ -49,7 +48,7 @@ export default function SliderWorks({ data }) {
 
 		.swiper-container {
 			width: 100%;
-			height: 40vh;
+			height: 100%;
 			margin-top: 20px;
 
 			.swiper-wrapper {
