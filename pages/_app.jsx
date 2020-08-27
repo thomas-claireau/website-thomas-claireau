@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { DefaultSeo } from 'next-seo';
-import { useQuery } from '@apollo/react-hooks';
+import { ApolloProvider, useQuery } from '@apollo/react-hooks';
+import client from '../apolloClient';
 import { withApollo } from 'libs/apollo';
 import GLOBAL_QUERY_APP from '../apollo/queries/_app';
 import { ThemeProvider } from 'emotion-theming';
@@ -51,6 +52,7 @@ function MyApp({ Component, pageProps }) {
 	if (error) return <Error error={error} />;
 
 	return (
+		// <ApolloProvider client={client}>
 		<>
 			<DefaultSeo {...data.global.meta_data} />
 			<AnimatePresence exitBeforeEnter>
@@ -66,7 +68,8 @@ function MyApp({ Component, pageProps }) {
 				</ThemeProvider>
 			</AnimatePresence>
 		</>
+		// </ApolloProvider>
 	);
 }
 
-export default withApollo({ ssr: true })(MyApp);
+export default withApollo()(MyApp);
