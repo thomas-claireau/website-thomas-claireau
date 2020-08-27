@@ -48,7 +48,7 @@ function Menu({ space, className }) {
 
 					a {
 						color: ${(props) => props.theme.colors.dark};
-						font-weight: bold;
+						font-weight: 500;
 
 						&.active {
 							&:before {
@@ -77,6 +77,7 @@ function Menu({ space, className }) {
 
 				a {
 					color: ${(props) => props.theme.colors[theme.right]};
+					font-weight: 600;
 
 					&.active {
 						position: relative;
