@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
 import { DefaultSeo } from 'next-seo';
+import { useQuery } from '@apollo/react-hooks';
+import { withApollo } from 'libs/apollo';
 import GLOBAL_QUERY_APP from '../apollo/queries/_app';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
@@ -12,7 +14,8 @@ import 'swiper/components/pagination/pagination.scss';
 import { theme, GlobalStyles } from 'components/Global/GlobalStyles';
 import Box from 'components/Global/Layout/Box';
 import ContextWrapper from 'components/Global/ContextWrapper';
-import Query from 'components/Global/Query';
+import { Loading } from 'components/Global/Loading';
+import { Error } from 'components/Global/Error';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
@@ -41,32 +44,29 @@ function MyApp({ Component, pageProps }) {
 		height: 100%;
 	`;
 
+	const { data, loading, error } = useQuery(GLOBAL_QUERY_APP);
+
+	if (loading) return <Loading />;
+
+	if (error) return <Error error={error} />;
+
 	return (
-		<Query query={GLOBAL_QUERY_APP} id={null}>
-			{({ data }) => {
-				return (
-					<>
-						<DefaultSeo {...data.global.meta_data} />
-						<AnimatePresence exitBeforeEnter>
-							<ThemeProvider theme={theme}>
-								<GlobalStyles />
-								<ContextWrapper
-									colorScheme={colorScheme[router.pathname]}
-									global={data.global}
-								>
-									<RootStyled id="app">
-										<Box>
-											<Component {...pageProps} key={router.route} />
-										</Box>
-									</RootStyled>
-								</ContextWrapper>
-							</ThemeProvider>
-						</AnimatePresence>
-					</>
-				);
-			}}
-		</Query>
+		<>
+			<DefaultSeo {...data.global.meta_data} />
+			<AnimatePresence exitBeforeEnter>
+				<ThemeProvider theme={theme}>
+					<GlobalStyles />
+					<ContextWrapper colorScheme={colorScheme[router.pathname]} global={data.global}>
+						<RootStyled id="app">
+							<Box>
+								<Component {...pageProps} key={router.route} />
+							</Box>
+						</RootStyled>
+					</ContextWrapper>
+				</ThemeProvider>
+			</AnimatePresence>
+		</>
 	);
 }
 
-export default MyApp;
+export default withApollo({ ssr: true })(MyApp);
