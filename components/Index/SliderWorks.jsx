@@ -105,8 +105,8 @@ export default function SliderWorks({ data }) {
 
 					return (
 						<SwiperSlide key={id}>
-							<Link href={`${view_all_link}/${id}`} title={main_image.caption}>
-								<a>
+							<Link href={`${view_all_link}/${id}`}>
+								<a title={main_image.caption}>
 									<img src={main_image.url} alt={main_image.caption} />
 								</a>
 							</Link>
