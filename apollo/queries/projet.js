@@ -23,10 +23,12 @@ const PROJET_QUERY = gql`
 				caption
 			}
 			categories {
-				category
+				id
+				item: category
 			}
 			technologies {
-				technologie
+				id
+				item: technologie
 				logo {
 					url
 					caption

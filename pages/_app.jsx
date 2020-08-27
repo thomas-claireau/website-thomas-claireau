@@ -30,6 +30,10 @@ function MyApp({ Component, pageProps }) {
 			left: 'light',
 			right: 'dark',
 		},
+		'/projets': {
+			left: 'dark',
+			right: 'light',
+		},
 		'/projets/[slug]': {
 			left: 'light',
 			right: 'dark',

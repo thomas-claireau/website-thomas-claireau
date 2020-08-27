@@ -7,11 +7,12 @@ import { motion } from 'framer-motion';
 import Menu from 'components/Global/Menus/Menu';
 import BoxContext from 'contexts/BoxContext';
 
-export default function Col({ direction, align, children }) {
+export default function Col({ direction, align, justify, children, width, scroll }) {
 	const router = useRouter();
 	const isHome = router.pathname == '/' || router.pathname == '/404';
 	const space = '60px';
 	let padding;
+	let position;
 	let variants = {};
 
 	let { theme } = useContext(BoxContext);
@@ -34,10 +35,10 @@ export default function Col({ direction, align, children }) {
 	}
 
 	const ColStyled = styled(motion.div)`
-		width: 100%;
+		width: ${width ? width : '100%'};
 		height: 100%;
 		display: flex !important;
-		justify-content: center;
+		justify-content: ${justify ? justify : 'center'};
 		align-items: ${align};
 		flex-direction: ${isHome ? 'column' : 'row'};
 		position: relative;
@@ -47,6 +48,8 @@ export default function Col({ direction, align, children }) {
 		${!isHome ? 'flex-direction: column;' : ''}
 		background-color: ${(props) =>
 			props.theme.colors[theme]};
+		color: ${(props) => props.theme.colors[theme == 'dark' ? 'light' : 'dark']};
+		overflow-y: ${scroll ? 'scroll' : 'auto'};
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			${isHome ? 'display: none !important;' : ''}
