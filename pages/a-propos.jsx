@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
 import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
-import A_PROPOS_QUERY from '../apollo/queries/a-propos';
+import A_PROPOS_QUERY from 'apollo/queries/a-propos';
 import { setParagraph } from 'utils/editor.js';
 import { motion } from 'framer-motion';
 

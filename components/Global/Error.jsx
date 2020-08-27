@@ -30,13 +30,15 @@ export const Error = ({ error }) => {
 		}
 	`;
 
-	error = JSON.parse(JSON.stringify(error)).networkError;
+	const parseError = JSON.parse(JSON.stringify(error)).networkError;
 
 	if (NODE_ENV == 'development') {
+		console.log(error);
+
 		return (
 			<ErrorStyled>
-				<p>{`Une erreur de type ${error.statusCode} est survenue :`}</p>
-				<p>{error.result.errors[0].message}</p>
+				<p>{`Une erreur de type ${parseError.statusCode} est survenue :`}</p>
+				<p>{parseError.result.errors[0].message}</p>
 			</ErrorStyled>
 		);
 	}

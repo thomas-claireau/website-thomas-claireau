@@ -47,7 +47,8 @@ export default function Custom404() {
 				<meta name="robots" content="noindex"></meta>
 			</Head>
 			<NotFoundStyled>
-				<Col direction="left" bg="--bg-dark" align="center">
+				404
+				{/* <Col direction="left" bg="--bg-dark" align="center">
 					<div className="title h1 left --light desktop">
 						<span>404 No</span>
 					</div>
@@ -58,7 +59,7 @@ export default function Custom404() {
 						<span>t Found</span>
 					</div>
 					<div className="title h1 left --dark mobile">Not Found</div>
-				</Col>
+				</Col> */}
 			</NotFoundStyled>
 		</>
 	);

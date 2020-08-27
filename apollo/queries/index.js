@@ -22,10 +22,13 @@ const INDEX_QUERY = gql`
 				projet_relation {
 					projet {
 						id
-						title
+						header {
+							title
+						}
 						main_image {
 							url
 						}
+						slug
 					}
 				}
 			}

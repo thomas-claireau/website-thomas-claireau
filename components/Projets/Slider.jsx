@@ -263,9 +263,9 @@ export default function Slider({ projets }) {
 					return (
 						<SwiperSlide key={projet.id} className="projet">
 							<div className="left">
-								<div className="title h1">{projet.title}</div>
+								<div className="title h1">{projet.header.title}</div>
 								<p className="description">{projet.short_description}</p>
-								<Link href={`${router.route}/${projet.id}`}>
+								<Link href={`${router.route}/${projet.slug}`}>
 									<a className="view">Voir le projet</a>
 								</Link>
 							</div>

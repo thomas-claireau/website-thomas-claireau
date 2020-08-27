@@ -2,7 +2,7 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
-import INDEX_QUERY from '../apollo/queries/index';
+import INDEX_QUERY from 'apollo/queries/index';
 
 import styled from '@emotion/styled';
 

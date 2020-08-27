@@ -11,7 +11,12 @@ const PROJETS_QUERY = gql`
 		}
 		projets {
 			id
-			title
+			header {
+				title
+				meta_title
+				meta_description
+			}
+			slug
 			date: year
 			github
 			link

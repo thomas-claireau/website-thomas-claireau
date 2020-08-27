@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
 import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
-import PROJETS_QUERY from '../apollo/queries/projets';
+import PROJETS_QUERY from 'apollo/queries/projets';
 
 import Container from 'components/Global/Layout/Container';
 import Menu from 'components/Global/Menus/Menu';

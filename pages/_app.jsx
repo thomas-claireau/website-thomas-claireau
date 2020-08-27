@@ -3,7 +3,7 @@ import { DefaultSeo } from 'next-seo';
 import { ApolloProvider, useQuery } from '@apollo/react-hooks';
 import client from '../apolloClient';
 import { withApollo } from 'libs/apollo';
-import GLOBAL_QUERY_APP from '../apollo/queries/_app';
+import GLOBAL_QUERY_APP from 'apollo/queries/_app';
 import { ThemeProvider } from 'emotion-theming';
 import styled from '@emotion/styled';
 import { AnimatePresence } from 'framer-motion';
@@ -30,9 +30,9 @@ function MyApp({ Component, pageProps }) {
 			left: 'light',
 			right: 'dark',
 		},
-		'/projets': {
-			left: 'dark',
-			right: 'light',
+		'/projets/[slug]': {
+			left: 'light',
+			right: 'dark',
 		},
 		'/404': {
 			left: 'dark',
