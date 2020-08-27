@@ -9,9 +9,6 @@
     "timestamps": true
   },
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "year": {
       "type": "date"
     },
@@ -58,6 +55,19 @@
     "user": {
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.header"
+    },
+    "technologies": {
+      "collection": "technologie"
     }
   }
 }
