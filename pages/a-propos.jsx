@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
+import { useQuery } from '@apollo/react-hooks';
+import { withApollo } from 'libs/apollo';
 import A_PROPOS_QUERY from '../apollo/queries/a-propos';
 import { setParagraph } from 'utils/editor.js';
 import { motion } from 'framer-motion';
 
 import Col from 'components/Global/Layout/Col';
-import Query from 'components/Global/Query';
 import LogosContainer from 'components/About/LogosContainer';
 import MenuBottom from 'components/Global/Menus/MenuBottom';
+import { Loading } from 'components/Global/Loading';
+import { Error } from 'components/Global/Error';
 
 function About() {
 	const AboutStyled = styled.div`
@@ -67,54 +70,54 @@ function About() {
 		visible: { opacity: 1, y: 0 },
 	};
 
+	const { data, loading, error } = useQuery(A_PROPOS_QUERY);
+
+	if (loading) return <Loading />;
+
+	if (error) return <Error error={error} />;
+
+	const about = data.a_propos;
+
+	const SEO = {
+		title: about.header.meta_title,
+		description: about.header.meta_description,
+		openGraph: {
+			title: about.header.meta_title,
+			description: about.header.meta_description,
+		},
+	};
+
 	return (
-		<Query query={A_PROPOS_QUERY} id={null}>
-			{({ data }) => {
-				const about = data.a_propos;
-
-				const SEO = {
-					title: about.header.meta_title,
-					description: about.header.meta_description,
-					openGraph: {
-						title: about.header.meta_title,
-						description: about.header.meta_description,
-					},
-				};
-
-				return (
-					<>
-						<NextSeo {...SEO} />
-						<AboutStyled className="main-content">
-							<Col direction="left" align="center">
-								<LogosContainer languages={about.left_content.language} />
-							</Col>
-							<Col direction="right" align="flex-start">
-								<motion.h1
-									className="--uppercase"
-									variants={transition}
-									initial="hidden"
-									animate="visible"
-								>
-									<span className="--hide">Thomas Claireau</span>
-									<span>{about.header.title}</span>
-								</motion.h1>
-								<motion.div
-									className="texte"
-									dangerouslySetInnerHTML={{
-										__html: setParagraph(about.right_content.description),
-									}}
-									variants={transition}
-									initial="hidden"
-									animate="visible"
-								></motion.div>
-							</Col>
-							<MenuBottom></MenuBottom>
-						</AboutStyled>
-					</>
-				);
-			}}
-		</Query>
+		<>
+			<NextSeo {...SEO} />
+			<AboutStyled className="main-content">
+				<Col direction="left" align="center">
+					<LogosContainer languages={about.left_content.language} />
+				</Col>
+				<Col direction="right" align="flex-start">
+					<motion.h1
+						className="--uppercase"
+						variants={transition}
+						initial="hidden"
+						animate="visible"
+					>
+						<span className="--hide">Thomas Claireau</span>
+						<span>{about.header.title}</span>
+					</motion.h1>
+					<motion.div
+						className="texte"
+						dangerouslySetInnerHTML={{
+							__html: setParagraph(about.right_content.description),
+						}}
+						variants={transition}
+						initial="hidden"
+						animate="visible"
+					></motion.div>
+				</Col>
+				<MenuBottom></MenuBottom>
+			</AboutStyled>
+		</>
 	);
 }
 
-export default About;
+export default withApollo({ ssr: true })(About);

@@ -111,5 +111,4 @@ function Home() {
 	);
 }
 
-// export default Home;
 export default withApollo({ ssr: true })(Home);
