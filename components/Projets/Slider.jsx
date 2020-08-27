@@ -14,12 +14,11 @@ export default function Slider({ projets }) {
 			height: 515px;
 			margin-top: 20px;
 
-			@media screen and (max-width: ${(props) =>
-					props.theme.breakpoints['break-header-xl']}) {
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large-xl']}) {
 				overflow: visible;
 			}
 
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-medium']}) {
 				overflow: hidden;
 			}
 
@@ -40,13 +39,13 @@ export default function Slider({ projets }) {
 				width: 12px !important;
 
 				@media screen and (max-width: ${(props) =>
-						props.theme.breakpoints['break-header-xl']}) {
+						props.theme.breakpoints['break-large-xl']}) {
 					right: -40px;
 					z-index: 1;
 				}
 
 				@media screen and (max-width: ${(props) =>
-						props.theme.breakpoints['break-large']}) {
+						props.theme.breakpoints['break-medium']}) {
 					display: none;
 				}
 
@@ -86,7 +85,7 @@ export default function Slider({ projets }) {
 					z-index: 1;
 
 					@media screen and (max-width: ${(props) =>
-							props.theme.breakpoints['break-header']}) {
+							props.theme.breakpoints['break-large']}) {
 						width: 100%;
 						display: flex;
 						flex-direction: column;
@@ -102,12 +101,12 @@ export default function Slider({ projets }) {
 						color: ${(props) => props.theme.colors.light};
 
 						@media screen and (max-width: ${(props) =>
-								props.theme.breakpoints['break-header']}) {
+								props.theme.breakpoints['break-large']}) {
 							text-align: center;
 						}
 
 						@media screen and (max-width: ${(props) =>
-								props.theme.breakpoints['break-large']}) {
+								props.theme.breakpoints['break-medium']}) {
 							width: 100%;
 						}
 
@@ -123,31 +122,31 @@ export default function Slider({ projets }) {
 						color: ${(props) => props.theme.colors.light};
 
 						@media screen and (max-width: ${(props) =>
-								props.theme.breakpoints['break-header']}) {
+								props.theme.breakpoints['break-large']}) {
 							width: 100%;
 							text-align: center;
 						}
 
 						@media screen and (max-width: ${(props) =>
-								props.theme.breakpoints['break-large']}) {
+								props.theme.breakpoints['break-medium']}) {
 							padding-right: 10px;
 							padding-left: 10px;
 						}
 					}
 
 					.view {
-						position: absolute;
-						bottom: 40px;
-						left: 45px;
+						position: relative;
+						margin-top: 100px;
+						margin-left: 45px;
 						color: ${(props) => props.theme.colors.light};
 						text-transform: uppercase;
 						letter-spacing: 1px;
 						font-weight: 600;
 
 						@media screen and (max-width: ${(props) =>
-								props.theme.breakpoints['break-header']}) {
+								props.theme.breakpoints['break-large']}) {
 							position: relative;
-							margin-top: 50px;
+							margin: 50px 0 0 0;
 							bottom: auto;
 							left: auto;
 							text-align: center;
@@ -165,7 +164,7 @@ export default function Slider({ projets }) {
 							border-radius: 10px;
 
 							@media screen and (max-width: ${(props) =>
-									props.theme.breakpoints['break-header']}) {
+									props.theme.breakpoints['break-large']}) {
 								content: none;
 							}
 						}
@@ -173,25 +172,35 @@ export default function Slider({ projets }) {
 				}
 
 				.right {
-					min-width: 1080px;
-					width: 1080px;
+					width: 80%;
 					height: 100%;
 					position: absolute;
-					top: 0;
+					top: 50%;
 					right: 100px;
 					opacity: 0;
+					transform: translateY(-50%);
 					transition: opacity 0.3s ease-in-out;
 
-					@media screen and (max-width: ${(props) =>
-							props.theme.breakpoints['break-header-xl']}) {
-						right: 0;
+					@media screen and (max-height: 800px) {
+						height: 80%;
 					}
 
 					@media screen and (max-width: ${(props) =>
-							props.theme.breakpoints['break-header']}) {
+							props.theme.breakpoints['break-large-xl']}) {
+						right: auto;
+					}
+
+					@media screen and (max-width: ${(props) =>
+							props.theme.breakpoints['break-large']}) {
 						min-width: auto;
 						width: 100%;
 						position: relative;
+						right: auto;
+					}
+
+					@media screen and (max-width: ${(props) =>
+							props.theme.breakpoints['break-tablet']}) {
+						height: 100%;
 					}
 
 					&:before {
@@ -206,7 +215,7 @@ export default function Slider({ projets }) {
 						z-index: 0;
 
 						@media screen and (max-width: ${(props) =>
-								props.theme.breakpoints['break-header']}) {
+								props.theme.breakpoints['break-large']}) {
 							opacity: 0.5;
 						}
 					}
@@ -232,7 +241,7 @@ export default function Slider({ projets }) {
 	`;
 
 	const breakpoints = {
-		1210: {
+		1024: {
 			slidesPerView: 1,
 			direction: 'vertical',
 		},

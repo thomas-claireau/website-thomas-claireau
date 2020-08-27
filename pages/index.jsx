@@ -22,6 +22,7 @@ function Home() {
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			flex-direction: column;
+			overflow-y: visible;
 		}
 
 		> div > .title {

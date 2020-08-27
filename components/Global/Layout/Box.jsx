@@ -55,8 +55,12 @@ export default function Box({ children }) {
 			align-items: center;
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				height: auto;
+				height: 100%;
 				flex-direction: column;
+			}
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+				height: auto;
 			}
 		}
 	`;

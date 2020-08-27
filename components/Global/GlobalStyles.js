@@ -97,6 +97,11 @@ const GlobalStyles = () => (
 					font-weight: bold;
 					letter-spacing: 1.96px;
 
+					@media screen and (max-height: 730px) {
+						font-size: 50px;
+						line-height: 50px;
+					}
+
 					@media screen and (max-width: ${theme.breakpoints['break-large']}) {
 						width: 80%;
 						color: ${theme.colors.light};
@@ -128,6 +133,10 @@ const GlobalStyles = () => (
 					font-size: 17px;
 					margin: 20px 0 0 0;
 					padding: 0;
+
+					@media screen and (max-height: 730px) {
+						font-size: 15px;
+					}
 				}
 			`}
 		/>

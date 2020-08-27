@@ -115,6 +115,10 @@ export default function LogosContainer({ languages }) {
 				width: auto;
 				height: 130px;
 
+				@media screen and (max-height: 730px) {
+					height: 100px;
+				}
+
 				@media screen and (max-width: ${(props) =>
 						props.theme.breakpoints['break-large']}) {
 					height: 100px;

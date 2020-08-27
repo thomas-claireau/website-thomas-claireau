@@ -15,18 +15,18 @@ import { Error } from 'components/Global/Error';
 
 function About() {
 	const AboutStyled = styled.div`
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			padding-bottom: 80px;
-		}
+		overflow-x: hidden;
+
 		> .left {
 			padding: 100px 40px 200px 40px;
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				padding: 100px 40px 40px 40px;
+				order: 1;
+				padding: 40px 40px 80px 40px;
 			}
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-mini']}) {
-				padding: 100px 20px 20px 20px;
+				padding: 20px 20px 80px 20px;
 			}
 		}
 
@@ -35,11 +35,11 @@ function About() {
 			color: ${(props) => props.theme.colors.light};
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				padding: 40px;
+				padding: 80px 40px 40px 40px;
 			}
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
-				padding: 20px;
+				padding: 80px 20px 20px 20px;
 			}
 
 			.texte {

@@ -15,6 +15,10 @@ function Menu({ space, className }) {
 		bottom: ${(props) => props.space};
 		left: ${(props) => props.space};
 
+		@media screen and (max-height: 760px) {
+			bottom: 20px;
+		}
+
 		&.desktop {
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 				display: none;
@@ -45,6 +49,12 @@ function Menu({ space, className }) {
 					a {
 						color: ${(props) => props.theme.colors.dark};
 						font-weight: bold;
+
+						&.active {
+							&:before {
+								content: none;
+							}
+						}
 					}
 				}
 			}

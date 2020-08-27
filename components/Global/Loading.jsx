@@ -33,6 +33,14 @@ export const Loading = ({}) => {
 			stroke: #ecf0f0;
 			stroke-width: 1.5px;
 
+			@media screen and (max-width: 768px) {
+				width: 70px;
+			}
+
+			@media screen and (max-width: 425px) {
+				width: 50px;
+			}
+
 			#teabag {
 				stroke-width: 0.5px;
 				transform-origin: top center;
