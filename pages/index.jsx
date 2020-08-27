@@ -86,7 +86,6 @@ function Home() {
 			<NextSeo {...SEO} />
 			<HomeStyled>
 				<Col direction="left" bg="--bg-dark" align="flex-end">
-					<h1 className="--hide">{accueil.titre_mobile}</h1>
 					<div className="title h1 left --light desktop">
 						<span>{accueil.titre_haut_gauche}</span>
 						<span>{accueil.titre_bas_gauche}</span>
