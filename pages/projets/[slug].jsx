@@ -8,6 +8,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
 import PROJET_QUERY from 'apollo/queries/projet';
 
+import HtmlContent from 'components/Global/HtmlContent';
 import Col from 'components/Global/Layout/Col';
 import MenuBottom from 'components/Global/Menus/MenuBottom';
 import SidebarInfo from 'components/Projet/SidebarInfo';
@@ -21,13 +22,11 @@ import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 function Projet() {
 	const ProjetStyled = styled.div`
 		> .left {
-			padding-bottom: 120px;
+			padding-bottom: 60px;
 		}
 
 		nav.desktop {
-			position: fixed;
-			bottom: 80px;
-			left: 80px;
+			display: none;
 		}
 
 		a.back {
@@ -57,10 +56,6 @@ function Projet() {
 			margin-top: 40px;
 			border-radius: 3px;
 			object-fit: cover;
-		}
-
-		div.content {
-			margin-top: 60px;
 		}
 	`;
 
@@ -111,10 +106,10 @@ function Projet() {
 						alt={projet.main_image.caption}
 						title={projet.header.title}
 					/>
-					<div className="content">{projet.resume}</div>
+					<HtmlContent>{projet.resume}</HtmlContent>
 					<GithubInfo />
-					<SliderOthersImages />
-					<div className="content">{projet.results}</div>
+					<SliderOthersImages images={projet.others_images} />
+					<HtmlContent>{projet.results}</HtmlContent>
 					<Link href="/projets">
 						<a className="back bottom">
 							<ArrowRightSvg />

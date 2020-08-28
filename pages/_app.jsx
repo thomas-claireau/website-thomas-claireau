@@ -11,6 +11,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'swiper/swiper.scss';
 import 'swiper/components/effect-fade/effect-fade.scss';
 import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/navigation/navigation.scss';
 
 import { theme, GlobalStyles } from 'components/Global/GlobalStyles';
 import Box from 'components/Global/Layout/Box';

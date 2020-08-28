@@ -19,6 +19,7 @@ const PROJET_QUERY = gql`
 				caption
 			}
 			others_images {
+				id
 				url
 				caption
 			}

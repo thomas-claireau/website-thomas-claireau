@@ -49,6 +49,7 @@ export default function Col({ direction, align, justify, children, width, scroll
 		background-color: ${(props) =>
 			props.theme.colors[theme]};
 		color: ${(props) => props.theme.colors[theme == 'dark' ? 'light' : 'dark']};
+		overflow-x: hidden;
 		overflow-y: ${scroll ? 'scroll' : 'auto'};
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {

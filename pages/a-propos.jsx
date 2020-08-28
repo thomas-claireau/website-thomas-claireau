@@ -7,6 +7,7 @@ import A_PROPOS_QUERY from 'apollo/queries/a-propos';
 import { setParagraph } from 'utils/editor.js';
 import { motion } from 'framer-motion';
 
+import HtmlContent from 'components/Global/HtmlContent';
 import Col from 'components/Global/Layout/Col';
 import LogosContainer from 'components/About/LogosContainer';
 import MenuBottom from 'components/Global/Menus/MenuBottom';
@@ -104,7 +105,17 @@ function About() {
 						<span className="--hide">Thomas Claireau</span>
 						<span>{about.header.title}</span>
 					</motion.h1>
-					<motion.div
+					<motion.div variants={transition} initial="hidden" animate="visible">
+						<HtmlContent
+							className="texte"
+							variants={transition}
+							initial="hidden"
+							animate="visible"
+						>
+							{about.right_content.description}
+						</HtmlContent>
+					</motion.div>
+					{/* <motion.div
 						className="texte"
 						dangerouslySetInnerHTML={{
 							__html: setParagraph(about.right_content.description),
@@ -112,7 +123,7 @@ function About() {
 						variants={transition}
 						initial="hidden"
 						animate="visible"
-					></motion.div>
+					></motion.div> */}
 				</Col>
 				<MenuBottom></MenuBottom>
 			</AboutStyled>
