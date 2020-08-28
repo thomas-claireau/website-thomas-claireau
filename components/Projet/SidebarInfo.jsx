@@ -12,8 +12,8 @@ export default function SidebarInfo({ label, value, link, multiple }) {
 
 					return (
 						<div key={id} className="value">
-							{item}
 							{logo && <Svg url={logo.url} />}
+							{item}
 						</div>
 					);
 				})}

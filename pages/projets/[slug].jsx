@@ -11,7 +11,7 @@ import PROJET_QUERY from 'apollo/queries/projet';
 import HtmlContent from 'components/Global/HtmlContent';
 import Col from 'components/Global/Layout/Col';
 import MenuBottom from 'components/Global/Menus/MenuBottom';
-import SidebarInfo from 'components/Projet/SidebarInfo';
+import Sidebar from 'components/Projet/Sidebar';
 import GithubInfo from 'components/Projet/GithubInfo';
 import SliderOthersImages from 'components/Projet/SliderOthersImages';
 import { Loading } from 'components/Global/Loading';
@@ -118,17 +118,8 @@ function Projet() {
 					</Link>
 				</Col>
 				<Col direction="right" align="flex-start" justify="flex-start" width="30%">
-					<h1>{projet.header.title}</h1>
-					<p className="description">{projet.short_description}</p>
-					<ul>
-						<SidebarInfo label="Année" value={projet.year.getFullYear()} />
-						<SidebarInfo label="Catégories" value={projet.categories} multiple />
-						<SidebarInfo label="Technologies" value={projet.technologies} multiple />
-						<SidebarInfo label="Github" value={projet.github} link />
-						<SidebarInfo label="Lien externe" value={projet.link} link />
-					</ul>
+					<Sidebar projet={projet} />
 				</Col>
-
 				<MenuBottom></MenuBottom>
 			</ProjetStyled>
 		</>
