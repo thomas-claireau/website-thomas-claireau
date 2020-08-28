@@ -11,7 +11,8 @@ import PROJET_QUERY from 'apollo/queries/projet';
 import Col from 'components/Global/Layout/Col';
 import MenuBottom from 'components/Global/Menus/MenuBottom';
 import SidebarInfo from 'components/Projet/SidebarInfo';
-import LaptopSvg from 'components/Projet/LaptopSvg';
+import GithubInfo from 'components/Projet/GithubInfo';
+import SliderOthersImages from 'components/Projet/SliderOthersImages';
 import { Loading } from 'components/Global/Loading';
 import { Error } from 'components/Global/Error';
 
@@ -19,6 +20,10 @@ import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
 function Projet() {
 	const ProjetStyled = styled.div`
+		> .left {
+			padding-bottom: 120px;
+		}
+
 		nav.desktop {
 			position: fixed;
 			bottom: 80px;
@@ -44,6 +49,18 @@ function Projet() {
 					fill: ${(props) => props.theme.colors.dark};
 				}
 			}
+		}
+
+		img.main-image {
+			width: 100%;
+			height: 75%;
+			margin-top: 40px;
+			border-radius: 3px;
+			object-fit: cover;
+		}
+
+		div.content {
+			margin-top: 60px;
 		}
 	`;
 
@@ -75,6 +92,8 @@ function Projet() {
 
 	projet.year = new Date(projet.year);
 
+	console.log(projet);
+
 	return (
 		<>
 			<NextSeo {...SEO} />
@@ -86,7 +105,16 @@ function Projet() {
 							Go back
 						</a>
 					</Link>
-					<LaptopSvg bg={projet.main_image.url} label={projet.header.title} />
+					<img
+						className="main-image"
+						src={projet.main_image.url}
+						alt={projet.main_image.caption}
+						title={projet.header.title}
+					/>
+					<div className="content">{projet.resume}</div>
+					<GithubInfo />
+					<SliderOthersImages />
+					<div className="content">{projet.results}</div>
 					<Link href="/projets">
 						<a className="back bottom">
 							<ArrowRightSvg />
