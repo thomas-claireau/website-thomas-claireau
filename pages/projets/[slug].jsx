@@ -3,9 +3,7 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import CustomErrorPage from 'pages/404';
-import { useRouter } from 'next/router';
-import { useQuery } from '@apollo/react-hooks';
-import { withApollo } from 'libs/apollo';
+import { request } from 'graphql-request';
 import PROJET_QUERY from 'apollo/queries/projet';
 
 import HtmlContent from 'components/Global/HtmlContent';
@@ -14,12 +12,10 @@ import MenuBottom from 'components/Global/Menus/MenuBottom';
 import Sidebar from 'components/Projet/Sidebar';
 import GithubInfo from 'components/Projet/GithubInfo';
 import SliderOthersImages from 'components/Projet/SliderOthersImages';
-import { Loading } from 'components/Global/Loading';
-import { Error } from 'components/Global/Error';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
-function Projet() {
+function Projet({ projet }) {
 	const ProjetStyled = styled.div`
 		> .left {
 			padding-bottom: 60px;
@@ -59,22 +55,7 @@ function Projet() {
 		}
 	`;
 
-	const router = useRouter();
-	const slug = router.query.slug;
-
-	const { data, loading, error } = useQuery(PROJET_QUERY, {
-		variables: { slug },
-	});
-
-	if (loading) return <Loading />;
-
-	if (error) return <Error error={error} />;
-
-	const res = data.projets;
-
-	if (Array.isArray(res) && !res.length) return <CustomErrorPage />;
-
-	const projet = res[0];
+	if (!projet) return <CustomErrorPage />;
 
 	const SEO = {
 		title: projet.header.meta_title,
@@ -86,8 +67,6 @@ function Projet() {
 	};
 
 	projet.year = new Date(projet.year);
-
-	console.log(projet);
 
 	return (
 		<>
@@ -126,4 +105,14 @@ function Projet() {
 	);
 }
 
-export default withApollo({ ssr: true })(Projet);
+export async function getServerSideProps({ params }) {
+	const variables = { slug: params.slug };
+
+	return request(process.env.API_URL + '/graphql', PROJET_QUERY, variables).then((data) => {
+		return {
+			props: { projet: data.projets[0] || null },
+		};
+	});
+}
+
+export default Projet;
