@@ -37,8 +37,8 @@ export default function Sidebar({ projet }) {
 					}
 
 					svg {
-						width: 35px;
-						height: auto;
+						width: 20px;
+						height: 20px;
 						display: flex;
 						justify-content: center;
 						align-items: center;
