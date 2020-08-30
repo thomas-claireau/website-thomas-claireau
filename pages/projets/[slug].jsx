@@ -19,8 +19,29 @@ import fetch from 'isomorphic-unfetch';
 
 function Projet({ projet, github }) {
 	const ProjetStyled = styled.div`
+		overflow-x: hidden;
+
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			padding: 50px 0;
+		}
+
 		> .left {
 			padding: 60px 0;
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				order: 1;
+			}
+		}
+
+		> .right {
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-header']}) {
+				padding-right: 40px;
+				padding-left: 40px;
+			}
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+				padding-right: 15px;
+				padding-left: 15px;
+			}
 		}
 
 		nav.desktop {
@@ -29,6 +50,10 @@ function Projet({ projet, github }) {
 
 		.content {
 			padding: 0 60px;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+				padding: 0 15px;
+			}
 		}
 
 		a.back {
@@ -41,6 +66,11 @@ function Projet({ projet, github }) {
 
 			&.bottom {
 				margin-top: 80px;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-large']}) {
+					margin-top: 40px;
+				}
 			}
 
 			svg {
@@ -58,6 +88,14 @@ function Projet({ projet, github }) {
 			margin-top: 40px;
 			border-radius: 3px;
 			object-fit: cover;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-header']}) {
+				height: 50%;
+			}
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+				height: 400px;
+			}
 		}
 	`;
 

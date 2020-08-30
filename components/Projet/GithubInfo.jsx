@@ -42,6 +42,20 @@ export default function GithubInfo({ bg, github, languages }) {
 
 		h2 {
 			font-size: 40px;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+				text-align: center;
+			}
+
+			i {
+				display: none;
+				margin-left: 20px;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-tablet']}) {
+					display: inline;
+				}
+			}
 		}
 
 		> .content {
@@ -49,6 +63,14 @@ export default function GithubInfo({ bg, github, languages }) {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-header']}) {
+				padding: 0 60px;
+			}
+
+			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
+				padding: 0;
+			}
 
 			> div > *:first-of-type {
 				margin-top: 0;
@@ -61,6 +83,27 @@ export default function GithubInfo({ bg, github, languages }) {
 				grid-template-columns: 1fr 1fr;
 				grid-column-gap: 100px;
 				align-items: flex-end;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-tablet']}) {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+
+				> div {
+					@media screen and (max-width: ${(props) =>
+							props.theme.breakpoints['break-tablet']}) {
+						text-align: center;
+					}
+
+					&:not(:first-of-type) {
+						@media screen and (max-width: ${(props) =>
+								props.theme.breakpoints['break-tablet']}) {
+							margin-top: 20px;
+						}
+					}
+				}
 			}
 
 			.bottom {
@@ -86,6 +129,11 @@ export default function GithubInfo({ bg, github, languages }) {
 					align-items: center;
 					margin-top: 5px;
 
+					@media screen and (max-width: ${(props) =>
+							props.theme.breakpoints['break-tablet']}) {
+						justify-content: center;
+					}
+
 					.svg-container {
 						width: 40px;
 						height: auto;
@@ -106,9 +154,21 @@ export default function GithubInfo({ bg, github, languages }) {
 				}
 			}
 
-			i.right {
+			> .left {
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-tablet']}) {
+					width: 100%;
+				}
+			}
+
+			> i.right {
 				font-size: 150px;
 				font-weight: 300;
+
+				@media screen and (max-width: ${(props) =>
+						props.theme.breakpoints['break-tablet']}) {
+					display: none;
+				}
 			}
 		}
 	`;
@@ -143,7 +203,10 @@ export default function GithubInfo({ bg, github, languages }) {
 			{github && lines && languages && (
 				<div className="content">
 					<div className="left">
-						<h2>Résumé</h2>
+						<h2>
+							Résumé
+							<i className="fa fa-github-alt" aria-hidden="true"></i>
+						</h2>
 						<div className="stats">
 							<div className="top">
 								<div>

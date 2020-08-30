@@ -46,15 +46,21 @@ export default function SliderOthersImages({ images, ...props }) {
 	`;
 
 	const config = {
-		slidesPerView: 2,
+		slidesPerView: 1.5,
 		grabCursor: true,
-		spaceBetween: 50,
+		spaceBetween: 10,
 		navigation: isNavigation
 			? {
 					prevEl: '.swiper-button-prev',
 					nextEl: '.swiper-button-next',
 			  }
 			: false,
+		breakpoints: {
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 50,
+			},
+		},
 	};
 
 	return (

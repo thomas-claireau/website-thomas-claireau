@@ -5,6 +5,10 @@ import SidebarInfo from 'components/Projet/SidebarInfo';
 
 export default function Sidebar({ projet }) {
 	const SidebarStyled = styled.div`
+		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
+			width: 100%;
+		}
+
 		h1 {
 			font-size: 40px;
 		}

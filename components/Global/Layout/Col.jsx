@@ -53,6 +53,9 @@ export default function Col({ direction, align, justify, children, width, scroll
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			${isHome ? 'display: none !important;' : ''}
+			width: 100%;
+			height: auto;
+			overflow: initial;
 		}
 	`;
 
