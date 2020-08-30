@@ -12,7 +12,6 @@ export default function Col({ direction, align, justify, children, width, scroll
 	const isHome = router.pathname == '/' || router.pathname == '/404';
 	const space = '60px';
 	let padding;
-	let position;
 	let variants = {};
 
 	let { theme } = useContext(BoxContext);
@@ -49,8 +48,8 @@ export default function Col({ direction, align, justify, children, width, scroll
 		background-color: ${(props) =>
 			props.theme.colors[theme]};
 		color: ${(props) => props.theme.colors[theme == 'dark' ? 'light' : 'dark']};
-		overflow-x: hidden;
-		overflow-y: ${scroll ? 'scroll' : 'auto'};
+		overflow-x: ${scroll ? 'hidden' : 'initial'};
+		overflow-y: ${scroll ? 'scroll' : 'initial'};
 
 		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
 			${isHome ? 'display: none !important;' : ''}
