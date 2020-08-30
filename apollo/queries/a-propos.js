@@ -10,15 +10,20 @@ const A_PROPOS_QUERY = gql`
 			}
 			left_content {
 				language {
-					id
-					main_image {
-						name
-						url
+					main_language {
+						technologie
+						logo {
+							name
+							url
+						}
 					}
-					others_images {
+					others_languages {
 						id
-						name
-						url
+						technologie
+						logo {
+							name
+							url
+						}
 					}
 				}
 			}

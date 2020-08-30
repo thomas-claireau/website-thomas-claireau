@@ -5,12 +5,12 @@ import { motion } from 'framer-motion';
 function Logos({ obj }) {
 	return (
 		<>
-			<div className="parent">
-				<Svg url={obj.main_image.url} />
+			<div className="parent" title={obj.main_language.technologie}>
+				<Svg url={obj.main_language.logo.url} />
 			</div>
 			<div className="childrens">
-				{obj.others_images.map((item) => {
-					return <Svg key={item.id} url={item.url} />;
+				{obj.others_languages.map((item) => {
+					return <Svg key={item.id} url={item.logo.url} />;
 				})}
 			</div>
 		</>
