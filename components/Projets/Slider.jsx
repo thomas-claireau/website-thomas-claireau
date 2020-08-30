@@ -264,13 +264,16 @@ export default function Slider({ projets }) {
 			{projets &&
 				projets.map((projet) => {
 					return (
-						<SwiperSlide key={projet.id} className="projet">
+						<SwiperSlide
+							tag="a"
+							href={`${router.route}/${projet.slug}`}
+							key={projet.id}
+							className="projet"
+						>
 							<div className="left">
 								<div className="title h1">{projet.header.title}</div>
 								<p className="description">{projet.short_description}</p>
-								<Link href={`${router.route}/${projet.slug}`}>
-									<a className="view">Voir le projet</a>
-								</Link>
+								<div className="view">Voir le projet</div>
 							</div>
 							<div className="right">
 								<img src={projet.main_image.url} alt={projet.main_image.caption} />
