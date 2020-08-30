@@ -105,6 +105,8 @@ function Menu({ space, className }) {
 					global.item_menu_desktop.map((item) => {
 						const { id, label, link } = item;
 
+						if (className == 'mobile' && router.pathname == link) return null;
+
 						return (
 							<li key={id}>
 								<Link href={link}>

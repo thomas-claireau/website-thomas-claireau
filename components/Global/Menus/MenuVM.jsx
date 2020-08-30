@@ -1,10 +1,24 @@
 import styled from '@emotion/styled';
 import { useContext } from 'react';
+import { useRouter } from 'next/router';
 
 import SocialLogos from 'components/Global/SocialLogos';
 import BurgerMenu from 'components/Global/Menus/BurgerMenu';
 import Menu from 'components/Global/Menus/Menu';
 import BoxContext from 'contexts/BoxContext';
+
+function ActualPage({ menu }) {
+	const router = useRouter();
+	let actualPage;
+
+	menu.forEach((item) => {
+		if (item.link == router.pathname) actualPage = item.label;
+	});
+
+	if (router.pathname == '/projets/[slug]') actualPage = 'Projets';
+
+	return <div className="title h1 --uppercase">{actualPage}</div>;
+}
 
 export default function MenuVM({ onClick }) {
 	const { global } = useContext(BoxContext);
@@ -33,7 +47,7 @@ export default function MenuVM({ onClick }) {
 	return (
 		<MenuVMStyled className="menu-mobile">
 			<BurgerMenu action="close" onClick={handleClick} />
-			<div className="title h1 --uppercase">Home</div>
+			<ActualPage menu={global.item_menu_desktop} />
 			<Menu className="mobile" />
 			<SocialLogos className="mobile" items={global.social_logo} />
 		</MenuVMStyled>

@@ -57,7 +57,6 @@ function MyApp({ Component, pageProps }) {
 	if (error) return <Error error={error} />;
 
 	return (
-		// <ApolloProvider client={client}>
 		<>
 			<DefaultSeo {...data.global.meta_data} />
 			<AnimatePresence exitBeforeEnter>
@@ -73,7 +72,6 @@ function MyApp({ Component, pageProps }) {
 				</ThemeProvider>
 			</AnimatePresence>
 		</>
-		// </ApolloProvider>
 	);
 }
 
