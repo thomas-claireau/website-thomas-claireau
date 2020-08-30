@@ -1,6 +1,6 @@
 import Svg from 'utils/svg';
 
-export default function SidebarInfo({ label, value, link, multiple }) {
+export default function SidebarInfo({ label, value, link, github, multiple }) {
 	if (!label || !value || !value.length) return null;
 
 	if (multiple) {
@@ -25,7 +25,12 @@ export default function SidebarInfo({ label, value, link, multiple }) {
 		<li>
 			<div className="label">{label}</div>
 			{link ? (
-				<a href={value} target="_blank" rel="noopener noreferrer" className="value">
+				<a
+					href={github ? `https://github.com/${value}` : value}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="value"
+				>
 					{value}
 				</a>
 			) : (

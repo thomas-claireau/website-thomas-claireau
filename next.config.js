@@ -17,5 +17,8 @@ module.exports = withReactSvg({
 	},
 	env: {
 		API_URL: process.env.API_URL,
+		GITHUB_API: process.env.GITHUB_API,
+		GITHUB_USER: process.env.GITHUB_USER,
+		GITHUB_TOKEN: process.env.GITHUB_TOKEN,
 	},
 });

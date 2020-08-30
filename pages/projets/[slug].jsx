@@ -15,14 +15,20 @@ import SliderOthersImages from 'components/Projet/SliderOthersImages';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
-function Projet({ projet }) {
+import fetch from 'isomorphic-unfetch';
+
+function Projet({ projet, github }) {
 	const ProjetStyled = styled.div`
 		> .left {
-			padding-bottom: 60px;
+			padding: 60px 0;
 		}
 
 		nav.desktop {
 			display: none;
+		}
+
+		.content {
+			padding: 0 60px;
 		}
 
 		a.back {
@@ -74,23 +80,23 @@ function Projet({ projet }) {
 			<ProjetStyled className="main-content">
 				<Col direction="left" align="flex-start" justify="flex-start" scroll>
 					<Link href="/projets">
-						<a className="back top">
+						<a className="back top content">
 							<ArrowRightSvg />
 							Go back
 						</a>
 					</Link>
 					<img
-						className="main-image"
+						className="main-image content"
 						src={projet.main_image.url}
 						alt={projet.main_image.caption}
 						title={projet.header.title}
 					/>
-					<HtmlContent>{projet.resume}</HtmlContent>
-					<GithubInfo />
-					<SliderOthersImages images={projet.others_images} />
-					<HtmlContent>{projet.results}</HtmlContent>
+					<HtmlContent className="content">{projet.resume}</HtmlContent>
+					<GithubInfo github={github} languages={projet.technologies} />
+					<SliderOthersImages className="content" images={projet.others_images} />
+					<HtmlContent className="content">{projet.results}</HtmlContent>
 					<Link href="/projets">
-						<a className="back bottom">
+						<a className="back bottom content">
 							<ArrowRightSvg />
 							Go back
 						</a>
@@ -107,11 +113,30 @@ function Projet({ projet }) {
 
 export async function getServerSideProps({ params }) {
 	const variables = { slug: params.slug };
+	const auth = Buffer.from(`${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}`).toString(
+		'base64'
+	);
 
 	return request(process.env.API_URL + '/graphql', PROJET_QUERY, variables).then((data) => {
-		return {
-			props: { projet: data.projets[0] || null },
+		const projet = data.projets[0];
+
+		const options = {
+			mode: 'cors',
+			headers: {
+				Authorization: 'Basic ' + auth,
+			},
 		};
+
+		return fetch(`${process.env.GITHUB_API}/repos/${projet.github}`, options)
+			.then((response) => response.json())
+			.then((github) => {
+				return {
+					props: {
+						projet: projet || null,
+						github: github || null,
+					},
+				};
+			});
 	});
 }
 

@@ -57,7 +57,7 @@ export default function Sidebar({ projet }) {
 				<SidebarInfo label="Année" value={projet.year.getFullYear()} />
 				<SidebarInfo label="Catégories" value={projet.categories} multiple />
 				<SidebarInfo label="Technologies" value={projet.technologies} multiple />
-				<SidebarInfo label="Github" value={projet.github} link />
+				<SidebarInfo label="Github" value={projet.github} link github />
 				<SidebarInfo label="Lien externe" value={projet.link} link />
 			</ul>
 		</SidebarStyled>
