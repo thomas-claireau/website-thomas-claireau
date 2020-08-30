@@ -13,13 +13,16 @@ export default function Slider({ projets }) {
 			width: 100%;
 			height: 515px;
 			margin-top: 20px;
+			margin-left: 36px;
 
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large-xl']}) {
+			@media screen and (max-width: ${(props) =>
+					props.theme.breakpoints['break-header-xl']}) {
 				overflow: visible;
 			}
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-medium']}) {
 				overflow: hidden;
+				margin-left: 0;
 			}
 
 			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
