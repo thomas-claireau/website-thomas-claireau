@@ -43,6 +43,10 @@ export default function Sidebar({ projet }) {
 						justify-content: center;
 						align-items: center;
 						margin-right: 10px;
+
+						#wordpress path {
+							fill: #fff;
+						}
 					}
 				}
 			}

@@ -92,7 +92,11 @@ function Projet({ projet, github }) {
 						title={projet.header.title}
 					/>
 					<HtmlContent className="content">{projet.resume}</HtmlContent>
-					<GithubInfo github={github} languages={projet.technologies} />
+					<GithubInfo
+						github={github}
+						languages={projet.technologies}
+						bg={projet.main_image.url}
+					/>
 					<SliderOthersImages className="content" images={projet.others_images} />
 					<HtmlContent className="content">{projet.results}</HtmlContent>
 					<Link href="/projets">
