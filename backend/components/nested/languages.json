@@ -6,27 +6,11 @@
   },
   "options": {},
   "attributes": {
-    "main_image": {
-      "model": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
+    "main_language": {
+      "model": "technologie"
     },
-    "others_images": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
+    "others_languages": {
+      "collection": "technologie"
     }
   }
 }
