@@ -11,4 +11,4 @@ before_install:
   - chmod +x ./ci/deploy-recette
 script:
   - if [ "$TRAVIS_BRANCH" = "master" ]; then ./ci/deploy-production; fi
-  - if [ "$TRAVIS_BRANCH" = "recette" ]; then ./ci/deploy-production; fi
+  - if [ "$TRAVIS_BRANCH" = "recette" ]; then ./ci/deploy-recette; fi
