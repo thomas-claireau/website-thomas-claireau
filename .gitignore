@@ -7,6 +7,9 @@ deploy_key
 yarn.lock
 package-lock.json
 
+ci/deploy-recette
+ci/deploy-production
+
 public/assets/img/languages-icon
 
 # dependencies

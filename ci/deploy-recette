@@ -1,9 +1,0 @@
-#!/bin/sh
-rsync -az -O --force --delete --progress --exclude-from=".rsyncignore" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":/var/www/recette.thomas-claireau.com
-ssh -p $PORT $USERNAME@$HOST "
-	cd /var/www/recette.thomas-claireau.com && npm install && npm run build;
-	cd /var/www/recette.thomas-claireau.com/backend && npm install && NODE_ENV=production npm run build;
-	pm2 restart recette-frontend
-	pm2 restart recette-backend
-	exit;
-"
