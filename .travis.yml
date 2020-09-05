@@ -2,11 +2,12 @@ language: node_js
 node_js:
   - node
 before_install:
-  - openssl aes-256-cbc -K $encrypted_189e52c2c347_key -iv $encrypted_189e52c2c347_iv -in deploy_key.enc -out deploy_key -d
+  - openssl aes-256-cbc -K $encrypted_ed4a56cebe50_key -iv $encrypted_ed4a56cebe50_iv
+    -in deploy_rsa.enc -out ~\/.ssh/deploy_rsa -d
   - eval "$(ssh-agent -s)"
-  - chmod 600 ./deploy_key
+  - chmod 600 ~\/.ssh/deploy_rsa
   - echo -e "Host $HOST\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-  - ssh-add ./deploy_key
+  - ssh-add ~\/.ssh/deploy_rsa
   - chmod +x ./ci/deploy-production
   - chmod +x ./ci/deploy-recette
 script:
