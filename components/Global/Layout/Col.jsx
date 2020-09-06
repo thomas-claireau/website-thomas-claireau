@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 import Menu from 'components/Global/Menus/Menu';
 import BoxContext from 'contexts/BoxContext';
 
-export default function Col({ direction, align, justify, children, width, scroll }) {
+export default function Col({ direction, align, justify, children, width, scroll, className }) {
 	const router = useRouter();
 	const isHome = router.pathname == '/' || router.pathname == '/404';
 	const space = '60px';
@@ -61,7 +61,7 @@ export default function Col({ direction, align, justify, children, width, scroll
 
 	return (
 		<ColStyled
-			className={`${direction}`}
+			className={`${direction} ${className}`}
 			variants={variants}
 			initial="hidden"
 			animate="visible"

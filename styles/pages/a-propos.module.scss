@@ -1,0 +1,48 @@
+.a-propos {
+	overflow-x: hidden;
+
+	> .left {
+		padding: 100px 40px 200px 40px;
+
+		@media screen and (max-width: $break-large) {
+			order: 1;
+			padding: 40px 40px 80px 40px;
+		}
+
+		@media screen and (max-width: $break-mini) {
+			padding: 20px 20px 80px 20px;
+		}
+	}
+
+	> .right {
+		padding: 40px 40px 40px 80px;
+		color: $light;
+
+		@media screen and (max-width: $break-large) {
+			padding: 80px 40px 40px 40px;
+		}
+
+		@media screen and (max-width: $break-tablet) {
+			padding: 80px 20px 20px 20px;
+		}
+
+		.texte {
+			width: 80%;
+			margin-top: 60px;
+
+			@media screen and (max-width: $break-header) {
+				width: 90%;
+			}
+
+			@media screen and (max-width: $break-large) {
+				width: 100%;
+				margin-top: 30px;
+			}
+
+			> *:first-of-type {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+}

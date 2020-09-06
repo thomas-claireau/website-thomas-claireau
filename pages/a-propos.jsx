@@ -1,11 +1,11 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
 import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
 import A_PROPOS_QUERY from 'apollo/queries/a-propos';
-import { setParagraph } from 'utils/editor.js';
 import { motion } from 'framer-motion';
+
+import styles, { left, right, texte } from 'styles/pages/a-propos.module.scss';
 
 import HtmlContent from 'components/Global/HtmlContent';
 import Col from 'components/Global/Layout/Col';
@@ -15,57 +15,6 @@ import { Loading } from 'components/Global/Loading';
 import { Error } from 'components/Global/Error';
 
 function About() {
-	const AboutStyled = styled.div`
-		overflow-x: hidden;
-
-		> .left {
-			padding: 100px 40px 200px 40px;
-
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				order: 1;
-				padding: 40px 40px 80px 40px;
-			}
-
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-mini']}) {
-				padding: 20px 20px 80px 20px;
-			}
-		}
-
-		> .right {
-			padding: 40px 40px 40px 80px;
-			color: ${(props) => props.theme.colors.light};
-
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-				padding: 80px 40px 40px 40px;
-			}
-
-			@media screen and (max-width: ${(props) => props.theme.breakpoints['break-tablet']}) {
-				padding: 80px 20px 20px 20px;
-			}
-
-			.texte {
-				width: 80%;
-				margin-top: 60px;
-
-				@media screen and (max-width: ${(props) =>
-						props.theme.breakpoints['break-header']}) {
-					width: 90%;
-				}
-
-				@media screen and (max-width: ${(props) =>
-						props.theme.breakpoints['break-large']}) {
-					width: 100%;
-					margin-top: 30px;
-				}
-
-				> *:first-of-type {
-					margin: 0;
-					padding: 0;
-				}
-			}
-		}
-	`;
-
 	const transition = {
 		hidden: { opacity: 0, y: '100%' },
 		visible: { opacity: 1, y: 0 },
@@ -91,11 +40,11 @@ function About() {
 	return (
 		<>
 			<NextSeo {...SEO} />
-			<AboutStyled className="main-content">
-				<Col direction="left" align="center">
+			<section className={`${styles['a-propos']} main-content`}>
+				<Col direction="left" align="center" className={left}>
 					<LogosContainer languages={about.left_content.language} />
 				</Col>
-				<Col direction="right" align="flex-start">
+				<Col direction="right" align="flex-start" className={right}>
 					<motion.h1
 						className="--uppercase"
 						variants={transition}
@@ -107,7 +56,7 @@ function About() {
 					</motion.h1>
 					<motion.div variants={transition} initial="hidden" animate="visible">
 						<HtmlContent
-							className="texte"
+							className={texte}
 							variants={transition}
 							initial="hidden"
 							animate="visible"
@@ -117,7 +66,7 @@ function About() {
 					</motion.div>
 				</Col>
 				<MenuBottom></MenuBottom>
-			</AboutStyled>
+			</section>
 		</>
 	);
 }
