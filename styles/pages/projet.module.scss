@@ -1,0 +1,79 @@
+.projet {
+	overflow-x: hidden;
+
+	@media screen and (max-width: $break-large) {
+		padding: 50px 0;
+	}
+
+	> .left {
+		padding: 60px 0;
+		@media screen and (max-width: $break-large) {
+			order: 1;
+		}
+	}
+
+	> .right {
+		@media screen and (max-width: $break-header) {
+			padding-right: 40px;
+			padding-left: 40px;
+		}
+
+		@media screen and (max-width: $break-tablet) {
+			padding-right: 15px;
+			padding-left: 15px;
+		}
+	}
+
+	nav.desktop {
+		display: none;
+	}
+
+	.content {
+		padding: 0 60px;
+
+		@media screen and (max-width: $break-tablet) {
+			padding: 0 15px;
+		}
+	}
+
+	a.back {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: $dark;
+
+		&.bottom {
+			margin-top: 80px;
+
+			@media screen and (max-width: $break-large) {
+				margin-top: 40px;
+			}
+		}
+
+		svg {
+			margin-right: 10px;
+
+			path {
+				fill: $dark;
+			}
+		}
+	}
+
+	img.main-image {
+		width: 100%;
+		height: 75%;
+		margin-top: 40px;
+		border-radius: 3px;
+		object-fit: cover;
+
+		@media screen and (max-width: $break-header) {
+			height: 50%;
+		}
+
+		@media screen and (max-width: $break-large) {
+			height: 400px;
+		}
+	}
+}
