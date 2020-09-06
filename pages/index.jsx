@@ -14,12 +14,12 @@ import {
 	description,
 } from 'styles/pages/index.module.scss';
 
-import Container from 'components/Global/Layout/Container';
-import Col from 'components/Global/Layout/Col';
-import ContentVM from 'components/Global/Layout/ContentVM';
-import SliderWorks from 'components/Index/SliderWorks';
-import { Loading } from 'components/Global/Loading';
-import { Error } from 'components/Global/Error';
+import Container from 'components/global/layout/Container/index';
+import Col from 'components/global/layout/Col';
+import ContentVM from 'components/global/layout/ContentVM/index';
+import SliderWork from 'components/index/SliderWork/index';
+import { Loading } from 'components/global/Loading/index';
+import { Error } from 'components/global/Error/index';
 
 function Home() {
 	const { data, loading, error } = useQuery(INDEX_QUERY);
@@ -62,7 +62,7 @@ function Home() {
 						<h1>{accueil.titre_mobile}</h1>
 						<p className="--light">{accueil.header.meta_description}</p>
 					</Container>
-					<SliderWorks data={accueil.slide_work}></SliderWorks>
+					<SliderWork data={accueil.slide_work}></SliderWork>
 				</ContentVM>
 			</section>
 		</>

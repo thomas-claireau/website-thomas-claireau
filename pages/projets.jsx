@@ -6,12 +6,12 @@ import PROJETS_QUERY from 'apollo/queries/projets';
 
 import styles, { projets } from 'styles/pages/projets.module.scss';
 
-import Container from 'components/Global/Layout/Container';
-import Menu from 'components/Global/Menus/Menu';
-import Slider from 'components/Projets/Slider';
-import MenuBottom from 'components/Global/Menus/MenuBottom';
-import { Loading } from 'components/Global/Loading';
-import { Error } from 'components/Global/Error';
+import Container from 'components/global/layout/Container/index';
+import Menu from 'components/global/menus/Menu/index';
+import Slider from 'components/projets/Slider/index';
+import MenuBottom from 'components/global/menus/MenuBottom/index';
+import { Loading } from 'components/global/Loading/index';
+import { Error } from 'components/global/Error/index';
 
 function Projets() {
 	const { data, loading, error } = useQuery(PROJETS_QUERY);
@@ -36,7 +36,7 @@ function Projets() {
 				<Container className={styles['main-content']}>
 					<h1 className="--hide">Thomas Claireau - {data.meta.header.title}</h1>
 					<Slider projets={data.projets} />
-					<Menu space="60px" className="desktop" />
+					<Menu view="desktop" />
 				</Container>
 				<MenuBottom></MenuBottom>
 			</section>

@@ -14,12 +14,12 @@ import styles, {
 	bottom,
 } from 'styles/pages/projet.module.scss';
 
-import HtmlContent from 'components/Global/HtmlContent';
-import Col from 'components/Global/Layout/Col';
-import MenuBottom from 'components/Global/Menus/MenuBottom';
-import Sidebar from 'components/Projet/Sidebar';
-import GithubInfo from 'components/Projet/GithubInfo';
-import SliderOthersImages from 'components/Projet/SliderOthersImages';
+import HtmlContent from 'components/global/HtmlContent/index';
+import Col from 'components/global/layout/Col';
+import MenuBottom from 'components/global/menus/MenuBottom/index';
+import Sidebar from 'components/projet/Sidebar/index';
+import GithubInfo from 'components/projet/GithubInfo/index';
+import SliderOthersImages from 'components/projet/SliderOthersImages/index';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
@@ -41,7 +41,7 @@ function Projet({ data, github }) {
 	return (
 		<>
 			<NextSeo {...SEO} />
-			<section className={`${projet} main-content`}>
+			<section className={`${projet} projet main-content`}>
 				<Col
 					className={left}
 					direction="left"

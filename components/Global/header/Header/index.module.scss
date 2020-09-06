@@ -1,0 +1,52 @@
+.header {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 12px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0 55px;
+
+	@media screen and (max-width: $break-large) {
+		z-index: -1;
+	}
+
+	@media screen and (max-width: $break-tablet) {
+		padding: 0 20px;
+	}
+
+	.top {
+		display: flex;
+		justify-content: space-between;
+
+		@media screen and (max-width: $break-large) {
+			position: absolute;
+			opacity: 0;
+			z-index: -1;
+		}
+
+		.title {
+			font-size: 15px;
+			font-weight: bold;
+			line-height: 20px;
+			letter-spacing: 1.5px;
+			color: $light;
+
+			@media screen and (max-width: $break-large) {
+				color: $light;
+			}
+
+			i {
+				margin-left: 10px;
+			}
+		}
+
+		.right {
+			span {
+				@media screen and (max-width: $break-small) {
+					display: none;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+.sidebar-info {
+	list-style-type: none;
+	font-size: 17px;
+
+	&:not(:first-of-type) {
+		margin-top: 25px;
+	}
+
+	.label {
+		font-weight: 300;
+		margin-bottom: 3px;
+	}
+
+	.value {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		font-weight: 600;
+		color: $light;
+
+		&:not(:first-of-type) {
+			margin-top: 5px;
+		}
+
+		svg {
+			width: 20px;
+			height: 20px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-right: 10px;
+
+			#wordpress path {
+				fill: #fff;
+			}
+		}
+	}
+}

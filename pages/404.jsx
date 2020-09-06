@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import Col from 'components/Global/Layout/Col';
+import Col from 'components/global/layout/Col';
 
 import styles, { title, left, desktop, mobile } from 'styles/pages/404.module.scss';
 

@@ -1,0 +1,16 @@
+.container {
+	padding-right: 90px;
+	padding-left: 110px;
+
+	@media screen and (max-width: $break-large) {
+		padding-right: 15px;
+		padding-left: 15px;
+		padding-bottom: 90px;
+	}
+
+	@media screen and (max-width: $break-tablet) {
+		padding-right: 10px;
+		padding-left: 10px;
+		padding-bottom: 30px;
+	}
+}

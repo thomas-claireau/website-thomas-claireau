@@ -7,12 +7,12 @@ import { motion } from 'framer-motion';
 
 import styles, { left, right, texte } from 'styles/pages/a-propos.module.scss';
 
-import HtmlContent from 'components/Global/HtmlContent';
-import Col from 'components/Global/Layout/Col';
-import LogosContainer from 'components/About/LogosContainer/index';
-import MenuBottom from 'components/Global/Menus/MenuBottom';
-import { Loading } from 'components/Global/Loading';
-import { Error } from 'components/Global/Error';
+import HtmlContent from 'components/global/HtmlContent/index';
+import Col from 'components/global/layout/Col';
+import LogosContainer from 'components/about/LogosContainer/index';
+import MenuBottom from 'components/global/menus/MenuBottom/index';
+import { Loading } from 'components/global/Loading/index';
+import { Error } from 'components/global/Error/index';
 
 function About() {
 	const transition = {

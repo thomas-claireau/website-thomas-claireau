@@ -1,0 +1,30 @@
+.menu-bottom {
+	width: 100%;
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	padding: 15px 20px;
+	background-color: $light;
+	z-index: 10000;
+	box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.2);
+
+	@media screen and (max-width: $break-large) {
+		display: flex;
+	}
+
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		color: $dark;
+		font-weight: bold;
+
+		i {
+			margin-bottom: 5px;
+		}
+	}
+}

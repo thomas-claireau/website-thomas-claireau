@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { DefaultSeo } from 'next-seo';
-import { ApolloProvider, useQuery } from '@apollo/react-hooks';
-import client from '../apolloClient';
+import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
 import GLOBAL_QUERY_APP from 'apollo/queries/_app';
 import { ThemeProvider } from 'emotion-theming';
@@ -14,11 +13,11 @@ import 'swiper/components/effect-fade/effect-fade.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/navigation/navigation.scss';
 
-import { theme, GlobalStyles } from 'components/Global/GlobalStyles';
-import Box from 'components/Global/Layout/Box';
-import ContextWrapper from 'components/Global/ContextWrapper';
-import { Loading } from 'components/Global/Loading';
-import { Error } from 'components/Global/Error';
+import { theme, GlobalStyles } from 'components/global/GlobalStyles';
+import Box from 'components/global/layout/Box/index';
+import ContextWrapper from 'components/global/ContextWrapper';
+import { Loading } from 'components/global/Loading/index';
+import { Error } from 'components/global/Error/index';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();

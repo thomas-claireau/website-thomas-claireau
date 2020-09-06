@@ -1,4 +1,5 @@
 @import './modifier';
+@import './swiper';
 
 body {
 	width: 100vw;
@@ -106,5 +107,13 @@ p {
 
 	@media screen and (max-height: 730px) {
 		font-size: 15px;
+	}
+}
+
+.projet {
+	svg {
+		#wordpress path {
+			fill: #fff;
+		}
 	}
 }

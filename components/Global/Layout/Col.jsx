@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { motion } from 'framer-motion';
 
-import Menu from 'components/Global/Menus/Menu';
+import Menu from 'components/global/menus/Menu/index';
 import BoxContext from 'contexts/BoxContext';
 
 export default function Col({ direction, align, justify, children, width, scroll, className }) {
@@ -67,7 +67,7 @@ export default function Col({ direction, align, justify, children, width, scroll
 			animate="visible"
 		>
 			{children}
-			{direction == 'left' && <Menu space={space} className="desktop" />}
+			{direction == 'left' && <Menu view="desktop" />}
 		</ColStyled>
 	);
 }
