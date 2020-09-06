@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-export default function Svg({ url }) {
+export default function Svg({ styles, url }) {
 	const [svg, setSvg] = useState(null);
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [isErrored, setIsErrored] = useState(false);
@@ -15,7 +15,7 @@ export default function Svg({ url }) {
 
 	return (
 		<div
-			className={`svg-container svg-container--${isLoaded ? 'loaded' : 'loading'} ${
+			className={`${styles} svg-container svg-container--${isLoaded ? 'loaded' : 'loading'} ${
 				isErrored ? 'svg-container--errored' : ''
 			}`}
 			dangerouslySetInnerHTML={{ __html: svg }}
