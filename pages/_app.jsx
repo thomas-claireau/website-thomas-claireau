@@ -5,8 +5,9 @@ import client from '../apolloClient';
 import { withApollo } from 'libs/apollo';
 import GLOBAL_QUERY_APP from 'apollo/queries/_app';
 import { ThemeProvider } from 'emotion-theming';
-import styled from '@emotion/styled';
 import { AnimatePresence } from 'framer-motion';
+
+import 'styles/global.scss';
 import 'font-awesome/css/font-awesome.min.css';
 import 'swiper/swiper.scss';
 import 'swiper/components/effect-fade/effect-fade.scss';
@@ -45,11 +46,6 @@ function MyApp({ Component, pageProps }) {
 		},
 	};
 
-	const RootStyled = styled.div`
-		width: 100%;
-		height: 100%;
-	`;
-
 	const { data, loading, error } = useQuery(GLOBAL_QUERY_APP);
 
 	if (loading) return <Loading />;
@@ -63,11 +59,11 @@ function MyApp({ Component, pageProps }) {
 				<ThemeProvider theme={theme}>
 					<GlobalStyles />
 					<ContextWrapper colorScheme={colorScheme[router.pathname]} global={data.global}>
-						<RootStyled id="app">
+						<section id="app">
 							<Box>
 								<Component {...pageProps} key={router.route} />
 							</Box>
-						</RootStyled>
+						</section>
 					</ContextWrapper>
 				</ThemeProvider>
 			</AnimatePresence>

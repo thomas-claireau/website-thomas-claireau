@@ -1,66 +1,29 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import Head from 'next/head';
-import Container from 'components/Global/Layout/Container';
 import Col from 'components/Global/Layout/Col';
 
+import styles, { title, left, desktop, mobile } from 'styles/pages/404.module.scss';
+
 export default function Custom404() {
-	const NotFoundStyled = styled.div`
-		width: 100%;
-		height: 100%;
-		display: flex;
-
-		@media screen and (max-width: ${(props) => props.theme.breakpoints['break-large']}) {
-			flex-direction: column;
-		}
-
-		.title {
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-
-			&.desktop {
-				@media screen and (max-width: ${(props) =>
-						props.theme.breakpoints['break-large']}) {
-					display: none;
-				}
-			}
-
-			&.mobile {
-				display: none;
-
-				@media screen and (max-width: ${(props) =>
-						props.theme.breakpoints['break-large']}) {
-					display: inherit;
-				}
-			}
-
-			&.left {
-				align-items: flex-end;
-			}
-		}
-	`;
-
 	return (
 		<>
 			<Head>
 				<meta name="robots" content="noindex"></meta>
 			</Head>
-			<NotFoundStyled>
-				404
-				{/* <Col direction="left" bg="--bg-dark" align="center">
-					<div className="title h1 left --light desktop">
+			<div className={styles['not-found']}>
+				<Col direction="left" bg="--bg-dark" align="center">
+					<div className={`${title} ${left} ${desktop} h1 --light`}>
 						<span>404 No</span>
 					</div>
-					<div className="title h1 left --light mobile">404</div>
+					<div className={`${title} ${left} ${mobile} h1 --light`}>404</div>
 				</Col>
 				<Col direction="right" bg="--bg-light" align="center">
-					<div className="title h1 --dark desktop">
+					<div className={`${title} ${desktop} h1 --dark`}>
 						<span>t Found</span>
 					</div>
-					<div className="title h1 left --dark mobile">Not Found</div>
-				</Col> */}
-			</NotFoundStyled>
+					<div className={`${title} ${left} ${mobile} h1 --dark`}>Not Found</div>
+				</Col>
+			</div>
 		</>
 	);
 }

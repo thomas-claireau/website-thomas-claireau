@@ -1,0 +1,25 @@
+.--hide {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+}
+
+.--dark {
+	color: $dark;
+}
+
+.--bg-dark {
+	background-color: $dark;
+}
+
+.--light {
+	color: $light;
+}
+
+.--bg-light {
+	background-color: $light;
+}
+
+.--uppercase {
+	text-transform: uppercase;
+}
