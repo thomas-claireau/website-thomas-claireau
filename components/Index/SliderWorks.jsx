@@ -56,6 +56,8 @@ export default function SliderWorks({ data }) {
 			}
 
 			.swiper-slide {
+				min-height: 250px;
+
 				img {
 					width: 100%;
 					height: 100%;
