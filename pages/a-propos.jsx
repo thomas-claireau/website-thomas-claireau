@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 import HtmlContent from 'components/Global/HtmlContent';
 import Col from 'components/Global/Layout/Col';
-import LogosContainer from 'components/About/LogosContainer';
+import LogosContainer from 'components/About/LogosContainer/index';
 import MenuBottom from 'components/Global/Menus/MenuBottom';
 import { Loading } from 'components/Global/Loading';
 import { Error } from 'components/Global/Error';
@@ -115,15 +115,6 @@ function About() {
 							{about.right_content.description}
 						</HtmlContent>
 					</motion.div>
-					{/* <motion.div
-						className="texte"
-						dangerouslySetInnerHTML={{
-							__html: setParagraph(about.right_content.description),
-						}}
-						variants={transition}
-						initial="hidden"
-						animate="visible"
-					></motion.div> */}
 				</Col>
 				<MenuBottom></MenuBottom>
 			</AboutStyled>
