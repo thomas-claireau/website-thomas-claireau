@@ -3,7 +3,6 @@ import { DefaultSeo } from 'next-seo';
 import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
 import GLOBAL_QUERY_APP from 'apollo/queries/_app';
-import { ThemeProvider } from 'emotion-theming';
 import { AnimatePresence } from 'framer-motion';
 
 import 'styles/global.scss';
@@ -13,7 +12,6 @@ import 'swiper/components/effect-fade/effect-fade.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/navigation/navigation.scss';
 
-import { theme, GlobalStyles } from 'components/global/GlobalStyles';
 import Box from 'components/global/layout/Box/index';
 import ContextWrapper from 'components/global/ContextWrapper';
 import { Loading } from 'components/global/Loading/index';
@@ -55,16 +53,13 @@ function MyApp({ Component, pageProps }) {
 		<>
 			<DefaultSeo {...data.global.meta_data} />
 			<AnimatePresence exitBeforeEnter>
-				<ThemeProvider theme={theme}>
-					<GlobalStyles />
-					<ContextWrapper colorScheme={colorScheme[router.pathname]} global={data.global}>
-						<section id="app">
-							<Box>
-								<Component {...pageProps} key={router.route} />
-							</Box>
-						</section>
-					</ContextWrapper>
-				</ThemeProvider>
+				<ContextWrapper colorScheme={colorScheme[router.pathname]} global={data.global}>
+					<section id="app">
+						<Box>
+							<Component {...pageProps} key={router.route} />
+						</Box>
+					</section>
+				</ContextWrapper>
 			</AnimatePresence>
 		</>
 	);

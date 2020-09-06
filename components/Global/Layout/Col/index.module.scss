@@ -1,0 +1,32 @@
+.col {
+	height: 100%;
+	display: flex !important;
+	flex-direction: column;
+	position: relative;
+
+	@media screen and (max-width: $break-large) {
+		width: 100% !important;
+	}
+
+	&.dark {
+		background-color: $dark;
+		color: $light;
+	}
+
+	&.light {
+		background-color: $light;
+		color: $dark;
+	}
+
+	&.home {
+		@media screen and (max-width: $break-large) {
+			display: none !important;
+		}
+	}
+
+	@media screen and (max-width: $break-large) {
+		width: 100%;
+		height: auto;
+		overflow: initial !important;
+	}
+}

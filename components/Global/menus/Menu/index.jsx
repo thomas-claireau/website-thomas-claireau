@@ -2,18 +2,18 @@ import { useContext } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { menu, desktop, mobile, light, dark, active } from './index.module.scss';
+import { menu, project, desktop, mobile, light, dark, active } from './index.module.scss';
 
 import BoxContext from 'contexts/BoxContext';
 
-function Menu({ view, hide }) {
+function Menu({ view, hide, isProject }) {
 	const { theme, global } = useContext(BoxContext);
 	const className = view == 'desktop' ? desktop : mobile;
 
 	const router = useRouter();
 
 	return (
-		<div className={`${menu} ${className} ${hide ? '--hide' : ''}`}>
+		<div className={`${menu} ${isProject ? project : ''} ${className} ${hide ? '--hide' : ''}`}>
 			<ul>
 				{global.item_menu_desktop &&
 					global.item_menu_desktop.map((item) => {

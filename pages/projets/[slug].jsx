@@ -15,7 +15,7 @@ import styles, {
 } from 'styles/pages/projet.module.scss';
 
 import HtmlContent from 'components/global/HtmlContent/index';
-import Col from 'components/global/layout/Col';
+import Col from 'components/global/layout/Col/index';
 import MenuBottom from 'components/global/menus/MenuBottom/index';
 import Sidebar from 'components/projet/Sidebar/index';
 import GithubInfo from 'components/projet/GithubInfo/index';

@@ -15,7 +15,7 @@ import {
 } from 'styles/pages/index.module.scss';
 
 import Container from 'components/global/layout/Container/index';
-import Col from 'components/global/layout/Col';
+import Col from 'components/global/layout/Col/index';
 import ContentVM from 'components/global/layout/ContentVM/index';
 import SliderWork from 'components/index/SliderWork/index';
 import { Loading } from 'components/global/Loading/index';

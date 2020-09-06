@@ -39,13 +39,17 @@ export default function Box({ children }) {
 	}, []);
 
 	return (
-		<div className={`${box}`}>
+		<div className={`${box} box`}>
 			<Global
 				styles={css`
 					#app {
 						&.--menu-open {
 							.box {
 								box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.35);
+
+								> section {
+									opacity: 0;
+								}
 							}
 						}
 					}

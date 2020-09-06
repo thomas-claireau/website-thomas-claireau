@@ -3,6 +3,10 @@
 	bottom: 60px;
 	left: 60px;
 
+	&.project {
+		display: none;
+	}
+
 	@media screen and (max-height: $break-tablet) {
 		bottom: 20px;
 	}

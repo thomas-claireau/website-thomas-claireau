@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import styles, { left, right, texte } from 'styles/pages/a-propos.module.scss';
 
 import HtmlContent from 'components/global/HtmlContent/index';
-import Col from 'components/global/layout/Col';
+import Col from 'components/global/layout/Col/index';
 import LogosContainer from 'components/about/LogosContainer/index';
 import MenuBottom from 'components/global/menus/MenuBottom/index';
 import { Loading } from 'components/global/Loading/index';
