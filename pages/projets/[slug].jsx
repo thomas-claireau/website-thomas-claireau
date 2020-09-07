@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import CustomErrorPage from 'pages/404';
-import { GraphQLClient, request } from 'graphql-request';
+import { request } from 'graphql-request';
 import PROJET_QUERY from 'apollo/queries/projet';
 
 import styles, {
@@ -92,17 +92,12 @@ function Projet({ data, github }) {
 }
 
 export async function getServerSideProps({ params }) {
-	const endpoint = process.env.API_URL + '/graphql';
 	const variables = { slug: params.slug };
 	const auth = Buffer.from(`${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}`).toString(
 		'base64'
 	);
 
-	const graphQLClient = new GraphQLClient(endpoint, {
-		credentials: 'same-origin',
-	});
-
-	return graphQLClient.request(PROJET_QUERY, variables).then(async (data) => {
+	return request(process.env.API_URL + '/graphql', PROJET_QUERY, variables).then((data) => {
 		const projet = data.projets[0];
 
 		const options = {
@@ -112,14 +107,16 @@ export async function getServerSideProps({ params }) {
 			},
 		};
 
-		const response = await fetch(`${process.env.GITHUB_API}/repos/${projet.github}`, options);
-		const github = await response.json();
-		return {
-			props: {
-				data: projet || null,
-				github: github || null,
-			},
-		};
+		return fetch(`${process.env.GITHUB_API}/repos/${projet.github}`, options)
+			.then((response) => response.json())
+			.then((github) => {
+				return {
+					props: {
+						data: projet || null,
+						github: github || null,
+					},
+				};
+			});
 	});
 }
 
