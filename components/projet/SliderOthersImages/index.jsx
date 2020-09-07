@@ -3,8 +3,6 @@ import SwiperCore, { Navigation } from 'swiper';
 
 import styles from './index.module.scss';
 
-console.log(styles);
-
 import SwiperButtonSvg from 'public/assets/img/swiper-button.svg';
 
 export default function SliderOthersImages({ images, className, ...props }) {
