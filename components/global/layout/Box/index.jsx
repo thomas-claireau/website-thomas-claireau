@@ -4,9 +4,9 @@ import { Global, css } from '@emotion/core';
 
 import { box } from './index.module.scss';
 
-import Header from 'components/global/Header/Header';
-import HeaderVM from 'components/global/Header/HeaderVM';
-import MenuVM from 'components/global/Menus/MenuVM';
+import Header from 'components/global/header/Header';
+import HeaderVM from 'components/global/header/HeaderVM';
+import MenuVM from 'components/global/menus/MenuVM';
 
 export default function Box({ children }) {
 	const [menu, setMenu] = useState(false);
