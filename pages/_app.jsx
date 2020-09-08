@@ -37,6 +37,14 @@ function MyApp({ Component, pageProps }) {
 			left: 'light',
 			right: 'dark',
 		},
+		'/blog': {
+			left: 'light',
+			right: 'dark',
+		},
+		'/blog/[slug]': {
+			left: 'dark',
+			right: 'light',
+		},
 		'/404': {
 			left: 'dark',
 			right: 'light',
