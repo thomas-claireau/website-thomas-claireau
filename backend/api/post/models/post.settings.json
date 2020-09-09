@@ -37,6 +37,10 @@
     },
     "slug": {
       "type": "string"
+    },
+    "time": {
+      "type": "integer",
+      "default": 5
     }
   }
 }

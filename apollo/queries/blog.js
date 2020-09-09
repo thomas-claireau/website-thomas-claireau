@@ -10,6 +10,9 @@ const BLOG_QUERY = gql`
 			}
 		}
 		posts {
+			id
+			slug
+			time
 			header {
 				title
 				meta_title
