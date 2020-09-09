@@ -1,0 +1,30 @@
+.search-bar {
+	position: absolute;
+	right: 100px;
+	bottom: 60px;
+
+	> div {
+		input {
+			-webkit-appearance: none;
+			background-color: transparent;
+			border: none;
+			font-size: 20px;
+			color: $light;
+
+			&:focus,
+			&:hover {
+				outline: 0;
+			}
+
+			&::placeholder {
+				color: $light;
+				opacity: 0.5;
+			}
+		}
+
+		i {
+			font-size: 20px;
+			color: $light;
+		}
+	}
+}

@@ -11,6 +11,7 @@ import { Error } from 'components/global/Error/index';
 import Container from 'components/global/layout/Container/index';
 import Menu from 'components/global/menus/Menu/index';
 import Slider from 'components/posts/Slider/index';
+import SearchBar from 'components/posts/SearchBar/index';
 import MenuBottom from 'components/global/menus/MenuBottom/index';
 
 function Blog() {
@@ -29,6 +30,10 @@ function Blog() {
 		},
 	};
 
+	function handleClick() {
+		console.log('passe');
+	}
+
 	return (
 		<>
 			<NextSeo {...SEO} />
@@ -37,6 +42,7 @@ function Blog() {
 					<h1 className="--hide">Thomas Claireau - {data.blog.header.title}</h1>
 					<Slider posts={data.posts} />
 					<Menu view="desktop" />
+					<SearchBar handleClick={handleClick} />
 				</Container>
 				<MenuBottom></MenuBottom>
 			</section>

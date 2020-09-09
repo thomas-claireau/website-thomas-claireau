@@ -16,6 +16,10 @@
 	}
 
 	&.desktop {
+		ul {
+			margin: 10px 0;
+		}
+
 		@media screen and (max-width: $break-large) {
 			display: none;
 		}

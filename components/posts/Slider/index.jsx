@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { EffectFade, Mousewheel, Navigation } from 'swiper';
+import { motion } from 'framer-motion';
 
 import styles, { slider, informations, avatar, date, description, go } from './index.module.scss';
 
@@ -11,9 +12,18 @@ export default function Slider({ posts }) {
 	const router = useRouter();
 	SwiperCore.use([EffectFade, Mousewheel, Navigation]);
 
+	const isNavigation = posts.length > 3;
+
+	const transition = {
+		hidden: { opacity: 0 },
+		visible: { opacity: 1 },
+	};
+
 	return (
-		<div className={slider}>
-			<div className={`${styles['swiper-button-prev']} swiper-button-prev`} />
+		<motion.div className={slider} variants={transition} initial="hidden" animate="visible">
+			{isNavigation && (
+				<div className={`${styles['swiper-button-prev']} swiper-button-prev`} />
+			)}
 			<Swiper
 				className={`${styles['swiper-container']} swiper-container slider-posts`}
 				slidesPerView={3}
@@ -67,7 +77,9 @@ export default function Slider({ posts }) {
 						);
 					})}
 			</Swiper>
-			<div className={`${styles['swiper-button-next']} swiper-button-next`} />
-		</div>
+			{isNavigation && (
+				<div className={`${styles['swiper-button-next']} swiper-button-next`} />
+			)}
+		</motion.div>
 	);
 }
