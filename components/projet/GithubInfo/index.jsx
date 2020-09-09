@@ -1,18 +1,9 @@
 import { useLayoutEffect, useState } from 'react';
 import fetch from 'isomorphic-unfetch';
 import Svg from 'utils/svg';
+import SlashDate from 'utils/SlashDate';
 
 import styles, { content, top, bottom, stats, left } from './index.module.scss';
-
-function SlashDate({ date }) {
-	date = new Date(date);
-
-	const year = date.getFullYear();
-	const month = date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth();
-	const day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
-
-	return <span>{`${day}/${month}/${year}`}</span>;
-}
 
 export default function GithubInfo({ bg, github, languages }) {
 	const [lines, setLines] = useState(null);

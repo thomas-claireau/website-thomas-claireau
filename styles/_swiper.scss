@@ -1,5 +1,6 @@
 .swiper-container {
-	&.slider {
+	&.slider-projets,
+	&.slider-posts {
 		.swiper-wrapper {
 			height: 100%;
 			transition-timing-function: linear !important;
@@ -51,6 +52,17 @@
 
 		.swiper-wrapper {
 			height: 100%;
+		}
+	}
+
+	&.slider-posts {
+		.swiper-container {
+			overflow: visible;
+		}
+		.swiper-button-prev,
+		.swiper-button-next {
+			top: auto;
+			bottom: -20px;
 		}
 	}
 }

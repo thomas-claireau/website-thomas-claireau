@@ -17,7 +17,7 @@ export default function Slider({ projets }) {
 
 	return (
 		<Swiper
-			className={`${slider} swiper-container slider`}
+			className={`${slider} swiper-container slider-projets`}
 			slidesPerView={1}
 			breakpoints={breakpoints}
 			direction="horizontal"

@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
 import BLOG_QUERY from 'apollo/queries/blog';
 
-import styles, { blog } from 'styles/pages/blog.module.scss';
+import styles, { blog, container } from 'styles/pages/blog.module.scss';
 
 import { Loading } from 'components/global/Loading/index';
 import { Error } from 'components/global/Error/index';
@@ -15,8 +15,6 @@ import MenuBottom from 'components/global/menus/MenuBottom/index';
 
 function Blog() {
 	const { data, loading, error } = useQuery(BLOG_QUERY);
-
-	// console.log(data);
 
 	if (loading) return <Loading />;
 
@@ -35,7 +33,7 @@ function Blog() {
 		<>
 			<NextSeo {...SEO} />
 			<section className={blog}>
-				<Container>
+				<Container className={container}>
 					<h1 className="--hide">Thomas Claireau - {data.blog.header.title}</h1>
 					<Slider posts={data.posts} />
 					<Menu view="desktop" />
