@@ -1,6 +1,7 @@
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectFade, Mousewheel, Navigation } from 'swiper';
+import SwiperCore, { EffectFade, Mousewheel, Navigation, Virtual } from 'swiper';
 import { motion } from 'framer-motion';
 
 import styles, { slider, informations, avatar, date, description, go } from './index.module.scss';
@@ -8,16 +9,21 @@ import styles, { slider, informations, avatar, date, description, go } from './i
 import SlashDate from 'utils/SlashDate';
 import ClockSvg from 'public/assets/img/clock.svg';
 
-export default function Slider({ posts }) {
+export default function Slider({ data }) {
+	const [state, setState] = useState(data);
 	const router = useRouter();
-	SwiperCore.use([EffectFade, Mousewheel, Navigation]);
+	SwiperCore.use([EffectFade, Mousewheel, Navigation, Virtual]);
 
-	const isNavigation = posts.length > 3;
+	const isNavigation = state && state.length > 3;
 
 	const transition = {
 		hidden: { opacity: 0 },
 		visible: { opacity: 1 },
 	};
+
+	useEffect(() => {
+		setState(data);
+	}, [data]);
 
 	return (
 		<motion.div className={slider} variants={transition} initial="hidden" animate="visible">
@@ -36,10 +42,11 @@ export default function Slider({ posts }) {
 					prevEl: '.swiper-button-prev',
 					nextEl: '.swiper-button-next',
 				}}
+				virtual
+				onSwiper={(swiper) => console.log(state)}
 			>
-				{posts &&
-					posts.map((post) => {
-						console.log(post);
+				{state &&
+					state.map((post) => {
 						return (
 							<SwiperSlide
 								tag="a"
@@ -71,7 +78,7 @@ export default function Slider({ posts }) {
 										<ClockSvg />
 										{`${post.time}min`}
 									</div>
-									<i className="fa fa-angle-right" ariaHidden="true"></i>
+									<i className="fa fa-angle-right" aria-hidden="true"></i>
 								</div>
 							</SwiperSlide>
 						);
