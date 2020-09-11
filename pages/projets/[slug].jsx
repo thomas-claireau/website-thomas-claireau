@@ -17,7 +17,7 @@ import styles, {
 import HtmlContent from 'components/global/HtmlContent/index';
 import Col from 'components/global/layout/Col/index';
 import MenuBottom from 'components/global/menus/MenuBottom/index';
-import Sidebar from 'components/projet/Sidebar/index';
+import Sidebar from 'components/global/Sidebar/index';
 import GithubInfo from 'components/projet/GithubInfo/index';
 import SliderOthersImages from 'components/projet/SliderOthersImages/index';
 

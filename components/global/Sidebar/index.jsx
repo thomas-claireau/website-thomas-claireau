@@ -2,7 +2,7 @@ import React from 'react';
 
 import { sidebar } from './index.module.scss';
 
-import SidebarInfo from 'components/projet/SidebarInfo/index';
+import SidebarInfo from 'components/global/Sidebar/SidebarInfo';
 
 export default function Sidebar({ projet }) {
 	return (

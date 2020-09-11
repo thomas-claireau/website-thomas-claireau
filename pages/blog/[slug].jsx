@@ -7,7 +7,10 @@ import POST_QUERY from 'apollo/queries/post';
 
 import styles, { post } from 'styles/pages/post.module.scss';
 
-function Projet({ data }) {
+import HtmlContent from 'components/global/HtmlContent/index';
+import Col from 'components/global/layout/Col/index';
+
+function Post({ data }) {
 	if (!data) return <CustomErrorPage />;
 	data.year = new Date(data.year);
 
@@ -19,6 +22,8 @@ function Projet({ data }) {
 			description: data.header.meta_description,
 		},
 	};
+
+	console.log(data);
 
 	return (
 		<>
@@ -32,14 +37,14 @@ export async function getServerSideProps({ params }) {
 	const variables = { slug: params.slug };
 
 	return request(process.env.API_URL + '/graphql', POST_QUERY, variables).then((data) => {
-		const projet = data.projets[0];
+		const post = data.posts[0];
 
 		return {
 			props: {
-				data: projet || null,
+				data: post || null,
 			},
 		};
 	});
 }
 
-export default Projet;
+export default Post;
