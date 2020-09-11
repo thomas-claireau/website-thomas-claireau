@@ -12,7 +12,7 @@ import ClockSvg from 'public/assets/img/clock.svg';
 export default function Slider({ data }) {
 	const [state, setState] = useState(data);
 	const router = useRouter();
-	SwiperCore.use([EffectFade, Mousewheel, Navigation, Virtual]);
+	SwiperCore.use([EffectFade, Mousewheel, Navigation]);
 
 	const isNavigation = state && state.length > 3;
 
@@ -20,8 +20,6 @@ export default function Slider({ data }) {
 		hidden: { opacity: 0 },
 		visible: { opacity: 1 },
 	};
-
-	console.log(data);
 
 	useEffect(() => {
 		setState(data);
@@ -36,18 +34,29 @@ export default function Slider({ data }) {
 			/>
 			<Swiper
 				className={`${styles['swiper-container']} swiper-container slider-posts`}
-				slidesPerView={3}
+				slidesPerView={1}
 				direction="horizontal"
 				effect="slide"
-				spaceBetween={100}
+				spaceBetween={40}
 				grabCursor
 				mousewheel
 				navigation={{
 					prevEl: '.swiper-button-prev',
 					nextEl: '.swiper-button-next',
 				}}
-				virtual
-				onSwiper={(swiper) => console.log(state)}
+				breakpoints={{
+					1600: {
+						spaceBetween: 100,
+						slidesPerView: 3,
+					},
+					1210: {
+						spaceBetween: 40,
+						slidesPerView: 3,
+					},
+					768: {
+						slidesPerView: 2,
+					},
+				}}
 			>
 				{state &&
 					state.map((post) => {

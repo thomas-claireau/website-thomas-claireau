@@ -68,9 +68,9 @@ function Blog() {
 				<section className={blog}>
 					<Container className={container}>
 						<h1 className="--hide">Thomas Claireau - {data.blog.header.title}</h1>
+						<SearchBar handlePress={handlePress} handleClick={handleClick} />
 						<Slider data={posts} />
 						<Menu view="desktop" />
-						<SearchBar handlePress={handlePress} handleClick={handleClick} />
 					</Container>
 					<MenuBottom></MenuBottom>
 				</section>
