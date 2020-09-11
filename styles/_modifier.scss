@@ -1,7 +1,7 @@
 .--hide {
-	position: absolute;
-	opacity: 0;
-	z-index: -1;
+	position: absolute !important;
+	opacity: 0 !important;
+	z-index: -1 !important;
 }
 
 .--dark {

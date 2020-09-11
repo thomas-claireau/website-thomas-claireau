@@ -21,15 +21,19 @@ export default function Slider({ data }) {
 		visible: { opacity: 1 },
 	};
 
+	console.log(data);
+
 	useEffect(() => {
 		setState(data);
 	}, [data]);
 
 	return (
 		<motion.div className={slider} variants={transition} initial="hidden" animate="visible">
-			{isNavigation && (
-				<div className={`${styles['swiper-button-prev']} swiper-button-prev`} />
-			)}
+			<div
+				className={`${styles['swiper-button-prev']} swiper-button-prev ${
+					!isNavigation ? '--hide' : ''
+				}`}
+			/>
 			<Swiper
 				className={`${styles['swiper-container']} swiper-container slider-posts`}
 				slidesPerView={3}
@@ -84,9 +88,11 @@ export default function Slider({ data }) {
 						);
 					})}
 			</Swiper>
-			{isNavigation && (
-				<div className={`${styles['swiper-button-next']} swiper-button-next`} />
-			)}
+			<div
+				className={`${styles['swiper-button-next']} swiper-button-next ${
+					!isNavigation ? '--hide' : ''
+				}`}
+			/>
 		</motion.div>
 	);
 }
