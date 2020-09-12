@@ -26,8 +26,10 @@ import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
 import fetch from 'isomorphic-unfetch';
 
-function Projet({ data, github }) {
-	if (!data) return <CustomErrorPage />;
+function Projet({ props }) {
+	if (!props) return <CustomErrorPage />;
+
+	const { data, github } = props;
 
 	data.year = new Date(data.year);
 
@@ -97,23 +99,23 @@ function Projet({ data, github }) {
 	);
 }
 
-export async function getStaticPaths() {
-	const res = await fetch(process.env.API_URL + '/projets');
-	const projets = await res.json();
+// export async function getStaticPaths() {
+// 	const res = await fetch(process.env.API_URL + '/projets');
+// 	const projets = await res.json();
 
-	const paths = projets.map((projet) => ({
-		params: { slug: projet.slug },
-	}));
+// 	const paths = projets.map((projet) => ({
+// 		params: { slug: projet.slug },
+// 	}));
 
-	return { paths, fallback: false };
-}
+// 	return { paths, fallback: false };
+// }
 
-export async function getStaticProps({ params }) {
-	const variables = { slug: params.slug };
+Projet.getInitialProps = async (params) => {
+	// console.log(params);
+	const variables = { slug: 'projet-1' };
 	const auth = Buffer.from(`${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}`).toString(
 		'base64'
 	);
-
 	return request(process.env.API_URL + '/graphql', PROJET_QUERY, variables).then((data) => {
 		const projet = data.projets[0];
 
@@ -123,7 +125,6 @@ export async function getStaticProps({ params }) {
 				Authorization: 'Basic ' + auth,
 			},
 		};
-
 		return fetch(`${process.env.GITHUB_API}/repos/${projet.github}`, options)
 			.then((response) => response.json())
 			.then((github) => {
@@ -135,6 +136,6 @@ export async function getStaticProps({ params }) {
 				};
 			});
 	});
-}
+};
 
 export default Projet;
