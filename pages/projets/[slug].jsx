@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import CustomErrorPage from 'pages/404';
@@ -27,6 +28,7 @@ import fetch from 'isomorphic-unfetch';
 
 function Projet({ data, github }) {
 	if (!data) return <CustomErrorPage />;
+
 	data.year = new Date(data.year);
 
 	const SEO = {
@@ -35,12 +37,19 @@ function Projet({ data, github }) {
 		openGraph: {
 			title: data.header.meta_title,
 			description: data.header.meta_description,
+			image: data.main_image.url,
+			url: window.location.href,
 		},
 	};
 
+	console.log(SEO);
+
 	return (
 		<>
-			<NextSeo {...SEO} />
+			<Head>
+				<title>Test</title>
+				<meta name="description" content="test" />
+			</Head>
 			<section className={`${projet} projet main-content`}>
 				<Col
 					className={left}
@@ -91,7 +100,18 @@ function Projet({ data, github }) {
 	);
 }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+	const res = await fetch(process.env.API_URL + '/projets');
+	const projets = await res.json();
+
+	const paths = projets.map((projet) => ({
+		params: { slug: projet.slug },
+	}));
+
+	return { paths, fallback: false };
+}
+
+export async function getStaticProps({ params }) {
 	const variables = { slug: params.slug };
 	const auth = Buffer.from(`${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}`).toString(
 		'base64'
