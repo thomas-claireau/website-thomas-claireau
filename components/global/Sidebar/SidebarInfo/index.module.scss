@@ -6,9 +6,43 @@
 		margin-top: 25px;
 	}
 
+	&.avatar {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		img {
+			width: 45px;
+			height: 45px;
+			border-radius: 100%;
+			margin-right: 10px;
+		}
+	}
+
 	.label {
 		font-weight: 300;
 		margin-bottom: 3px;
+	}
+
+	.values {
+		&.flex {
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			margin-top: 15px;
+
+			.value {
+				&:not(:first-of-type) {
+					margin-top: 0;
+					margin-left: 5px;
+				}
+
+				svg {
+					width: 30px;
+					height: 30px;
+				}
+			}
+		}
 	}
 
 	.value {

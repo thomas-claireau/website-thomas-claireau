@@ -83,7 +83,7 @@ function Projet({ data, github }) {
 					justify="flex-start"
 					width="30%"
 				>
-					<Sidebar projet={data} />
+					<Sidebar data={data} view="projet" />
 				</Col>
 				<MenuBottom></MenuBottom>
 			</section>

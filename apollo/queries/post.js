@@ -24,6 +24,7 @@ const POST_QUERY = gql`
 			}
 			content
 			technologies {
+				id
 				technologie
 				logo {
 					url

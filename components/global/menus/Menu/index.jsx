@@ -13,7 +13,11 @@ function Menu({ view, hide, isProject }) {
 	const router = useRouter();
 
 	return (
-		<div className={`${menu} ${isProject ? project : ''} ${className} ${hide ? '--hide' : ''}`}>
+		<div
+			className={`menu ${menu} ${isProject ? project : ''} ${className} ${
+				hide ? '--hide' : ''
+			}`}
+		>
 			<ul>
 				{global.item_menu_desktop &&
 					global.item_menu_desktop.map((item) => {

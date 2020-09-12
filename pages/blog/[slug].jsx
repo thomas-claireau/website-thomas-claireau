@@ -5,14 +5,19 @@ import CustomErrorPage from 'pages/404';
 import { request } from 'graphql-request';
 import POST_QUERY from 'apollo/queries/post';
 
-import styles, { post } from 'styles/pages/post.module.scss';
+import { post, left, right, back, content } from 'styles/pages/post.module.scss';
 
 import HtmlContent from 'components/global/HtmlContent/index';
 import Col from 'components/global/layout/Col/index';
+import MenuBottom from 'components/global/menus/MenuBottom/index';
+import Sidebar from 'components/global/Sidebar/index';
+import SidebarInfo from 'components/global/Sidebar/SidebarInfo/index';
+
+import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
+import SlashDate from 'utils/SlashDate';
 
 function Post({ data }) {
 	if (!data) return <CustomErrorPage />;
-	data.year = new Date(data.year);
 
 	const SEO = {
 		title: data.header.meta_title,
@@ -20,15 +25,40 @@ function Post({ data }) {
 		openGraph: {
 			title: data.header.meta_title,
 			description: data.header.meta_description,
+			// image: data.main_image.url,
+			// url: 'https://test.fr',
 		},
 	};
-
-	console.log(data);
 
 	return (
 		<>
 			<NextSeo {...SEO} />
-			<section className={`${post} post main-content`}></section>
+			<section className={`${post} post main-content`}>
+				<Col
+					className={left}
+					direction="left"
+					align="flex-start"
+					justify="flex-start"
+					width="35%"
+				>
+					<Sidebar data={data} view="post"></Sidebar>
+				</Col>
+				<Col
+					className={right}
+					direction="right"
+					align="flex-start"
+					justify="flex-start"
+					scroll
+					width="65%"
+				>
+					<Link href="/projets">
+						<a className={`${back} ${content}`}>
+							<ArrowRightSvg />
+							Go back
+						</a>
+					</Link>
+				</Col>
+			</section>
 		</>
 	);
 }
