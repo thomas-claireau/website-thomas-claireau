@@ -21,9 +21,6 @@
     "link": {
       "type": "string"
     },
-    "short_description": {
-      "type": "text"
-    },
     "main_image": {
       "model": "file",
       "via": "related",

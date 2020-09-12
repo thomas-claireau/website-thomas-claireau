@@ -6,7 +6,6 @@ const PROJET_QUERY = gql`
 			year
 			github
 			link
-			short_description
 			resume
 			results
 			header {

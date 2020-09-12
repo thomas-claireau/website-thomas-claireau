@@ -8,7 +8,7 @@ export default function Sidebar({ projet }) {
 	return (
 		<div className={sidebar}>
 			<h1>{projet.header.title}</h1>
-			<p className="description">{projet.short_description}</p>
+			<p className="description">{projet.header.meta_description}</p>
 			<ul>
 				<SidebarInfo label="Année" value={projet.year.getFullYear()} />
 				<SidebarInfo label="Catégories" value={projet.categories} multiple />

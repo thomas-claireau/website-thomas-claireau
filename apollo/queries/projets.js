@@ -20,7 +20,6 @@ const PROJETS_QUERY = gql`
 			date: year
 			github
 			link
-			short_description
 			resume
 			main_image {
 				caption

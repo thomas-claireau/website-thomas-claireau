@@ -37,7 +37,7 @@ export default function Slider({ projets }) {
 						>
 							<div className={`${left} left`}>
 								<div className={`${title} h1`}>{projet.header.title}</div>
-								<p className={description}>{projet.short_description}</p>
+								<p className={description}>{projet.header.meta_description}</p>
 								<div className={view}>Voir le projet</div>
 							</div>
 							<div className={`${right} right`}>
