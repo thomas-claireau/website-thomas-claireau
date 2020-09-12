@@ -25,8 +25,6 @@ function Post({ data }) {
 		openGraph: {
 			title: data.header.meta_title,
 			description: data.header.meta_description,
-			// image: data.main_image.url,
-			// url: 'https://test.fr',
 		},
 	};
 

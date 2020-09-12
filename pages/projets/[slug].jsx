@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import CustomErrorPage from 'pages/404';
@@ -26,10 +25,8 @@ import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
 import fetch from 'isomorphic-unfetch';
 
-function Projet({ props }) {
-	if (!props) return <CustomErrorPage />;
-
-	const { data, github } = props;
+function Projet({ data, github }) {
+	if (!data) return <CustomErrorPage />;
 
 	data.year = new Date(data.year);
 
@@ -99,23 +96,12 @@ function Projet({ props }) {
 	);
 }
 
-// export async function getStaticPaths() {
-// 	const res = await fetch(process.env.API_URL + '/projets');
-// 	const projets = await res.json();
-
-// 	const paths = projets.map((projet) => ({
-// 		params: { slug: projet.slug },
-// 	}));
-
-// 	return { paths, fallback: false };
-// }
-
-Projet.getInitialProps = async (params) => {
-	// console.log(params);
-	const variables = { slug: 'projet-1' };
+export async function getServerSideProps({ params }) {
+	const variables = { slug: params.slug };
 	const auth = Buffer.from(`${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}`).toString(
 		'base64'
 	);
+
 	return request(process.env.API_URL + '/graphql', PROJET_QUERY, variables).then((data) => {
 		const projet = data.projets[0];
 
@@ -125,6 +111,7 @@ Projet.getInitialProps = async (params) => {
 				Authorization: 'Basic ' + auth,
 			},
 		};
+
 		return fetch(`${process.env.GITHUB_API}/repos/${projet.github}`, options)
 			.then((response) => response.json())
 			.then((github) => {
@@ -136,6 +123,6 @@ Projet.getInitialProps = async (params) => {
 				};
 			});
 	});
-};
+}
 
 export default Projet;

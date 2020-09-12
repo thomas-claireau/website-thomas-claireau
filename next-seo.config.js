@@ -1,11 +1,11 @@
 export default {
 	title: 'Thomas Claireau | Frontend web developer',
 	description: "I'm a frontend web developer",
-	canonical: 'https://thomas-claireau.fr/',
+	canonical: 'https://thomas-claireau.com/',
 	openGraph: {
 		type: 'website',
 		locale: 'en_EN',
-		url: 'https://www.thomas-claireau.fr',
+		url: 'https://www.thomas-claireau.com',
 		title: 'Thomas Claireau | Frontend web developer',
 		site_name: 'Thomas Claireau',
 	},
