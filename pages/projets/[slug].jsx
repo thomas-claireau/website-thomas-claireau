@@ -46,10 +46,7 @@ function Projet({ data, github }) {
 
 	return (
 		<>
-			<Head>
-				<title>Test</title>
-				<meta name="description" content="test" />
-			</Head>
+			<NextSeo {...SEO} />
 			<section className={`${projet} projet main-content`}>
 				<Col
 					className={left}
