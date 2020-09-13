@@ -15,7 +15,7 @@
     "canonical": {
       "type": "string"
     },
-    "open_graph": {
+    "openGraph": {
       "type": "component",
       "repeatable": false,
       "component": "nested.open-graph"
