@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
 import { DefaultSeo } from 'next-seo';
-import GLOBAL_QUERY_APP from 'apollo/queries/_app';
+import GLOBAL_QUERY_APP from 'graphql-queries/_app';
 import { AnimatePresence } from 'framer-motion';
 import { request } from 'graphql-request';
 

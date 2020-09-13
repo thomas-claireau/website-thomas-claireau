@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 import CustomErrorPage from 'pages/404';
 import { request } from 'graphql-request';
-import POST_QUERY from 'apollo/queries/post';
+import POST_QUERY from 'graphql-queries/post';
 
 import { post, left, right, back, content } from 'styles/pages/post.module.scss';
 

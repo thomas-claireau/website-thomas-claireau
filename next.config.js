@@ -17,7 +17,7 @@ module.exports = withReactSvg({
 		config.resolve.alias['contexts'] = path.join(__dirname, 'contexts');
 		config.resolve.alias['utils'] = path.join(__dirname, 'utils');
 		config.resolve.alias['libs'] = path.join(__dirname, 'libs');
-		config.resolve.alias['apollo'] = path.join(__dirname, 'apollo');
+		config.resolve.alias['graphql-queries'] = path.join(__dirname, 'graphql-queries');
 
 		return config;
 	},

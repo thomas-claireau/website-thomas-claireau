@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import INDEX_QUERY from 'apollo/queries/index';
+import INDEX_QUERY from 'graphql-queries/index';
 import { request } from 'graphql-request';
 
 import { home, title, desktop, left, right, description } from 'styles/pages/index.module.scss';

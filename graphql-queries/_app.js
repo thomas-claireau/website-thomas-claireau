@@ -10,7 +10,7 @@ const GLOBAL_QUERY_APP = gql`
 				title
 				description
 				canonical
-				open_graph {
+				openGraph {
 					type
 					locale
 					site_name

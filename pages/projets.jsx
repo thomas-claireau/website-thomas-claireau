@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import PROJETS_QUERY from 'apollo/queries/projets';
+import PROJETS_QUERY from 'graphql-queries/projets';
 import { request } from 'graphql-request';
 
 import styles, { projets } from 'styles/pages/projets.module.scss';

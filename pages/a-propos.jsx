@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import A_PROPOS_QUERY from 'apollo/queries/a-propos';
+import A_PROPOS_QUERY from 'graphql-queries/a-propos';
 import { motion } from 'framer-motion';
 import { request } from 'graphql-request';
 

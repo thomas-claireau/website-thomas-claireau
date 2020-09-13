@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NextSeo } from 'next-seo';
-import BLOG_QUERY from 'apollo/queries/blog';
+import BLOG_QUERY from 'graphql-queries/blog';
 import { request } from 'graphql-request';
 
 import { blog, container } from 'styles/pages/blog.module.scss';
