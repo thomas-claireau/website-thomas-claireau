@@ -4,6 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { withApollo } from 'libs/apollo';
 import GLOBAL_QUERY_APP from 'apollo/queries/_app';
 import { AnimatePresence } from 'framer-motion';
+import { request } from 'graphql-request';
 
 import 'styles/global.scss';
 import 'font-awesome/css/font-awesome.min.css';
@@ -17,7 +18,7 @@ import ContextWrapper from 'components/global/ContextWrapper';
 import { Loading } from 'components/global/Loading/index';
 import { Error } from 'components/global/Error/index';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, props }) {
 	const router = useRouter();
 
 	const colorScheme = {
@@ -51,26 +52,40 @@ function MyApp({ Component, pageProps }) {
 		},
 	};
 
-	const { data, loading, error } = useQuery(GLOBAL_QUERY_APP);
+	// const { data, loading, error } = useQuery(GLOBAL_QUERY_APP);
 
-	if (loading) return <Loading />;
+	// if (loading) return <Loading />;
 
-	if (error) return <Error error={error} />;
+	// if (error) return <Error error={error} />;
+
+	const data = props.data;
 
 	return (
-		<>
-			<DefaultSeo {...data.global.meta_data} />
-			<AnimatePresence exitBeforeEnter>
-				<ContextWrapper colorScheme={colorScheme[router.pathname]} global={data.global}>
-					<section id="app">
-						<Box>
-							<Component {...pageProps} key={router.route} />
-						</Box>
-					</section>
-				</ContextWrapper>
-			</AnimatePresence>
-		</>
+		data && (
+			<>
+				<DefaultSeo {...data.global.meta_data} />
+				<AnimatePresence exitBeforeEnter>
+					<ContextWrapper colorScheme={colorScheme[router.pathname]} global={data.global}>
+						<section id="app">
+							<Box>
+								<Component {...pageProps} key={router.route} />
+							</Box>
+						</section>
+					</ContextWrapper>
+				</AnimatePresence>
+			</>
+		)
 	);
 }
 
-export default withApollo()(MyApp);
+MyApp.getInitialProps = async () => {
+	return request(process.env.API_URL + '/graphql', GLOBAL_QUERY_APP).then((data) => {
+		return {
+			props: {
+				data: data || null,
+			},
+		};
+	});
+};
+
+export default MyApp;

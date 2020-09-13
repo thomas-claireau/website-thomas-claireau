@@ -8,7 +8,9 @@ import styles, { content, top, bottom, stats, left } from './index.module.scss';
 export default function GithubInfo({ bg, github, languages }) {
 	const [lines, setLines] = useState(null);
 
-	const auth = btoa(`${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}`);
+	const auth = process.browser
+		? btoa(`${process.env.GITHUB_USER}:${process.env.GITHUB_TOKEN}`)
+		: null;
 
 	const options = {
 		mode: 'cors',

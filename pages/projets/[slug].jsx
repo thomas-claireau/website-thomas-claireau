@@ -37,7 +37,7 @@ function Projet({ data, github }) {
 			title: data.header.meta_title,
 			description: data.header.meta_description,
 			image: data.main_image.url,
-			url: window.location.href,
+			url: process.browser ? window.location.href : null,
 		},
 	};
 
