@@ -1,9 +1,8 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { useQuery } from '@apollo/react-hooks';
-import { withApollo } from 'libs/apollo';
 import A_PROPOS_QUERY from 'apollo/queries/a-propos';
 import { motion } from 'framer-motion';
+import { request } from 'graphql-request';
 
 import styles, { left, right, texte } from 'styles/pages/a-propos.module.scss';
 
@@ -11,20 +10,12 @@ import HtmlContent from 'components/global/HtmlContent/index';
 import Col from 'components/global/layout/Col/index';
 import LogosContainer from 'components/about/LogosContainer/index';
 import MenuBottom from 'components/global/menus/MenuBottom/index';
-import { Loading } from 'components/global/Loading/index';
-import { Error } from 'components/global/Error/index';
 
-function About() {
+function About({ data }) {
 	const transition = {
 		hidden: { opacity: 0, y: '100%' },
 		visible: { opacity: 1, y: 0 },
 	};
-
-	const { data, loading, error } = useQuery(A_PROPOS_QUERY);
-
-	if (loading) return <Loading />;
-
-	if (error) return <Error error={error} />;
 
 	const about = data.a_propos;
 
@@ -71,4 +62,14 @@ function About() {
 	);
 }
 
-export default withApollo({ ssr: true })(About);
+export async function getServerSideProps() {
+	return request(process.env.API_URL + '/graphql', A_PROPOS_QUERY).then((data) => {
+		return {
+			props: {
+				data: data || null,
+			},
+		};
+	});
+}
+
+export default About;

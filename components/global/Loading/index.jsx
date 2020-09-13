@@ -2,7 +2,7 @@ import React from 'react';
 
 import { loading, teabag, steamL, steamR } from './index.module.scss';
 
-export const Loading = ({}) => {
+const Loading = ({}) => {
 	return (
 		<div className={loading}>
 			<svg className="tea" viewBox="0 0 37 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,3 +39,5 @@ export const Loading = ({}) => {
 		</div>
 	);
 };
+
+export default Loading;

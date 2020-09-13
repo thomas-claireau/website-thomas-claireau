@@ -7,14 +7,10 @@ import POST_QUERY from 'apollo/queries/post';
 
 import { post, left, right, back, content } from 'styles/pages/post.module.scss';
 
-import HtmlContent from 'components/global/HtmlContent/index';
 import Col from 'components/global/layout/Col/index';
-import MenuBottom from 'components/global/menus/MenuBottom/index';
 import Sidebar from 'components/global/Sidebar/index';
-import SidebarInfo from 'components/global/Sidebar/SidebarInfo/index';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
-import SlashDate from 'utils/SlashDate';
 
 function Post({ data }) {
 	if (!data) return <CustomErrorPage />;

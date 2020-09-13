@@ -1,12 +1,12 @@
 export default {
-	title: 'Thomas Claireau | Frontend web developer',
-	description: "I'm a frontend web developer",
-	canonical: 'https://thomas-claireau.com/',
+	title: 'Thomas Claireau | Développeur web frontend',
+	description: "Je m'appelle Thomas Claireau et je suis développeur web frontend",
+	canonical: process.env.FRONT_URL,
 	openGraph: {
 		type: 'website',
-		locale: 'en_EN',
-		url: 'https://www.thomas-claireau.com',
-		title: 'Thomas Claireau | Frontend web developer',
+		locale: 'fr_FR',
+		url: process.env.FRONT_URL,
+		title: 'Thomas Claireau | Développeur web frontend',
 		site_name: 'Thomas Claireau',
 	},
 	twitter: {

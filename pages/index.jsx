@@ -1,33 +1,16 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { useQuery } from '@apollo/react-hooks';
-import { withApollo } from 'libs/apollo';
 import INDEX_QUERY from 'apollo/queries/index';
+import { request } from 'graphql-request';
 
-import {
-	home,
-	title,
-	desktop,
-	mobile,
-	left,
-	right,
-	description,
-} from 'styles/pages/index.module.scss';
+import { home, title, desktop, left, right, description } from 'styles/pages/index.module.scss';
 
 import Container from 'components/global/layout/Container/index';
 import Col from 'components/global/layout/Col/index';
 import ContentVM from 'components/global/layout/ContentVM/index';
 import SliderWork from 'components/index/SliderWork/index';
-import { Loading } from 'components/global/Loading/index';
-import { Error } from 'components/global/Error/index';
 
-function Home() {
-	const { data, loading, error } = useQuery(INDEX_QUERY);
-
-	if (loading) return <Loading />;
-
-	if (error) return <Error error={error} />;
-
+function Home({ data }) {
 	const accueil = data.accueil;
 
 	const SEO = {
@@ -69,4 +52,14 @@ function Home() {
 	);
 }
 
-export default withApollo({ ssr: true })(Home);
+export async function getServerSideProps() {
+	return request(process.env.API_URL + '/graphql', INDEX_QUERY).then((data) => {
+		return {
+			props: {
+				data: data || null,
+			},
+		};
+	});
+}
+
+export default Home;

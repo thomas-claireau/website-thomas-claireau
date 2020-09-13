@@ -1,5 +1,5 @@
 import React from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Col from 'components/global/layout/Col/index';
 
 import styles, { title, left, desktop, mobile } from 'styles/pages/404.module.scss';
@@ -7,9 +7,7 @@ import styles, { title, left, desktop, mobile } from 'styles/pages/404.module.sc
 export default function Custom404() {
 	return (
 		<>
-			<Head>
-				<meta name="robots" content="noindex"></meta>
-			</Head>
+			<NextSeo noindex={true} />
 			<div className={styles['not-found']}>
 				<Col direction="left" bg="--bg-dark" align="center">
 					<div className={`${title} ${left} ${desktop} h1 --light`}>

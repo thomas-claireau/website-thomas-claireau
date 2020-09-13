@@ -1,5 +1,4 @@
 export default function SlashDate({ date }) {
-	console.log(date);
 	date = new Date(date);
 
 	const year = date.getFullYear();

@@ -36,12 +36,17 @@ function Projet({ data, github }) {
 		openGraph: {
 			title: data.header.meta_title,
 			description: data.header.meta_description,
-			image: data.main_image.url,
-			url: process.browser ? window.location.href : null,
+			images: [
+				{
+					url: data.main_image.url,
+					width: 1920,
+					height: 1080,
+					alt: data.main_image.caption,
+				},
+			],
+			url: process.env.FRONT_URL,
 		},
 	};
-
-	console.log(SEO);
 
 	return (
 		<>

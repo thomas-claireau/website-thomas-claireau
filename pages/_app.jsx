@@ -1,7 +1,6 @@
-import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import Router, { useRouter } from 'next/router';
 import { DefaultSeo } from 'next-seo';
-import { useQuery } from '@apollo/react-hooks';
-import { withApollo } from 'libs/apollo';
 import GLOBAL_QUERY_APP from 'apollo/queries/_app';
 import { AnimatePresence } from 'framer-motion';
 import { request } from 'graphql-request';
@@ -15,11 +14,38 @@ import 'swiper/components/navigation/navigation.scss';
 
 import Box from 'components/global/layout/Box/index';
 import ContextWrapper from 'components/global/ContextWrapper';
-import { Loading } from 'components/global/Loading/index';
-import { Error } from 'components/global/Error/index';
+import Loading from 'components/global/Loading/index';
 
 function MyApp({ Component, pageProps, props }) {
 	const router = useRouter();
+	const [loading, setLoading] = useState(true);
+
+	// loading
+	useEffect(() => {
+		const start = () => {
+			console.log('start');
+			setLoading(true);
+		};
+
+		const end = () => {
+			console.log('end');
+			setLoading(false);
+		};
+
+		Router.events.on('routeChangeStart', start);
+		Router.events.on('routeChangeComplete', end);
+		Router.events.on('routeChangeError', end);
+
+		return () => {
+			Router.events.off('routeChangeStart', start);
+			Router.events.off('routeChangeComplete', end);
+			Router.events.off('routeChangeError', end);
+		};
+	}, []);
+
+	useEffect(() => {
+		setLoading(false);
+	}, []);
 
 	const colorScheme = {
 		'/': {
@@ -52,29 +78,23 @@ function MyApp({ Component, pageProps, props }) {
 		},
 	};
 
-	// const { data, loading, error } = useQuery(GLOBAL_QUERY_APP);
-
-	// if (loading) return <Loading />;
-
-	// if (error) return <Error error={error} />;
-
-	const data = props.data;
-
 	return (
-		data && (
-			<>
-				<DefaultSeo {...data.global.meta_data} />
-				<AnimatePresence exitBeforeEnter>
-					<ContextWrapper colorScheme={colorScheme[router.pathname]} global={data.global}>
-						<section id="app">
-							<Box>
-								<Component {...pageProps} key={router.route} />
-							</Box>
-						</section>
-					</ContextWrapper>
-				</AnimatePresence>
-			</>
-		)
+		<>
+			{loading && <Loading />}
+			<DefaultSeo {...props.data.global.meta_data} />
+			<AnimatePresence exitBeforeEnter>
+				<ContextWrapper
+					colorScheme={colorScheme[router.pathname]}
+					global={props.data.global}
+				>
+					<section id="app">
+						<Box>
+							<Component {...pageProps} key={router.route} />
+						</Box>
+					</section>
+				</ContextWrapper>
+			</AnimatePresence>
+		</>
 	);
 }
 
