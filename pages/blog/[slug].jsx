@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import CustomErrorPage from 'pages/404';
 import { request } from 'graphql-request';
@@ -12,8 +13,35 @@ import Sidebar from 'components/global/Sidebar/index';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
+function setShareButton(url, title, hashtags) {
+	return [
+		{
+			id: 2,
+			label: 'linkedin',
+			url: encodeURIComponent(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`),
+		},
+		{
+			id: 1,
+			label: 'facebook',
+			url: encodeURIComponent(`https://www.facebook.com/share.php?u=${url}`),
+		},
+		{
+			id: 3,
+			label: 'twitter',
+			url: encodeURIComponent(
+				`https://twitter.com/share?text=${title}&url=${url}&hashtags=${hashtags.join(',')}`
+			),
+		},
+	];
+}
+
 function Post({ data }) {
 	if (!data) return <CustomErrorPage />;
+
+	const router = useRouter();
+	const url = process.env.FRONT_URL + router.asPath;
+	const hashtags = data.technologies.map((item) => item.technologie);
+	data.share = setShareButton(url, data.header.meta_title, hashtags);
 
 	const SEO = {
 		title: data.header.meta_title,
@@ -21,6 +49,15 @@ function Post({ data }) {
 		openGraph: {
 			title: data.header.meta_title,
 			description: data.header.meta_description,
+			images: [
+				{
+					url: data.main_image.url,
+					width: 1920,
+					height: 1080,
+					alt: data.main_image.caption,
+				},
+			],
+			url,
 		},
 	};
 
@@ -72,3 +109,9 @@ export async function getServerSideProps({ params }) {
 }
 
 export default Post;
+
+/**
+ * https://www.facebook.com/sharer/sharer.php?u=URL
+ * https://www.linkedin.com/sharing/share-offsite/?url=URL
+ * http://twitter.com/share?text=TEXT&url=URL&hashtags=HASHTAG_1,HASHTAG_2
+ */

@@ -26,7 +26,7 @@ export default function Sidebar({ view, data }) {
 						<SidebarInfo value={data.user} avatar />
 						<SidebarInfo label="Date" value={<SlashDate date={data.created_at} />} />
 						<SidebarInfo label="Technologies" value={data.technologies} multiple flex />
-						<SidebarInfo label="Partagez" value={data.share} multiple flex />
+						<SidebarInfo label="Partagez" value={data.share} multiple flex share />
 					</>
 				)}
 			</ul>

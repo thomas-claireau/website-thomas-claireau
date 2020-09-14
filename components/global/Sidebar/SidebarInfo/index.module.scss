@@ -32,7 +32,7 @@
 			margin-top: 15px;
 
 			.value {
-				&:not(:first-of-type) {
+				&:not(:first-of-type):not(.share) {
 					margin-top: 0;
 					margin-left: 5px;
 				}
@@ -52,8 +52,60 @@
 		font-weight: 600;
 		color: $light;
 
-		&:not(:first-of-type) {
+		&:not(:first-of-type):not(.share) {
 			margin-top: 5px;
+		}
+
+		&.share {
+			width: 40px;
+			height: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 100%;
+			background-color: #fff;
+			cursor: pointer;
+			transform: scale(1);
+			transition: all 0.3s ease-in-out;
+
+			&:hover {
+				transform: scale(1.05);
+				transition: all 0.3s ease-in-out;
+			}
+
+			&:after {
+				font-family: FontAwesome;
+				color: #fff;
+			}
+
+			&:not(:first-of-type) {
+				margin-top: 0;
+				margin-left: 15px;
+			}
+		}
+
+		&.facebook {
+			background-color: $facebook;
+
+			&:after {
+				content: '\f09a';
+			}
+		}
+
+		&.linkedin {
+			background-color: $linkedin;
+
+			&:after {
+				content: '\f0e1';
+			}
+		}
+
+		&.twitter {
+			background-color: $twitter;
+
+			&:after {
+				content: '\f099';
+			}
 		}
 
 		svg {

@@ -2,7 +2,7 @@ import styles from './index.module.scss';
 
 import Svg from 'utils/svg';
 
-export default function SidebarInfo({ label, value, link, github, multiple, flex, avatar }) {
+export default function SidebarInfo({ label, value, link, github, multiple, flex, avatar, share }) {
 	if ((!label || !value) && !avatar) return null;
 
 	if (multiple) {
@@ -11,14 +11,28 @@ export default function SidebarInfo({ label, value, link, github, multiple, flex
 				<div className={styles.label}>{label}</div>
 				<div className={`${styles.values} ${flex ? styles.flex : ''}`}>
 					{value.map((data) => {
-						const { id, item, logo } = data;
+						if (!share) {
+							const { id, item, logo } = data;
 
-						return (
-							<div key={id} className={styles.value}>
-								{logo && <Svg url={logo.url} />}
-								{item}
-							</div>
-						);
+							return (
+								<div key={id} className={styles.value}>
+									{logo && <Svg url={logo.url} />}
+									{item}
+								</div>
+							);
+						} else {
+							const { id, label, url } = data;
+
+							return (
+								<a
+									key={id}
+									href={decodeURIComponent(url)}
+									target="_blank"
+									rel="noopener noreferrer"
+									className={`${styles.value} ${styles.share} ${styles[label]}`}
+								></a>
+							);
+						}
 					})}
 				</div>
 			</li>
