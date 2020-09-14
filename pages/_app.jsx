@@ -11,6 +11,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/effect-fade/effect-fade.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/navigation/navigation.scss';
+import 'styles/prism.css';
 
 import Box from 'components/global/layout/Box/index';
 import ContextWrapper from 'components/global/ContextWrapper';

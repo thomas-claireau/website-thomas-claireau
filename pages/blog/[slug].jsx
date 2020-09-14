@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
@@ -6,10 +6,11 @@ import CustomErrorPage from 'pages/404';
 import { request } from 'graphql-request';
 import POST_QUERY from 'graphql-queries/post';
 
-import { post, left, right, back, content } from 'styles/pages/post.module.scss';
+import styles, { post, left, right, back, content } from 'styles/pages/post.module.scss';
 
 import Col from 'components/global/layout/Col/index';
 import Sidebar from 'components/global/Sidebar/index';
+import HtmlContent from 'components/global/HtmlContent/index';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
@@ -84,12 +85,19 @@ function Post({ data }) {
 					scroll
 					width="65%"
 				>
-					<Link href="/projets">
+					<Link href="/blog">
 						<a className={`${back} ${content}`}>
 							<ArrowRightSvg />
 							Go back
 						</a>
 					</Link>
+					<img
+						className={`${styles['main-image']} ${content}`}
+						src={data.main_image.url}
+						alt={data.main_image.caption}
+						title={data.header.title}
+					/>
+					<HtmlContent className={`${content}`}>{data.content}</HtmlContent>
 				</Col>
 			</section>
 		</>
