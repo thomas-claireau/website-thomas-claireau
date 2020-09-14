@@ -18,7 +18,7 @@ function setShareButton(url, title, hashtags) {
 		{
 			id: 2,
 			label: 'linkedin',
-			url: encodeURIComponent(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`),
+			url: encodeURIComponent(`https://www.linkedin.com/sharing/share-offsite?url=${url}`),
 		},
 		{
 			id: 1,
@@ -29,7 +29,9 @@ function setShareButton(url, title, hashtags) {
 			id: 3,
 			label: 'twitter',
 			url: encodeURIComponent(
-				`https://twitter.com/share?text=${title}&url=${url}&hashtags=${hashtags.join(',')}`
+				`https://twitter.com/intent/tweet?text=Awesome post ;)&url=${url}&hashtags=${hashtags.join(
+					','
+				)}`
 			),
 		},
 	];
