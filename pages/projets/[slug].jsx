@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import { NextSeo } from 'next-seo';
 import CustomErrorPage from 'pages/404';
 import { request } from 'graphql-request';
 import PROJET_QUERY from 'graphql-queries/projet';
@@ -20,6 +19,7 @@ import MenuBottom from 'components/global/menus/MenuBottom/index';
 import Sidebar from 'components/global/Sidebar/index';
 import GithubInfo from 'components/projet/GithubInfo/index';
 import SliderOthersImages from 'components/projet/SliderOthersImages/index';
+import GlobalSeo from 'components/global/GlobalSeo';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
@@ -30,27 +30,9 @@ function Projet({ data, github }) {
 
 	data.year = new Date(data.year);
 
-	const SEO = {
-		title: data.header.meta_title,
-		description: data.header.meta_description,
-		openGraph: {
-			title: data.header.meta_title,
-			description: data.header.meta_description,
-			images: [
-				{
-					url: data.header.main_image.url,
-					width: 1920,
-					height: 1080,
-					alt: data.header.main_image.caption,
-				},
-			],
-			url: process.env.FRONT_URL,
-		},
-	};
-
 	return (
 		<>
-			<NextSeo {...SEO} />
+			<GlobalSeo data={data} />
 			<section className={`${projet} projet main-content`}>
 				<Col
 					className={left}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { NextSeo } from 'next-seo';
 import INDEX_QUERY from 'graphql-queries/index';
 import { request } from 'graphql-request';
 
@@ -9,22 +8,14 @@ import Container from 'components/global/layout/Container/index';
 import Col from 'components/global/layout/Col/index';
 import ContentVM from 'components/global/layout/ContentVM/index';
 import SliderWork from 'components/index/SliderWork/index';
+import GlobalSeo from 'components/global/GlobalSeo';
 
 function Home({ data }) {
 	const accueil = data.accueil;
 
-	const SEO = {
-		title: accueil.header.meta_title,
-		description: accueil.header.meta_description,
-		openGraph: {
-			title: accueil.header.meta_title,
-			description: accueil.header.meta_description,
-		},
-	};
-
 	return (
 		<>
-			<NextSeo {...SEO} />
+			<GlobalSeo data={accueil} />
 			<section className={home}>
 				<Col direction="left" bg="--bg-dark" align="flex-end">
 					<div className={`${title} ${left} ${desktop} h1 --light`}>

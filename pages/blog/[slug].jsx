@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { NextSeo } from 'next-seo';
 import CustomErrorPage from 'pages/404';
 import { request } from 'graphql-request';
 import POST_QUERY from 'graphql-queries/post';
@@ -13,6 +12,7 @@ import Col from 'components/global/layout/Col/index';
 import Sidebar from 'components/global/Sidebar/index';
 import HtmlContent from 'components/global/HtmlContent/index';
 import MenuBottom from 'components/global/menus/MenuBottom/index';
+import GlobalSeo from 'components/global/GlobalSeo';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
@@ -48,27 +48,9 @@ function Post({ data }) {
 	const hashtags = data.technologies.map((item) => item.technologie);
 	data.share = setShareButton(url, data.header.meta_title, hashtags);
 
-	const SEO = {
-		title: data.header.meta_title,
-		description: data.header.meta_description,
-		openGraph: {
-			title: data.header.meta_title,
-			description: data.header.meta_description,
-			images: [
-				{
-					url: data.header.main_image.url,
-					width: 1920,
-					height: 1080,
-					alt: data.header.main_image.caption,
-				},
-			],
-			url,
-		},
-	};
-
 	return (
 		<>
-			<NextSeo {...SEO} />
+			<GlobalSeo data={data} />
 			<section className={`${post} post main-content`}>
 				<Col
 					className={left}

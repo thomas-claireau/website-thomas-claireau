@@ -1,5 +1,4 @@
 import React from 'react';
-import { NextSeo } from 'next-seo';
 import A_PROPOS_QUERY from 'graphql-queries/a-propos';
 import { motion } from 'framer-motion';
 import { request } from 'graphql-request';
@@ -10,6 +9,7 @@ import HtmlContent from 'components/global/HtmlContent/index';
 import Col from 'components/global/layout/Col/index';
 import LogosContainer from 'components/about/LogosContainer/index';
 import MenuBottom from 'components/global/menus/MenuBottom/index';
+import GlobalSeo from 'components/global/GlobalSeo';
 
 function About({ data }) {
 	const transition = {
@@ -30,7 +30,7 @@ function About({ data }) {
 
 	return (
 		<>
-			<NextSeo {...SEO} />
+			<GlobalSeo data={about} />
 			<section className={`${styles['a-propos']} main-content`}>
 				<Col direction="left" align="center" className={left}>
 					<LogosContainer languages={about.left_content.language} />
