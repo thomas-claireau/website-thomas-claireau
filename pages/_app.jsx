@@ -79,10 +79,16 @@ function MyApp({ Component, pageProps, props }) {
 		},
 	};
 
+	const SEO = {
+		facebook: {
+			appId: 827551954717152,
+		},
+	};
+
 	return (
 		<>
 			{loading && <Loading />}
-			<DefaultSeo {...props.data.global.meta_data} />
+			<DefaultSeo {...props.data.global.meta_data} {...SEO} />
 			<AnimatePresence exitBeforeEnter>
 				<ContextWrapper
 					colorScheme={colorScheme[router.pathname]}
