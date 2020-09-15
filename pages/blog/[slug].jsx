@@ -11,6 +11,7 @@ import styles, { post, left, right, back, content } from 'styles/pages/post.modu
 import Col from 'components/global/layout/Col/index';
 import Sidebar from 'components/global/Sidebar/index';
 import HtmlContent from 'components/global/HtmlContent/index';
+import MenuBottom from 'components/global/menus/MenuBottom/index';
 
 import ArrowRightSvg from 'public/assets/img/arrow_right.svg';
 
@@ -99,6 +100,7 @@ function Post({ data }) {
 					/>
 					<HtmlContent className={`${content}`}>{data.content}</HtmlContent>
 				</Col>
+				<MenuBottom></MenuBottom>
 			</section>
 		</>
 	);
