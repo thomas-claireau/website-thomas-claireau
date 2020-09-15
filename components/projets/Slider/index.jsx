@@ -41,7 +41,10 @@ export default function Slider({ projets }) {
 								<div className={view}>Voir le projet</div>
 							</div>
 							<div className={`${right} right`}>
-								<img src={projet.main_image.url} alt={projet.main_image.caption} />
+								<img
+									src={projet.header.main_image.url}
+									alt={projet.header.main_image.caption}
+								/>
 							</div>
 						</SwiperSlide>
 					);

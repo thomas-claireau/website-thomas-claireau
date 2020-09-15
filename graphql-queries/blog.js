@@ -7,6 +7,18 @@ const BLOG_QUERY = gql`
 				title
 				meta_title
 				meta_description
+				main_image {
+					url
+					caption
+				}
+				user {
+					username
+					name
+					avatar {
+						url
+						caption
+					}
+				}
 			}
 		}
 		posts {
@@ -17,21 +29,21 @@ const BLOG_QUERY = gql`
 				title
 				meta_title
 				meta_description
-			}
-			created_at
-			updated_at
-			user {
-				username
-				name
-				avatar {
+				main_image {
 					url
 					caption
 				}
+				user {
+					username
+					name
+					avatar {
+						url
+						caption
+					}
+				}
 			}
-			main_image {
-				url
-				caption
-			}
+			created_at
+			updated_at
 			content
 			technologies {
 				technologie

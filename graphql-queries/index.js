@@ -14,6 +14,18 @@ const INDEX_QUERY = gql`
 				title
 				meta_title
 				meta_description
+				main_image {
+					url
+					caption
+				}
+				user {
+					username
+					name
+					avatar {
+						url
+						caption
+					}
+				}
 			}
 			slide_work {
 				title
@@ -24,9 +36,18 @@ const INDEX_QUERY = gql`
 						id
 						header {
 							title
-						}
-						main_image {
-							url
+							main_image {
+								url
+								caption
+							}
+							user {
+								username
+								name
+								avatar {
+									url
+									caption
+								}
+							}
 						}
 						slug
 					}

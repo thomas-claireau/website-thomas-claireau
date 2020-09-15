@@ -56,10 +56,10 @@ function Post({ data }) {
 			description: data.header.meta_description,
 			images: [
 				{
-					url: data.main_image.url,
+					url: data.header.main_image.url,
 					width: 1920,
 					height: 1080,
-					alt: data.main_image.caption,
+					alt: data.header.main_image.caption,
 				},
 			],
 			url,
@@ -95,8 +95,8 @@ function Post({ data }) {
 					</Link>
 					<img
 						className={`${styles['main-image']} ${content}`}
-						src={data.main_image.url}
-						alt={data.main_image.caption}
+						src={data.header.main_image.url}
+						alt={data.header.main_image.caption}
 						title={data.header.title}
 					/>
 					<HtmlContent className={`${content}`}>{data.content}</HtmlContent>
@@ -106,12 +106,12 @@ function Post({ data }) {
 			<ArticleJsonLd
 				url={url}
 				title={data.header.meta_title}
-				images={[data.main_image.url]}
+				images={[data.header.main_image.url]}
 				datePublished={data.created_at}
 				dateModified={data.updated_at}
-				authorName={`${data.user.username} ${data.user.name}`}
-				publisherName={`${data.user.username} ${data.user.name}`}
-				publisherLogo={data.user.avatar.url}
+				authorName={`${data.header.user.username} ${data.header.user.name}`}
+				publisherName={`${data.header.user.username} ${data.header.user.name}`}
+				// publisherLogo={data.header.user.avatar.url}
 				description={data.header.meta_description}
 			/>
 		</>

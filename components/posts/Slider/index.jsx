@@ -68,15 +68,18 @@ export default function Slider({ data }) {
 								className={styles['swiper-slide']}
 							>
 								<div>
-									<img src={post.main_image.url} alt={post.main_image.caption} />
+									<img
+										src={post.header.main_image.url}
+										alt={post.header.main_image.caption}
+									/>
 									<h2>{post.header.title}</h2>
 									<div className={informations}>
 										<div className={avatar}>
 											<img
-												src={post.user.avatar.url}
-												alt={post.user.avatar.caption}
+												src={post.header.user.avatar.url}
+												alt={post.header.user.avatar.caption}
 											/>
-											<span>{`${post.user.username} ${post.user.name}`}</span>
+											<span>{`${post.header.user.username} ${post.header.user.name}`}</span>
 										</div>
 										<div className={date}>
 											<SlashDate date={post.created_at} />

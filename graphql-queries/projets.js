@@ -7,6 +7,18 @@ const PROJETS_QUERY = gql`
 				title
 				meta_title
 				meta_description
+				main_image {
+					url
+					caption
+				}
+				user {
+					username
+					name
+					avatar {
+						url
+						caption
+					}
+				}
 			}
 		}
 		projets {
@@ -15,16 +27,24 @@ const PROJETS_QUERY = gql`
 				title
 				meta_title
 				meta_description
+				main_image {
+					url
+					caption
+				}
+				user {
+					username
+					name
+					avatar {
+						url
+						caption
+					}
+				}
 			}
 			slug
 			date: year
 			github
 			link
 			resume
-			main_image {
-				caption
-				url
-			}
 			others_images {
 				id
 				caption

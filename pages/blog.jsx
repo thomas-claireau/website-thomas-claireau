@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NextSeo } from 'next-seo';
 import BLOG_QUERY from 'graphql-queries/blog';
 import { request } from 'graphql-request';
+import { BlogJsonLd } from 'next-seo';
 
 import { blog, container } from 'styles/pages/blog.module.scss';
 
@@ -65,6 +66,19 @@ function Blog({ data }) {
 					</Container>
 					<MenuBottom></MenuBottom>
 				</section>
+				<BlogJsonLd
+					url={process.env.FRONT_URL + '/blog'}
+					title={data.blog.header.meta_title}
+					images={[
+						'https://example.com/photos/1x1/photo.jpg',
+						'https://example.com/photos/4x3/photo.jpg',
+						'https://example.com/photos/16x9/photo.jpg',
+					]}
+					datePublished="2015-02-05T08:00:00+08:00"
+					dateModified="2015-02-05T09:00:00+08:00"
+					authorName="Thomas Claireau"
+					description={data.blog.header.meta_description}
+				/>
 			</>
 		)
 	);

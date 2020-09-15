@@ -7,6 +7,18 @@ const A_PROPOS_QUERY = gql`
 				title
 				meta_title
 				meta_description
+				main_image {
+					url
+					caption
+				}
+				user {
+					username
+					name
+					avatar {
+						url
+						caption
+					}
+				}
 			}
 			left_content {
 				language {

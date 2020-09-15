@@ -38,10 +38,10 @@ function Projet({ data, github }) {
 			description: data.header.meta_description,
 			images: [
 				{
-					url: data.main_image.url,
+					url: data.header.main_image.url,
 					width: 1920,
 					height: 1080,
-					alt: data.main_image.caption,
+					alt: data.header.main_image.caption,
 				},
 			],
 			url: process.env.FRONT_URL,
@@ -67,15 +67,15 @@ function Projet({ data, github }) {
 					</Link>
 					<img
 						className={`${styles['main-image']} ${content}`}
-						src={data.main_image.url}
-						alt={data.main_image.caption}
+						src={data.header.main_image.url}
+						alt={data.header.main_image.caption}
 						title={data.header.title}
 					/>
 					<HtmlContent className={`${content}`}>{data.resume}</HtmlContent>
 					<GithubInfo
 						github={github}
 						languages={data.technologies}
-						bg={data.main_image.url}
+						bg={data.header.main_image.url}
 					/>
 					<SliderOthersImages className={`${content}`} images={data.others_images} />
 					<HtmlContent className={`${content}`}>{data.results}</HtmlContent>

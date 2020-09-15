@@ -44,15 +44,18 @@ export default function SliderWork({ data }) {
 				}}
 			>
 				{projets.map(({ projet }) => {
-					const { id, header, main_image, slug } = projet;
+					const { id, header, slug } = projet;
 
-					if (!id || !main_image) return;
+					if (!id) return;
 
 					return (
 						<SwiperSlide className={styles['swiper-slide']} key={id}>
 							<Link href={`${view_all_link}/${slug}`}>
 								<a title={header.title}>
-									<img src={main_image.url} alt={main_image.caption} />
+									<img
+										src={header.main_image.url}
+										alt={header.main_image.caption}
+									/>
 								</a>
 							</Link>
 						</SwiperSlide>

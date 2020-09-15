@@ -12,10 +12,18 @@ const PROJET_QUERY = gql`
 				title
 				meta_title
 				meta_description
-			}
-			main_image {
-				url
-				caption
+				main_image {
+					url
+					caption
+				}
+				user {
+					username
+					name
+					avatar {
+						url
+						caption
+					}
+				}
 			}
 			others_images {
 				id
