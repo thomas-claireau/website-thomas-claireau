@@ -8,6 +8,8 @@ const PROJET_QUERY = gql`
 			link
 			resume
 			results
+			created_at
+			updated_at
 			header {
 				title
 				meta_title

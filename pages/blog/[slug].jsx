@@ -48,9 +48,19 @@ function Post({ data }) {
 	const hashtags = data.technologies.map((item) => item.technologie);
 	data.share = setShareButton(url, data.header.meta_title, hashtags);
 
+	const additionnalOpenGraph = {
+		type: 'article',
+		article: {
+			publishedTime: data.created_at,
+			modifiedTime: data.updated_at,
+			authors: ['Thomas Claireau'],
+			tags: hashtags,
+		},
+	};
+
 	return (
 		<>
-			<GlobalSeo data={data} />
+			<GlobalSeo data={data} additionnalOpenGraph={additionnalOpenGraph} />
 			<section className={`${post} post main-content`}>
 				<Col
 					className={left}
@@ -93,7 +103,7 @@ function Post({ data }) {
 				dateModified={data.updated_at}
 				authorName={`${data.header.user.username} ${data.header.user.name}`}
 				publisherName={`${data.header.user.username} ${data.header.user.name}`}
-				// publisherLogo={data.header.user.avatar.url}
+				publisherLogo={data.header.user.avatar.url}
 				description={data.header.meta_description}
 			/>
 		</>

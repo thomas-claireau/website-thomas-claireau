@@ -3,6 +3,8 @@ import Link from 'next/link';
 import CustomErrorPage from 'pages/404';
 import { request } from 'graphql-request';
 import PROJET_QUERY from 'graphql-queries/projet';
+import { ArticleJsonLd } from 'next-seo';
+import { useRouter } from 'next/router';
 
 import styles, {
 	projet,
@@ -29,6 +31,10 @@ function Projet({ data, github }) {
 	if (!data) return <CustomErrorPage />;
 
 	data.year = new Date(data.year);
+	const router = useRouter();
+	const url = process.env.FRONT_URL + router.asPath;
+
+	console.log(data);
 
 	return (
 		<>
@@ -78,6 +84,17 @@ function Projet({ data, github }) {
 					<Sidebar data={data} view="projet" />
 				</Col>
 				<MenuBottom></MenuBottom>
+				<ArticleJsonLd
+					url={url}
+					title={data.header.meta_title}
+					images={[data.header.main_image.url]}
+					datePublished={data.created_at}
+					dateModified={data.updated_at}
+					authorName={`${data.header.user.username} ${data.header.user.name}`}
+					publisherName={`${data.header.user.username} ${data.header.user.name}`}
+					publisherLogo={data.header.user.avatar.url}
+					description={data.header.meta_description}
+				/>
 			</section>
 		</>
 	);

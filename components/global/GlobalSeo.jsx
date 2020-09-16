@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
-export default function GlobalSeo({ data, ...props }) {
+export default function GlobalSeo({ data, additionnalOpenGraph }) {
 	const router = useRouter();
 	const url = process.env.FRONT_URL + router.asPath;
 
@@ -20,10 +20,13 @@ export default function GlobalSeo({ data, ...props }) {
 				},
 			],
 			url,
+			...additionnalOpenGraph,
 		},
 	};
 
-	console.log(SEO);
-
-	return <NextSeo {...SEO} />;
+	return (
+		<>
+			<NextSeo {...SEO} />
+		</>
+	);
 }
