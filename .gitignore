@@ -6,6 +6,8 @@ deploy.md
 deploy_key
 yarn.lock
 package-lock.json
+public/sitemap.xml
+public/robots.txt
 
 public/assets/img/languages-icon
 
