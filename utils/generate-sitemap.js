@@ -2,8 +2,8 @@ const fs = require('fs');
 const fetch = require('isomorphic-unfetch');
 const globby = require('globby');
 const urls = [];
-const FRONT_URL = process.env.FRONT_URL || 'http://localhost:3000';
-const API_URL = process.env.API_URL || 'http://localhost:1337';
+const FRONT_URL = process.env.FRONT_URL || 'https://thomas-claireau.com';
+const API_URL = process.env.API_URL || 'https://api.thomas-claireau.com';
 
 (async () => {
 	// Ignore Next.js specific files (e.g., _app.js) and API routes.
