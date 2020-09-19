@@ -2,6 +2,8 @@ const fs = require('fs');
 const fetch = require('isomorphic-unfetch');
 const globby = require('globby');
 const urls = [];
+const FRONT_URL = process.env.FRONT_URL || 'http://localhost:3000';
+const API_URL = process.env.API_URL || 'http://localhost:1337';
 
 (async () => {
 	// Ignore Next.js specific files (e.g., _app.js) and API routes.
@@ -13,26 +15,24 @@ const urls = [];
 		const path = page.replace('pages', '').replace('.jsx', '').replace('.mdx', '');
 		const route = path === '/index' ? '' : path;
 
-		urls.push(`<url><loc>${`${process.env.FRONT_URL}${route}`}</loc></url>`);
+		urls.push(`<url><loc>${`${FRONT_URL}${route}`}</loc></url>`);
 	});
 
 	// fetch all projects
-	await fetch(`${process.env.API_URL}/projets`)
+	await fetch(`${API_URL}/projets`)
 		.then((res) => res.json())
 		.then((data) => {
 			data.forEach((item) => {
-				urls.push(
-					`<url><loc>${`${process.env.FRONT_URL}/projets/${item.slug}`}</loc></url>`
-				);
+				urls.push(`<url><loc>${`${FRONT_URL}/projets/${item.slug}`}</loc></url>`);
 			});
 		});
 
 	// fetch all blog posts
-	await fetch(`${process.env.API_URL}/posts`)
+	await fetch(`${API_URL}/posts`)
 		.then((res) => res.json())
 		.then((data) => {
 			data.forEach((item) => {
-				urls.push(`<url><loc>${`${process.env.FRONT_URL}/blog/${item.slug}`}</loc></url>`);
+				urls.push(`<url><loc>${`${FRONT_URL}/blog/${item.slug}`}</loc></url>`);
 			});
 		});
 
