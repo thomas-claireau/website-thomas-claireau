@@ -34,8 +34,6 @@ function Projet({ data, github }) {
 	const router = useRouter();
 	const url = process.env.FRONT_URL + router.asPath;
 
-	console.log(data);
-
 	return (
 		<>
 			<GlobalSeo data={data} />
