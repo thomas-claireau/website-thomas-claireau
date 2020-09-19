@@ -7,7 +7,7 @@ import styles, { title, left, desktop, mobile } from 'styles/pages/404.module.sc
 export default function Custom404() {
 	return (
 		<>
-			<NextSeo noindex={true} />
+			<NextSeo noindex={true} nofollow={true} />
 			<div className={styles['not-found']}>
 				<Col direction="left" bg="--bg-dark" align="center">
 					<div className={`${title} ${left} ${desktop} h1 --light`}>

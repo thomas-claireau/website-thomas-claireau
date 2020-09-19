@@ -26,7 +26,11 @@ export default function GlobalSeo({ data, additionnalOpenGraph }) {
 
 	return (
 		<>
-			<NextSeo {...SEO} noindex={true} nofollow={true} />
+			<NextSeo
+				{...SEO}
+				noindex={process.env.NO_INDEX_NO_FOLLOW}
+				nofollow={process.env.NO_INDEX_NO_FOLLOW}
+			/>
 		</>
 	);
 }
