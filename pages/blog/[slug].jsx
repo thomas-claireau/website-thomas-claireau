@@ -110,10 +110,8 @@ function Post({ data }) {
 						alt={data.header.main_image.caption}
 						title={data.header.title}
 					/>
-					<motion.div>
-						<HtmlContent variants={transitionItem} className={`${content}`}>
-							{data.content}
-						</HtmlContent>
+					<motion.div variants={transitionItem}>
+						<HtmlContent className={`${content}`}>{data.content}</HtmlContent>
 					</motion.div>
 				</Col>
 				<MenuBottom></MenuBottom>
