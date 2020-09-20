@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 export default function GlobalSeo({ data, additionnalOpenGraph }) {
 	const router = useRouter();
 	const url = process.env.FRONT_URL + router.asPath;
+	const NO_INDEX_NO_FOLLOW = process.env.NO_INDEX_NO_FOLLOW === 'true';
 
 	const SEO = {
 		title: data.header.meta_title,
@@ -22,15 +23,13 @@ export default function GlobalSeo({ data, additionnalOpenGraph }) {
 			url,
 			...additionnalOpenGraph,
 		},
+		noindex: NO_INDEX_NO_FOLLOW,
+		nofollow: NO_INDEX_NO_FOLLOW,
 	};
 
 	return (
 		<>
-			<NextSeo
-				{...SEO}
-				noindex={process.env.NO_INDEX_NO_FOLLOW}
-				nofollow={process.env.NO_INDEX_NO_FOLLOW}
-			/>
+			<NextSeo {...SEO} />
 		</>
 	);
 }
