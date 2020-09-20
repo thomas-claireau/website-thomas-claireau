@@ -19,15 +19,6 @@ function About({ data }) {
 
 	const about = data.a_propos;
 
-	const SEO = {
-		title: about.header.meta_title,
-		description: about.header.meta_description,
-		openGraph: {
-			title: about.header.meta_title,
-			description: about.header.meta_description,
-		},
-	};
-
 	return (
 		<>
 			<GlobalSeo data={about} />

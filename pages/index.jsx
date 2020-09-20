@@ -1,6 +1,7 @@
 import React from 'react';
 import INDEX_QUERY from 'graphql-queries/index';
 import { request } from 'graphql-request';
+import { motion } from 'framer-motion';
 
 import { home, title, desktop, left, right, description } from 'styles/pages/index.module.scss';
 
@@ -13,23 +14,57 @@ import GlobalSeo from 'components/global/GlobalSeo';
 function Home({ data }) {
 	const accueil = data.accueil;
 
+	const transitionLeft = {
+		hidden: { x: '-100%', opacity: 0 },
+		visible: { x: 0, opacity: 1 },
+	};
+
+	const transitionRight = {
+		hidden: { x: '100%', opacity: 0 },
+		visible: { x: 0, opacity: 1 },
+	};
+
 	return (
 		<>
 			<GlobalSeo data={accueil} />
 			<section className={home}>
 				<Col direction="left" bg="--bg-dark" align="flex-end">
-					<div className={`${title} ${left} ${desktop} h1 --light`}>
+					<motion.div
+						className={`${title} ${left} ${desktop} h1 --light`}
+						variants={transitionLeft}
+						initial="hidden"
+						animate="visible"
+					>
 						<span>{accueil.titre_haut_gauche}</span>
 						<span>{accueil.titre_bas_gauche}</span>
-					</div>
-					<p className={`${description} ${left} --light`}>{accueil.description_gauche}</p>
+					</motion.div>
+					<motion.p
+						className={`${description} ${left} --light`}
+						variants={transitionLeft}
+						initial="hidden"
+						animate="visible"
+					>
+						{accueil.description_gauche}
+					</motion.p>
 				</Col>
 				<Col direction="right" bg="--bg-light" align="flex-start">
-					<div className={`${title} ${desktop} h1 --dark`}>
+					<motion.div
+						className={`${title} ${desktop} h1 --dark`}
+						variants={transitionRight}
+						initial="hidden"
+						animate="visible"
+					>
 						<span>{accueil.titre_haut_droite}</span>
 						<span>{accueil.titre_bas_droite}</span>
-					</div>
-					<p className={`${description} ${right} --dark`}>{accueil.description_droite}</p>
+					</motion.div>
+					<motion.p
+						className={`${description} ${right} --dark`}
+						variants={transitionRight}
+						initial="hidden"
+						animate="visible"
+					>
+						{accueil.description_droite}
+					</motion.p>
 				</Col>
 				<ContentVM>
 					<Container>

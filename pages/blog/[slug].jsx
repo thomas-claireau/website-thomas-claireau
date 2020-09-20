@@ -5,6 +5,7 @@ import CustomErrorPage from 'pages/404';
 import { request } from 'graphql-request';
 import POST_QUERY from 'graphql-queries/post';
 import { ArticleJsonLd } from 'next-seo';
+import { motion } from 'framer-motion';
 
 import styles, { post, left, right, back, content } from 'styles/pages/post.module.scss';
 
@@ -48,6 +49,16 @@ function Post({ data }) {
 	const hashtags = data.technologies.map((item) => item.technologie);
 	data.share = setShareButton(url, data.header.meta_title, hashtags);
 
+	const globalTransition = {
+		hidden: { opacity: 0 },
+		visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+	};
+
+	const transitionItem = {
+		hidden: { opacity: 0, y: '30%' },
+		visible: { opacity: 1, y: 0 },
+	};
+
 	const additionnalOpenGraph = {
 		type: 'article',
 		article: {
@@ -61,7 +72,12 @@ function Post({ data }) {
 	return (
 		<>
 			<GlobalSeo data={data} additionnalOpenGraph={additionnalOpenGraph} />
-			<section className={`${post} post main-content`}>
+			<motion.section
+				className={`${post} post main-content`}
+				variants={globalTransition}
+				initial="hidden"
+				animate="visible"
+			>
 				<Col
 					className={left}
 					direction="left"
@@ -69,7 +85,9 @@ function Post({ data }) {
 					justify="flex-start"
 					width="35%"
 				>
-					<Sidebar data={data} view="post"></Sidebar>
+					<motion.div variants={transitionItem}>
+						<Sidebar data={data} view="post"></Sidebar>
+					</motion.div>
 				</Col>
 				<Col
 					className={right}
@@ -85,16 +103,21 @@ function Post({ data }) {
 							Go back
 						</a>
 					</Link>
-					<img
+					<motion.img
+						variants={transitionItem}
 						className={`${styles['main-image']} ${content}`}
 						src={data.header.main_image.url}
 						alt={data.header.main_image.caption}
 						title={data.header.title}
 					/>
-					<HtmlContent className={`${content}`}>{data.content}</HtmlContent>
+					<motion.div>
+						<HtmlContent variants={transitionItem} className={`${content}`}>
+							{data.content}
+						</HtmlContent>
+					</motion.div>
 				</Col>
 				<MenuBottom></MenuBottom>
-			</section>
+			</motion.section>
 			<ArticleJsonLd
 				url={url}
 				title={data.header.meta_title}

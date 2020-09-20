@@ -5,6 +5,7 @@ import { request } from 'graphql-request';
 import PROJET_QUERY from 'graphql-queries/projet';
 import { ArticleJsonLd } from 'next-seo';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 import styles, {
 	projet,
@@ -34,10 +35,25 @@ function Projet({ data, github }) {
 	const router = useRouter();
 	const url = process.env.FRONT_URL + router.asPath;
 
+	const globalTransition = {
+		hidden: { opacity: 0 },
+		visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+	};
+
+	const transitionItem = {
+		hidden: { opacity: 0, y: '30%' },
+		visible: { opacity: 1, y: 0 },
+	};
+
 	return (
 		<>
 			<GlobalSeo data={data} />
-			<section className={`${projet} projet main-content`}>
+			<motion.section
+				className={`${projet} projet main-content`}
+				variants={globalTransition}
+				initial="hidden"
+				animate="visible"
+			>
 				<Col
 					className={left}
 					direction="left"
@@ -51,13 +67,16 @@ function Projet({ data, github }) {
 							Go back
 						</a>
 					</Link>
-					<img
+					<motion.img
+						variants={transitionItem}
 						className={`${styles['main-image']} ${content}`}
 						src={data.header.main_image.url}
 						alt={data.header.main_image.caption}
 						title={data.header.title}
 					/>
-					<HtmlContent className={`${content}`}>{data.resume}</HtmlContent>
+					<motion.div variants={transitionItem}>
+						<HtmlContent className={`${content}`}>{data.resume}</HtmlContent>
+					</motion.div>
 					<GithubInfo
 						github={github}
 						languages={data.technologies}
@@ -79,7 +98,9 @@ function Projet({ data, github }) {
 					justify="flex-start"
 					width="30%"
 				>
-					<Sidebar data={data} view="projet" />
+					<motion.div variants={transitionItem}>
+						<Sidebar data={data} view="projet" />
+					</motion.div>
 				</Col>
 				<MenuBottom></MenuBottom>
 				<ArticleJsonLd
@@ -93,7 +114,7 @@ function Projet({ data, github }) {
 					publisherLogo={data.header.user.avatar.url}
 					description={data.header.meta_description}
 				/>
-			</section>
+			</motion.section>
 		</>
 	);
 }
