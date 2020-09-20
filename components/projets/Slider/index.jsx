@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectFade, Mousewheel, Pagination } from 'swiper';
+import SwiperCore, { EffectFade, Mousewheel, Pagination, Autoplay } from 'swiper';
 import { motion } from 'framer-motion';
 
 import styles, { slider, left, title, description, view, right } from './index.module.scss';
 
 export default function Slider({ projets }) {
 	const router = useRouter();
-	SwiperCore.use([EffectFade, Mousewheel, Pagination]);
+	SwiperCore.use([EffectFade, Mousewheel, Pagination, Autoplay]);
 
 	const breakpoints = {
 		1024: {
@@ -42,6 +42,8 @@ export default function Slider({ projets }) {
 			grabCursor={true}
 			mousewheel={true}
 			pagination={{ clickable: true, dynamicBullets: true }}
+			autoplay={{ delay: 2000, disableOnInteraction: true }}
+			loop
 		>
 			{projets &&
 				projets.map((projet) => {
