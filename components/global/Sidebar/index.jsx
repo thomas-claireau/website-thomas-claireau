@@ -15,7 +15,7 @@ export default function Sidebar({ view, data }) {
 					<>
 						<SidebarInfo label="Année" value={data.year.getFullYear()} />
 						<SidebarInfo label="Catégories" value={data.categories} multiple />
-						<SidebarInfo label="Technologies" value={data.technologies} multiple />
+						<SidebarInfo label="Technologies" value={data.technologies} multiple flex />
 						<SidebarInfo label="Github" value={data.github} link github />
 						<SidebarInfo label="Lien externe" value={data.link} link />
 					</>

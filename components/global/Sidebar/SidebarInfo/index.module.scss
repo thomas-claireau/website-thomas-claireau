@@ -28,12 +28,14 @@
 		&.flex {
 			display: flex;
 			justify-content: flex-start;
+			flex-wrap: wrap;
 			align-items: center;
-			margin-top: 15px;
+			margin-top: 5px;
 
 			.value {
+				margin-top: 10px;
+
 				&:not(:first-of-type):not(.share) {
-					margin-top: 0;
 					margin-left: 5px;
 				}
 
@@ -46,14 +48,11 @@
 	}
 
 	.value {
-		display: flex;
-		justify-content: flex-start;
-		align-items: center;
 		font-weight: 600;
 		color: $light;
 
 		&:not(:first-of-type):not(.share) {
-			margin-top: 5px;
+			margin-left: 5px;
 		}
 
 		&.share {
@@ -79,7 +78,6 @@
 			}
 
 			&:not(:first-of-type) {
-				margin-top: 0;
 				margin-left: 15px;
 			}
 		}

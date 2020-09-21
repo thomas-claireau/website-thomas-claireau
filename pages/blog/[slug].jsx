@@ -92,7 +92,7 @@ function Post({ data }) {
 				<Col
 					className={right}
 					direction="right"
-					align="flex-start"
+					align="-start"
 					justify="flex-start"
 					scroll
 					width="65%"
