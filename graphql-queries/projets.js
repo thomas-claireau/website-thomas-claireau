@@ -9,6 +9,7 @@ const PROJETS_QUERY = gql`
 				meta_description
 				main_image {
 					url
+					alt: alternativeText
 					caption
 				}
 				user {
@@ -16,6 +17,7 @@ const PROJETS_QUERY = gql`
 					name
 					avatar {
 						url
+						alt: alternativeText
 						caption
 					}
 				}
@@ -29,6 +31,7 @@ const PROJETS_QUERY = gql`
 				meta_description
 				main_image {
 					url
+					alt: alternativeText
 					caption
 				}
 				user {
@@ -36,6 +39,7 @@ const PROJETS_QUERY = gql`
 					name
 					avatar {
 						url
+						alt: alternativeText
 						caption
 					}
 				}
@@ -47,6 +51,7 @@ const PROJETS_QUERY = gql`
 			resume
 			others_images {
 				id
+				alt: alternativeText
 				caption
 				url
 			}

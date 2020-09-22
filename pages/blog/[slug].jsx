@@ -107,7 +107,7 @@ function Post({ data }) {
 						variants={transitionItem}
 						className={`${styles['main-image']} ${content}`}
 						src={data.header.main_image.url}
-						alt={data.header.main_image.caption}
+						alt={data.header.main_image.alt}
 						title={data.header.title}
 					/>
 					<motion.div variants={transitionItem}>

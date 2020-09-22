@@ -39,7 +39,7 @@ export default function SliderOthersImages({ images, className, ...props }) {
 				images.map((image) => {
 					return (
 						<SwiperSlide className={styles['swiper-slide']} key={image.id}>
-							<img src={image.url} alt={image.caption} title={image.caption} />
+							<img src={image.url} alt={image.alt} title={image.alt} />
 						</SwiperSlide>
 					);
 				})}

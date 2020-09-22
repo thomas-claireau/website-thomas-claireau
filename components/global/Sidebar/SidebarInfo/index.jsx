@@ -41,7 +41,7 @@ export default function SidebarInfo({ label, value, link, github, multiple, flex
 	if (avatar) {
 		return (
 			<li className={`${styles['sidebar-info']} ${styles.avatar}`}>
-				<img src={value.avatar.url} alt={value.avatar.caption} />
+				<img src={value.avatar.url} alt={value.avatar.alt} />
 				{`${value.username} ${value.name}`}
 			</li>
 		);

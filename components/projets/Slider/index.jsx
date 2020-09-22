@@ -73,7 +73,7 @@ export default function Slider({ projets }) {
 							<div className={`${right} right`}>
 								<img
 									src={projet.header.main_image.url}
-									alt={projet.header.main_image.caption}
+									alt={projet.header.main_image.alt}
 								/>
 							</div>
 						</SwiperSlide>

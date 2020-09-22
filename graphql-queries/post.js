@@ -9,6 +9,7 @@ const POST_QUERY = gql`
 				meta_description
 				main_image {
 					url
+					alt: alternativeText
 					caption
 				}
 				user {
@@ -16,6 +17,7 @@ const POST_QUERY = gql`
 					name
 					avatar {
 						url
+						alt: alternativeText
 						caption
 					}
 				}
@@ -28,6 +30,7 @@ const POST_QUERY = gql`
 				technologie
 				logo {
 					url
+					alt: alternativeText
 					caption
 				}
 			}

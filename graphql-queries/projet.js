@@ -16,6 +16,7 @@ const PROJET_QUERY = gql`
 				meta_description
 				main_image {
 					url
+					alt: alternativeText
 					caption
 				}
 				user {
@@ -23,6 +24,7 @@ const PROJET_QUERY = gql`
 					name
 					avatar {
 						url
+						alt: alternativeText
 						caption
 					}
 				}
@@ -30,6 +32,7 @@ const PROJET_QUERY = gql`
 			others_images {
 				id
 				url
+				alt: alternativeText
 				caption
 			}
 			categories {
@@ -41,6 +44,7 @@ const PROJET_QUERY = gql`
 				item: technologie
 				logo {
 					url
+					alt: alternativeText
 					caption
 				}
 			}

@@ -16,6 +16,7 @@ const INDEX_QUERY = gql`
 				meta_description
 				main_image {
 					url
+					alt: alternativeText
 					caption
 				}
 				user {
@@ -23,6 +24,7 @@ const INDEX_QUERY = gql`
 					name
 					avatar {
 						url
+						alt: alternativeText
 						caption
 					}
 				}
@@ -38,6 +40,7 @@ const INDEX_QUERY = gql`
 							title
 							main_image {
 								url
+								alt: alternativeText
 								caption
 							}
 							user {
@@ -45,6 +48,7 @@ const INDEX_QUERY = gql`
 								name
 								avatar {
 									url
+									alt: alternativeText
 									caption
 								}
 							}
