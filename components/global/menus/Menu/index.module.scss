@@ -104,6 +104,7 @@
 
 				&.active {
 					position: relative;
+					pointer-events: none;
 
 					&:before {
 						content: '';
