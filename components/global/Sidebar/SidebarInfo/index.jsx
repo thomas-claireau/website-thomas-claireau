@@ -52,12 +52,12 @@ export default function SidebarInfo({ label, value, link, github, multiple, flex
 			<div className={styles.label}>{label}</div>
 			{link ? (
 				<a
-					href={github ? `https://github.com/${value}` : value}
+					href={github ? `https://github.com/${value[0]}` : `https://${value}`}
 					target="_blank"
 					rel="noopener noreferrer"
 					className={styles.value}
 				>
-					{value}
+					{github ? value[1] : value}
 				</a>
 			) : (
 				<div className={styles.value}>{value}</div>

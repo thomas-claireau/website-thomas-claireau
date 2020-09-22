@@ -3,8 +3,10 @@ import gql from 'graphql-tag';
 const PROJET_QUERY = gql`
 	query Projet($slug: String!) {
 		projets(where: { slug: $slug }) {
+			liste_projets
 			year
-			github
+			github_href
+			github_text
 			link
 			resume
 			results

@@ -77,11 +77,13 @@ function Projet({ data, github }) {
 					<motion.div variants={transitionItem}>
 						<HtmlContent className={`${content}`}>{data.resume}</HtmlContent>
 					</motion.div>
-					<GithubInfo
-						github={github}
-						languages={data.technologies}
-						bg={data.header.main_image.url}
-					/>
+					{!data.liste_projets && (
+						<GithubInfo
+							github={github}
+							languages={data.technologies}
+							bg={data.header.main_image.url}
+						/>
+					)}
 					<SliderOthersImages className={`${content}`} images={data.others_images} />
 					<HtmlContent className={`${content}`}>{data.results}</HtmlContent>
 					<Link href="/projets">
@@ -96,7 +98,7 @@ function Projet({ data, github }) {
 					direction="right"
 					align="flex-start"
 					justify="flex-start"
-					width="30%"
+					width="40%"
 				>
 					<motion.div variants={transitionItem}>
 						<Sidebar data={data} view="projet" />

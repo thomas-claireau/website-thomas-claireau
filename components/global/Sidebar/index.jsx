@@ -16,7 +16,12 @@ export default function Sidebar({ view, data }) {
 						<SidebarInfo label="Année" value={data.year.getFullYear()} />
 						<SidebarInfo label="Catégories" value={data.categories} multiple />
 						<SidebarInfo label="Technologies" value={data.technologies} multiple flex />
-						<SidebarInfo label="Github" value={data.github} link github />
+						<SidebarInfo
+							label="Github"
+							value={[data.github_href, data.github_text]}
+							link
+							github
+						/>
 						<SidebarInfo label="Lien externe" value={data.link} link />
 					</>
 				)}
@@ -33,9 +38,3 @@ export default function Sidebar({ view, data }) {
 		</div>
 	);
 }
-
-/**
- * https://www.facebook.com/share.php?u=http://bit.ly/vOKpgC
- * https://twitter.com/intent/tweet?text=TITLE&url=URL&hashtags=TECHNO_1,TECHNO_2
- * https://www.linkedin.com/sharing/share-offsite/?url=http://bit.ly/vOKpgC
- */

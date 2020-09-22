@@ -46,7 +46,8 @@ const PROJETS_QUERY = gql`
 			}
 			slug
 			date: year
-			github
+			github_href
+			github_text
 			link
 			resume
 			others_images {
