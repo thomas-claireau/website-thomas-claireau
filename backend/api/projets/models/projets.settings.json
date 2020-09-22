@@ -15,7 +15,7 @@
     "categories": {
       "collection": "categories"
     },
-    "github": {
+    "github_href": {
       "type": "string"
     },
     "link": {
@@ -50,6 +50,12 @@
     },
     "technologies": {
       "collection": "technologie"
+    },
+    "github_text": {
+      "type": "string"
+    },
+    "liste_projets": {
+      "type": "boolean"
     }
   }
 }
