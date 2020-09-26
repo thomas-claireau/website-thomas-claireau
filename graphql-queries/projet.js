@@ -32,10 +32,14 @@ const PROJET_QUERY = gql`
 				}
 			}
 			others_images {
-				id
-				url
-				alt: alternativeText
-				caption
+				nom_projet
+				lien_projet
+				image {
+					id
+					url
+					alt: alternativeText
+					caption
+				}
 			}
 			categories {
 				id

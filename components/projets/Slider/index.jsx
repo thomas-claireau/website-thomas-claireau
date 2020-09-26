@@ -47,6 +47,8 @@ export default function Slider({ projets }) {
 		>
 			{projets &&
 				projets.map((projet) => {
+					const isListeProjets = projet.liste_projets;
+
 					return (
 						<SwiperSlide
 							tag="a"
@@ -67,7 +69,7 @@ export default function Slider({ projets }) {
 									{projet.header.meta_description}
 								</motion.p>
 								<motion.div variants={item} className={view}>
-									Voir le projet
+									{isListeProjets ? 'Voir les projets' : 'Voir le projet'}
 								</motion.div>
 							</motion.div>
 							<div className={`${right} right`}>

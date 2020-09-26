@@ -45,6 +45,8 @@ function Projet({ data, github }) {
 		visible: { opacity: 1, y: 0 },
 	};
 
+	const isListeProjets = data.liste_projets;
+
 	return (
 		<>
 			<GlobalSeo data={data} />
@@ -84,7 +86,11 @@ function Projet({ data, github }) {
 							bg={data.header.main_image.url}
 						/>
 					)}
-					<SliderOthersImages className={`${content}`} images={data.others_images} />
+					<SliderOthersImages
+						className={`${content}`}
+						images={data.others_images}
+						listeProjets={isListeProjets}
+					/>
 					<HtmlContent className={`${content}`}>{data.results}</HtmlContent>
 					<Link href="/projets">
 						<a className={`${back} ${bottom} ${content}`}>

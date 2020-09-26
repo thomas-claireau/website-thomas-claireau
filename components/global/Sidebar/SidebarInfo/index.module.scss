@@ -51,9 +51,9 @@
 		font-weight: 600;
 		color: $light;
 
-		&:not(:first-of-type):not(.share) {
-			margin-left: 5px;
-		}
+		// &:not(:first-of-type):not(.share) {
+		// 	// margin-left: 5px;
+		// }
 
 		&.share {
 			width: 40px;

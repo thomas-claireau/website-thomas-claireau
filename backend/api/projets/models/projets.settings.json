@@ -21,17 +21,6 @@
     "link": {
       "type": "string"
     },
-    "others_images": {
-      "collection": "file",
-      "via": "related",
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
-      "plugin": "upload",
-      "required": false
-    },
     "resume": {
       "type": "richtext"
     },
@@ -56,6 +45,11 @@
     },
     "liste_projets": {
       "type": "boolean"
+    },
+    "others_images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projet.others-images"
     }
   }
 }

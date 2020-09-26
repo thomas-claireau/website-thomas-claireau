@@ -12,11 +12,12 @@ export default function SidebarInfo({ label, value, link, github, multiple, flex
 				<div className={`${styles.values} ${flex ? styles.flex : ''}`}>
 					{value.map((data) => {
 						if (!share) {
-							const { id, logo } = data;
+							const { id, item, logo } = data;
 
 							return (
 								<div key={id} className={styles.value}>
 									{logo && <Svg url={logo.url} />}
+									{!flex ? item : ''}
 								</div>
 							);
 						} else {

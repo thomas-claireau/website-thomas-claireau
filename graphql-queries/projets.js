@@ -48,13 +48,18 @@ const PROJETS_QUERY = gql`
 			date: year
 			github_href
 			github_text
+			liste_projets
 			link
 			resume
 			others_images {
-				id
-				alt: alternativeText
-				caption
-				url
+				nom_projet
+				lien_projet
+				image {
+					id
+					alt: alternativeText
+					caption
+					url
+				}
 			}
 			categories {
 				id

@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_projet_others_images",
+  "info": {
+    "name": "Others images",
+    "icon": "arrow-alt-circle-down"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "nom_projet": {
+      "type": "string"
+    },
+    "lien_projet": {
+      "type": "string"
+    }
+  }
+}
