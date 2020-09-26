@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/bandeau-projet",
+      "handler": "bandeau-projet.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/bandeau-projet",
+      "handler": "bandeau-projet.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/bandeau-projet",
+      "handler": "bandeau-projet.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
