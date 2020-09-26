@@ -17,7 +17,7 @@ export default function SidebarInfo({ label, value, link, github, multiple, flex
 							return (
 								<div key={id} className={styles.value}>
 									{logo && <Svg url={logo.url} />}
-									{item}
+									{!flex ? item : ''}
 								</div>
 							);
 						} else {
@@ -42,7 +42,7 @@ export default function SidebarInfo({ label, value, link, github, multiple, flex
 	if (avatar) {
 		return (
 			<li className={`${styles['sidebar-info']} ${styles.avatar}`}>
-				<img src={value.avatar.url} alt={value.avatar.caption} />
+				<img src={value.avatar.url} alt={value.avatar.alt} />
 				{`${value.username} ${value.name}`}
 			</li>
 		);
@@ -53,12 +53,12 @@ export default function SidebarInfo({ label, value, link, github, multiple, flex
 			<div className={styles.label}>{label}</div>
 			{link ? (
 				<a
-					href={github ? `https://github.com/${value}` : value}
+					href={github ? `https://github.com/${value[0]}` : `https://${value}`}
 					target="_blank"
 					rel="noopener noreferrer"
 					className={styles.value}
 				>
-					{value}
+					{github ? value[1] : value}
 				</a>
 			) : (
 				<div className={styles.value}>{value}</div>

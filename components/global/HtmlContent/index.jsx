@@ -8,13 +8,20 @@ export default function HtmlContent({ children, className, ...props }) {
 
 	useEffect(() => {
 		Prism.highlightAll();
+
+		// exterial link -> target blank
+		const links = document.querySelectorAll('.html-content a');
+
+		links.forEach((link) => {
+			if (!link.href.includes(window.location.hostname)) link.target = '_blank';
+		});
 	}, [htmlContent]);
 
 	useLayoutEffect(() => {
 		setHtmlContent(
 			<div
 				{...props}
-				className={`${content} ${className}`}
+				className={`html-content ${content} ${className}`}
 				dangerouslySetInnerHTML={{
 					__html: marked(children),
 				}}

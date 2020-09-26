@@ -9,6 +9,7 @@ const PROJETS_QUERY = gql`
 				meta_description
 				main_image {
 					url
+					alt: alternativeText
 					caption
 				}
 				user {
@@ -16,6 +17,7 @@ const PROJETS_QUERY = gql`
 					name
 					avatar {
 						url
+						alt: alternativeText
 						caption
 					}
 				}
@@ -29,6 +31,7 @@ const PROJETS_QUERY = gql`
 				meta_description
 				main_image {
 					url
+					alt: alternativeText
 					caption
 				}
 				user {
@@ -36,19 +39,27 @@ const PROJETS_QUERY = gql`
 					name
 					avatar {
 						url
+						alt: alternativeText
 						caption
 					}
 				}
 			}
 			slug
 			date: year
-			github
+			github_href
+			github_text
+			liste_projets
 			link
 			resume
 			others_images {
-				id
-				caption
-				url
+				nom_projet
+				lien_projet
+				image {
+					id
+					alt: alternativeText
+					caption
+					url
+				}
 			}
 			categories {
 				id

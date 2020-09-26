@@ -9,6 +9,7 @@ const A_PROPOS_QUERY = gql`
 				meta_description
 				main_image {
 					url
+					alt: alternativeText
 					caption
 				}
 				user {
@@ -16,6 +17,7 @@ const A_PROPOS_QUERY = gql`
 					name
 					avatar {
 						url
+						alt: alternativeText
 						caption
 					}
 				}

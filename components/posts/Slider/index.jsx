@@ -76,14 +76,14 @@ export default function Slider({ data }) {
 									<div>
 										<img
 											src={post.header.main_image.url}
-											alt={post.header.main_image.caption}
+											alt={post.header.main_image.alt}
 										/>
 										<h2>{post.header.title}</h2>
 										<div className={informations}>
 											<div className={avatar}>
 												<img
 													src={post.header.user.avatar.url}
-													alt={post.header.user.avatar.caption}
+													alt={post.header.user.avatar.alt}
 												/>
 												<span>{`${post.header.user.username} ${post.header.user.name}`}</span>
 											</div>

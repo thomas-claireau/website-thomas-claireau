@@ -5,6 +5,12 @@
 
 	h1 {
 		font-size: 40px;
+		line-height: 47px;
+
+		@media screen and (max-width: $break-header) {
+			font-size: 30px;
+			line-height: 37px;
+		}
 	}
 
 	ul {

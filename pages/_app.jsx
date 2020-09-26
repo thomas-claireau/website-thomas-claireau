@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect, useEffect } from 'react';
 import Router, { useRouter } from 'next/router';
 import { DefaultSeo } from 'next-seo';
 import GLOBAL_QUERY_APP from 'graphql-queries/_app';
@@ -24,12 +24,10 @@ function MyApp({ Component, pageProps, props }) {
 	// loading
 	useEffect(() => {
 		const start = () => {
-			console.log('start');
 			setLoading(true);
 		};
 
 		const end = () => {
-			console.log('end');
 			setLoading(false);
 		};
 

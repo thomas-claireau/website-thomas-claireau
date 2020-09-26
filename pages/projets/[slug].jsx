@@ -45,6 +45,8 @@ function Projet({ data, github }) {
 		visible: { opacity: 1, y: 0 },
 	};
 
+	const isListeProjets = data.liste_projets;
+
 	return (
 		<>
 			<GlobalSeo data={data} />
@@ -71,18 +73,24 @@ function Projet({ data, github }) {
 						variants={transitionItem}
 						className={`${styles['main-image']} ${content}`}
 						src={data.header.main_image.url}
-						alt={data.header.main_image.caption}
+						alt={data.header.main_image.alt}
 						title={data.header.title}
 					/>
 					<motion.div variants={transitionItem}>
 						<HtmlContent className={`${content}`}>{data.resume}</HtmlContent>
 					</motion.div>
-					<GithubInfo
-						github={github}
-						languages={data.technologies}
-						bg={data.header.main_image.url}
+					{!data.liste_projets && (
+						<GithubInfo
+							github={github}
+							languages={data.technologies}
+							bg={data.header.main_image.url}
+						/>
+					)}
+					<SliderOthersImages
+						className={`${content}`}
+						images={data.others_images}
+						listeProjets={isListeProjets}
 					/>
-					<SliderOthersImages className={`${content}`} images={data.others_images} />
 					<HtmlContent className={`${content}`}>{data.results}</HtmlContent>
 					<Link href="/projets">
 						<a className={`${back} ${bottom} ${content}`}>
@@ -96,7 +104,7 @@ function Projet({ data, github }) {
 					direction="right"
 					align="flex-start"
 					justify="flex-start"
-					width="30%"
+					width="40%"
 				>
 					<motion.div variants={transitionItem}>
 						<Sidebar data={data} view="projet" />

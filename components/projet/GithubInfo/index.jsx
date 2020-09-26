@@ -50,7 +50,9 @@ export default function GithubInfo({ bg, github, languages }) {
 								</div>
 								<div>
 									<div className={styles.languages}>
-										{languages.map((language) => {
+										{languages.map((language, index) => {
+											if (index > 4) return null;
+
 											return (
 												<Svg
 													className={styles['svg-container']}

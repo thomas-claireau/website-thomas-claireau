@@ -52,10 +52,7 @@ export default function SliderWork({ data }) {
 						<SwiperSlide className={styles['swiper-slide']} key={id}>
 							<Link href={`${view_all_link}/${slug}`}>
 								<a title={header.title}>
-									<img
-										src={header.main_image.url}
-										alt={header.main_image.caption}
-									/>
+									<img src={header.main_image.url} alt={header.main_image.alt} />
 								</a>
 							</Link>
 						</SwiperSlide>
