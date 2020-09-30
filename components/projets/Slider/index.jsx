@@ -54,7 +54,9 @@ export default function Slider({ projets }) {
 							tag="a"
 							href={`${router.route}/${projet.slug}`}
 							key={projet.id}
-							className={styles['swiper-slide']}
+							className={`${styles['swiper-slide']} ${
+								isListeProjets ? styles['liste-projets'] : ''
+							}`}
 						>
 							<motion.div
 								className={`${left} left`}

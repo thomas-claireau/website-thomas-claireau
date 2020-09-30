@@ -47,7 +47,20 @@
 		}
 
 		.swiper-button-prev {
+			left: 60px;
 			transform: rotate(180deg);
+
+			@media screen and (max-width: $break-tablet) {
+				left: 10px;
+			}
+		}
+
+		.swiper-button-next {
+			right: 60px;
+
+			@media screen and (max-width: $break-tablet) {
+				right: 10px;
+			}
 		}
 
 		.swiper-wrapper {
