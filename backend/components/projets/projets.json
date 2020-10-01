@@ -8,6 +8,9 @@
   "attributes": {
     "projet": {
       "model": "projets"
+    },
+    "nom_projet": {
+      "type": "string"
     }
   }
 }
