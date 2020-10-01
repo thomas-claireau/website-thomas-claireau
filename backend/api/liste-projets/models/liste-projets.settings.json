@@ -14,8 +14,10 @@
       "repeatable": false,
       "component": "global.header"
     },
-    "projets": {
-      "collection": "projets"
+    "projets_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projets.projets"
     }
   }
 }

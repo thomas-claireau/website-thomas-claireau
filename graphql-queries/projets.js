@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 const PROJETS_QUERY = gql`
 	query {
-		meta: listeProjet {
+		liste_projets: listeProjet {
 			header {
 				title
 				meta_title
@@ -22,48 +22,46 @@ const PROJETS_QUERY = gql`
 					}
 				}
 			}
-		}
-		projets {
-			id
-			header {
-				title
-				meta_title
-				meta_description
-				main_image {
-					url
-					alt: alternativeText
-					caption
-				}
-				user {
-					username
-					name
-					avatar {
-						url
-						alt: alternativeText
-						caption
-					}
-				}
-			}
-			slug
-			date: year
-			github_href
-			github_text
-			liste_projets
-			link
-			resume
-			others_images {
-				nom_projet
-				lien_projet
-				image {
+			projets_list {
+				projet {
 					id
-					alt: alternativeText
-					caption
-					url
+					header {
+						title
+						meta_title
+						meta_description
+						main_image {
+							url
+							alt: alternativeText
+							caption
+						}
+						user {
+							username
+							name
+							avatar {
+								url
+								alt: alternativeText
+								caption
+							}
+						}
+					}
+					slug
+					date: year
+					github_href
+					github_text
+					liste_projets
+					link
+					resume
+					others_images {
+						nom_projet
+						lien_projet
+						image {
+							id
+							alt: alternativeText
+							caption
+							url
+						}
+					}
 				}
-			}
-			categories {
-				id
-				category
 			}
 		}
 	}

@@ -47,6 +47,7 @@ export default function Slider({ projets }) {
 		>
 			{projets &&
 				projets.map((projet) => {
+					projet = projet.projet;
 					const isListeProjets = projet.liste_projets;
 
 					return (
