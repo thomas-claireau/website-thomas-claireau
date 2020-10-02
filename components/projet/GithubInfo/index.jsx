@@ -19,8 +19,6 @@ export default function GithubInfo({ bg, github, languages }) {
 		},
 	};
 
-	console.log(`${process.env.GITHUB_API}/repos/${github.full_name}/stats/contributors`);
-
 	useLayoutEffect(() => {
 		fetch(`${process.env.GITHUB_API}/repos/${github.full_name}/stats/contributors`, options)
 			.then((response) => response.json())
