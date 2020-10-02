@@ -19,23 +19,37 @@ export default function GithubInfo({ bg, github, languages }) {
 		},
 	};
 
+	console.log(`${process.env.GITHUB_API}/repos/${github.full_name}/stats/contributors`);
+
 	useLayoutEffect(() => {
 		fetch(`${process.env.GITHUB_API}/repos/${github.full_name}/stats/contributors`, options)
 			.then((response) => response.json())
-			.then((contributors) =>
-				contributors.map((contributor) =>
-					contributor.weeks.reduce((lineCount, week) => lineCount + week.a - week.d, 0)
-				)
-			)
-			.then((lineCounts) =>
-				lineCounts.reduce((lineTotal, lineCount) => lineTotal + lineCount)
-			)
-			.then((lines) => setLines(lines));
+			.then((contributors) => {
+				if (Object.keys(contributors).length !== 0) {
+					return contributors.map((contributor) =>
+						contributor.weeks.reduce(
+							(lineCount, week) => lineCount + week.a - week.d,
+							0
+						)
+					);
+				}
+			})
+			.then((lineCounts) => {
+				console.log(lineCounts);
+				if (lineCounts) {
+					return lineCounts.reduce((lineTotal, lineCount) => lineTotal + lineCount);
+				}
+			})
+			.then((lines) => {
+				if (lines) {
+					setLines(lines);
+				}
+			});
 	}, []);
 
-	return (
-		<div className={styles['github-info']} style={{ backgroundImage: `url(${bg})` }}>
-			{github && lines && languages && (
+	if (github && lines && languages) {
+		return (
+			<div className={styles['github-info']} style={{ backgroundImage: `url(${bg})` }}>
 				<div className={content}>
 					<div className={left}>
 						<h2>
@@ -80,7 +94,9 @@ export default function GithubInfo({ bg, github, languages }) {
 					</div>
 					<i className="fa fa-github-alt right" aria-hidden="true"></i>
 				</div>
-			)}
-		</div>
-	);
+			</div>
+		);
+	} else {
+		return null;
+	}
 }
