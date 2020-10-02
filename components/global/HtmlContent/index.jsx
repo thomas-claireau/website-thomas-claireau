@@ -23,7 +23,7 @@ export default function HtmlContent({ children, className, ...props }) {
 				{...props}
 				className={`html-content ${content} ${className}`}
 				dangerouslySetInnerHTML={{
-					__html: marked(children),
+					__html: children ? marked(children) : '',
 				}}
 			/>
 		);
