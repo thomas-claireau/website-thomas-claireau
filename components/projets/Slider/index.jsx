@@ -41,7 +41,7 @@ export default function Slider({ projets }) {
 			effect="slide"
 			grabCursor={true}
 			mousewheel={true}
-			pagination={{ clickable: true, dynamicBullets: true }}
+			pagination={{ clickable: true, dynamicBullets: false }}
 			autoplay={{ delay: 2000, disableOnInteraction: true }}
 			loop
 		>
