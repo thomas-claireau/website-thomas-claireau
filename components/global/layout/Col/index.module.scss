@@ -11,11 +11,23 @@
 	&.dark {
 		background-color: $dark;
 		color: $light;
+
+		a {
+			&:before {
+				background-color: $light;
+			}
+		}
 	}
 
 	&.light {
 		background-color: $light;
 		color: $dark;
+
+		a {
+			&:before {
+				background-color: $dark;
+			}
+		}
 	}
 
 	&.home {

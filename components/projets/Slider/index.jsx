@@ -41,12 +41,13 @@ export default function Slider({ projets }) {
 			effect="slide"
 			grabCursor={true}
 			mousewheel={true}
-			pagination={{ clickable: true, dynamicBullets: true }}
+			pagination={{ clickable: true, dynamicBullets: false }}
 			autoplay={{ delay: 2000, disableOnInteraction: true }}
 			loop
 		>
 			{projets &&
 				projets.map((projet) => {
+					projet = projet.projet;
 					const isListeProjets = projet.liste_projets;
 
 					return (
@@ -54,7 +55,9 @@ export default function Slider({ projets }) {
 							tag="a"
 							href={`${router.route}/${projet.slug}`}
 							key={projet.id}
-							className={styles['swiper-slide']}
+							className={`${styles['swiper-slide']} ${
+								isListeProjets ? styles['liste-projets'] : ''
+							}`}
 						>
 							<motion.div
 								className={`${left} left`}

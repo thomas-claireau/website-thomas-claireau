@@ -13,6 +13,11 @@
       "type": "component",
       "repeatable": false,
       "component": "global.header"
+    },
+    "projets_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "projets.projets"
     }
   }
 }

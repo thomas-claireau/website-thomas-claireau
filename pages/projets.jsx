@@ -13,11 +13,11 @@ import GlobalSeo from 'components/global/GlobalSeo';
 function Projets({ data }) {
 	return (
 		<>
-			<GlobalSeo data={data.meta} />
+			<GlobalSeo data={data.liste_projets} />
 			<section className={projets}>
 				<Container className={styles['main-content']}>
-					<h1 className="--hide">Thomas Claireau - {data.meta.header.title}</h1>
-					<Slider projets={data.projets} />
+					<h1 className="--hide">Thomas Claireau - {data.liste_projets.header.title}</h1>
+					<Slider projets={data.liste_projets.projets_list} />
 					<Menu view="desktop" />
 				</Container>
 				<MenuBottom></MenuBottom>

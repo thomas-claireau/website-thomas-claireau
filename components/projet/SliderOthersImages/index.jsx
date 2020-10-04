@@ -5,7 +5,7 @@ import styles from './index.module.scss';
 
 import SwiperButtonSvg from 'public/assets/img/swiper-button.svg';
 
-export default function SliderOthersImages({ images, className, ...props }) {
+export default function SliderOthersImages({ images, className, listeProjets, ...props }) {
 	SwiperCore.use([Navigation]);
 	const isNavigation = images.length > 2;
 
@@ -36,10 +36,18 @@ export default function SliderOthersImages({ images, className, ...props }) {
 		>
 			{isNavigation && <SwiperButtonSvg className="swiper-button-prev"></SwiperButtonSvg>}
 			{images &&
-				images.map((image) => {
+				images.map((image, index) => {
 					return (
-						<SwiperSlide className={styles['swiper-slide']} key={image.id}>
-							<img src={image.url} alt={image.alt} title={image.alt} />
+						<SwiperSlide
+							key={index}
+							className={styles['swiper-slide']}
+							tag={listeProjets ? 'a' : 'div'}
+							href={image.lien_projet}
+							title={image.nom_projet}
+							target="_blank"
+							rel="noopenner"
+						>
+							<img src={image.image.url} alt={image.image.alt} />
 						</SwiperSlide>
 					);
 				})}

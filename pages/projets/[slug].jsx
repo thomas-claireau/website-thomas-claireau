@@ -143,7 +143,7 @@ export async function getServerSideProps({ params }) {
 			},
 		};
 
-		return fetch(`${process.env.GITHUB_API}/repos/${projet.github}`, options)
+		return fetch(`${process.env.GITHUB_API}/repos/${projet.github_text}`, options)
 			.then((response) => response.json())
 			.then((github) => {
 				return {
