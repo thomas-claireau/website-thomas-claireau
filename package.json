@@ -6,7 +6,9 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"sitemap": "node utils/generate-sitemap.js"
+		"sitemap": "node utils/generate-sitemap.js",
+		"feed:projects": "node utils/generate-feed-projects.js",
+		"feed:posts": "node utils/generate-feed-posts.js"
 	},
 	"dependencies": {
 		"@emotion/core": "^10.0.28",
