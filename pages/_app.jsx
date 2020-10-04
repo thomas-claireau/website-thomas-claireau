@@ -4,6 +4,7 @@ import { DefaultSeo } from 'next-seo';
 import GLOBAL_QUERY_APP from 'graphql-queries/_app';
 import { AnimatePresence } from 'framer-motion';
 import { request } from 'graphql-request';
+import { GTMPageView } from 'utils/gtm';
 
 import 'styles/global.scss';
 import 'font-awesome/css/font-awesome.min.css';
@@ -20,6 +21,17 @@ import Loading from 'components/global/Loading/index';
 function MyApp({ Component, pageProps, props }) {
 	const router = useRouter();
 	const [loading, setLoading] = useState(true);
+
+	// Initiate GTM
+	useEffect(() => {
+		const handleRouteChange = (url) => GTMPageView(url);
+
+		Router.events.on('routeChangeComplete', handleRouteChange);
+
+		return () => {
+			Router.events.off('routeChangeComplete', handleRouteChange);
+		};
+	}, []);
 
 	// loading
 	useEffect(() => {
