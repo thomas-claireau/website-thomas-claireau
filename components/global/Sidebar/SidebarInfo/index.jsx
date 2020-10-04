@@ -58,7 +58,8 @@ export default function SidebarInfo({ label, value, link, github, multiple, flex
 					rel="noopener noreferrer"
 					className={styles.value}
 				>
-					<i class="fa fa-arrow-right" aria-hidden="true"></i> {github ? value[1] : value}
+					<i className="fa fa-arrow-right" aria-hidden="true"></i>{' '}
+					{github ? value[1] : value}
 				</a>
 			) : (
 				<div className={styles.value}>{value}</div>
