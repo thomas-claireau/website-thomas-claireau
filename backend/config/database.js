@@ -13,9 +13,6 @@ module.exports = ({ env }) => ({
 				ssl: env.bool('DATABASE_SSL'),
 				charset: 'utf8mb4_unicode_ci',
 			},
-			options: {
-				charset: 'utf8mb4_unicode_ci',
-			},
 		},
 	},
 });
