@@ -51,10 +51,6 @@
 		font-weight: 600;
 		color: $light;
 
-		// &:not(:first-of-type):not(.share) {
-		// 	// margin-left: 5px;
-		// }
-
 		&.share {
 			width: 40px;
 			height: 40px;
@@ -117,6 +113,10 @@
 			#wordpress path {
 				fill: #fff;
 			}
+		}
+
+		i {
+			color: #41b883;
 		}
 	}
 }
