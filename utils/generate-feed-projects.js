@@ -29,9 +29,10 @@ const API_URL = process.env.API_URL || 'https://api.thomas-claireau.com';
 
 				rssProjects.push(`<title>${header.title}</title>`);
 				rssProjects.push(`<author>${header.user.username} ${header.user.name}</author>`);
-				rssProjects.push(`<description>${header.meta_description}</description>`);
+				rssProjects.push(`<pubDate>${project.created_at}</pubDate>`);
 				rssProjects.push(`<link>${FRONT_URL}/${project.slug}</link>`);
-				rssProjects.push(`<language>fr</language>`);
+				rssProjects.push(`<guid>${FRONT_URL}/${project.slug}</guid>`);
+				rssProjects.push(`<description>${header.meta_description}</description>`);
 
 				categories.forEach((category) => {
 					const rssCategories = [];
