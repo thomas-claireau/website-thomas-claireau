@@ -5,6 +5,7 @@ import GLOBAL_QUERY_APP from 'graphql-queries/_app';
 import { AnimatePresence } from 'framer-motion';
 import { request } from 'graphql-request';
 import { GTMPageView } from 'utils/gtm';
+import CookieBanner from 'react-cookie-banner';
 
 import 'styles/global.scss';
 import 'font-awesome/css/font-awesome.min.css';
@@ -17,6 +18,7 @@ import 'styles/prism.css';
 import Box from 'components/global/layout/Box/index';
 import ContextWrapper from 'components/global/ContextWrapper';
 import Loading from 'components/global/Loading/index';
+import CustomCookieBanner from 'components/global/CookieBanner';
 
 function MyApp({ Component, pageProps, props }) {
 	const router = useRouter();
@@ -108,6 +110,14 @@ function MyApp({ Component, pageProps, props }) {
 						<Box>
 							<Component {...pageProps} key={router.route} />
 						</Box>
+						<CookieBanner>
+							{(onAccept) => (
+								<CustomCookieBanner
+									cookie="user-has-accepted-cookies"
+									onAccept={onAccept}
+								/>
+							)}
+						</CookieBanner>
 					</section>
 				</ContextWrapper>
 			</AnimatePresence>

@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+// import CookieBanner from 'react-cookie-banner';
 
 class MyDocument extends Document {
 	render() {
