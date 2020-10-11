@@ -33,7 +33,6 @@ export default function GithubInfo({ bg, github, languages }) {
 				}
 			})
 			.then((lineCounts) => {
-				console.log(lineCounts);
 				if (lineCounts) {
 					return lineCounts.reduce((lineTotal, lineCount) => lineTotal + lineCount);
 				}

@@ -30,8 +30,6 @@ function MentionsLegales({ data }) {
 		visible: { opacity: 1, y: 0 },
 	};
 
-	console.log(data.mentions_legales.description);
-
 	return (
 		<>
 			<GlobalSeo data={data.mentions_legales} />
