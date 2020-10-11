@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "mentions_legales",
+  "info": {
+    "name": "Mentions Légales"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "header": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.header"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
