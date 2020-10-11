@@ -13,13 +13,15 @@ export default function GlobalSeo({ data, additionnalOpenGraph }) {
 			title: data.header.meta_title,
 			description: data.header.meta_description,
 			images: [
-				{
-					url: data.header.main_image.url,
-					width: 1920,
-					height: 1080,
-					alt: data.header.main_image.alt,
-					caption: data.header.main_image.caption,
-				},
+				data.header.main_image
+					? {
+							url: data.header.main_image.url,
+							width: 1920,
+							height: 1080,
+							alt: data.header.main_image.alt,
+							caption: data.header.main_image.caption,
+					  }
+					: {},
 			],
 			url,
 			...additionnalOpenGraph,

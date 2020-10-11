@@ -89,6 +89,10 @@ function MyApp({ Component, pageProps, props }) {
 			left: 'dark',
 			right: 'light',
 		},
+		'/mentions-legales': {
+			left: 'light',
+			right: 'dark',
+		},
 	};
 
 	const SEO = {
