@@ -100,7 +100,7 @@ function Post({ data }) {
 					<Link href="/blog">
 						<a className={`${back} ${content}`}>
 							<ArrowRightSvg />
-							Go back
+							Retour
 						</a>
 					</Link>
 					<motion.img

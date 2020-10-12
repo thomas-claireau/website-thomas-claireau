@@ -49,7 +49,7 @@ function MentionsLegales({ data }) {
 					<Link href="/">
 						<a className={`${back} ${content}`}>
 							<ArrowRightSvg />
-							Go back
+							Retour
 						</a>
 					</Link>
 					<motion.div variants={transitionItem}>
@@ -60,7 +60,7 @@ function MentionsLegales({ data }) {
 					<Link href="/projets">
 						<a className={`${back} ${bottom} ${content}`}>
 							<ArrowRightSvg />
-							Go back
+							Retour
 						</a>
 					</Link>
 				</Col>

@@ -66,7 +66,7 @@ function Projet({ data, github }) {
 					<Link href="/projets">
 						<a className={`${back} ${content}`}>
 							<ArrowRightSvg />
-							Go back
+							Retour
 						</a>
 					</Link>
 					<motion.img
@@ -95,7 +95,7 @@ function Projet({ data, github }) {
 					<Link href="/projets">
 						<a className={`${back} ${bottom} ${content}`}>
 							<ArrowRightSvg />
-							Go back
+							Retour
 						</a>
 					</Link>
 				</Col>
