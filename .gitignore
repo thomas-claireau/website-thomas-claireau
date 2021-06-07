@@ -88,3 +88,6 @@ sketch
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+# ViteJS
+public/assets
