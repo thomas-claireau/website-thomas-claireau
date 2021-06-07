@@ -30,6 +30,8 @@ sketch
 !app/cache/.gitkeep
 !app/logs/.gitkeep
 
+.env.local
+
 # Email spool folder
 /app/spool/*
 
@@ -82,3 +84,7 @@ sketch
 /web/js/
 
 # End of https://www.toptal.com/developers/gitignore/api/symfony,sass,react
+
+###> symfony/web-server-bundle ###
+/.web-server-pid
+###< symfony/web-server-bundle ###
