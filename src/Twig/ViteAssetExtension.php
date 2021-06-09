@@ -11,14 +11,15 @@ class ViteAssetExtension extends AbstractExtension
 	private bool $isDev;
 	private string $manifest;
 	private ?array $manifestData = null;
-	private CacheItemPoolInterface $cache;
+	private $cache;
 
 	const CACHE_KEY = "vite_manifest";
 
-	public function __construct($isDev, $manifest)
+	public function __construct($isDev, $manifest, CacheItemPoolInterface $cache)
 	{
 		$this->isDev = $isDev;
 		$this->manifest = $manifest;
+		$this->cache = $cache;
 	}
 
 	public function getFunctions(): array
@@ -52,13 +53,15 @@ class ViteAssetExtension extends AbstractExtension
 
 			if ($item->isHit()) {
 				$this->manifestData = $item->get();
+			} else {
+				$this->manifestData = json_decode(file_get_contents($this->manifest), true);
+				$item->set($this->manifestData);
+				$this->cache->save($item);
 			}
-
-			$this->manifestData = json_decode(file_get_contents($this->manifest), true);
 		}
 
 		$file = $this->manifestData["js/" . $entry]['file'];
-		$css = $this->manifestData["js/" . $entry]['css'];
+		$css = isset($this->manifestData["js/" . $entry]['css']) ? $this->manifestData["js/" . $entry]['css'] : [];
 
 		$html = "<script type=\"module\" src=\"/assets/$file\"></script>";
 
