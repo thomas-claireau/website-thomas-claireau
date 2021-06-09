@@ -20,6 +20,10 @@ header {
       gap: 3rem;
 
       li.icon {
+        @media screen and (max-width: $break-tablet) {
+          display: none;
+        }
+
         &:hover {
           svg {
             color: $bleuFonce;
@@ -29,6 +33,12 @@ header {
         svg {
           color: $gris;
           transition: all 0.3s ease-in-out;
+        }
+      }
+
+      li.contact {
+        @media screen and (max-width: $break-tablet) {
+          display: none;
         }
       }
 
