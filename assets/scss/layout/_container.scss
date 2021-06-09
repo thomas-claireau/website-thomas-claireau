@@ -1,5 +1,10 @@
 .container {
-  max-width: 128rem;
-  margin-right: auto;
-  margin-left: auto;
+	max-width: 128rem;
+	margin-right: auto;
+	margin-left: auto;
+
+	@media screen and (max-width: $break-tablet) {
+		padding-right: 1rem !important;
+		padding-left: 1rem !important;
+	}
 }
