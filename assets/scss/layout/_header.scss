@@ -1,207 +1,207 @@
 header {
-  width: 100%;
-  height: 9.4rem;
-  display: flex;
-  align-items: center;
-  padding: 2.7rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  font-size: 1.8rem;
-  transition: all 0.3s ease-in-out;
+	width: 100%;
+	height: 9.4rem;
+	display: flex;
+	align-items: center;
+	padding: 2.7rem 2rem;
+	background-color: #fff;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	font-size: 1.8rem;
+	transition: all 0.3s ease-in-out;
 
-  @media screen and (min-width: $break-tablet + 1) {
-    &.scrolled {
-      position: fixed;
-      height: 7.5rem;
-      transition: all 0.3s ease-in-out;
-    }
-  }
+	@media screen and (min-width: $break-tablet + 1) {
+		&.scrolled {
+			position: fixed;
+			height: 7.5rem;
+			transition: all 0.3s ease-in-out;
+		}
+	}
 
-  > div.container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr auto;
+	> div.container {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr auto;
 
-    > div.left {
-      display: flex;
-      align-items: center;
-    }
+		> div.left {
+			display: flex;
+			align-items: center;
+		}
 
-    > ul.right {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      list-style-type: none;
-      gap: 3rem;
+		> ul.right {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			list-style-type: none;
+			gap: 3rem;
 
-      li.icon {
-        @media screen and (max-width: $break-tablet) {
-          display: none;
-        }
+			li.icon {
+				@media screen and (max-width: $break-tablet) {
+					display: none;
+				}
 
-        &:hover {
-          svg {
-            color: $bleuFonce;
-            transition: all 0.3s ease-in-out;
-          }
-        }
-        svg {
-          color: $gris;
-          transition: all 0.3s ease-in-out;
-        }
-      }
+				&:hover {
+					svg {
+						color: $bleuFonce;
+						transition: all 0.3s ease-in-out;
+					}
+				}
+				svg {
+					color: $gris;
+					transition: all 0.3s ease-in-out;
+				}
+			}
 
-      li.contact {
-        @media screen and (max-width: $break-tablet) {
-          display: none;
-        }
-      }
+			li.contact {
+				@media screen and (max-width: $break-tablet) {
+					display: none;
+				}
+			}
 
-      li.toggle-theme {
-        --width: 7rem;
-        --height: 4rem;
-        $light: #ffbb52;
-        $dark: $bleuFonce;
+			li.toggle-theme {
+				--width: 7rem;
+				--height: 4rem;
+				$light: #ffbb52;
+				$dark: $bleuFonce;
 
-        width: var(--width);
-        min-width: var(--width);
-        height: var(--height);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 1rem;
-        position: relative;
-        border: 0.3rem solid lighten($gris, 20%);
-        border-radius: var(--width);
-        cursor: pointer;
+				width: var(--width);
+				min-width: var(--width);
+				height: var(--height);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 1rem;
+				position: relative;
+				border: 0.3rem solid lighten($gris, 20%);
+				border-radius: var(--width);
+				cursor: pointer;
 
-        &.light {
-          .icons {
-            .light {
-              opacity: 1;
-              transition: all 0.3s ease-in-out;
-            }
+				&.light {
+					.icons {
+						.light {
+							opacity: 1;
+							transition: all 0.3s ease-in-out;
+						}
 
-            .dark {
-              opacity: 0;
-            }
-          }
+						.dark {
+							opacity: 0;
+						}
+					}
 
-          span {
-            left: 55%;
-            border-color: $light;
-            background-color: lighten($light, 20%);
-          }
-        }
+					span {
+						left: 55%;
+						border-color: $light;
+						background-color: lighten($light, 20%);
+					}
+				}
 
-        &.dark {
-          border-color: lighten($dark, 10%);
-          background-color: $dark;
+				&.dark {
+					border-color: lighten($dark, 10%);
+					background-color: $dark;
 
-          .icons {
-            > svg {
-              transform: rotate(0);
-            }
+					.icons {
+						> svg {
+							transform: rotate(0);
+						}
 
-            .light {
-              opacity: 0;
-            }
+						.light {
+							opacity: 0;
+						}
 
-            .dark {
-              opacity: 1;
-              transition: all 0.3s ease-in-out;
-            }
-          }
+						.dark {
+							opacity: 1;
+							transition: all 0.3s ease-in-out;
+						}
+					}
 
-          span {
-            left: 10%;
-            border-color: #fff;
-            background-color: lighten($dark, 20%);
-          }
-        }
+					span {
+						left: 10%;
+						border-color: #fff;
+						background-color: lighten($dark, 20%);
+					}
+				}
 
-        .icons {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
+				.icons {
+					width: 100%;
+					display: flex;
+					justify-content: space-between;
 
-          > svg {
-            width: 40%;
-            opacity: 1;
-            transform: rotate(20deg);
-            transition: transform 0.3s ease-in-out;
-          }
+					> svg {
+						width: 40%;
+						opacity: 1;
+						transform: rotate(20deg);
+						transition: transform 0.3s ease-in-out;
+					}
 
-          .light {
-            fill: $light;
-          }
+					.light {
+						fill: $light;
+					}
 
-          .dark {
-            fill: #fff;
-          }
-        }
+					.dark {
+						fill: #fff;
+					}
+				}
 
-        span {
-          --size: calc(var(--height) - 2rem);
-          width: var(--size);
-          height: var(--size);
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          border: 0.3rem solid black;
-          border-radius: var(--size);
-          transition: all 0.3s ease-in-out;
-        }
-      }
-    }
-  }
+				span {
+					--size: calc(var(--height) - 2rem);
+					width: var(--size);
+					height: var(--size);
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					border: 0.3rem solid black;
+					border-radius: var(--size);
+					transition: all 0.3s ease-in-out;
+				}
+			}
+		}
+	}
 
-  > ul.menu-mobile {
-    width: 100%;
-    height: auto;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0rem 10vw;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    box-shadow: 0 1px 10px 0 rgb(0 0 0 / 14%), 0 1px 2px 0 rgb(0 0 0 / 24%);
-    list-style-type: none;
+	> ul.menu-mobile {
+		width: 100%;
+		height: auto;
+		display: none;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0rem 10vw;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		background-color: #fff;
+		box-shadow: 0 1px 10px 0 rgb(0 0 0 / 14%), 0 1px 2px 0 rgb(0 0 0 / 24%);
+		list-style-type: none;
 
-    @media screen and (max-width: $break-tablet) {
-      display: flex;
-    }
+		@media screen and (max-width: $break-tablet) {
+			display: flex;
+		}
 
-    @media screen and (max-width: $break-small) {
-      padding: 0rem 5vw;
-    }
+		@media screen and (max-width: $break-small) {
+			padding: 0rem 5vw;
+		}
 
-    li {
-      width: 3rem;
+		li {
+			width: 2.7rem;
 
-      a {
-        display: block;
-      }
-      svg {
-        width: 100% !important;
-        height: 100% !important;
-        color: $gris;
-      }
+			a {
+				display: block;
+			}
+			svg {
+				width: 100% !important;
+				height: 100% !important;
+				color: $gris;
+			}
 
-      &.contact {
-        width: 10rem;
-        position: relative;
-        top: -2rem;
-        padding: 2.5rem;
-        background-color: $vert;
-        border-radius: 100%;
+			&.contact {
+				width: 8rem;
+				position: relative;
+				top: -2rem;
+				padding: 2.5rem;
+				background-color: $vert;
+				border-radius: 100%;
 
-        svg {
-          color: #fff;
-        }
-      }
-    }
-  }
+				svg {
+					color: #fff;
+				}
+			}
+		}
+	}
 }

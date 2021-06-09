@@ -1,33 +1,29 @@
-@import "./utils/variables";
-@import "./utils/modifiers";
+@import './utils/variables';
+@import './utils/modifiers';
 
-@import "./base/reset";
-@import "./base/typography";
+@import './base/reset';
+@import './base/typography';
 
-@import "./components/button";
+@import './components/button';
 
-@import "./layout/container";
-@import "./layout/footer";
-@import "./layout/header";
+@import './layout/container';
+@import './layout/footer';
+@import './layout/header';
 
-@import "./pages/index";
+@import './pages/index';
 
 html {
-  font-size: 10px;
+	font-size: 10px;
 
-  @media screen and (max-width: $break-large) {
-    font-size: 9px;
-  }
+	@media screen and (max-width: $break-large) {
+		font-size: 9px;
+	}
 
-  @media screen and (max-width: $break-medium) {
-    font-size: 8px;
-  }
-
-  @media screen and (max-width: $break-tablet) {
-    font-size: 7.5px;
-  }
+	@media screen and (max-width: $break-medium) {
+		font-size: 8.5px;
+	}
 }
 
 body {
-  color: $bleuFonce;
+	color: $bleuFonce;
 }
