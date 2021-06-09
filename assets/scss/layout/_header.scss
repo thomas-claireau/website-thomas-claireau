@@ -1,0 +1,31 @@
+header {
+  padding: 2.7rem 2rem;
+  background-color: #fff;
+  font-size: 1.8rem;
+
+  > div.container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    > ul.right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+      gap: 3rem;
+
+      li.icon {
+        &:hover {
+          svg {
+            color: $bleuFonce;
+            transition: all 0.3s ease-in-out;
+          }
+        }
+        svg {
+          color: $gris;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+}
