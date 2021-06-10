@@ -62,6 +62,15 @@ body.index {
 		gap: 14rem;
 		padding-bottom: 10rem;
 
+		@media screen and (max-width: $break-header) {
+			gap: 8rem;
+		}
+
+		@media screen and (max-width: $break-medium) {
+			flex-direction: column;
+			gap: 0;
+		}
+
 		> .left {
 			width: 40rem;
 			min-width: 40rem;
@@ -71,6 +80,21 @@ body.index {
 			border-radius: 0.8rem;
 			overflow: hidden;
 			color: #fff;
+
+			@media screen and (max-width: $break-medium) {
+				width: 60%;
+				min-width: auto;
+				top: -8rem;
+				margin: 0 auto;
+			}
+
+			@media screen and (max-width: $break-tablet) {
+				width: 80%;
+			}
+
+			@media screen and (max-width: $break-small) {
+				width: 100%;
+			}
 
 			img {
 				width: 100%;
@@ -96,11 +120,41 @@ body.index {
 			grid-template-columns: 1fr 1fr;
 			grid-column-gap: 10rem;
 			grid-row-gap: 5rem;
+			align-items: baseline;
+
+			@media screen and (max-width: $break-header) {
+				grid-gap: 5rem;
+			}
+
+			@media screen and (max-width: $break-medium) {
+				width: 70%;
+				margin: 0 auto;
+			}
+
+			@media screen and (max-width: $break-tablet) {
+				width: 90%;
+				grid-template-columns: 1fr;
+			}
+
+			@media screen and (max-width: $break-small) {
+				width: 100%;
+			}
 
 			.service {
+				@media screen and (max-width: $break-medium) {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: column;
+				}
+
 				&:nth-child(even) {
 					position: relative;
 					top: 2rem;
+
+					@media screen and (max-width: $break-medium) {
+						top: 0;
+					}
 				}
 
 				> .icon {
@@ -122,10 +176,18 @@ body.index {
 				> h2 {
 					margin-top: 2rem;
 					font-size: 2rem;
+
+					@media screen and (max-width: $break-medium) {
+						text-align: center;
+					}
 				}
 
 				> p {
 					margin-top: 1.5rem;
+
+					@media screen and (max-width: $break-medium) {
+						text-align: center;
+					}
 				}
 			}
 		}

@@ -3,6 +3,11 @@
 	margin-right: auto;
 	margin-left: auto;
 
+	@media screen and (max-width: $break-header) {
+		padding-right: 2rem !important;
+		padding-left: 2rem !important;
+	}
+
 	@media screen and (max-width: $break-tablet) {
 		padding-right: 1rem !important;
 		padding-left: 1rem !important;
