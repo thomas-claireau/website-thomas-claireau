@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block bodyClass %}index
+{% endblock %}
+
 {% block body %}
 	<section class="introduction container">
 		<img src="/img/memoji-once.gif">
 		<h1>
-			Je suis développeur web fullstack,
+			Je suis développeur PHP Symfony
 			<br>
-			spécialisé en PHP Symfony
+			et mentor pour Openclassrooms
 		</h1>
 		<div class="description">
 			<p>
@@ -17,4 +20,68 @@
 			</p>
 		</div>
 	</section>
+	<main>
+		<section class="services container">
+			<div class="left">
+				<img src="/img/service.jpeg" alt="">
+				<div class="texte">
+					<h2>
+						Création de sites web ou d'applications en PHP, sous le framework Symfony
+					</h2>
+					<p>
+						Je saurais vous accompagner au mieux aussi bien en amont du projet (aide au cahier des charges, conseils) qu’après sa réalisation (optimisation, maintenance).
+					</p>
+					<p>
+						Je suis également à votre disposition si vous souhaitez un avis extérieur sur votre projet web.
+					</p>
+				</div>
+			</div>
+			<div class="right">
+				<div class="service">
+					<div class="icon">
+						<img src="/img/service-backend.svg" class="js-inject-me">
+					</div>
+					<h2>
+						Développement back-end (Symfony)
+					</h2>
+					<p>Je met en place l'architecture back-end de votre application tout en respectant les standards de sécurité.</p>
+				</div>
+				<div class="service">
+					<div class="icon">
+						<img src="/img/service-cms.svg" class="js-inject-me">
+					</div>
+					<h2>
+						Création de thème sur un CMS
+					</h2>
+					<p>Je conçois, pour vous, votre thème ou votre plugin
+						<strong>administrable</strong>
+						sur Wordpress ou Prestashop. Je crée tout type de site : vitrine, e-commerce, intranet...</p>
+				</div>
+				<div class="service">
+					<div class="icon">
+						<img src="/img/service-integration.svg" class="js-inject-me">
+					</div>
+					<h2>
+						Intégration web responsive d'une maquette
+					</h2>
+					<p>Je suis capable de travailler avec un designer web et d'intégrer sa maquette graphique. Je suis également force de proposition sur le responsive, si la maquette n'est pas complète.</p>
+				</div>
+				<div class="service">
+					<div class="icon">
+						<img src="/img/service-optimisation.svg" class="js-inject-me">
+					</div>
+					<h2>
+						Optimisation, maintenance et refonte
+					</h2>
+					<p>
+						Je développe en ayant connaissance de la
+						<strong>performance</strong>
+						du site, des principes d'<strong>accessibilités</strong>
+						et de la notion de
+						<strong>cleancode</strong>. J'ai d'ailleurs, en tant que mentor chez Openclassrooms, l'occasion d'accompagner des étudiants sur ces différentes thématiques.
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
 {% endblock %}

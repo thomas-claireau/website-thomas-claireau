@@ -7,8 +7,5 @@
 
 p {
 	font-size: 1.5rem;
-
-	&:not(:first-child) {
-		margin-top: 1.5rem;
-	}
+	line-height: 2.4rem;
 }
