@@ -31,6 +31,10 @@ header {
 		> div.left {
 			display: flex;
 			align-items: center;
+
+			@media screen and (max-width: $break-small) {
+				color: lighten($bleuFonce, 50%);
+			}
 		}
 
 		> ul.right {
