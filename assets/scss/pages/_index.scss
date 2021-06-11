@@ -217,6 +217,7 @@ body.index {
 			@media screen and (max-width: $break-tablet) {
 				display: flex;
 				flex-direction: column;
+				grid-gap: 0;
 				gap: 5rem;
 			}
 
@@ -226,23 +227,51 @@ body.index {
 
 			&:not(:first-child) {
 				margin-top: 25rem;
+
+				@media screen and (max-width: $break-medium) {
+					margin-top: 15rem;
+				}
 			}
 
 			&.cms {
 				align-items: flex-end;
 
+				@media screen and (max-width: $break-medium) {
+					display: flex;
+					flex-direction: column-reverse;
+					align-items: center;
+					grid-gap: 0;
+					gap: 6rem;
+				}
+
 				> div.medias {
 					--gap: 3rem;
 					gap: var(--gap);
+
+					@media screen and (max-width: $break-medium) {
+						--gap: 1.5rem;
+					}
+
+					@media screen and (max-width: $break-tablet) {
+						width: 100%;
+					}
 
 					> div {
 						display: flex;
 						flex-direction: column;
 						gap: var(--gap);
 
+						@media screen and (max-width: $break-tablet) {
+							width: 100%;
+						}
+
 						&.right {
 							position: relative;
 							top: 5rem;
+
+							@media screen and (max-width: $break-medium) {
+								top: 0;
+							}
 						}
 					}
 
@@ -258,6 +287,10 @@ body.index {
 						color: #fff;
 						font-weight: 600;
 						font-size: 1.5rem;
+
+						@media screen and (max-width: $break-tablet) {
+							width: 100%;
+						}
 
 						&.wordpress {
 							--bgColor: #464342;
