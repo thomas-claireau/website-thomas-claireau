@@ -6,7 +6,6 @@
 {% block body %}
 	<section class="introduction container">
 		<div class="memoji">
-			{% include "components/availability.html.twig" %}
 			<img src="/img/memoji-once.gif">
 		</div>
 		<h1>
@@ -21,6 +20,7 @@
 			<p>
 				Je suis développeur PHP Symfony, intégrateur web et spécialisé Wordpress. Je suis également mentor chez Openclassrooms.
 			</p>
+			{% include "components/availability.html.twig" %}
 		</div>
 	</section>
 	<main>
@@ -173,6 +173,16 @@
 							<li>Amélioration et optimisation du référencement naturel (SEO)</li>
 						</ul>
 					</div>
+				</div>
+				<div class="detail backend">
+					<div class="content">
+						<div class="icon">
+							<img src="/img/service-backend.svg" class="js-inject-me">
+						</div>
+						<h2>Développement backend</h2>
+						<ul></ul>
+					</div>
+					<div class="medias"></div>
 				</div>
 			</div>
 		</section>
