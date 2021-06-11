@@ -5,7 +5,10 @@
 
 {% block body %}
 	<section class="introduction container">
-		<img src="/img/memoji-once.gif">
+		<div class="memoji">
+			{% include "components/availability.html.twig" %}
+			<img src="/img/memoji-once.gif">
+		</div>
 		<h1>
 			Je suis développeur PHP Symfony
 			<br>

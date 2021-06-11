@@ -28,8 +28,13 @@ body.index {
 		flex-direction: column;
 		padding: 3rem 0;
 
-		img {
-			width: 25rem;
+		.memoji {
+			position: relative;
+			text-align: center;
+
+			img {
+				width: 16rem;
+			}
 		}
 
 		h1 {

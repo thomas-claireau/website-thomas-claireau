@@ -1,0 +1,67 @@
+.availability {
+	position: absolute;
+	top: 2rem;
+	right: -25rem;
+	transition: all 0.3s ease-in-out;
+	overflow: hidden;
+
+	@media screen and (max-width: $break-tablet) {
+		width: auto;
+		position: relative;
+		left: 0;
+		top: auto;
+		right: auto;
+		text-align: center;
+	}
+
+	> div {
+		height: 100%;
+		display: none;
+		position: relative;
+		padding: 0.5rem 1rem 0.5rem 3.5rem;
+		border: 0.3rem solid var(--color);
+		color: var(--color);
+		border-radius: 2rem;
+		font-size: 1.5rem;
+
+		&:before {
+			content: '';
+			width: 2.5rem;
+			height: 90%;
+			position: absolute;
+			top: 50%;
+			left: 0.2rem;
+			border-radius: 2rem;
+			transform: translateY(-50%);
+			z-index: 10;
+		}
+
+		&.display {
+			display: inline-block;
+		}
+
+		&.available {
+			--color: #{$vert};
+
+			&:before {
+				background-color: lighten($vert, 20%);
+			}
+		}
+
+		&.available-on {
+			--color: #ffbb52;
+
+			&:before {
+				background-color: lighten(#ffbb52, 20%);
+			}
+		}
+
+		&.unavailable {
+			--color: #{$rouge};
+
+			&:before {
+				background-color: lighten($rouge, 20%);
+			}
+		}
+	}
+}
