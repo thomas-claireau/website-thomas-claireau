@@ -1,22 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.querySelector("header");
+document.addEventListener('DOMContentLoaded', () => {
+	const header = document.querySelector('header');
 
-  if (!header) return;
+	if (!header) return;
 
-  // header scroll
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 10) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  });
+	// header scroll
+	window.addEventListener('scroll', () => {
+		if (window.scrollY > 0) {
+			header.classList.add('scrolled');
+		} else {
+			header.classList.remove('scrolled');
+		}
+	});
 
-  // toggle theme
-  const toggleTheme = header.querySelector(".toggle-theme");
+	// toggle theme
+	const toggleTheme = header.querySelector('.toggle-theme');
 
-  toggleTheme.addEventListener("click", () => {
-    toggleTheme.classList.toggle("light");
-    toggleTheme.classList.toggle("dark");
-  });
+	toggleTheme.addEventListener('click', () => {
+		toggleTheme.classList.toggle('light');
+		toggleTheme.classList.toggle('dark');
+	});
 });
