@@ -488,6 +488,10 @@ body.index {
 		padding: 7rem 0;
 		background-color: $gris2;
 
+		> .container {
+			text-align: center;
+		}
+
 		h2 {
 			font-size: 3.3rem;
 			font-weight: 500;
@@ -620,6 +624,11 @@ body.index {
 					text-align: center;
 				}
 			}
+		}
+
+		.cta {
+			margin-top: 6rem;
+			padding: 1.5rem 2rem;
 		}
 	}
 }
