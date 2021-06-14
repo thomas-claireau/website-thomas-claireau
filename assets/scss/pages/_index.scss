@@ -208,7 +208,7 @@ body.index {
 
 	section.details {
 		background-color: $gris2;
-		padding-bottom: 10rem;
+		padding-bottom: 15rem;
 
 		div.detail {
 			display: grid;
@@ -485,8 +485,29 @@ body.index {
 	}
 
 	section.projects-container {
-		padding: 7rem 0;
-		background-color: $gris2;
+		position: relative;
+		margin-top: -5rem;
+		padding: 14rem 0 18rem 0;
+		background-color: #475469;
+		clip-path: $clip-path-2;
+		color: #fff;
+
+		@media screen and (max-width: $break-medium) {
+			clip-path: $clip-path-2-vm;
+		}
+
+		.fa-github {
+			width: 80%;
+			height: 100%;
+			position: absolute;
+			top: -10rem;
+			left: -50rem;
+			z-index: -1;
+
+			path {
+				fill: $bleuFonce;
+			}
+		}
 
 		> .container {
 			text-align: center;
