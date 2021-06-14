@@ -40,6 +40,14 @@
 		}
 	}
 
+	&.transparent {
+		background-color: transparent;
+
+		&.cta {
+			border: 0.2rem solid $vert;
+		}
+	}
+
 	svg {
 		margin-right: 0.4rem;
 	}

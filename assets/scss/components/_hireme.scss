@@ -1,0 +1,22 @@
+.hireme {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 4rem 8rem;
+	background-color: #fff;
+	color: $bleuFonce;
+	border-radius: 1rem;
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+		0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+	h2 {
+		font-size: 2.5rem;
+	}
+
+	p {
+		text-align: center;
+		font-size: 1.8rem;
+		font-weight: 100;
+	}
+}
