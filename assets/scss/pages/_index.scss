@@ -641,12 +641,16 @@ body.index {
 		}
 	}
 
-	section.posts {
+	section.posts-container {
 		padding: 2rem 0 6rem 0;
 		background-color: $gris2;
 
 		> .container {
 			text-align: center;
+
+			.posts {
+				margin-top: 5rem;
+			}
 		}
 	}
 }

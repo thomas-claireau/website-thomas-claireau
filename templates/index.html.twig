@@ -251,9 +251,10 @@
 			</div>
 		</section>
 		{% include "components/hireme.html.twig" %}
-		<section class="posts">
+		<section class="posts-container">
 			<div class="container">
-				<h2>Mes derniers articles</h2>
+				<h2>Les derniers articles</h2>
+				{% include "components/posts.html.twig" with {"layout": "one", "posts":[1, 2, 3]} %}
 			</div>
 		</section>
 	</main>
