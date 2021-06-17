@@ -552,7 +552,8 @@ body.index {
 				padding: 0 1rem 3rem 1rem;
 				border-radius: 1rem;
 				overflow: hidden;
-
+				-webkit-mask-image: -webkit-radial-gradient(white, black);
+				// disable bug hover safari
 				@media screen and (max-width: $break-medium) {
 					height: 40rem;
 				}
@@ -637,6 +638,15 @@ body.index {
 		.cta {
 			margin-top: 6rem;
 			padding: 1.5rem 2rem;
+		}
+	}
+
+	section.posts {
+		padding: 2rem 0 6rem 0;
+		background-color: $gris2;
+
+		> .container {
+			text-align: center;
 		}
 	}
 }
