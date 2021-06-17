@@ -16,6 +16,7 @@
 
 html {
 	font-size: 10px;
+	overflow-x: hidden;
 
 	@media screen and (max-width: $break-large) {
 		font-size: 9px;
