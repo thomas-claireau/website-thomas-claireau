@@ -5,7 +5,7 @@
 	color: $bleuFonce;
 	z-index: 10;
 
-	> .container {
+	> .container > div {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
