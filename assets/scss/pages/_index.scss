@@ -554,7 +554,7 @@ body.index {
 
 			.image {
 				width: 100%;
-				height: 30rem;
+				height: 25rem;
 				position: relative;
 				display: flex;
 				justify-content: flex-end;
@@ -564,6 +564,7 @@ body.index {
 				padding: 0 1rem 3rem 1rem;
 				border-radius: 1rem;
 				overflow: hidden;
+				mask-image: -webkit-radial-gradient(white, black);
 				-webkit-mask-image: -webkit-radial-gradient(white, black);
 				// disable bug hover safari
 				@media screen and (max-width: $break-medium) {
@@ -599,14 +600,19 @@ body.index {
 							transition: all 0.3s ease-in-out;
 						}
 
-						> *:not(img) {
+						> *:not(img):not(.fa-eye) {
 							opacity: 1;
+							transition: all 0.3s ease-in-out;
+						}
+
+						.fa-eye {
+							opacity: 0;
 							transition: all 0.3s ease-in-out;
 						}
 					}
 				}
 
-				> *:not(img) {
+				> *:not(img):not(.fa-eye) {
 					position: relative;
 					color: #fff;
 					z-index: 10;
@@ -615,6 +621,21 @@ body.index {
 
 					@media screen and (max-width: $break-medium) {
 						opacity: 1;
+					}
+				}
+
+				.fa-eye {
+					width: 20%;
+					height: 20%;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					z-index: 1000;
+					transition: all 0.3s ease-in-out;
+
+					path {
+						fill: #e3e3e3;
 					}
 				}
 
