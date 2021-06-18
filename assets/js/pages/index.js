@@ -3,13 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	if (!index) return;
 
-	// restart memoji gif when hover
-	const memojiGif = index.querySelector('.memoji img');
+	// restart memoji video when hover
+	const memojiVideo = index.querySelector('.memoji video');
 	const time = 2200; // time of memoji animation
 
 	let previousDate;
 
-	memojiGif.addEventListener('mouseenter', () => {
+	memojiVideo.addEventListener('mouseenter', () => {
 		const date = new Date();
 		let diff;
 
@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (diff < time) return; // gap de 3s entre deux hover sur le gif
 
-		const src = memojiGif.src;
-		memojiGif.src = src;
+		memojiVideo.load();
 
 		previousDate = date;
 	});
