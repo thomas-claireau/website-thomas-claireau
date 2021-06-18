@@ -1,6 +1,6 @@
 footer {
 	position: relative;
-	padding: 2rem 0 4rem 0;
+	padding: 2rem 0 1.5rem 0;
 	background-color: $bleuFonce;
 	color: #fff;
 
@@ -11,15 +11,69 @@ footer {
 		flex-direction: column;
 
 		.top {
-			margin-top: 5rem;
+			width: 100%;
+			margin-top: 2rem;
+			padding-bottom: 3rem;
 			display: flex;
-			justify-content: center;
+			justify-content: space-between;
 			align-items: center;
-			flex-direction: column;
+			gap: 5rem;
+			border-bottom: 1px solid $gris;
 
-			.memoji {
-				width: 10rem;
+			> .left {
+				display: flex;
+				align-items: center;
+				gap: 3rem;
+
+				.memoji {
+					width: 8rem;
+				}
+
+				h2 {
+					margin: 0;
+				}
 			}
+
+			> .right {
+				display: flex;
+				gap: 2rem;
+				list-style-type: none;
+
+				> li {
+					--size: 4rem;
+					width: var(--size);
+					height: var(--size);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: transparent;
+					color: #fff;
+					border: 0.2rem solid #fff;
+					border-radius: var(--size);
+					transition: all 0.3s ease-in-out;
+
+					&:hover {
+						background-color: #fff;
+						transition: all 0.3s ease-in-out;
+						color: $bleuFonce;
+					}
+
+					a {
+						width: 45%;
+						height: 45%;
+
+						svg {
+							width: 100%;
+							height: 100%;
+						}
+					}
+				}
+			}
+		}
+
+		> p {
+			display: inline-block;
+			margin-top: 2rem;
 		}
 	}
 }
