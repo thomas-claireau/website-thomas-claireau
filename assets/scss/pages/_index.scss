@@ -240,9 +240,8 @@ body.index {
 				@media screen and (max-width: $break-medium) {
 					display: flex;
 					flex-direction: column-reverse;
-					align-items: center;
+					align-items: flex-start;
 					grid-gap: 0;
-					gap: 6rem;
 				}
 
 				> div.medias {
@@ -250,6 +249,9 @@ body.index {
 					gap: var(--gap);
 
 					@media screen and (max-width: $break-medium) {
+						margin-top: 6rem;
+						margin-right: auto;
+						margin-left: auto;
 						--gap: 1.5rem;
 					}
 
