@@ -6,7 +6,12 @@ body {
 *:after,
 *:before {
 	box-sizing: border-box;
-	outline: none;
+}
+
+*:focus {
+	outline-width: 0.3rem;
+	outline-style: solid;
+	outline-color: $bleuClair;
 }
 
 ul {

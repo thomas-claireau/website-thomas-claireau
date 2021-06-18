@@ -1,4 +1,6 @@
 <a href="{{ url }}" target="_blank" class="button {{type is defined ? type : ''}}">
 	<i class="{{icon}}"></i>
-	{{text}}
+	<span class="texte">
+		{{text|raw}}
+	</span>
 </a>
