@@ -35,6 +35,11 @@ header {
 			@media screen and (max-width: $break-small) {
 				color: lighten($bleuFonce, 50%);
 			}
+
+			.slash {
+				margin: 0 0.5rem;
+				font-size: 1.5rem;
+			}
 		}
 
 		> ul.right {
