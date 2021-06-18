@@ -55,6 +55,7 @@ footer {
 					border: 0.2rem solid #fff;
 					border-radius: var(--size);
 					transition: all 0.3s ease-in-out;
+					cursor: pointer;
 
 					&:hover {
 						background-color: #fff;
