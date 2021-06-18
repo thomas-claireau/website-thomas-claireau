@@ -647,6 +647,10 @@ body.index {
 		padding: 5rem 0 10rem 0;
 		background-color: $gris2;
 
+		@media screen and (max-width: $break-tablet) {
+			padding-bottom: 17rem;
+		}
+
 		> .container {
 			text-align: center;
 
