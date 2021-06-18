@@ -16,6 +16,10 @@ header {
 		position: relative;
 	}
 
+	@media screen and (max-width: $break-small) {
+		padding: 1rem 0;
+	}
+
 	@media screen and (min-width: $break-tablet + 1) {
 		&.scrolled {
 			height: 7rem;
@@ -27,6 +31,10 @@ header {
 		width: 100%;
 		display: grid;
 		grid-template-columns: 1fr auto;
+
+		@media screen and (max-width: $break-small) {
+			grid-gap: 1rem;
+		}
 
 		> div.left {
 			display: flex;
@@ -48,6 +56,20 @@ header {
 			align-items: center;
 			list-style-type: none;
 			gap: 3rem;
+
+			@media screen and (max-width: $break-small) {
+				justify-content: flex-end;
+				gap: 1rem;
+			}
+
+			li.blog {
+				// color: $bleuClair;
+
+				a {
+					font-weight: 500;
+					letter-spacing: 0.05rem;
+				}
+			}
 
 			li.icon {
 				@media screen and (max-width: $break-tablet) {
