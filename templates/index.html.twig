@@ -255,6 +255,7 @@
 			<div class="container">
 				<h2>Les derniers articles</h2>
 				{% include "components/posts.html.twig" with {"posts":[1,2]} %}
+				{% include "components/button.html.twig" with {"icon": "far fa-edit", "text": "Voir plus d'articles", "url": "#", "type": "cta"} %}
 			</div>
 		</section>
 	</main>
