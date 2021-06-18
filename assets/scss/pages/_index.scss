@@ -502,6 +502,14 @@ body.index {
 			right: -30rem;
 			z-index: -1;
 
+			@media screen and (max-width: $break-medium) {
+				height: auto;
+			}
+
+			@media screen and (max-width: $break-tablet) {
+				right: -10rem;
+			}
+
 			path {
 				fill: #475469;
 			}
