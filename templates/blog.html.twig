@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block bodyClass %}blog
+{% endblock %}
+
+{% block body %}
+
+	<section class="blog-container">
+		{% include "components/posts.html.twig" with {"posts":[1,2]} %}
+	</section>
+
+{% endblock %}
