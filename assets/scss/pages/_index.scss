@@ -634,6 +634,10 @@ body.index {
 					z-index: 1000;
 					transition: all 0.3s ease-in-out;
 
+					@media screen and (max-width: $break-medium) {
+						display: none;
+					}
+
 					path {
 						fill: #e3e3e3;
 					}
