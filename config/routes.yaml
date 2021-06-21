@@ -4,3 +4,8 @@ index:
 blog:
   path: /blog
   controller: App\Controller\BlogController::index
+post:
+  path: /post/{slug}
+  controller: App\Controller\PostController::index
+  defaults:
+    id: slug
