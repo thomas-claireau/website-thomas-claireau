@@ -1,0 +1,46 @@
+.header {
+	width: 100%;
+	height: 9.4rem;
+	position: fixed;
+	top: 0;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	padding: 2.7rem 2rem;
+	background-color: #fff;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	font-size: 1.8rem;
+	transition: all 0.3s ease-in-out;
+	z-index: 1000;
+
+	@media screen and (max-width: $break-tablet) {
+		position: relative;
+	}
+
+	@media screen and (max-width: $break-small) {
+		grid-gap: 1rem;
+		padding: 1rem 0;
+	}
+
+	@media screen and (min-width: $break-tablet + 1) {
+		&.scrolled {
+			height: 7rem;
+			transition: height 0.3s ease-in-out;
+		}
+	}
+
+	> .left {
+		display: flex;
+		align-items: center;
+
+		@media screen and (max-width: $break-small) {
+			color: lighten($bleuFonce, 50%);
+		}
+
+		span {
+			position: relative;
+			top: -0.2rem;
+			margin: 0 0.5rem;
+			font-size: 1.5rem;
+		}
+	}
+}

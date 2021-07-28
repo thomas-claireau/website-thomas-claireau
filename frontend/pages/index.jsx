@@ -1,14 +1,17 @@
 import Head from 'next/head';
+import { index } from './index.module.scss';
+
+import Header from '../components/Header/Header';
 
 export default function Home() {
 	return (
-		<div className="container">
+		<>
 			<Head>
 				<title>Thomas Claireau - Développeur PHP Symfony</title>
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<style jsx>{``}</style>
-			<style jsx global>{``}</style>
-		</div>
+			<div className={index}>
+				<Header />
+			</div>
+		</>
 	);
 }
