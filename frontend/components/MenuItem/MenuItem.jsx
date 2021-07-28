@@ -1,5 +1,9 @@
 import { menuItem } from './MenuItem.module.scss';
 
-export default function Menu({ children }) {
-	return <div className={menuItem}>{children}</div>;
+export default function Menu({ className, children, onClick }) {
+	return (
+		<div className={`${className} ${menuItem}`} onClick={onClick}>
+			{children}
+		</div>
+	);
 }
