@@ -25,6 +25,7 @@ import Button from '../Button/Button';
 
 import Sun from 'public/assets/img/sun.svg';
 import Moon from 'public/assets/img/moon.svg';
+import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
 
 export default function Menu() {
 	const [toggle, setToggle] = useState(light);
@@ -63,7 +64,7 @@ export default function Menu() {
 			</MenuItem>
 			<MenuItem className={contact}>
 				<Button
-					icon="far fa-envelope-open"
+					icon={<FontAwesomeIcon icon={faEnvelopeOpen} />}
 					text="Contactez-moi"
 					url="#contact"
 					type="cta"
