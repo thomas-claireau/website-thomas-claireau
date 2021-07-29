@@ -1,40 +1,49 @@
-import { menuMobile } from './MenuMobile.module.scss';
-import { icon, contact } from '../MenuItem/MenuItem.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faFacebook,
+	faGithub,
+	faInstagram,
+	faLinkedinIn,
+} from '@fortawesome/free-brands-svg-icons';
+
+import { menuMobile, contact } from './MenuMobile.module.scss';
+import { icon, mobile } from '../MenuItem/MenuItem.module.scss';
 
 import MenuItem from '../MenuItem/MenuItem';
+import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
 
 export default function MenuMobile() {
 	return (
 		<nav className={menuMobile}>
-			<MenuItem className={icon}>
+			<MenuItem className={`${icon} ${mobile}`}>
 				<a
 					href="https://www.linkedin.com/in/thomas-claireau/"
 					target="_blank"
 				>
-					<i className="fab fa-linkedin-in"></i>
+					<FontAwesomeIcon icon={faLinkedinIn} />
 				</a>
 			</MenuItem>
-			<MenuItem className={icon}>
+			<MenuItem className={`${icon} ${mobile}`}>
 				<a href="https://www.instagram.com/thomasclaireau/" target="_blank">
-					<i className="fab fa-instagram"></i>
+					<FontAwesomeIcon icon={faInstagram} />
 				</a>
 			</MenuItem>
-			<MenuItem className={contact}>
+			<MenuItem className={`${contact} ${mobile}`}>
 				<a href="https://github.com/thomas-claireau" target="_blank">
-					<i className="far fa-envelope-open"></i>
+					<FontAwesomeIcon icon={faEnvelopeOpen} />
 				</a>
 			</MenuItem>
-			<MenuItem className={icon}>
+			<MenuItem className={`${icon} ${mobile}`}>
 				<a
 					href="https://www.facebook.com/thomasclaireau.dev"
 					target="_blank"
 				>
-					<i className="fab fa-facebook"></i>
+					<FontAwesomeIcon icon={faFacebook} />
 				</a>
 			</MenuItem>
-			<MenuItem className={icon}>
+			<MenuItem className={`${icon} ${mobile}`}>
 				<a href="https://github.com/thomas-claireau" target="_blank">
-					<i className="fab fa-github"></i>
+					<FontAwesomeIcon icon={faGithub} />
 				</a>
 			</MenuItem>
 		</nav>

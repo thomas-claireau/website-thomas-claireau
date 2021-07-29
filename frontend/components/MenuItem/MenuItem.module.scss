@@ -7,8 +7,10 @@
 	}
 
 	&.icon {
-		@media screen and (max-width: $break-tablet) {
-			display: none;
+		&:not(.mobile) {
+			@media screen and (max-width: $break-tablet) {
+				display: none;
+			}
 		}
 
 		&:hover {
