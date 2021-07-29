@@ -6,7 +6,7 @@ import Container from '../components/Container/Container';
 export default function Home() {
 	return (
 		<Layout>
-			<div className={index}>
+			<main className={index}>
 				<Container className={introduction}>
 					<div className={memoji}>
 						<video
@@ -31,7 +31,7 @@ export default function Home() {
 						</p>
 					</div>
 				</Container>
-			</div>
+			</main>
 		</Layout>
 	);
 }
