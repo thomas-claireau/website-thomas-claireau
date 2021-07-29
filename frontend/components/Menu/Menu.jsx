@@ -1,7 +1,14 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+	faLinkedinIn,
+	faInstagram,
+	faGithub,
+	faFacebook,
+} from '@fortawesome/free-brands-svg-icons';
 
 import { menu } from './Menu.module.scss';
-import styles, {
+import {
 	blog,
 	icon,
 	contact,
@@ -33,12 +40,12 @@ export default function Menu() {
 					href="https://www.linkedin.com/in/thomas-claireau/"
 					target="_blank"
 				>
-					<i className="fab fa-linkedin-in"></i>
+					<FontAwesomeIcon icon={faLinkedinIn} />
 				</a>
 			</MenuItem>
 			<MenuItem className={icon}>
 				<a href="https://www.instagram.com/thomasclaireau/" target="_blank">
-					<i className="fab fa-instagram"></i>
+					<FontAwesomeIcon icon={faInstagram} />
 				</a>
 			</MenuItem>
 			<MenuItem className={icon}>
@@ -46,12 +53,12 @@ export default function Menu() {
 					href="https://www.facebook.com/thomasclaireau.dev"
 					target="_blank"
 				>
-					<i className="fab fa-facebook"></i>
+					<FontAwesomeIcon icon={faFacebook} />
 				</a>
 			</MenuItem>
 			<MenuItem className={icon}>
 				<a href="https://github.com/thomas-claireau" target="_blank">
-					<i className="fab fa-github"></i>
+					<FontAwesomeIcon icon={faGithub} />
 				</a>
 			</MenuItem>
 			<MenuItem className={contact}>

@@ -19,4 +19,30 @@
 	@media screen and (max-width: $break-small) {
 		padding: 0rem 5vw;
 	}
+
+	> div {
+		width: 2.7rem;
+
+		a {
+			display: block;
+		}
+		svg {
+			width: 100% !important;
+			height: 100% !important;
+			color: $gris;
+		}
+
+		&.contact {
+			width: 8rem;
+			position: relative;
+			top: -2rem;
+			padding: 2.5rem;
+			background-color: $vert;
+			border-radius: 100%;
+
+			svg {
+				color: #fff;
+			}
+		}
+	}
 }
