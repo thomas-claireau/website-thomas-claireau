@@ -5,6 +5,7 @@ import Layout from '../components/Layout/Layout';
 import Container from '../components/Container/Container';
 import Service from '../components/Service/Service';
 import Detail from '../components/Detail/Detail';
+import Projects from '../components/Projects/Projects';
 
 import ServiceBackendSVG from 'public/assets/img/service-backend.svg';
 import ServiceIntegrationSVG from 'public/assets/img/service-integration.svg';
@@ -21,8 +22,10 @@ import JavascriptSVG from 'public/assets/img/javascript.svg';
 import SassSVG from 'public/assets/img/sass.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faTv } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
+	console.log(style);
 	return (
 		<Layout>
 			<main className={style['index']}>
@@ -309,6 +312,24 @@ export default function Home() {
 								></video>
 							</a>
 						</Detail>
+					</Container>
+				</section>
+				<section className={style['projects-container']}>
+					<FontAwesomeIcon
+						className={style['fa-github']}
+						icon={faGithub}
+					/>
+					<Container className={style['container']}>
+						<h2>Mes principaux projets...</h2>
+						<p>Voici quelques une de mes dernières réalisations</p>
+						<Projects />
+						<Button
+							className={style['cta']}
+							icon={<FontAwesomeIcon icon={faTv} />}
+							text="Voir plus de projets"
+							url={`https://github.com/thomas-claireau?tab=repositories&q=topic%3Acompleted-project&type=&language=&sort=`}
+							type="cta"
+						/>
 					</Container>
 				</section>
 			</main>
