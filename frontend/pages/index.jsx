@@ -129,9 +129,9 @@ export default function Home() {
 				</section>
 				<section className={style['details']}>
 					<Container>
-						<div className="detail backend">
-							<div className="content">
-								<div className="icon">
+						<div className={style['detail']}>
+							<div className={style['content']}>
+								<div className={style['icon']}>
 									<ServiceBackendSVG />
 								</div>
 								<h2>Développement backend</h2>
@@ -153,7 +153,7 @@ export default function Home() {
 									</li>
 								</ul>
 							</div>
-							<div className="medias">
+							<div className={style['medias']}>
 								<SymfonySVG />
 								<PhpSVG />
 								<Button
@@ -165,51 +165,63 @@ export default function Home() {
 								/>
 							</div>
 						</div>
-						<div className="detail cms">
-							<div className="medias">
-								<div className="left">
-									<div className="techno wordpress">
-										<div className="icon">
+						<div className={`${style['detail']} ${style['cms']}`}>
+							<div className={style['medias']}>
+								<div className={style['left']}>
+									<div
+										className={`${style['techno']} ${style['wordpress']}`}
+									>
+										<div className={style['icon']}>
 											<WordpressSVG />
 										</div>
 										Wordpress
 									</div>
-									<div className="techno react">
-										<div className="icon">
+									<div
+										className={`${style['techno']} ${style['react']}`}
+									>
+										<div className={style['icon']}>
 											<Test />
 										</div>
 										React.js
 									</div>
-									<div className="techno next">
-										<div className="icon">
+									<div
+										className={`${style['techno']} ${style['next']}`}
+									>
+										<div className={style['icon']}>
 											<NextJsSVG />
 										</div>
 										Next.js
 									</div>
 								</div>
-								<div className="right">
-									<div className="techno prestashop">
-										<div className="icon">
+								<div className={style['right']}>
+									<div
+										className={`${style['techno']} ${style['prestashop']}`}
+									>
+										<div className={style['icon']}>
 											<PrestashopSVG />
 										</div>
 										Prestashop
 									</div>
-									<div className="techno javascript">
-										<div className="icon">
+									<div
+										className={`${style['techno']} ${style['javascript']}`}
+									>
+										<div className={style['icon']}>
 											<JavascriptSVG />
 										</div>
 										Javascript
 									</div>
-									<div className="techno sass">
-										<div className="icon">
+									<div
+										className={`${style['techno']} ${style['sass']}`}
+									>
+										<div className={style['icon']}>
 											<SassSVG />
 										</div>
 										SASS
 									</div>
 								</div>
 							</div>
-							<div className="content">
-								<div className="icon">
+							<div className={style['content']}>
+								<div className={style['icon']}>
 									<ServiceCmsSVG />
 								</div>
 								<h2>Création de thème sur CMS</h2>
@@ -245,9 +257,9 @@ export default function Home() {
 								</ul>
 							</div>
 						</div>
-						<div className="detail integration">
-							<div className="content">
-								<div className="icon">
+						<div className={`${style['detail']} ${style['integration']}`}>
+							<div className={style['content']}>
+								<div className={style['icon']}>
 									<ServiceBackendSVG />
 								</div>
 								<h2>Intégration web responsive d'une maquette</h2>
@@ -282,7 +294,7 @@ export default function Home() {
 							<a
 								href="https://feelinggoodbakery.fr"
 								target="_blank"
-								className="medias"
+								className={style['medias']}
 							>
 								<video
 									src="assets/img/integration.mp4"
