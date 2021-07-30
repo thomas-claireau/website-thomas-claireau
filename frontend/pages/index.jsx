@@ -1,8 +1,10 @@
 import style from './index.module.scss';
+import styleDetail from '../components/Detail/Detail.module.scss';
 
 import Layout from '../components/Layout/Layout';
 import Container from '../components/Container/Container';
 import Service from '../components/Service/Service';
+import Detail from '../components/Detail/Detail';
 
 import ServiceBackendSVG from 'public/assets/img/service-backend.svg';
 import ServiceIntegrationSVG from 'public/assets/img/service-integration.svg';
@@ -130,9 +132,9 @@ export default function Home() {
 				</section>
 				<section className={style['details']}>
 					<Container>
-						<div className={style['detail']}>
-							<div className={style['content']}>
-								<div className={style['icon']}>
+						<Detail>
+							<div className={styleDetail['content']}>
+								<div className={styleDetail['icon']}>
 									<ServiceBackendSVG />
 								</div>
 								<h2>Développement backend</h2>
@@ -154,7 +156,7 @@ export default function Home() {
 									</li>
 								</ul>
 							</div>
-							<div className={style['medias']}>
+							<div className={styleDetail['medias']}>
 								<SymfonySVG />
 								<PhpSVG />
 								<Button
@@ -165,64 +167,64 @@ export default function Home() {
 									blank
 								/>
 							</div>
-						</div>
-						<div className={`${style['detail']} ${style['cms']}`}>
-							<div className={style['medias']}>
-								<div className={style['left']}>
+						</Detail>
+						<Detail type={styleDetail['cms']}>
+							<div className={styleDetail['medias']}>
+								<div className={styleDetail['left']}>
 									<div
-										className={`${style['techno']} ${style['wordpress']}`}
+										className={`${styleDetail['techno']} ${styleDetail['wordpress']}`}
 									>
-										<div className={style['icon']}>
+										<div className={styleDetail['icon']}>
 											<WordpressSVG />
 										</div>
 										Wordpress
 									</div>
 									<div
-										className={`${style['techno']} ${style['react']}`}
+										className={`${styleDetail['techno']} ${styleDetail['react']}`}
 									>
-										<div className={style['icon']}>
+										<div className={styleDetail['icon']}>
 											<Test />
 										</div>
 										React.js
 									</div>
 									<div
-										className={`${style['techno']} ${style['next']}`}
+										className={`${styleDetail['techno']} ${styleDetail['next']}`}
 									>
-										<div className={style['icon']}>
+										<div className={styleDetail['icon']}>
 											<NextJsSVG />
 										</div>
 										Next.js
 									</div>
 								</div>
-								<div className={style['right']}>
+								<div className={styleDetail['right']}>
 									<div
-										className={`${style['techno']} ${style['prestashop']}`}
+										className={`${styleDetail['techno']} ${styleDetail['prestashop']}`}
 									>
-										<div className={style['icon']}>
+										<div className={styleDetail['icon']}>
 											<PrestashopSVG />
 										</div>
 										Prestashop
 									</div>
 									<div
-										className={`${style['techno']} ${style['javascript']}`}
+										className={`${styleDetail['techno']} ${styleDetail['javascript']}`}
 									>
-										<div className={style['icon']}>
+										<div className={styleDetail['icon']}>
 											<JavascriptSVG />
 										</div>
 										Javascript
 									</div>
 									<div
-										className={`${style['techno']} ${style['sass']}`}
+										className={`${styleDetail['techno']} ${styleDetail['sass']}`}
 									>
-										<div className={style['icon']}>
+										<div className={styleDetail['icon']}>
 											<SassSVG />
 										</div>
 										SASS
 									</div>
 								</div>
 							</div>
-							<div className={style['content']}>
-								<div className={style['icon']}>
+							<div className={styleDetail['content']}>
+								<div className={styleDetail['icon']}>
 									<ServiceCmsSVG />
 								</div>
 								<h2>Création de thème sur CMS</h2>
@@ -257,10 +259,10 @@ export default function Home() {
 									</li>
 								</ul>
 							</div>
-						</div>
-						<div className={`${style['detail']} ${style['integration']}`}>
-							<div className={style['content']}>
-								<div className={style['icon']}>
+						</Detail>
+						<Detail type={styleDetail['integration']}>
+							<div className={styleDetail['content']}>
+								<div className={styleDetail['icon']}>
 									<ServiceBackendSVG />
 								</div>
 								<h2>Intégration web responsive d'une maquette</h2>
@@ -295,7 +297,7 @@ export default function Home() {
 							<a
 								href="https://feelinggoodbakery.fr"
 								target="_blank"
-								className={style['medias']}
+								className={styleDetail['medias']}
 							>
 								<video
 									src="assets/img/integration.mp4"
@@ -306,7 +308,7 @@ export default function Home() {
 									playsInline
 								></video>
 							</a>
-						</div>
+						</Detail>
 					</Container>
 				</section>
 			</main>
