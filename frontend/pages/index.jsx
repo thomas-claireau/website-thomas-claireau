@@ -2,6 +2,7 @@ import style from './index.module.scss';
 
 import Layout from '../components/Layout/Layout';
 import Container from '../components/Container/Container';
+import Service from '../components/Service/Service';
 
 import ServiceBackendSVG from 'public/assets/img/service-backend.svg';
 import ServiceIntegrationSVG from 'public/assets/img/service-integration.svg';
@@ -69,8 +70,8 @@ export default function Home() {
 							</div>
 						</div>
 						<div className={style['right']}>
-							<div className={style['service']}>
-								<div className={style['icon']}>
+							<Service>
+								<div>
 									<ServiceBackendSVG />
 								</div>
 								<h3>Développement backend (Symfony)</h3>
@@ -79,9 +80,9 @@ export default function Home() {
 									application tout en respectant les standards de
 									sécurité.
 								</p>
-							</div>
-							<div className={style['service']}>
-								<div className={style['icon']}>
+							</Service>
+							<Service>
+								<div>
 									<ServiceCmsSVG />
 								</div>
 								<h3>Création de thème sur un CMS</h3>
@@ -91,8 +92,8 @@ export default function Home() {
 									sur Wordpress ou Prestashop. Je crée tout type de
 									site : vitrine, e-commerce, intranet...
 								</p>
-							</div>
-							<div className={style['service']}>
+							</Service>
+							<Service>
 								<div className={style['icon']}>
 									<ServiceIntegrationSVG />
 								</div>
@@ -103,9 +104,9 @@ export default function Home() {
 									force de proposition sur le responsive, si la
 									maquette n'est pas complète.
 								</p>
-							</div>
-							<div className={style['service']}>
-								<div className={style['icon']}>
+							</Service>
+							<Service>
+								<div>
 									<ServiceOptimisationSVG />
 								</div>
 								<h3>
@@ -123,7 +124,7 @@ export default function Home() {
 									d'accompagner des étudiants sur ces différentes
 									thématiques.
 								</p>
-							</div>
+							</Service>
 						</div>
 					</Container>
 				</section>
