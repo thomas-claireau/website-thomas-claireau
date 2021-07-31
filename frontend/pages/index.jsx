@@ -342,7 +342,7 @@ export default function Home() {
 						<Button
 							icon={<FontAwesomeIcon icon={faEdit} />}
 							text="Voir plus d'articles"
-							url="#"
+							url="/blog"
 							type="cta"
 						/>
 					</Container>
