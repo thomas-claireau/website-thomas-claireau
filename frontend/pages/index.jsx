@@ -6,6 +6,7 @@ import Container from '../components/Container/Container';
 import Service from '../components/Service/Service';
 import Detail from '../components/Detail/Detail';
 import Projects from '../components/Projects/Projects';
+import HireMe from '../components/HireMe/HireMe';
 
 import ServiceBackendSVG from 'public/assets/img/service-backend.svg';
 import ServiceIntegrationSVG from 'public/assets/img/service-integration.svg';
@@ -332,6 +333,7 @@ export default function Home() {
 						/>
 					</Container>
 				</section>
+				<HireMe />
 			</main>
 		</Layout>
 	);
