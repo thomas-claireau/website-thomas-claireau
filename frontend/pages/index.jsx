@@ -7,6 +7,7 @@ import Service from '../components/Service/Service';
 import Detail from '../components/Detail/Detail';
 import Projects from '../components/Projects/Projects';
 import HireMe from '../components/HireMe/HireMe';
+import Posts from '../components/Posts/Posts';
 
 import ServiceBackendSVG from 'public/assets/img/service-backend.svg';
 import ServiceIntegrationSVG from 'public/assets/img/service-integration.svg';
@@ -23,7 +24,7 @@ import JavascriptSVG from 'public/assets/img/javascript.svg';
 import SassSVG from 'public/assets/img/sass.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faTv } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTv } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
 	console.log(style);
@@ -334,6 +335,18 @@ export default function Home() {
 					</Container>
 				</section>
 				<HireMe />
+				<section className={style['posts-container']}>
+					<Container className={style['container']}>
+						<h2>Les derniers articles</h2>
+						<Posts items={[1, 2]} className={style['posts']} />
+						<Button
+							icon={<FontAwesomeIcon icon={faEdit} />}
+							text="Voir plus d'articles"
+							url="#"
+							type="cta"
+						/>
+					</Container>
+				</section>
 			</main>
 		</Layout>
 	);

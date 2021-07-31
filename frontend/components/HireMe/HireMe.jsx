@@ -7,7 +7,7 @@ import { hireMe } from './HireMe.module.scss';
 
 export default function HireMe() {
 	return (
-		<div class={hireMe}>
+		<div className={hireMe}>
 			<Container>
 				<div>
 					<h2>Démarrons un projet</h2>

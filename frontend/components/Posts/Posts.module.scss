@@ -1,0 +1,52 @@
+.posts {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5rem;
+
+	&.one {
+		> article {
+			@media screen and (min-width: $break-medium + 1) {
+				flex: 1 1 100%;
+			}
+		}
+	}
+
+	&.two {
+		> article {
+			flex: 1 1 50vh;
+		}
+	}
+
+	&.full {
+		> article.large {
+			@media screen and (min-width: $break-medium + 1) {
+				display: flex;
+				align-items: flex-start;
+				justify-content: flex-start;
+				flex-direction: row;
+				gap: 5rem;
+				flex: 1 1 100%;
+			}
+
+			.thumbnail {
+				@media screen and (min-width: $break-medium + 1) {
+					width: 70%;
+					min-width: 70%;
+					height: 35rem;
+				}
+			}
+
+			h3 {
+				@media screen and (min-width: $break-medium + 1) {
+					font-size: 3rem;
+				}
+			}
+
+			p {
+				@media screen and (min-width: $break-medium + 1) {
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+}

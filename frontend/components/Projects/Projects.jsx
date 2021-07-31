@@ -4,7 +4,7 @@ import style, { projects } from './Projects.module.scss';
 
 export default function Projects() {
 	return (
-		<ul class={projects}>
+		<ul className={projects}>
 			<li>
 				<a
 					href="https://github.com/thomas-claireau/feeling-good-bakery"
@@ -14,7 +14,7 @@ export default function Projects() {
 					<div>
 						<FontAwesomeIcon className={style['fa-eye']} icon={faEye} />
 						<img src="https://picsum.photos/1920/1080" alt="" />
-						<span class="year">2021</span>
+						<span className="year">2021</span>
 						<h4>Feeling Good Bakery</h4>
 						<p>Intégration web - SASS - Javascript</p>
 					</div>
@@ -26,7 +26,7 @@ export default function Projects() {
 					<div>
 						<FontAwesomeIcon className={style['fa-eye']} icon={faEye} />
 						<img src="https://picsum.photos/1920/1080" alt="" />
-						<span class="year">2020</span>
+						<span className="year">2020</span>
 						<h4>Bilemo</h4>
 						<p>
 							Web service exposant une API REST
@@ -45,7 +45,7 @@ export default function Projects() {
 					<div>
 						<FontAwesomeIcon className={style['fa-eye']} icon={faEye} />
 						<img src="https://picsum.photos/1920/1080" alt="" />
-						<span class="year">2020</span>
+						<span className="year">2020</span>
 						<h4>SnowTricks</h4>
 						<p>
 							Développement du site communautaire
