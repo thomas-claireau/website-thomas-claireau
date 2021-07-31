@@ -3,8 +3,6 @@
 	height: 9.4rem;
 	position: fixed;
 	top: 0;
-	display: grid;
-	grid-template-columns: 1fr auto;
 	padding: 2.7rem 2rem;
 	background-color: #fff;
 	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -17,6 +15,7 @@
 	}
 
 	@media screen and (max-width: $break-small) {
+		height: auto;
 		grid-gap: 1rem;
 		padding: 1rem;
 	}
@@ -28,7 +27,12 @@
 		}
 	}
 
-	> .left {
+	> div {
+		display: grid;
+		grid-template-columns: 1fr auto;
+	}
+
+	.left {
 		display: flex;
 		align-items: center;
 
