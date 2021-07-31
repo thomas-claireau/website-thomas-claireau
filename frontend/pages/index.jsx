@@ -331,6 +331,7 @@ export default function Home() {
 							text="Voir plus de projets"
 							url={`https://github.com/thomas-claireau?tab=repositories&q=topic%3Acompleted-project&type=&language=&sort=`}
 							type="cta"
+							blank
 						/>
 					</Container>
 				</section>
