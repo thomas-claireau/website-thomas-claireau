@@ -26,6 +26,7 @@ import Button from '../Button/Button';
 import Sun from 'public/assets/img/sun.svg';
 import Moon from 'public/assets/img/moon.svg';
 import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 export default function Menu() {
 	const [toggle, setToggle] = useState(light);
@@ -71,7 +72,9 @@ export default function Menu() {
 				/>
 			</MenuItem>
 			<MenuItem className={blog}>
-				<a href="/blog/">Blog</a>
+				<Link href="/blog/">
+					<a>Blog</a>
+				</Link>
 			</MenuItem>
 			<MenuItem className={`${toggleTheme} ${toggle}`} onClick={handleClick}>
 				<div className={icons}>
