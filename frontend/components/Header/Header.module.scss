@@ -29,13 +29,14 @@
 	}
 
 	> div {
-		display: grid;
-		grid-template-columns: 1fr auto;
+		display: flex;
+		justify-content: space-between;
 	}
 
 	.left {
 		display: flex;
 		align-items: center;
+		font-size: 2.2rem;
 
 		@media screen and (max-width: $break-small) {
 			color: lighten($bleuFonce, 50%);
@@ -45,7 +46,8 @@
 			position: relative;
 			top: -0.2rem;
 			margin: 0 0.5rem;
-			font-size: 1.5rem;
+			font-size: 1.8rem;
+			font-weight: 800;
 		}
 	}
 }
