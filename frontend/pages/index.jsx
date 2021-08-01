@@ -27,7 +27,6 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEdit, faTv } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home() {
-	console.log(style);
 	return (
 		<Layout>
 			<main className={style['index']}>
@@ -339,7 +338,7 @@ export default function Home() {
 				<section className={style['posts-container']}>
 					<Container className={style['container']}>
 						<h2>Les derniers articles</h2>
-						<Posts items={[1, 2]} className={style['posts']} />
+						<Posts items={[[], []]} className={style['posts']} />
 						<Button
 							icon={<FontAwesomeIcon icon={faEdit} />}
 							text="Voir plus d'articles"

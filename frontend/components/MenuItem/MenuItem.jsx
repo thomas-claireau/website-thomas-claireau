@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { menuItem } from './MenuItem.module.scss';
 
 export default function Menu({ className, children, onClick }) {
@@ -7,3 +9,9 @@ export default function Menu({ className, children, onClick }) {
 		</div>
 	);
 }
+
+Menu.propTypes = {
+	className: PropTypes.string,
+	children: PropTypes.node.isRequired,
+	onClick: PropTypes.func,
+};

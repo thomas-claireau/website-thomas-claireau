@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import {
 	post,
 	thumbnail,
@@ -11,7 +13,9 @@ import {
 } from './Post.module.scss';
 import stylePosts from '../Posts/Posts.module.scss';
 
-export default function Post({ item, layout, counter }) {
+export default function Post({ item, layout }) {
+	const counter = 0;
+
 	return (
 		<article
 			className={`${post} ${
@@ -45,3 +49,8 @@ export default function Post({ item, layout, counter }) {
 		</article>
 	);
 }
+
+Post.propTypes = {
+	item: PropTypes.array.isRequired,
+	layout: PropTypes.string,
+};

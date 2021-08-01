@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import PropTypes from 'prop-types';
 
 import { container } from './Container.module.scss';
 
@@ -7,3 +7,9 @@ export default function Container({ tag = 'div', children, className }) {
 
 	return <Tag className={`${className} ${container}`}>{children}</Tag>;
 }
+
+Container.propTypes = {
+	tag: PropTypes.string,
+	children: PropTypes.node.isRequired,
+	className: PropTypes.string,
+};
