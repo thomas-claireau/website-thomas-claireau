@@ -1,0 +1,22 @@
+{
+	"name": "backend",
+	"version": "0.0.1",
+	"description": "Backend of my website",
+	"main": "server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"db:create": "npm run db:create:dev && npm run db:create:test && npm run db:create:prod",
+		"db:create:dev": "NODE_ENV=development sequelize db:create",
+		"db:create:test": "NODE_ENV=test sequelize db:create",
+		"db:create:prod": "NODE_ENV=production sequelize db:create"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"nodemon": "^2.0.12",
+		"sequelize": "^6.6.5"
+	}
+}
