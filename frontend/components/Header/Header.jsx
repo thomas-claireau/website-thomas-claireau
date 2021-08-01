@@ -4,12 +4,17 @@ import Menu from '../Menu/Menu';
 import MenuMobile from '../MenuMobile/MenuMobile';
 import Container from '../Container/Container';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
 	const [scroll, setScroll] = useState(0);
 
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
 	}, []);
 
 	function handleScroll() {
@@ -19,11 +24,13 @@ export default function Header() {
 	return (
 		<header className={`${header} ${scroll > 0 ? scrolled : ''}`}>
 			<Container>
-				<div className={left}>
-					Thomas
-					<span>/</span>
-					Claireau
-				</div>
+				<Link href="/">
+					<a className={left}>
+						Thomas
+						<span>/</span>
+						Claireau
+					</a>
+				</Link>
 				<Menu />
 				<MenuMobile />
 			</Container>
