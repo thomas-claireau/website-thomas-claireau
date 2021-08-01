@@ -6,9 +6,9 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"db:create": "npm run db:create:dev && npm run db:create:test && npm run db:create:prod",
-		"db:create:dev": "NODE_ENV=development sequelize db:create",
-		"db:create:test": "NODE_ENV=test sequelize db:create",
-		"db:create:prod": "NODE_ENV=production sequelize db:create"
+		"db:create:dev": "cross-env NODE_ENV=development npx sequelize db:create",
+		"db:create:test": "cross-env NODE_ENV=test npx sequelize db:create",
+		"db:create:prod": "cross-env NODE_ENV=production npx sequelize db:create"
 	},
 	"keywords": [],
 	"author": "",
@@ -21,6 +21,6 @@
 		"sequelize": "^6.6.5"
 	},
 	"devDependencies": {
-		"sequelize-cli": "^6.2.0"
+		"cross-env": "^7.0.3"
 	}
 }
