@@ -8,7 +8,7 @@ export default function Posts({ className, layout, items }) {
 		<div className={`${className} ${posts} ${style[layout]}`}>
 			{items.length &&
 				items.map((post, index) => (
-					<Post key={index} layout={layout} item={post} />
+					<Post key={index} index={index} layout={layout} item={post} />
 				))}
 		</div>
 	);

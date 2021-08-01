@@ -13,13 +13,11 @@ import {
 } from './Post.module.scss';
 import stylePosts from '../Posts/Posts.module.scss';
 
-export default function Post({ item, layout }) {
-	const counter = 0;
-
+export default function Post({ index, item, layout }) {
 	return (
 		<article
 			className={`${post} ${
-				layout == 'full' && counter % 6 == 0 ? stylePosts['large'] : ''
+				layout == 'full' && index % 6 == 0 ? stylePosts['large'] : ''
 			}`}
 		>
 			<div className={`${thumbnail} ${stylePosts['thumbnail']}`}>
@@ -51,6 +49,7 @@ export default function Post({ item, layout }) {
 }
 
 Post.propTypes = {
+	index: PropTypes.number.isRequired,
 	item: PropTypes.array.isRequired,
 	layout: PropTypes.string,
 };
