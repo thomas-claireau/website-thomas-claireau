@@ -1,3 +1,11 @@
-exports.getPosts = (req, res, next) => {
-	return res.status(200).json('cocuou');
-};
+const models = require('../models');
+
+exports.getPosts = (req, res, next) => {};
+
+exports.getPost = (req, res, next) => {};
+
+exports.createPost = (req, res, next) => {};
+
+exports.updatePost = (req, res, next) => {};
+
+exports.deletePost = (req, res, next) => {};
