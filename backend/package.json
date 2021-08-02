@@ -4,6 +4,7 @@
 	"description": "Backend of my website",
 	"main": "server.js",
 	"scripts": {
+		"start": "nodemon server.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"db:create": "npm run db:create:dev && npm run db:create:test && npm run db:create:prod",
 		"db:create:dev": "cross-env NODE_ENV=development npx sequelize db:create",
