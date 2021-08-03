@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 			// define association here
 			models.Post.belongsToMany(models.Tag, { through: models.PostTag });
 
-			models.Message.belongsTo(models.User, {
+			models.Post.belongsTo(models.User, {
 				foreignKey: {
 					name: 'userId',
 					allowNull: false,

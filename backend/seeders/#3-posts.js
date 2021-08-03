@@ -16,7 +16,7 @@ module.exports = {
 			data.push({
 				title: faker.lorem.words(),
 				description: faker.lorem.sentences(2),
-				userId: 0,
+				userId: 1, // user with ID=1
 				thumbnail: faker.image.imageUrl(),
 				content: faker.lorem.paragraphs(10),
 				createdAt: new Date(),

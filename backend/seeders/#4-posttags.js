@@ -1,7 +1,6 @@
 'use strict';
 
 const model = require('../models');
-const post = require('../models/post');
 const Post = model.Post;
 const Tag = model.Tag;
 
