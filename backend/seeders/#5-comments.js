@@ -25,7 +25,7 @@ module.exports = {
 		const data = [];
 		const posts = await Post.findAll();
 
-		posts.forEach((post, index) => {
+		posts.forEach((post) => {
 			for (let j = 0; j < randomNumber(4); j++) {
 				data.push({
 					PostId: post.dataValues.id,
