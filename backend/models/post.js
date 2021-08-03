@@ -11,6 +11,13 @@ module.exports = (sequelize, DataTypes) => {
 		static associate(models) {
 			// define association here
 			models.Post.belongsToMany(models.Tag, { through: models.PostTag });
+
+			models.Message.belongsTo(models.User, {
+				foreignKey: {
+					name: 'userId',
+					allowNull: false,
+				},
+			});
 		}
 	}
 	Post.init(
