@@ -18,7 +18,6 @@ module.exports = {
 				description: faker.lorem.sentences(2),
 				userId: 0,
 				thumbnail: faker.image.imageUrl(),
-				tags: null,
 				content: faker.lorem.paragraphs(10),
 				createdAt: new Date(),
 				updatedAt: new Date(),
