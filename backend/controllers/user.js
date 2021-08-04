@@ -1,24 +1,58 @@
 const models = require('../models');
 const User = models.User;
+const { handleError } = require('../functions.js');
 
-exports.createUser = async (req, res, next) => {
-	const user = await User.create(req.body);
-
-	res.status(201).json(user);
+exports.createUser = (req, res, next) => {
+	User.create(req.body)
+		.then((user) => res.status(201).json(user))
+		.catch(handleError);
 };
 
 exports.getUsers = (req, res, next) => {
-	res.status(200).json('getUsers');
+	User.findAll()
+		.then((users) => res.status(200).json(users))
+		.catch(handleError);
 };
 
 exports.getUser = (req, res, next) => {
-	res.status(200).json('getUser');
+	const id = req.params.id;
+
+	User.findOne({ where: { id } })
+		.then((user) => {
+			if (!user) return res.status(404).json({ error: 'User not found' });
+
+			return res.status(200).json(user);
+		})
+		.catch(handleError);
 };
 
 exports.updateUser = (req, res, next) => {
-	res.status(200).json('updateUser');
+	const id = req.params.id;
+
+	User.findOne({ where: { id } })
+		.then((user) => {
+			if (!user) return res.status(404).json({ error: 'User not found' });
+
+			if (req.body.hasOwnProperty('id'))
+				return res.status(403).json({ error: 'Unable to modify ID' });
+
+			User.update(req.body, { where: { id } })
+				.then(() => res.status(204).json(null))
+				.catch(handleError);
+		})
+		.catch(handleError);
 };
 
 exports.deleteUser = (req, res, next) => {
-	res.status(200).json('deleteUser');
+	const id = req.params.id;
+
+	User.findOne({ where: { id } })
+		.then((user) => {
+			if (!user) return res.status(404).json({ error: 'User not found' });
+
+			User.destroy({ where: { id } })
+				.then(() => res.status(204).json(null))
+				.catch(handleError);
+		})
+		.catch(handleError);
 };
