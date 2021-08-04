@@ -9,10 +9,10 @@ const {
 const auth = require('../middlewares/auth');
 const router = express.Router();
 
-router.get('/', getPosts);
-router.get('/:id', getPost);
 router.post('/', createPost);
-router.put('/', updatePost);
-router.delete('/', deletePost);
+router.get('/', getPosts);
+router.get('/:id(\\d+)', getPost);
+router.put('/:id(\\d+)', updatePost);
+router.delete('/:id(\\d+)', deletePost);
 
 module.exports = router;
