@@ -5,13 +5,13 @@ const { handleError } = require('../functions.js');
 exports.createUser = (req, res, next) => {
 	User.create(req.body)
 		.then((user) => res.status(201).json(user))
-		.catch(handleError);
+		.catch((error) => handleError(res, error));
 };
 
 exports.getUsers = (req, res, next) => {
 	User.findAll()
 		.then((users) => res.status(200).json(users))
-		.catch(handleError);
+		.catch((error) => handleError(res, error));
 };
 
 exports.getUser = (req, res, next) => {
@@ -23,7 +23,7 @@ exports.getUser = (req, res, next) => {
 
 			return res.status(200).json(user);
 		})
-		.catch(handleError);
+		.catch((error) => handleError(res, error));
 };
 
 exports.updateUser = (req, res, next) => {
@@ -38,9 +38,9 @@ exports.updateUser = (req, res, next) => {
 
 			User.update(req.body, { where: { id } })
 				.then(() => res.status(204).json(null))
-				.catch(handleError);
+				.catch((error) => handleError(res, error));
 		})
-		.catch(handleError);
+		.catch((error) => handleError(res, error));
 };
 
 exports.deleteUser = (req, res, next) => {
@@ -52,7 +52,7 @@ exports.deleteUser = (req, res, next) => {
 
 			User.destroy({ where: { id } })
 				.then(() => res.status(204).json(null))
-				.catch(handleError);
+				.catch((error) => handleError(res, error));
 		})
-		.catch(handleError);
+		.catch((error) => handleError(res, error));
 };

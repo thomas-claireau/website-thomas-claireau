@@ -15,12 +15,14 @@ module.exports = {
 					model: 'Posts',
 					key: 'id',
 				},
+				allowNull: false,
 			},
 			username: {
 				type: Sequelize.STRING,
 			},
 			content: {
 				type: Sequelize.TEXT,
+				allowNull: false,
 			},
 			valid: {
 				type: Sequelize.BOOLEAN,

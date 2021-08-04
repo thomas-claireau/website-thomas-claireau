@@ -10,6 +10,7 @@ module.exports = {
 					model: 'Posts',
 					key: 'id',
 				},
+				allowNull: false,
 			},
 			TagId: {
 				type: Sequelize.INTEGER,
@@ -19,6 +20,7 @@ module.exports = {
 					model: 'Tags',
 					key: 'id',
 				},
+				allowNull: false,
 			},
 			createdAt: {
 				allowNull: false,

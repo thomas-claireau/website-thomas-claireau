@@ -13,8 +13,14 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	PostTag.init(
 		{
-			PostId: DataTypes.INTEGER,
-			TagId: DataTypes.INTEGER,
+			PostId: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
+			TagId: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
 		},
 		{
 			sequelize,

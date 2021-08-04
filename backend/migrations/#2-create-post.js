@@ -10,9 +10,11 @@ module.exports = {
 			},
 			title: {
 				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			description: {
 				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			userId: {
 				type: Sequelize.INTEGER,
@@ -21,15 +23,15 @@ module.exports = {
 					model: 'Users',
 					key: 'id',
 				},
+				allowNull: false,
 			},
 			thumbnail: {
 				type: Sequelize.STRING,
-			},
-			tags: {
-				type: Sequelize.STRING,
+				allowNull: false,
 			},
 			content: {
 				type: Sequelize.TEXT,
+				allowNull: false,
 			},
 			createdAt: {
 				allowNull: false,

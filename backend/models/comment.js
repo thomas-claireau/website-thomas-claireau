@@ -19,9 +19,14 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	Comment.init(
 		{
-			PostId: DataTypes.INTEGER,
+			PostId: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
 			username: DataTypes.STRING,
-			content: DataTypes.TEXT,
+			content: {
+				type: DataTypes.TEXT,
+			},
 			valid: {
 				type: DataTypes.BOOLEAN,
 				defaultValue: false,

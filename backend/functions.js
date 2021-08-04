@@ -1,1 +1,1 @@
-exports.handleError = (error) => res.status(500).json({ error });
+exports.handleError = (res, error) => res.status(500).json({ error });

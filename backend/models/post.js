@@ -1,4 +1,5 @@
 'use strict';
+const { unique } = require('faker');
 const { Model } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
@@ -24,11 +25,26 @@ module.exports = (sequelize, DataTypes) => {
 	}
 	Post.init(
 		{
-			title: DataTypes.STRING,
-			description: DataTypes.STRING,
-			userId: DataTypes.INTEGER,
-			thumbnail: DataTypes.STRING,
-			content: DataTypes.TEXT,
+			title: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			description: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			userId: {
+				type: DataTypes.INTEGER,
+				allowNull: false,
+			},
+			thumbnail: {
+				type: DataTypes.STRING,
+				allowNull: false,
+			},
+			content: {
+				type: DataTypes.TEXT,
+				allowNull: false,
+			},
 		},
 		{
 			sequelize,
