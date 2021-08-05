@@ -47,4 +47,16 @@ exports.updatePost = (req, res, next) => {
 		.catch((error) => handleError(res, error));
 };
 
-exports.deletePost = (req, res, next) => {};
+exports.deletePost = (req, res, next) => {
+	const id = req.params.id;
+
+	Post.findOne({ where: { id } })
+		.then((post) => {
+			if (!post) return res.status(404).json({ error: 'Post not found' });
+
+			Post.destroy({ where: { id } })
+				.then(() => res.status(204).json(null))
+				.catch((error) => handleError(res, error));
+		})
+		.catch((error) => handleError(res, error));
+};

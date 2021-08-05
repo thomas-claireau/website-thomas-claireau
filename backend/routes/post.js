@@ -12,7 +12,7 @@ const router = express.Router();
 router.post('/', createPost);
 router.get('/', getPosts);
 router.get('/:id(\\d+)', getPost);
-router.put('/:id(\\d+)', updatePost);
+router.patch('/:id(\\d+)', updatePost);
 router.delete('/:id(\\d+)', deletePost);
 
 module.exports = router;
