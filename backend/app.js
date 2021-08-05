@@ -3,9 +3,7 @@ require('dotenv').config();
 const usersRoutes = require('./routes/user');
 const postsRoutes = require('./routes/post');
 const commentsRoutes = require('./routes/comment');
-const auth = require('./middlewares/auth');
 const emptyBody = require('./middlewares/empty-body');
-const basicAuth = require('express-basic-auth');
 
 const app = express();
 
@@ -22,6 +20,13 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use(emptyBody);
+
+app.use(function (req, res, next) {
+	res.set('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');
+	res.set('Pragma', 'no-cache');
+	res.set('Expires', 0);
+	next();
+});
 
 app.use('/api/users', usersRoutes);
 app.use('/api/posts', postsRoutes);

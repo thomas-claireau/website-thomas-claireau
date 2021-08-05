@@ -9,7 +9,8 @@
 		"db:create": "npm run db:create:dev && npm run db:create:test && npm run db:create:prod",
 		"db:create:dev": "cross-env NODE_ENV=development npx sequelize db:create",
 		"db:create:test": "cross-env NODE_ENV=test npx sequelize db:create",
-		"db:create:prod": "cross-env NODE_ENV=production npx sequelize db:create"
+		"db:create:prod": "cross-env NODE_ENV=production npx sequelize db:create",
+		"db:reset": "npx sequelize db:migrate:undo:all && npx sequelize db:migrate && npx sequelize db:seed:all"
 	},
 	"keywords": [],
 	"author": "",
