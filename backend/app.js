@@ -3,6 +3,7 @@ require('dotenv').config();
 const usersRoutes = require('./routes/user');
 const postsRoutes = require('./routes/post');
 const commentsRoutes = require('./routes/comment');
+const tagRoutes = require('./routes/tag');
 const emptyBody = require('./middlewares/empty-body');
 
 const app = express();
@@ -31,5 +32,6 @@ app.use(function (req, res, next) {
 app.use('/api/users', usersRoutes);
 app.use('/api/posts', postsRoutes);
 app.use('/api/comments', commentsRoutes);
+app.use('/api/tags', tagRoutes);
 
 module.exports = app;
