@@ -1,5 +1,7 @@
 const models = require('../models');
 const Post = models.Post;
+const Tag = models.Tag;
+const PostTag = models.PostTag;
 const { handleError } = require('../functions.js');
 
 exports.createPost = (req, res, next) => {
@@ -13,9 +15,21 @@ exports.getPosts = (req, res, next) => {
 
 	if (req.query.limit > 0) options.limit = Number(req.query.limit);
 
-	Post.findAll(options)
-		.then((posts) => res.status(200).json(posts))
-		.catch((error) => handleError(res, error));
+	if (req.query.tag_id > 0) {
+		Post.findAll({
+			include: {
+				model: Tag,
+				through: PostTag,
+				where: { id: Number(req.query.tag_id) },
+			},
+		})
+			.then((posts) => res.status(200).json(posts))
+			.catch((error) => handleError(res, error));
+	} else {
+		Post.findAll(options)
+			.then((posts) => res.status(200).json(posts))
+			.catch((error) => handleError(res, error));
+	}
 };
 
 exports.getPost = (req, res, next) => {
