@@ -33,10 +33,8 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 		}, 1400);
 	}
 
-	const Tag = nbStarterPosts ? InfiniteScroll : 'div';
-
-	return (
-		<Tag
+	return nbStarterPosts ? (
+		<InfiniteScroll
 			dataLength={posts.length}
 			next={fetchData}
 			hasMore={true}
@@ -45,7 +43,13 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 			{posts.map((post, index) => (
 				<Post key={index} index={index} layout={layout} item={post} />
 			))}
-		</Tag>
+		</InfiniteScroll>
+	) : (
+		<div className={`${className} ${style['posts']} ${style[layout]}`}>
+			{posts.map((post, index) => (
+				<Post key={index} index={index} layout={layout} item={post} />
+			))}
+		</div>
 	);
 }
 
