@@ -14,7 +14,7 @@ module.exports = {
 
 		for (let i = 0; i < 100; i++) {
 			data.push({
-				title: faker.lorem.words(),
+				title: i + '-' + faker.lorem.words(),
 				description: faker.lorem.sentences(2),
 				userId: 1, // user with ID=1
 				thumbnail: faker.image.imageUrl(),

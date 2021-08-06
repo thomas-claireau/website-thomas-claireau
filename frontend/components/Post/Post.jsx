@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
 import moment from 'moment';
 
 import {
@@ -16,40 +15,39 @@ import {
 import stylePosts from '../Posts/Posts.module.scss';
 
 export default function Post({ index, item, layout }) {
-	console.log(item);
+	if (!item) return <div>Chargement</div>;
+
 	return (
-		item && (
-			<article
-				className={`${post} ${
-					layout == 'full' && index % 6 == 0 ? stylePosts['large'] : ''
-				}`}
-			>
-				<div className={`${thumbnail} ${stylePosts['thumbnail']}`}>
-					<img src={item.thumbnail} alt="" />
-				</div>
-				<div className={content}>
-					<span className={tags}>Javascript, PHP</span>
-					<h3>{item.title}</h3>
-					<p>{item.description}</p>
-					<div className={author}>
-						<div className={avatar}>
-							<img src={item.User.avatar} alt="" />
-						</div>
-						<div className={infos}>
-							<h4>
-								{item.User.firstname} {item.User.lastname}
-							</h4>
-							<div>
-								<span className={date}>
-									{moment(item.updatedAt).format('D MMMM YYYY')}
-								</span>
-								<span className={time}>2 min read</span>
-							</div>
+		<article
+			className={`${post} ${
+				layout == 'full' && index % 6 == 0 ? stylePosts['large'] : ''
+			}`}
+		>
+			<div className={`${thumbnail} ${stylePosts['thumbnail']}`}>
+				<img src={item.thumbnail} alt="" />
+			</div>
+			<div className={content}>
+				<span className={tags}>Javascript, PHP</span>
+				<h3>{item.title}</h3>
+				<p>{item.description}</p>
+				<div className={author}>
+					<div className={avatar}>
+						<img src={item.User.avatar} alt="" />
+					</div>
+					<div className={infos}>
+						<h4>
+							{item.User.firstname} {item.User.lastname}
+						</h4>
+						<div>
+							<span className={date}>
+								{moment(item.updatedAt).format('D MMMM YYYY')}
+							</span>
+							<span className={time}>2 min read</span>
 						</div>
 					</div>
 				</div>
-			</article>
-		)
+			</div>
+		</article>
 	);
 }
 

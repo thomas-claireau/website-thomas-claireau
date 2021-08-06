@@ -8,7 +8,9 @@ import Posts from '../components/Posts/Posts';
 
 import { blog, searchBar, cta } from './blog.module.scss';
 
-export default function Blog() {
+const NB_STARTER_POSTS = 10;
+
+export default function Blog({ posts }) {
 	return (
 		<Layout>
 			<Head>
@@ -27,9 +29,20 @@ export default function Blog() {
 				</div>
 				<Posts
 					layout="full"
-					items={[[], [], [], [], [], [], [], [], [], [], [], [], []]}
+					items={posts}
+					nbStarterPosts={NB_STARTER_POSTS}
 				/>
 			</Container>
 		</Layout>
 	);
+}
+
+export async function getStaticProps() {
+	const res = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}/api/posts?limit=${NB_STARTER_POSTS}`
+	);
+
+	const posts = await res.json();
+
+	return { props: { posts } };
 }
