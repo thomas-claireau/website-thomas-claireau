@@ -7,9 +7,17 @@ import style from './Posts.module.scss';
 import Post from '../Post/Post';
 
 export default function Posts({ className, layout, items, nbStarterPosts }) {
-	const [posts, setPosts] = useState(
-		items ? items.slice(0, nbStarterPosts) : []
-	);
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		if (items) {
+			if (nbStarterPosts) {
+				setPosts(items.slice(0, nbStarterPosts));
+			} else {
+				setPosts(items);
+			}
+		}
+	}, []);
 
 	if (!items.length) return <div>Chargement</div>;
 
@@ -25,8 +33,10 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 		}, 1400);
 	}
 
+	const Tag = nbStarterPosts ? InfiniteScroll : 'div';
+
 	return (
-		<InfiniteScroll
+		<Tag
 			dataLength={posts.length}
 			next={fetchData}
 			hasMore={true}
@@ -35,7 +45,7 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 			{posts.map((post, index) => (
 				<Post key={index} index={index} layout={layout} item={post} />
 			))}
-		</InfiniteScroll>
+		</Tag>
 	);
 }
 
