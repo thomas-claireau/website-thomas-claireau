@@ -21,6 +21,7 @@ exports.getPosts = (req, res, next) => {
 		'title',
 		'description',
 		'thumbnail',
+		'read',
 		'updatedAt',
 	];
 

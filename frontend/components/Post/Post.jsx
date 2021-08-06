@@ -17,6 +17,8 @@ import stylePosts from '../Posts/Posts.module.scss';
 export default function Post({ index, item, layout }) {
 	if (!item) return <div>Chargement</div>;
 
+	console.log(item);
+
 	return (
 		<article
 			className={`${post} ${
@@ -42,7 +44,9 @@ export default function Post({ index, item, layout }) {
 							<span className={date}>
 								{moment(item.updatedAt).format('D MMMM YYYY')}
 							</span>
-							<span className={time}>2 min read</span>
+							<span className={time}>
+								&nbsp;&nbsp;{item.read} min read
+							</span>
 						</div>
 					</div>
 				</div>
