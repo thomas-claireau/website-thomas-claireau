@@ -19,6 +19,7 @@ module.exports = {
 				userId: 1, // user with ID=1
 				thumbnail: faker.image.imageUrl(),
 				content: faker.lorem.paragraphs(10),
+				read: faker.datatype.number(30),
 				createdAt: new Date(),
 				updatedAt: new Date(),
 			});
