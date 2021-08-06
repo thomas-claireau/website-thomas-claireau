@@ -1,5 +1,6 @@
 const models = require('../models');
 const Post = models.Post;
+const User = models.User;
 const Tag = models.Tag;
 const PostTag = models.PostTag;
 const { handleError } = require('../functions.js');
@@ -15,21 +16,27 @@ exports.getPosts = (req, res, next) => {
 
 	if (req.query.limit > 0) options.limit = Number(req.query.limit);
 
+	options.attributes = ['id', 'title', 'description', 'thumbnail'];
+
+	options.include = [
+		{
+			model: User,
+			attributes: ['firstname', 'lastname', 'avatar'],
+		},
+	];
+
 	if (req.query.tag_id > 0) {
-		Post.findAll({
-			include: {
-				model: Tag,
-				through: PostTag,
-				where: { id: Number(req.query.tag_id) },
-			},
-		})
-			.then((posts) => res.status(200).json(posts))
-			.catch((error) => handleError(res, error));
-	} else {
-		Post.findAll(options)
-			.then((posts) => res.status(200).json(posts))
-			.catch((error) => handleError(res, error));
+		options.include.push({
+			model: Tag,
+			through: PostTag,
+			where: { id: Number(req.query.tag_id) },
+			attributes: ['name'],
+		});
 	}
+
+	Post.findAll(options)
+		.then((posts) => res.status(200).json(posts))
+		.catch((error) => handleError(res, error));
 };
 
 exports.getPost = (req, res, next) => {
