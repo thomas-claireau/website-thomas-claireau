@@ -17,8 +17,6 @@ import stylePosts from '../Posts/Posts.module.scss';
 export default function Post({ index, item, layout }) {
 	if (!item) return <div>Chargement</div>;
 
-	console.log(item);
-
 	return (
 		<article
 			className={`${post} ${
