@@ -17,6 +17,8 @@ import {
 } from './Footer.module.scss';
 
 export default function Footer() {
+	const now = new Date();
+
 	return (
 		<footer className={footer}>
 			<Container className={container}>
@@ -70,7 +72,8 @@ export default function Footer() {
 					</ul>
 				</div>
 				<p>
-					Copyright ©<span className="date"></span>- Thomas Claireau
+					Copyright © {now.getFullYear()} <span className="date"></span>-
+					Thomas Claireau
 				</p>
 			</Container>
 		</footer>
