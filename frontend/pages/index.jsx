@@ -26,7 +26,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEdit, faTv } from '@fortawesome/free-solid-svg-icons';
 
-export default function Home() {
+export default function Home({ posts }) {
 	return (
 		<Layout>
 			<main className={style['index']}>
@@ -338,7 +338,7 @@ export default function Home() {
 				<section className={style['posts-container']}>
 					<Container className={style['container']}>
 						<h2>Les derniers articles</h2>
-						<Posts items={[[], []]} className={style['posts']} />
+						{posts && <Posts items={posts} className={style['posts']} />}
 						<Button
 							icon={<FontAwesomeIcon icon={faEdit} />}
 							text="Voir plus d'articles"
@@ -350,4 +350,14 @@ export default function Home() {
 			</main>
 		</Layout>
 	);
+}
+
+export async function getStaticProps() {
+	const res = await fetch(
+		`${process.env.NEXT_PUBLIC_API_URL}/api/posts/?limit=2`
+	);
+
+	const posts = await res.json();
+
+	return { props: { posts } };
 }

@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import moment from 'moment';
 
 import {
 	post,
@@ -14,42 +16,45 @@ import {
 import stylePosts from '../Posts/Posts.module.scss';
 
 export default function Post({ index, item, layout }) {
+	console.log(item);
 	return (
-		<article
-			className={`${post} ${
-				layout == 'full' && index % 6 == 0 ? stylePosts['large'] : ''
-			}`}
-		>
-			<div className={`${thumbnail} ${stylePosts['thumbnail']}`}>
-				<img src="https://picsum.photos/1920/1080" alt="" />
-			</div>
-			<div className={content}>
-				<span className={tags}>Javascript, PHP</span>
-				<h3>Créer un site Wordpress Headless de zéro</h3>
-				<p>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-					nulla, beatae maxime, quo fugiat sapiente et veniam ducimus
-					magnam culpa omnis natus voluptatem possimus
-				</p>
-				<div className={author}>
-					<div className={avatar}>
-						<img src="/assets/img/memoji.png" alt="" />
-					</div>
-					<div className={infos}>
-						<h4>Thomas Claireau</h4>
-						<div>
-							<span className={date}>17 Juin 2021</span>
-							<span className={time}>2 min read</span>
+		item && (
+			<article
+				className={`${post} ${
+					layout == 'full' && index % 6 == 0 ? stylePosts['large'] : ''
+				}`}
+			>
+				<div className={`${thumbnail} ${stylePosts['thumbnail']}`}>
+					<img src={item.thumbnail} alt="" />
+				</div>
+				<div className={content}>
+					<span className={tags}>Javascript, PHP</span>
+					<h3>{item.title}</h3>
+					<p>{item.description}</p>
+					<div className={author}>
+						<div className={avatar}>
+							<img src={item.User.avatar} alt="" />
+						</div>
+						<div className={infos}>
+							<h4>
+								{item.User.firstname} {item.User.lastname}
+							</h4>
+							<div>
+								<span className={date}>
+									{moment(item.updatedAt).format('D MMMM YYYY')}
+								</span>
+								<span className={time}>2 min read</span>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</article>
+			</article>
+		)
 	);
 }
 
 Post.propTypes = {
 	index: PropTypes.number.isRequired,
-	item: PropTypes.array.isRequired,
+	item: PropTypes.object.isRequired,
 	layout: PropTypes.string,
 };
