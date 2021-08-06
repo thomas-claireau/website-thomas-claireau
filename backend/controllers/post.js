@@ -16,7 +16,13 @@ exports.getPosts = (req, res, next) => {
 
 	if (req.query.limit > 0) options.limit = Number(req.query.limit);
 
-	options.attributes = ['id', 'title', 'description', 'thumbnail'];
+	options.attributes = [
+		'id',
+		'title',
+		'description',
+		'thumbnail',
+		'updatedAt',
+	];
 
 	options.include = [
 		{
