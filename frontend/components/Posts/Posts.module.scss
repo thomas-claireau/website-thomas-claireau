@@ -4,7 +4,7 @@
 	gap: 5rem;
 
 	&.one {
-		> article {
+		> a {
 			@media screen and (min-width: $break-medium + 1) {
 				flex: 1 1 100%;
 			}
@@ -12,13 +12,13 @@
 	}
 
 	&.two {
-		> article {
+		> a {
 			flex: 1 1 50vh;
 		}
 	}
 
 	&.full {
-		> article.large {
+		> a.large {
 			@media screen and (min-width: $break-medium + 1) {
 				display: flex;
 				align-items: flex-start;
