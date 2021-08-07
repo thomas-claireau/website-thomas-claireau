@@ -49,7 +49,14 @@ exports.getPosts = (req, res, next) => {
 exports.getPost = (req, res, next) => {
 	const id = req.params.id;
 
-	Post.findOne({ where: { id } })
+	Post.findOne({
+		where: { id },
+		include: {
+			model: Tag,
+			through: PostTag,
+			attributes: ['name'],
+		},
+	})
 		.then((post) => {
 			if (!post) return res.status(404).json({ error: 'Post not found' });
 
