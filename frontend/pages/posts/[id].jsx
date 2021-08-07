@@ -1,16 +1,38 @@
 import Head from 'next/head';
 import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
+import SocialShare from '../../components/SocialShare/SocialShare';
+import Author from '../../components/Author/Author';
 
 import style from './post.module.scss';
 
 export default function Post({ post }) {
+	const tags = post.Tags.length ? post.Tags.map((item) => item.name) : false;
+
 	return (
 		<Layout>
 			<Head>
 				<title>{post.title} - Thomas Claireau, développeur web</title>
 			</Head>
-			<Container className={style['post']}></Container>
+			<Container className={style['post']}>
+				<div className={style['header']}>
+					{tags && (
+						<span className={style['tags']}>{tags.join(', ')}</span>
+					)}
+					<div className={style['top']}>
+						<h1>{post.title}</h1>
+						<SocialShare id={post.id} />
+					</div>
+					<span className={style['description']}>{post.description}</span>
+					<span className={style['separator']}></span>
+					<Author className={style['author']} item={post} />
+				</div>
+				<img
+					className={style['thumbnail']}
+					src={post.thumbnail}
+					alt="thumbnail"
+				/>
+			</Container>
 		</Layout>
 	);
 }
