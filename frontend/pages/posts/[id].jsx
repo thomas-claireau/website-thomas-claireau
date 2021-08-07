@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
 
