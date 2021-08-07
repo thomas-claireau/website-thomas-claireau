@@ -11,14 +11,19 @@ module.exports = {
 		);
 
 		const data = [];
+		const paragraphs = [];
 
 		for (let i = 0; i < 100; i++) {
+			for (let j = 0; j < faker.datatype.number(10); j++) {
+				paragraphs.push(`<p>${faker.lorem.paragraph()}</p>`);
+			}
+
 			data.push({
 				title: i + '-' + faker.lorem.words(),
 				description: faker.lorem.sentences(2),
 				userId: 1, // user with ID=1
 				thumbnail: faker.image.imageUrl(),
-				content: faker.lorem.paragraphs(10),
+				content: paragraphs.join(''),
 				read: faker.datatype.number(30),
 				createdAt: new Date(),
 				updatedAt: new Date(),
