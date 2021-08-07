@@ -14,6 +14,7 @@ import {
 	time,
 } from './Post.module.scss';
 import stylePosts from '../Posts/Posts.module.scss';
+import Author from '../Author/Author';
 
 export default function Post({ index, item, layout }) {
 	if (!item) return <div>Chargement</div>;
@@ -32,24 +33,7 @@ export default function Post({ index, item, layout }) {
 					<span className={tags}>Javascript, PHP</span>
 					<h3>{item.title}</h3>
 					<p>{item.description}</p>
-					<div className={author}>
-						<div className={avatar}>
-							<img src={item.User.avatar} alt="" />
-						</div>
-						<div className={infos}>
-							<h4>
-								{item.User.firstname} {item.User.lastname}
-							</h4>
-							<div>
-								<span className={date}>
-									{moment(item.updatedAt).format('D MMMM YYYY')}
-								</span>
-								<span className={time}>
-									&nbsp;&nbsp;{item.read} min read
-								</span>
-							</div>
-						</div>
-					</div>
+					<Author item={item} />
 				</div>
 			</a>
 		</Link>
