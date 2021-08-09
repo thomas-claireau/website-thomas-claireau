@@ -4,6 +4,7 @@
 	.header {
 		.top {
 			display: flex;
+			justify-content: space-between;
 			gap: 10rem;
 		}
 	}
@@ -17,9 +18,9 @@
 
 	img.thumbnail {
 		width: 100%;
-		height: 58rem;
 		margin-top: 6rem;
 		object-fit: cover;
+		aspect-ratio: 2/1;
 	}
 
 	.tags {

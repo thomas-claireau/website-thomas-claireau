@@ -3,6 +3,7 @@ import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
 import SocialShare from '../../components/SocialShare/SocialShare';
 import Author from '../../components/Author/Author';
+import HtmlContent from '../../components/HtmlContent/HtmlContent';
 
 import style from './post.module.scss';
 
@@ -32,6 +33,7 @@ export default function Post({ post }) {
 					src={post.thumbnail}
 					alt="thumbnail"
 				/>
+				<HtmlContent>{post.content}</HtmlContent>
 			</Container>
 		</Layout>
 	);
