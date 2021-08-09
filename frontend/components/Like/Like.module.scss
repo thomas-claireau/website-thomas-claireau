@@ -1,10 +1,20 @@
 .like {
-	width: 3.5rem;
-	height: 3.5rem;
+	--size: 3.5rem;
+	width: var(--size);
+	height: var(--size);
 	position: relative;
 	cursor: pointer;
 	transform: scale(1);
 	transition: all 0.3s ease-in-out;
+
+	&.vertical {
+		--size: 5rem;
+
+		span {
+			--size: 2.5rem;
+			font-size: 100%;
+		}
+	}
 
 	&:hover {
 		transform: scale(1.05);

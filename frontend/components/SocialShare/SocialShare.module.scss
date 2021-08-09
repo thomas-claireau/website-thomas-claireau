@@ -4,6 +4,21 @@
 	align-items: center;
 	gap: 2rem;
 
+	&.horizontal {
+		flex-direction: row;
+	}
+
+	&.vertical {
+		flex-direction: column;
+		gap: 0.5rem;
+
+		button {
+			svg {
+				width: 85%;
+			}
+		}
+	}
+
 	button {
 		opacity: 1;
 		transition: all 0.3s ease-in-out;

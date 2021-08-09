@@ -13,7 +13,7 @@ import {
 } from 'react-share';
 import { useState, useEffect } from 'react';
 
-export default function SocialShare({ id }) {
+export default function SocialShare({ direction }) {
 	const [url, setUrl] = useState(null);
 
 	useEffect(() => {
@@ -21,7 +21,7 @@ export default function SocialShare({ id }) {
 	}, []);
 
 	return (
-		<div className={style['social-share']}>
+		<div className={`${style['social-share']} ${style[direction]}`}>
 			<EmailShareButton url={url}>
 				<EmailIcon round />
 			</EmailShareButton>
@@ -39,5 +39,5 @@ export default function SocialShare({ id }) {
 }
 
 SocialShare.propTypes = {
-	id: PropTypes.number.isRequired,
+	direction: PropTypes.string.isRequired,
 };

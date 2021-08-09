@@ -1,10 +1,12 @@
 import Head from 'next/head';
+
 import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
 import SocialShare from '../../components/SocialShare/SocialShare';
 import Author from '../../components/Author/Author';
 import HtmlContent from '../../components/HtmlContent/HtmlContent';
 import SocialProof from '../../components/SocialProof/SocialProof';
+import Sidebar from '../../components/Sidebar/Sidebar';
 
 import style from './post.module.scss';
 
@@ -23,13 +25,13 @@ export default function Post({ post }) {
 					)}
 					<div className={style['top']}>
 						<h1>{post.title}</h1>
-						<SocialShare id={post.id} />
+						<SocialShare direction="horizontal" id={post.id} />
 					</div>
 					<span className={style['description']}>{post.description}</span>
 					<span className={style['separator']}></span>
 					<div className={style['bottom']}>
 						<Author className={style['author']} item={post} />
-						<SocialProof />
+						<SocialProof direction="horizontal" />
 					</div>
 				</div>
 				<img
@@ -37,6 +39,7 @@ export default function Post({ post }) {
 					src={post.thumbnail}
 					alt="thumbnail"
 				/>
+				<Sidebar />
 				<HtmlContent>{post.content}</HtmlContent>
 			</Container>
 		</Layout>
