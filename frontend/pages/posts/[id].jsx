@@ -4,6 +4,7 @@ import Layout from '../../components/Layout/Layout';
 import SocialShare from '../../components/SocialShare/SocialShare';
 import Author from '../../components/Author/Author';
 import HtmlContent from '../../components/HtmlContent/HtmlContent';
+import SocialProof from '../../components/SocialProof/SocialProof';
 
 import style from './post.module.scss';
 
@@ -26,7 +27,10 @@ export default function Post({ post }) {
 					</div>
 					<span className={style['description']}>{post.description}</span>
 					<span className={style['separator']}></span>
-					<Author className={style['author']} item={post} />
+					<div className={style['bottom']}>
+						<Author className={style['author']} item={post} />
+						<SocialProof />
+					</div>
 				</div>
 				<img
 					className={style['thumbnail']}

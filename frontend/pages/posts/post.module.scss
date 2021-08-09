@@ -48,7 +48,10 @@
 		background: darken($gris2, 10%);
 	}
 
-	.author {
+	.bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 		margin-top: 2.5rem;
 	}
 }
