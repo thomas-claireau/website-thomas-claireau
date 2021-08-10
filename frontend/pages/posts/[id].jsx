@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { useState } from 'react';
+import { getProviders } from 'next-auth/client';
 
 import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
@@ -7,11 +9,17 @@ import Author from '../../components/Author/Author';
 import HtmlContent from '../../components/HtmlContent/HtmlContent';
 import SocialProof from '../../components/SocialProof/SocialProof';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import AuthModal from '../../components/AuthModal/AuthModal';
 
 import style from './post.module.scss';
 
-export default function Post({ post }) {
+export default function Post({ post, providers }) {
+	const [authModal, setAuthModal] = useState(false);
 	const tags = post.Tags.length ? post.Tags.map((item) => item.name) : false;
+
+	function handlePopup() {
+		if (!authModal) setAuthModal(true);
+	}
 
 	return (
 		<Layout>
@@ -31,7 +39,7 @@ export default function Post({ post }) {
 					<span className={style['separator']}></span>
 					<div className={style['bottom']}>
 						<Author className={style['author']} item={post} />
-						<SocialProof direction="horizontal" />
+						<SocialProof direction="horizontal" onClick={handlePopup} />
 					</div>
 				</div>
 				<img
@@ -42,6 +50,7 @@ export default function Post({ post }) {
 				<Sidebar />
 				<HtmlContent>{post.content}</HtmlContent>
 			</Container>
+			{authModal && providers && <AuthModal providers={providers} />}
 		</Layout>
 	);
 }
@@ -63,5 +72,8 @@ export async function getStaticProps({ params }) {
 	);
 	const post = await res.json();
 
-	return { props: { post } };
+	// next auth -> get providers
+	const providers = await getProviders();
+
+	return { props: { post, providers } };
 }
