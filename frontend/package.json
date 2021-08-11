@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "next dev -p $(grep PORT .env.local | cut -d '=' -f2)",
 		"build": "next build",
-		"start": "next start"
+		"start": "next start -p $(grep PORT .env.local | cut -d '=' -f2)"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.35",
