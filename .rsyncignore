@@ -1,0 +1,15 @@
+ci
+.git
+.travis.yml
+deploy_rsa.enc
+.rsyncignore
+README.md
+
+backend/node_modules
+backend/.env
+backend/.gitignore
+
+frontend/.next
+frontend/node_modules
+frontend/.env.local
+frontend/.gitignore
