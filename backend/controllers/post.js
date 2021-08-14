@@ -5,45 +5,54 @@ const Tag = models.Tag;
 const PostTag = models.PostTag;
 const { handleError } = require('../functions.js');
 
-exports.createPost = (req, res, next) => {
-	Post.create(req.body)
-		.then((post) => res.status(201).json(post))
-		.catch((error) => handleError(res, error));
+exports.createPost = async (req, res, next) => {
+	try {
+		return await res.status(201).json(await Post.create(req.body))
+	} catch (error) {
+		return await res.status(500).json({ error });
+	}
+	// Post.create(req.body)
+	// 	.then((post) => res.status(201).json(post))
+	// 	.catch((error) => handleError(res, error));
 };
 
-exports.getPosts = (req, res, next) => {
-	const options = {};
+exports.getPosts = async (req, res, next) => {
+	try {
+		const options = {};
 
-	if (req.query.limit > 0) options.limit = Number(req.query.limit);
+		if (req.query.limit > 0) options.limit = Number(req.query.limit);
 
-	options.attributes = [
-		'id',
-		'title',
-		'description',
-		'thumbnail',
-		'read',
-		'updatedAt',
-	];
+		options.attributes = [
+			'id',
+			'title',
+			'description',
+			'thumbnail',
+			'read',
+			'updatedAt',
+		];
 
-	options.include = [
-		{
-			model: User,
-			attributes: ['firstname', 'lastname', 'avatar'],
-		},
-	];
+		options.include = [
+			{
+				model: User,
+				attributes: ['firstname', 'lastname', 'avatar'],
+			},
+		];
 
-	if (req.query.tag_id > 0) {
-		options.include.push({
-			model: Tag,
-			through: PostTag,
-			where: { id: Number(req.query.tag_id) },
-			attributes: ['name'],
-		});
+		if (req.query.tag_id > 0) {
+			options.include.push({
+				model: Tag,
+				through: PostTag,
+				where: { id: Number(req.query.tag_id) },
+				attributes: ['name'],
+			});
+		}
+
+		// const posts = await Post.findAll(options);
+
+		return res.status(200).json(await Post.findAll(options));
+	} catch (error) {
+		return await res.status(500).json({ error });
 	}
-
-	Post.findAll(options)
-		.then((posts) => res.status(200).json(posts))
-		.catch((error) => handleError(res, error));
 };
 
 exports.getPost = (req, res, next) => {
