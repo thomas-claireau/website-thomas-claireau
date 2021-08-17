@@ -43,6 +43,7 @@ if ( ! function_exists( 'thomasclaireau_global_api_callback' ) ) :
 		$data['footer'] = array();
 
 		$data['header']['menus'] = Menu::get_menus_as_array( 'main' );
+		$data['footer']['menus'] = Menu::get_menus_as_array( 'footer' );
 
 		wp_send_json( $data );
 	}
