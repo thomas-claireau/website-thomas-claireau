@@ -6,7 +6,7 @@
  * @package thomasclaireau
  */
 
-add_filter( 'use_block_editor_for_post', 'disable_gutenberg_on_settings_page', 5, 2 );
+add_filter( 'use_block_editor_for_post', 'disable_gutemberg_on_specific_pages', 5, 2 );
 add_action( 'pre_get_posts', 'hide_settings_page' );
 add_action( 'admin_menu', 'add_site_settings_to_menu' );
 add_filter( 'parent_file', 'higlight_custom_settings_page' );
@@ -19,10 +19,15 @@ add_filter( 'parent_file', 'higlight_custom_settings_page' );
  *
  * @return mixed
  */
-function disable_gutenberg_on_settings_page( $can, $post ) {
+function disable_gutemberg_on_specific_pages( $can, $post ) {
+	$exclude_pages = array(
+		'site-settings',
+		'accueil',
+		'blog',
+	);
+
 	if ( $post ) {
-		// Replace "site-settings" with the slug of your site settings page.
-		if ( 'site-settings' === $post->post_name ) {
+		if ( in_array( $post->post_name, $exclude_pages, true ) ) {
 			return false;
 		}
 	}
