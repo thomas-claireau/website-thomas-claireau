@@ -20,9 +20,10 @@ if ( ! function_exists( 'thomasclaireau_global_api' ) ) :
 			get_stylesheet() . '/v1',
 			'/global/',
 			array(
-				'methods'  => WP_REST_Server::READABLE,
-				'callback' => 'thomasclaireau_global_api_callback',
-			)
+				'methods'             => WP_REST_Server::READABLE,
+				'callback'            => 'thomasclaireau_global_api_callback',
+				'permission_callback' => '__return_true',
+			),
 		);
 	}
 endif;
