@@ -1,6 +1,7 @@
 <?php
 /**
  * Add acf settings for ACF Free
+ * https://akzhy.com/blog/create-options-page-in-wordpress-using-free-acf
  *
  * @package thomasclaireau
  */
@@ -92,7 +93,7 @@ function higlight_custom_settings_page( $file ) {
 /**
  * Get field from slug
  *
- * @param mixed $slug - Slug of the page settings
+ * @param mixed $slug - Slug of the page settings.
  *
  * @return int
  */
