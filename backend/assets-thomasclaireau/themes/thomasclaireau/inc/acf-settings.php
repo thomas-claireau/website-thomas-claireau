@@ -12,21 +12,12 @@ add_action( 'admin_menu', 'add_site_settings_to_menu' );
 add_filter( 'parent_file', 'higlight_custom_settings_page' );
 
 /**
- * Add acf option page
- */
-if ( function_exists( 'acf_add_options_page' ) ) {
-
-	acf_add_options_page();
-
-}
-
-/**
  * Disable Gutemberg on specific page
  *
  * @param mixed $can - Can.
  * @param mixed $post - Post.
  *
- * @return [type]
+ * @return mixed
  */
 function disable_gutenberg_on_settings_page( $can, $post ) {
 	if ( $post ) {
@@ -43,7 +34,7 @@ function disable_gutenberg_on_settings_page( $can, $post ) {
  *
  * @param mixed $query - Query.
  *
- * @return [type]
+ * @return null
  */
 function hide_settings_page( $query ) {
 	if ( ! is_admin() && ! is_main_query() ) {
@@ -77,9 +68,7 @@ function add_site_settings_to_menu() {
  * @return mixed
  */
 function higlight_custom_settings_page( $file ) {
-	global $parent_file;
 	global $pagenow;
-	global $typenow, $self;
 
 	$settings_page = get_page_by_path( 'site-settings', null, 'page' )->ID;
 
