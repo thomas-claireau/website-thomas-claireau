@@ -100,5 +100,5 @@ function higlight_custom_settings_page( $file ) {
 function op( $slug ) {
 	$page_url_id = get_page_by_path( $slug );
 
-	return $page_url_id->ID;
+	return $page_url_id ? $page_url_id->ID : null;
 }

@@ -58,3 +58,9 @@ require_once get_template_directory() . '/inc/custom-posts/project.php';
  * Acf settings
  */
 require_once get_template_directory() . '/inc/acf-settings.php';
+
+/**
+ * Acf filters
+ */
+require_once get_template_directory() . '/inc/acf-filters.php';
+
