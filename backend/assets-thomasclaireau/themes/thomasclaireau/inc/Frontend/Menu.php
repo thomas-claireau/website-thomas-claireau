@@ -110,6 +110,7 @@ class Menu {
 		$data['title']  = $menu_item->title;
 		$data['url']    = $menu_item->url;
 		$data['target'] = $menu_item->target;
+		$data['class']  = implode( ' ', $menu_item->classes );
 
 		return $data;
 	}
