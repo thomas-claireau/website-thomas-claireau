@@ -52,4 +52,9 @@ add_action( 'after_setup_theme', 'thomasclaireau_setup' );
 /**
  * Custom posts
  */
-require get_template_directory() . '/inc/custom-posts/project.php';
+require_once get_template_directory() . '/inc/custom-posts/project.php';
+
+/**
+ * Acf settings
+ */
+require_once get_template_directory() . '/inc/acf-settings.php';
