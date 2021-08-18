@@ -37,7 +37,7 @@ function disable_gutenberg_on_settings_page( $can, $post ) {
  * @return null
  */
 function hide_settings_page( $query ) {
-	if ( ! is_admin() && ! is_main_query() ) {
+	if ( ! is_admin() && ! $query->is_main_query() ) {
 		return;
 	}
 	global $typenow;
