@@ -9,7 +9,7 @@
 add_filter( 'use_block_editor_for_post', 'disable_gutemberg_on_specific_pages', 5, 2 );
 add_action( 'pre_get_posts', 'hide_settings_page' );
 add_action( 'admin_menu', 'add_site_settings_to_menu' );
-add_filter( 'parent_file', 'higlight_custom_settings_page' );
+add_filter( 'parent_file', 'highlight_custom_settings_page' );
 
 /**
  * Disable Gutemberg on specific page
@@ -80,7 +80,7 @@ function add_site_settings_to_menu() {
  *
  * @return mixed
  */
-function higlight_custom_settings_page( $file ) {
+function highlight_custom_settings_page( $file ) {
 	global $pagenow;
 
 	$settings_page = get_page_by_path( 'site-settings', null, 'page' )->ID;
