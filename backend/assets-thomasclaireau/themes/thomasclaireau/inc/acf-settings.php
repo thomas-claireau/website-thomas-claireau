@@ -47,13 +47,11 @@ function hide_settings_page( $query ) {
 	}
 	global $typenow;
 	if ( 'page' === $typenow ) {
-		// Replace "site-settings" with the slug of your site settings page.
 		$settings_page = get_page_by_path( 'site-settings', null, 'page' )->ID;
 		$query->set( 'post__not_in', array( $settings_page ) );
 	}
 
 	return null;
-
 }
 
 /**
@@ -62,7 +60,17 @@ function hide_settings_page( $query ) {
  * @return mixed
  */
 function add_site_settings_to_menu() {
-	add_menu_page( 'Site Settings', 'Site Setttings', 'manage_options', 'post.php?post=' . get_page_by_path( 'site-settings', null, 'page' )->ID . '&action=edit', '', 'dashicons-admin-tools', 20 );
+	$settings_page = get_page_by_path( 'site-settings', null, 'page' );
+
+	add_menu_page(
+		'Site Settings',
+		'Site Setttings',
+		'manage_options',
+		'post.php?post=' . $settings_page->ID . '&action=edit',
+		'',
+		'dashicons-admin-tools',
+		20
+	);
 }
 
 /**
