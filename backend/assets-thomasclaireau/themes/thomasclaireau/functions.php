@@ -42,12 +42,15 @@ if ( ! function_exists( 'thomasclaireau_setup' ) ) :
 				'footer-menu' => esc_html__( 'Footer', 'thomasclaireau' ),
 			)
 		);
-
-		require_once get_template_directory() . '/inc/setup.php';
 	}
 endif;
 
 add_action( 'after_setup_theme', 'thomasclaireau_setup' );
+
+/**
+ * Setup autoload
+ */
+require_once get_template_directory() . '/inc/setup.php';
 
 /**
  * Custom posts
@@ -63,4 +66,26 @@ require_once get_template_directory() . '/inc/acf-settings.php';
  * Acf filters
  */
 require_once get_template_directory() . '/inc/acf-filters.php';
+
+
+/**
+ * Frontend redirection
+ *
+ * @param mixed $id - Id of post.
+ *
+ * @return mixed
+ */
+function frontend_redirect( $id ) {
+	$name      = get_post_field( 'post_name', $id );
+	$type      = get_post_type( $id );
+	$permalink = FRONTEND_URL;
+
+	if ( ! is_front_page() ) {
+		$permalink .= 'page' !== $type ? "/$type/" : '/';
+		$permalink .= $name;
+	}
+
+	header( 'Location: ' . $permalink );
+	exit();
+}
 
