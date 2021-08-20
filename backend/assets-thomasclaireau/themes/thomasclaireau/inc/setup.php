@@ -38,3 +38,4 @@ spl_autoload_register( 'app_autoload' );
 require_once get_template_directory() . '/api/global.php';
 require_once get_template_directory() . '/api/routes.php';
 require_once get_template_directory() . '/api/pages.php';
+require_once get_template_directory() . '/api/posts.php';

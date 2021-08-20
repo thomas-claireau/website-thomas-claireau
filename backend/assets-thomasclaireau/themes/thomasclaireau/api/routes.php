@@ -71,7 +71,8 @@ if ( ! function_exists( 'thomasclaireau_routes_api_callback' ) ) :
 		}
 
 		$post_associations = array(
-			'post' => 'Template Article',
+			'post'    => 'Template Article',
+			'project' => 'Template Project',
 		);
 
 		$args = array(

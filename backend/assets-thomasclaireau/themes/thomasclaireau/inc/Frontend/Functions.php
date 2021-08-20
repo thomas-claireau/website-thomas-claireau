@@ -17,11 +17,6 @@ class Functions {
 	 * @return string
 	 */
 	public static function template_to_class( $template ) {
-
-		if ( '' === $template ) {
-			return 'PageHome';
-		}
-
 		$template = str_replace( '.php', '', $template );
 		$template = explode( '-', $template );
 

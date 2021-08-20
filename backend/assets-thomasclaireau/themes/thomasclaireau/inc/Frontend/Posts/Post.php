@@ -1,16 +1,16 @@
 <?php
 /**
- * Page Home
+ * Post
  *
  * @package thomasclaireau
  */
 
-namespace App\Frontend\Pages;
+namespace App\Frontend\Posts;
 
 /**
  * Retrieve fields for post
  */
-class PageHome {
+class Post {
 	/**
 	 * Return fields of post
 	 *
@@ -20,8 +20,6 @@ class PageHome {
 	 */
 	public static function get_fields( $post_id ) {
 		$fields = array();
-
-		$header_avatar = get_field( 'header_avatar', $post_id );
 
 		return $fields;
 	}
