@@ -18,14 +18,21 @@ if ( ! function_exists( 'acf_image_filter' ) ) :
 	 */
 	function acf_image_filter( $value ) {
 		if ( $value ) {
+			if ( is_int( $value ) ) {
+				return array(
+					'url' => wp_get_attachment_image_url( $value ),
+					'alt' => get_post_meta( $value, '_wp_attachment_image_alt', true ),
+				);
+			}
+
 			return array(
-				'url'   => $value['url'],
-				'alt'   => $value['alt'],
-				'sizes' => $value['sizes'],
+				'url' => $value['url'],
+				'alt' => $value['alt'],
 			);
+
 		}
 
-		return $value;
+		return null;
 	}
 endif;
 
