@@ -1,0 +1,60 @@
+<?php
+/**
+ * Page Api Setup
+ *
+ * @package thomasclaireau
+ */
+
+use App\Frontend\Pages;
+
+add_action( 'rest_api_init', 'thomasclaireau_page_api' );
+
+if ( ! function_exists( 'thomasclaireau_page_api' ) ) :
+	/**
+	 * Register page api
+	 *
+	 * @return void
+	 */
+	function thomasclaireau_page_api() {
+		register_rest_route(
+			get_stylesheet() . '/v1',
+			'/pages/',
+			array(
+				'methods'             => WP_REST_Server::READABLE,
+				'callback'            => 'thomasclaireau_page_api_callback',
+				'permission_callback' => '__return_true',
+			),
+		);
+	}
+endif;
+
+if ( ! function_exists( 'thomasclaireau_page_api_callback' ) ) :
+	/**
+	 * Callback of page api
+	 *
+	 * @return void
+	 */
+	function thomasclaireau_page_api_callback( $request ) {
+		header( 'Access-Control-Allow-Origin: ' . FRONTEND_URL );
+		header( 'content-type:application/json' );
+
+		$datas   = array();
+		$post_id = $request->get_param( 'post_id' );
+
+		if ( is_null( $post_id ) || '' === $post_id ) {
+			return wp_send_json( array( 'error' => 'Enter a valid post_id' ), 403 );
+		}
+
+		$post = get_post( $post_id );
+
+		if ( is_null( $post ) ) {
+			return wp_send_json( array( 'error' => 'Post not found' ), 404 );
+		}
+
+		$class = 'App\\Frontend\\Pages\\' . Pages::call_page_class( $post->ID );
+
+		$datas = call_user_func_array( array( $class, 'get_fields' ), array( $post->ID ) );
+
+		wp_send_json( $datas );
+	}
+endif;
