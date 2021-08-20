@@ -84,7 +84,7 @@ if ( ! function_exists( 'thomasclaireau_routes_api_callback' ) ) :
 
 		foreach ( $posts as $post ) {
 			$data[] = array(
-				'post_id'  => $page->ID,
+				'post_id'  => $post->ID,
 				'template' => $post_associations[ $post->post_type ],
 			);
 		}
