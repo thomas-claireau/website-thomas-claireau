@@ -8,19 +8,19 @@
 namespace App\Frontend\Posts;
 
 /**
- * Retrieve fields for post
+ * Retrieve datas for post
  */
 class Post {
 	/**
-	 * Return fields of post
+	 * Return datas of post
 	 *
 	 * @param mixed $post_id - Id of post.
 	 *
 	 * @return array
 	 */
-	public static function get_fields( $post_id ) {
-		$fields = array();
+	public static function datas( $post_id ) {
+		$datas = array();
 
-		return $fields;
+		return $datas;
 	}
 }

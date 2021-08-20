@@ -57,7 +57,7 @@ if ( ! function_exists( 'thomasclaireau_page_api_callback' ) ) :
 
 		$class = 'App\\Frontend\\Pages\\' . Pages::call_page_class( $post->ID );
 
-		$datas = call_user_func_array( array( $class, 'get_fields' ), array( $post->ID ) );
+		$datas = call_user_func_array( array( $class, 'datas' ), array( $post->ID ) );
 
 		wp_send_json( $datas );
 	}
