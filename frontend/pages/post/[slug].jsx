@@ -15,7 +15,7 @@ import style from './post.module.scss';
 import axios from 'axios';
 
 export default function Post({ post, providers }) {
-	const [authModal, setAuthModal] = useState(false);
+	// const [authModal, setAuthModal] = useState(false);
 	// const tags = post.Tags.length ? post.Tags.map((item) => item.name) : false;
 	// function handlePopup() {
 	// 	if (!authModal) setAuthModal(true);
@@ -51,7 +51,7 @@ export default function Post({ post, providers }) {
 				<Sidebar />
 				<HtmlContent>{post.content}</HtmlContent>
 			</Container>
-			{authModal && providers && <AuthModal providers={providers} />}
+			{/* {authModal && providers && <AuthModal providers={providers} />} */}
 		</Layout>
 	);
 }
@@ -72,11 +72,4 @@ export async function getStaticProps({ params }) {
 	);
 
 	return { props: { post: posts.data[0] } };
-	// const res = await fetch(
-	// 	`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${params.slug}`
-	// );
-	// const post = await res.json();
-	// // next auth -> get providers
-	// const providers = await getProviders();
-	// return { props: { post, providers } };
 }
