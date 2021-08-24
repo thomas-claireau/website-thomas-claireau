@@ -356,7 +356,7 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
 	const posts = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/api/posts/?limit=2`
+		`${process.env.NEXT_PUBLIC_API_URL}/posts/?limit=2`
 	);
 
 	return { props: { posts } };
