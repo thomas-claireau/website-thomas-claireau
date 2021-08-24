@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "next dev -p $(grep PORT .env.local | cut -d '=' -f2)",
 		"build": "next build",
-		"start": "next start -p $(grep PORT .env.local | cut -d '=' -f2)"
+		"start": "next start -p $(grep PORT .env.local | cut -d '=' -f2)",
+		"prod": "npm run build && npm run start"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.35",
