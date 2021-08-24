@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import style from './index.module.scss';
 import styleDetail from '../components/Detail/Detail.module.scss';
 
@@ -353,11 +355,9 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-	const res = await fetch(
+	const posts = await axios.get(
 		`${process.env.NEXT_PUBLIC_API_URL}/api/posts/?limit=2`
 	);
-
-	const posts = await res.json();
 
 	return { props: { posts } };
 }

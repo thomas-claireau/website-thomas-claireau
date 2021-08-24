@@ -12,13 +12,25 @@
 		padding: 0;
 	}
 
-	p {
+	p,
+	ul,
+	ol {
 		font-size: 1.9rem;
+		line-height: 3rem;
+	}
+
+	ul,
+	ol {
+		padding-left: 2rem;
+
+		> li:not(:first-child) {
+			margin-top: 2rem;
+		}
 	}
 
 	h2 {
 		font-size: 3.3rem;
-		line-height: 3rem;
+		line-height: 4rem;
 	}
 
 	h3 {

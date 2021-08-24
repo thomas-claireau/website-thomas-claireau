@@ -17,3 +17,20 @@ html {
 body {
 	color: $bleuFonce;
 }
+
+// code highlight
+pre.wp-block-code {
+	display: flex;
+	flex-direction: column;
+
+	> span.title {
+		opacity: 0.5;
+		margin-bottom: 1rem;
+	}
+
+	code {
+		.token.variable {
+			color: var(--foreground);
+		}
+	}
+}

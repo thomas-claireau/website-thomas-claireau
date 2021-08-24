@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
@@ -38,11 +39,9 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-	const res = await fetch(
+	const posts = await axios.get(
 		`${process.env.NEXT_PUBLIC_API_URL}/api/posts?limit=${NB_STARTER_POSTS}`
 	);
-
-	const posts = await res.json();
 
 	return { props: { posts } };
 }

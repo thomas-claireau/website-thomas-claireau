@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -23,13 +24,13 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 
 	async function fetchData(e) {
 		setTimeout(async () => {
-			const morePosts = await fetch(
+			const morePosts = await axios.get(
 				`${process.env.NEXT_PUBLIC_API_URL}/api/posts?limit=${
 					posts.length + nbStarterPosts
 				}`
 			);
 
-			setPosts(await morePosts.json());
+			setPosts(morePosts);
 		}, 1400);
 	}
 

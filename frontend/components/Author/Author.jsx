@@ -3,22 +3,20 @@ import moment from 'moment';
 
 import style from './Author.module.scss';
 
-export default function Author({ className, item }) {
+export default function Author({ className, post }) {
 	return (
 		<div className={`${className} ${style['author']}`}>
 			<div className={style['avatar']}>
-				<img src={item.User.avatar} alt="" />
+				<img src={post.author.avatar.url} alt={post.author.avatar.alt} />
 			</div>
 			<div className={style['infos']}>
-				<h4>
-					{item.User.firstname} {item.User.lastname}
-				</h4>
+				<h4>{post.author.name}</h4>
 				<div>
 					<span className={style['date']}>
-						{moment(item.updatedAt).format('D MMMM YYYY')}
+						{moment(post.updated_at).format('D MMMM YYYY')}
 					</span>
 					<span className={style['time']}>
-						&nbsp;&nbsp;{item.read} min read
+						&nbsp;&nbsp;{post.read} min read
 					</span>
 				</div>
 			</div>
@@ -28,5 +26,5 @@ export default function Author({ className, item }) {
 
 Author.propTypes = {
 	className: PropTypes.string,
-	item: PropTypes.object.isRequired,
+	post: PropTypes.object.isRequired,
 };

@@ -32,32 +32,28 @@ if ( ! function_exists( 'thomasclaireau_post_api_callback' ) ) :
 	/**
 	 * Callback of page api
 	 *
-	 * @param Request $request - Request.
+	 * @param mixed $request - Request.
 	 */
 	function thomasclaireau_post_api_callback( $request ) {
 		header( 'Access-Control-Allow-Origin: ' . FRONTEND_URL );
 		header( 'content-type:application/json' );
 
-		$datas   = array();
-		$post_id = $request->get_param( 'post_id' );
+		$datas = array();
 
-		if ( is_null( $post_id ) || '' === $post_id ) {
-			return wp_send_json( array( 'error' => 'Enter a valid post ID' ), 403 );
+		$args = array(
+			'name'        => $request->get_param( 'slug' ),
+			'post_type'   => 'post',
+			'post_status' => 'publish',
+			'nopaging'    => true,
+		);
+
+		$posts = get_posts( $args );
+
+		foreach ( $posts as $post ) {
+			$class = 'App\\Frontend\\Posts\\' . Posts::call_post_class( $post->post_type );
+
+			$datas[] = call_user_func_array( array( $class, 'datas' ), array( $post->ID ) );
 		}
-
-		$post = get_post( $post_id );
-
-		if ( is_null( $post ) ) {
-			return wp_send_json( array( 'error' => 'Post not found' ), 404 );
-		}
-
-		if ( 'page' === $post->post_type ) {
-			return wp_send_json( array( 'error' => 'Please enter post ID' ), 403 );
-		}
-
-		$class = 'App\\Frontend\\Posts\\' . Posts::call_post_class( $post->post_type );
-
-		$datas = call_user_func_array( array( $class, 'datas' ), array( $post->ID ) );
 
 		wp_send_json( $datas );
 	}
