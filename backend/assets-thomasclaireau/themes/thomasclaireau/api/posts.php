@@ -42,10 +42,9 @@ if ( ! function_exists( 'thomasclaireau_post_api_callback' ) ) :
 
 		$args = array(
 			'name'        => $request->get_param( 'slug' ),
-			'numberposts' => $request->get_param( 'limit' ) ?? -1,
+			'numberposts' => (int) $request->get_param( 'limit' ) ?? -1,
 			'post_type'   => 'post',
 			'post_status' => 'publish',
-			'nopaging'    => true,
 		);
 
 		$posts = get_posts( $args );
