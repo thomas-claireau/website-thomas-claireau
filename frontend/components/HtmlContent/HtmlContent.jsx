@@ -12,7 +12,10 @@ import style from './HtmlContent.module.scss';
 export default function HtmlContent({ children, className, ...props }) {
 	const [htmlContent, setHtmlContent] = useState(<div></div>);
 
-	useEffect(() => {
+	const isDomReady = typeof window !== 'undefined';
+	const useIsomorphicLayoutEffect = isDomReady ? useLayoutEffect : useEffect;
+
+	useIsomorphicLayoutEffect(() => {
 		Prism.highlightAll();
 
 		addTitleToBlockCode();
@@ -26,7 +29,7 @@ export default function HtmlContent({ children, className, ...props }) {
 		});
 	}, [htmlContent]);
 
-	useLayoutEffect(() => {
+	useIsomorphicLayoutEffect(() => {
 		setHtmlContent(
 			<div
 				{...props}
