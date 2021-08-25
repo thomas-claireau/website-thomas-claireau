@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ReactSVG } from 'react-svg';
 
 import style from './index.module.scss';
 import styleDetail from '../components/Detail/Detail.module.scss';
@@ -10,11 +11,10 @@ import Detail from '../components/Detail/Detail';
 import Projects from '../components/Projects/Projects';
 import HireMe from '../components/HireMe/HireMe';
 import Posts from '../components/Posts/Posts';
+import HtmlContent from '../components/HtmlContent/HtmlContent';
 
 import ServiceBackendSVG from 'public/assets/img/service-backend.svg';
-import ServiceIntegrationSVG from 'public/assets/img/service-integration.svg';
 import ServiceCmsSVG from 'public/assets/img/service-cms.svg';
-import ServiceOptimisationSVG from 'public/assets/img/service-optimisation.svg';
 import Button from '../components/Button/Button';
 import SymfonySVG from 'public/assets/img/symfony.svg';
 import PhpSVG from 'public/assets/img/php.svg';
@@ -29,110 +29,93 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faEdit, faTv } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home({ fields }) {
+	const { header, introduction_services, services, projects, cta_contact } =
+		fields;
+
 	console.log(fields);
+
 	return (
 		<Layout>
 			<main className={style['index']}>
 				<Container tag="section" className={style['introduction']}>
 					<div className={style['memoji']}>
 						<video
-							src="/assets/img/memoji-once.mp4"
+							title={header.avatar.alt}
+							src={header.avatar.url}
 							preload="auto"
 							autoPlay
 							muted
 							playsInline
 						></video>
 					</div>
-					<h1>
-						Je suis développeur PHP Symfony
-						<br />
-						et mentor pour Openclassrooms
-					</h1>
-					<div className={style['description']}>
-						<p>Je m'appelle Thomas Claireau et voici mon portfolio.</p>
-						<p>
-							Je suis développeur PHP Symfony, intégrateur web et
-							spécialisé Wordpress. Je suis également mentor chez
-							Openclassrooms.
-						</p>
-					</div>
+					<HtmlContent tag="h1">{header.titre}</HtmlContent>
+					<HtmlContent className={style['description']}>
+						{header.introduction}
+					</HtmlContent>
 				</Container>
 				<section className={style['services']}>
 					<Container className={style['container']}>
 						<div className={style['left']}>
-							<img src="assets/img/service.jpeg" alt="services" />
-							<div className={style['texte']}>
-								<h2>
-									Création de sites web ou d'applications en PHP, sous
-									le framework Symfony
-								</h2>
-								<p>
-									Je saurais vous accompagner au mieux aussi bien en
-									amont du projet (aide au cahier des charges,
-									conseils) qu’après sa réalisation (optimisation,
-									maintenance).
-								</p>
-								<p>
-									Je suis également à votre disposition si vous
-									souhaitez un avis extérieur sur votre projet web.
-								</p>
-							</div>
+							<img
+								src={introduction_services.introduction.image.url}
+								alt={introduction_services.introduction.image.alt}
+							/>
+							<HtmlContent className={style['texte']}>
+								{introduction_services.introduction.texte}
+							</HtmlContent>
 						</div>
 						<div className={style['right']}>
 							<Service>
 								<div>
-									<ServiceBackendSVG />
+									<ReactSVG
+										className="js-inject-me"
+										src={introduction_services.bloc_1.icon.url}
+										alt={introduction_services.bloc_1.icon.alt}
+									/>
 								</div>
-								<h3>Développement backend (Symfony)</h3>
-								<p>
-									Je met en place l'architecture back-end de votre
-									application tout en respectant les standards de
-									sécurité.
-								</p>
+								<h3>{introduction_services.bloc_1.title}</h3>
+								<HtmlContent tag="p">
+									{introduction_services.bloc_1.text}
+								</HtmlContent>
 							</Service>
 							<Service>
 								<div>
-									<ServiceCmsSVG />
+									<ReactSVG
+										className="js-inject-me"
+										src={introduction_services.bloc_2.icon.url}
+										alt={introduction_services.bloc_2.icon.alt}
+									/>
 								</div>
-								<h3>Création de thème sur un CMS</h3>
-								<p>
-									Je conçois, pour vous, votre thème ou votre plugin
-									<strong>administrable</strong>
-									sur Wordpress ou Prestashop. Je crée tout type de
-									site : vitrine, e-commerce, intranet...
-								</p>
+								<h3>{introduction_services.bloc_2.title}</h3>
+								<HtmlContent tag="p">
+									{introduction_services.bloc_2.text}
+								</HtmlContent>
 							</Service>
 							<Service>
 								<div className={style['icon']}>
-									<ServiceIntegrationSVG />
+									<ReactSVG
+										className="js-inject-me"
+										src={introduction_services.bloc_3.icon.url}
+										alt={introduction_services.bloc_3.icon.alt}
+									/>
 								</div>
-								<h3>Intégration web responsive d'une maquette</h3>
-								<p>
-									Je suis capable de travailler avec un designer web et
-									d'intégrer sa maquette graphique. Je suis également
-									force de proposition sur le responsive, si la
-									maquette n'est pas complète.
-								</p>
+								<h3>{introduction_services.bloc_3.title}</h3>
+								<HtmlContent tag="p">
+									{introduction_services.bloc_2.text}
+								</HtmlContent>
 							</Service>
 							<Service>
 								<div>
-									<ServiceOptimisationSVG />
+									<ReactSVG
+										className="js-inject-me"
+										src={introduction_services.bloc_4.icon.url}
+										alt={introduction_services.bloc_4.icon.alt}
+									/>
 								</div>
-								<h3>
-									Optimisation, référencement naturel (SEO) et
-									maintenance
-								</h3>
-								<p>
-									Je développe en ayant connaissance de la
-									<strong>performance</strong>
-									du site, des principes d'
-									<strong>accessibilités</strong>
-									et de la notion de
-									<strong>cleancode</strong>. J'ai d'ailleurs, en tant
-									que mentor chez Openclassrooms, l'occasion
-									d'accompagner des étudiants sur ces différentes
-									thématiques.
-								</p>
+								<h3>{introduction_services.bloc_4.title}</h3>
+								<HtmlContent tag="p">
+									{introduction_services.bloc_2.text}
+								</HtmlContent>
 							</Service>
 						</div>
 					</Container>
@@ -142,36 +125,31 @@ export default function Home({ fields }) {
 						<Detail>
 							<div className={styleDetail['content']}>
 								<div className={styleDetail['icon']}>
-									<ServiceBackendSVG />
+									<ReactSVG
+										src={services.bloc_1.icon.url}
+										alt={services.bloc_1.icon.alt}
+									/>
 								</div>
-								<h2>Développement backend</h2>
-								<ul>
-									<li>
-										Mise en place de l'architecture backend en
-										<strong>Symfony</strong>
-									</li>
-									<li>Respect des standards de sécurité</li>
-									<li>
-										Tout type d'applications : SaaS, logiciel interne,
-										intranet, extranet, site web
-									</li>
-									<li>Développement d'API REST</li>
-									<li>Respect des standards OWASP</li>
-									<li>
-										Conseils ou audits sur votre architecture
-										existante
-									</li>
-								</ul>
+								<h2>{services.bloc_1.title}</h2>
+								<HtmlContent>{services.bloc_1.text}</HtmlContent>
 							</div>
 							<div className={styleDetail['medias']}>
-								<SymfonySVG />
-								<PhpSVG />
+								<ReactSVG
+									className={`${styleDetail['logo']} ${styleDetail['symfony']}`}
+									src={services.bloc_1.logos.logo_1.url}
+									alt={services.bloc_1.logos.logo_1.alt}
+								/>
+								<ReactSVG
+									className={`${styleDetail['logo']} ${styleDetail['php']}`}
+									src={services.bloc_1.logos.logo_2.url}
+									alt={services.bloc_1.logos.logo_2.alt}
+								/>
 								<Button
-									icon={<FontAwesomeIcon icon={faGithub} />}
-									text="Voir sur GitHub"
-									url="https://github.com/thomas-claireau"
+									icon={<FontAwesomeIcon icon={'coucou'} />}
+									text={services.bloc_1.cta.title}
+									url={services.bloc_1.cta.url}
 									type="github"
-									blank
+									blank={services.bloc_1.cta.target === '_blank'}
 								/>
 							</div>
 						</Detail>

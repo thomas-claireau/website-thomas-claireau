@@ -6,10 +6,14 @@ import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-bash.js';
 import 'prismjs/components/prism-markup-templating.js';
 import 'dracula-prism/dist/css/dracula-prism.css';
-import marked from 'marked';
 import style from './HtmlContent.module.scss';
 
-export default function HtmlContent({ children, className, ...props }) {
+export default function HtmlContent({
+	tag = 'div',
+	children,
+	className,
+	...props
+}) {
 	const [htmlContent, setHtmlContent] = useState(<div></div>);
 
 	const isDomReady = typeof window !== 'undefined';
@@ -29,13 +33,15 @@ export default function HtmlContent({ children, className, ...props }) {
 		});
 	}, [htmlContent]);
 
+	const Tag = tag;
+
 	useIsomorphicLayoutEffect(() => {
 		setHtmlContent(
-			<div
+			<Tag
 				{...props}
 				className={`html-content ${style['html-content']} ${className}`}
 				dangerouslySetInnerHTML={{
-					__html: children ? marked(children) : '',
+					__html: children,
 				}}
 			/>
 		);

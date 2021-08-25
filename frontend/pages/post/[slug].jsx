@@ -9,17 +9,11 @@ import Author from '../../components/Author/Author';
 import HtmlContent from '../../components/HtmlContent/HtmlContent';
 import SocialProof from '../../components/SocialProof/SocialProof';
 import Sidebar from '../../components/Sidebar/Sidebar';
-import AuthModal from '../../components/AuthModal/AuthModal';
 
 import style from './post.module.scss';
 import axios from 'axios';
 
 export default function Post({ post, providers }) {
-	// const [authModal, setAuthModal] = useState(false);
-	// const tags = post.Tags.length ? post.Tags.map((item) => item.name) : false;
-	// function handlePopup() {
-	// 	if (!authModal) setAuthModal(true);
-	// }
 	return (
 		<Layout>
 			<Head>
@@ -49,9 +43,8 @@ export default function Post({ post, providers }) {
 					/>
 				)}
 				<Sidebar />
-				<HtmlContent>{post.content}</HtmlContent>
+				<HtmlContent className={style["html-content"]}>{post.content}</HtmlContent>
 			</Container>
-			{/* {authModal && providers && <AuthModal providers={providers} />} */}
 		</Layout>
 	);
 }
