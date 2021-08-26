@@ -24,14 +24,8 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 
 	async function fetchData(e) {
 		setTimeout(async () => {
-			const morePosts = await axios.get(
-				`${process.env.NEXT_PUBLIC_API_URL}/posts?limit=${
-					posts.length + nbStarterPosts
-				}`
-			);
-
-			setPosts(morePosts.data);
-		}, 1000);
+			setPosts(items.slice(0, nbStarterPosts + Number(posts.length)));
+		}, 1500);
 	}
 
 	return nbStarterPosts ? (
