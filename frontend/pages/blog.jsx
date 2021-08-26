@@ -41,7 +41,5 @@ export default function Blog({ posts }) {
 export async function getStaticProps() {
 	const posts = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
 
-	console.log(Object.values(posts.data).length);
-
 	return { props: { posts: posts.data } };
 }
