@@ -11,7 +11,7 @@ export default function Post({ index, item, layout }) {
 	return (
 		item.title &&
 		item.thumbnail.url && (
-			<Link href={`/posts/${item.id}`}>
+			<Link href={`/post/${item.slug}`}>
 				<a
 					className={`${post} ${
 						layout == 'full' && index % 6 == 0 ? stylePosts['large'] : ''
