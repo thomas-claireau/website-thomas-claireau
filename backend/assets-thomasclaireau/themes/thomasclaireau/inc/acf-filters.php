@@ -7,6 +7,7 @@
 
 add_filter( 'acf/format_value/type=image', 'acf_image_filter', 20, 3 );
 add_filter( 'acf/format_value/type=file', 'acf_file_filter', 20, 3 );
+add_filter( 'acf/format_value/type=group', 'acf_group_filter', 20, 3 );
 
 if ( ! function_exists( 'acf_image_filter' ) ) :
 	/**
@@ -54,5 +55,26 @@ if ( ! function_exists( 'acf_file_filter' ) ) :
 		}
 
 		return $value;
+	}
+endif;
+
+if ( ! function_exists( 'acf_group_filter' ) ) :
+	/**
+	 * Acf Group Filter (remove acf bug property null)
+	 *
+	 * @param mixed $array - Value of filter field.
+	 *
+	 * @return array
+	 */
+	function acf_group_filter( $array ) {
+
+		$new_array = array_filter(
+			$array,
+			function( $item ) {
+				return $item;
+			}
+		);
+
+		return $new_array;
 	}
 endif;
