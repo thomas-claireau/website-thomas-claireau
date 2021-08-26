@@ -768,30 +768,11 @@
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
-                                "width": "50",
+                                "width": "",
                                 "class": "",
                                 "id": ""
                             },
                             "return_format": "array"
-                        },
-                        {
-                            "key": "field_611d2fd0ea9c7",
-                            "label": "Class CTA",
-                            "name": "class_cta",
-                            "type": "text",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "50",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": "",
-                            "maxlength": ""
                         }
                     ]
                 },
@@ -1572,6 +1553,21 @@
                             "min_size": "",
                             "max_size": "",
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_61277c7d80b21",
+                            "label": "Media Cta",
+                            "name": "media_cta",
+                            "type": "link",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array"
                         }
                     ]
                 }
@@ -1896,30 +1892,11 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "return_format": "array"
-                },
-                {
-                    "key": "field_611f3e5b4ccc5",
-                    "label": "Class CTA",
-                    "name": "class_cta",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
                 }
             ]
         }
@@ -1943,5 +1920,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1629967120
+    "modified": 1629978507
 }

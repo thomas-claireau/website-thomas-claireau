@@ -97,7 +97,7 @@ div.detail {
 					}
 				}
 
-				&.react {
+				&.react-js {
 					--bgColor: #0da5e9;
 
 					svg {
@@ -106,7 +106,7 @@ div.detail {
 					}
 				}
 
-				&.next {
+				&.next-js {
 					--bgColor: #334155;
 
 					svg {
@@ -121,6 +121,12 @@ div.detail {
 
 				&.sass {
 					--bgColor: #cd6799;
+				}
+
+				div {
+					display: flex;
+					justify-content: center;
+					align-items: center;
 				}
 			}
 
