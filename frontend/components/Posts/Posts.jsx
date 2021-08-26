@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
