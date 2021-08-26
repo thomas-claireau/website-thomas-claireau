@@ -30,8 +30,8 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 				}`
 			);
 
-			setPosts(morePosts);
-		}, 1400);
+			setPosts(morePosts.data);
+		}, 1000);
 	}
 
 	return nbStarterPosts ? (

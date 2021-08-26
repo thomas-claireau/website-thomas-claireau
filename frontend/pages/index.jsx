@@ -29,8 +29,6 @@ export default function Home({ fields }) {
 		posts,
 	} = fields;
 
-	console.log(fields);
-
 	return (
 		<Layout>
 			<main className={style['index']}>

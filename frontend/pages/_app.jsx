@@ -14,8 +14,6 @@ axios.defaults.httpsAgent = new https.Agent({
 export default function MyApp({ Component, pageProps }) {
 	moment.locale('fr');
 
-	useEffect(jsInjectMe, []);
-
 	return <Component {...pageProps} />;
 }
 
@@ -23,8 +21,3 @@ MyApp.propTypes = {
 	Component: PropTypes.func.isRequired,
 	pageProps: PropTypes.object.isRequired,
 };
-
-function jsInjectMe() {
-	const svgs = document.querySelectorAll('img.js-inject-me');
-	console.log(svgs);
-}
