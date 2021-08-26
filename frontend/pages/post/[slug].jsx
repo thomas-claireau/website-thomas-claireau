@@ -7,6 +7,7 @@ import Author from '../../components/Author/Author';
 import HtmlContent from '../../components/HtmlContent/HtmlContent';
 import SocialProof from '../../components/SocialProof/SocialProof';
 import Sidebar from '../../components/Sidebar/Sidebar';
+import Posts from '../../components/Posts/Posts';
 
 import style from './post.module.scss';
 import axios from 'axios';
@@ -43,9 +44,12 @@ export default function Post({ post }) {
 					/>
 				)}
 				<Sidebar />
-				<HtmlContent className={style['html-content']}>
+				<HtmlContent id="content" className={style['html-content']}>
 					{post.content}
 				</HtmlContent>
+				{post.related_posts && (
+					<Posts items={post.related_posts} className={style['posts']} />
+				)}
 			</Container>
 		</Layout>
 	);

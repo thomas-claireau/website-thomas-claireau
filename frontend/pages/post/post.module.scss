@@ -64,4 +64,23 @@
 		align-items: center;
 		margin-top: 2.5rem;
 	}
+
+	.posts {
+		--espacement: 12rem;
+
+		position: relative;
+		margin-top: var(--espacement);
+
+		&:before {
+			content: '';
+			width: 100%;
+			height: 0.1rem;
+			position: absolute;
+			top: calc((var(--espacement) / 2) * -1);
+			left: 0;
+			background-color: lighten($gris, 20%);
+			border-radius: 100%;
+			opacity: 0.5;
+		}
+	}
 }
