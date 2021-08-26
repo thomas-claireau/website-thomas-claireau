@@ -26,6 +26,23 @@ class Post {
 			return null;
 		}
 
+		$datas                  = self::get_formatted_post_datas( $post );
+		$datas['related_posts'] = self::get_related_posts( $post->ID );
+
+		return $datas;
+	}
+
+	/**
+	 * Return formatted post datas
+	 *
+	 * @param object $post - post object.
+	 *
+	 * @return array
+	 */
+	public static function get_formatted_post_datas( $post ) {
+		$datas = array();
+
+		$datas['id']               = $post->ID;
 		$datas['slug']             = $post->post_name;
 		$datas['title']            = $post->post_title;
 		$datas['thumbnail']['url'] = get_the_post_thumbnail_url( $post );
@@ -40,18 +57,93 @@ class Post {
 
 		$datas['content'] = $post->post_content;
 
-		/**
-		 * Get categories of post
-		 */
-		$categories          = get_the_category( $post->ID );
-		$datas['categories'] = array();
+		$datas['categories'] = self::get_categories_post( $post->ID );
+
+		return $datas;
+	}
+
+	/**
+	 * Get categories of post
+	 *
+	 * @param mixed $post_id - Post Id.
+	 *
+	 * @return array
+	 */
+	public static function get_categories_post( $post_id ) {
+		$datas      = array();
+		$categories = get_the_category( $post_id );
 
 		foreach ( $categories as $category ) {
 			if ( 1 !== $category->term_id ) {
-				$datas['categories'][] = $category->cat_name;
+				$datas[] = $category->cat_name;
 			}
 		}
 
 		return $datas;
 	}
+
+	/**
+	 * Get related posts (by categs)
+	 *
+	 * @param string $post_id - Id of post.
+	 *
+	 * @return array
+	 */
+	public static function get_related_posts( $post_id ) {
+		$categories_id = array_filter(
+			wp_get_post_categories( $post_id ),
+			function( $category_id ) {
+				return 1 !== $category_id;
+			}
+		);
+
+		$related_posts = get_posts(
+			array(
+				'category__in' => $categories_id,
+				'post__not_in' => array( $post_id ),
+				'numberposts'  => 2,
+			)
+		);
+
+		$related_posts = array_map(
+			function( $post ) {
+				return self::get_formatted_post_datas( $post );
+			},
+			$related_posts
+		);
+
+		switch ( true ) {
+			case count( $related_posts ) === 1:
+				array_push(
+					$related_posts,
+					self::get_formatted_post_datas(
+						get_posts(
+							array(
+								'post__not_in' => array( $post_id, $related_posts[0]['id'] ),
+								'numberposts'  => 1,
+							)
+						)[0]
+					)
+				);
+
+				break;
+			case empty( $related_posts ):
+				$related_posts = array_map(
+					function( $post ) {
+						return self::get_formatted_post_datas( $post );
+					},
+					get_posts(
+						array(
+							'post__not_in' => array( $post_id ),
+							'numberposts'  => 2,
+						)
+					)
+				);
+
+				break;
+		}
+
+		return $related_posts;
+	}
 }
+
