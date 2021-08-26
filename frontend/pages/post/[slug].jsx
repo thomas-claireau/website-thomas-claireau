@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import { useState } from 'react';
-import { getProviders } from 'next-auth/client';
 
 import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
@@ -13,7 +11,7 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import style from './post.module.scss';
 import axios from 'axios';
 
-export default function Post({ post, providers }) {
+export default function Post({ post }) {
 	return (
 		<Layout>
 			<Head>
@@ -21,9 +19,11 @@ export default function Post({ post, providers }) {
 			</Head>
 			<Container className={style['post']}>
 				<div className={style['header']}>
-					{/* {tags && (
-						<span className={style['tags']}>{tags.join(', ')}</span>
-					)} */}
+					{post.categories && (
+						<span className={style['categories']}>
+							{post.categories.join(', ')}
+						</span>
+					)}
 					<div className={style['top']}>
 						<h1>{post.title}</h1>
 						<SocialShare direction="horizontal" id={post.id} />
@@ -43,7 +43,9 @@ export default function Post({ post, providers }) {
 					/>
 				)}
 				<Sidebar />
-				<HtmlContent className={style["html-content"]}>{post.content}</HtmlContent>
+				<HtmlContent className={style['html-content']}>
+					{post.content}
+				</HtmlContent>
 			</Container>
 		</Layout>
 	);

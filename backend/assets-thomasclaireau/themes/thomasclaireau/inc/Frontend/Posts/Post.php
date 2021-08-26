@@ -40,6 +40,18 @@ class Post {
 
 		$datas['content'] = $post->post_content;
 
+		/**
+		 * Get categories of post
+		 */
+		$categories          = get_the_category( $post->ID );
+		$datas['categories'] = array();
+
+		foreach ( $categories as $category ) {
+			if ( 1 !== $category->term_id ) {
+				$datas['categories'][] = $category->cat_name;
+			}
+		}
+
 		return $datas;
 	}
 }
