@@ -29,6 +29,8 @@ export default function Home({ fields }) {
 		posts,
 	} = fields;
 
+	console.log(projects);
+
 	return (
 		<Layout>
 			<main className={style['index']}>
@@ -210,7 +212,7 @@ export default function Home({ fields }) {
 					<Container className={style['container']}>
 						<h2>{projects.title}</h2>
 						<HtmlContent>{projects.introduction}</HtmlContent>
-						<Projects />
+						<Projects fields={projects.projects} />
 						<Button
 							className={style['cta']}
 							icon={<FontAwesomeIcon icon={faTv} />}
