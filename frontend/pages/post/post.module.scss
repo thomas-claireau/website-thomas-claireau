@@ -9,11 +9,17 @@
 		}
 	}
 
+	.content {
+		display: flex;
+		align-items: flex-start;
+		gap: 5rem;
+		margin-top: 6rem;
+	}
+
 	.html-content {
 		display: flex;
 		flex-direction: column;
 		gap: 2.5rem;
-		margin-top: 6rem;
 		margin-right: auto;
 		margin-left: auto;
 		width: 70%;

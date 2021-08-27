@@ -43,10 +43,12 @@ export default function Post({ post }) {
 						alt={post.thumbnail.alt}
 					/>
 				)}
-				<Sidebar />
-				<HtmlContent id="content" className={style['html-content']}>
-					{post.content}
-				</HtmlContent>
+				<div className={style['content']}>
+					<Sidebar />
+					<HtmlContent className={style['html-content']}>
+						{post.content}
+					</HtmlContent>
+				</div>
 				{post.related_posts && (
 					<Posts items={post.related_posts} className={style['posts']} />
 				)}
