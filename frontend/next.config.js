@@ -12,4 +12,7 @@ module.exports = withReactSvg({
 
 		return config;
 	},
+	images: {
+		domains: ['thomas-claireau.local'],
+	},
 });

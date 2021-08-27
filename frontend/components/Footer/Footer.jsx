@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import {
 	faFacebook,
 	faGithub,
@@ -24,10 +26,12 @@ export default function Footer() {
 			<Container className={container}>
 				<div className={top}>
 					<div className={left}>
-						<img
+						<Image
 							className={memoji}
 							src="/assets/img/memoji.png"
 							alt="memoji-thomas-claireau"
+							width={54}
+							height={70}
 						/>
 						<h2>Restons en contact !</h2>
 					</div>

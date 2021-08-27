@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 
 import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
@@ -37,10 +38,13 @@ export default function Post({ post }) {
 					</div>
 				</div>
 				{post.thumbnail.url && (
-					<img
+					<Image
 						className={style['thumbnail']}
 						src={post.thumbnail.url}
 						alt={post.thumbnail.alt}
+						width={1280}
+						height={720}
+						layout="responsive"
 					/>
 				)}
 				<div className={style['content']}>

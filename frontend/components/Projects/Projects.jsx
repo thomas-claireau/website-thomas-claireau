@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style, { projects } from './Projects.module.scss';
@@ -18,7 +20,11 @@ export default function Projects({ fields }) {
 									className={style['fa-eye']}
 									icon={faEye}
 								/>
-								<img src={field.image.url} alt={field.image.alt} />
+								<Image
+									src={field.image.url}
+									alt={field.image.alt}
+									layout="fill"
+								/>
 								{field.date && (
 									<span className="year">{field.date}</span>
 								)}

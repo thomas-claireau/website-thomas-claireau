@@ -1,7 +1,10 @@
 .post {
+	position: relative;
 	padding: 20rem 0 25rem 0;
 
 	.header {
+		margin-bottom: 5rem;
+
 		.top {
 			display: flex;
 			justify-content: space-between;
@@ -30,13 +33,6 @@
 		font-size: 6rem;
 		line-height: 6.5rem;
 		font-weight: 700;
-	}
-
-	img.thumbnail {
-		width: 100%;
-		margin-top: 6rem;
-		object-fit: cover;
-		aspect-ratio: 2/1;
 	}
 
 	.categories {

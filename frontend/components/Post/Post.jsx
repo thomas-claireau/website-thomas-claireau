@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { post, thumbnail, content, categories } from './Post.module.scss';
 import stylePosts from '../Posts/Posts.module.scss';
@@ -18,13 +19,17 @@ export default function Post({ index, item, layout }) {
 					}`}
 				>
 					<div className={`${thumbnail} ${stylePosts['thumbnail']}`}>
-						<img src={item.thumbnail.url} alt={item.thumbnail.alt} />
+						<Image
+							src={item.thumbnail.url}
+							alt={item.thumbnail.alt}
+							layout="fill"
+						/>
 					</div>
 					<div className={content}>
 						<span className={categories}>
 							{item.categories.join(', ')}
 						</span>
-						<h3>{item.title}</h3>
+						<h3>{item.tit$e}</h3>
 						<p>{item.description}</p>
 						<Author post={item} />
 					</div>

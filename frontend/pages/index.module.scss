@@ -107,7 +107,7 @@
 
 				.texte {
 					width: 102%;
-					margin-top: -4rem;
+					margin-top: -5rem;
 					padding: 6rem 3rem 4rem 3rem;
 					background-color: $rouge;
 					clip-path: $clip-path;
@@ -115,6 +115,8 @@
 					h2 {
 						margin-bottom: 2rem;
 						font-size: 1.8rem;
+						line-height: 2.8rem;
+						font-weight: bold;
 					}
 				}
 			}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ReactSVG } from 'react-svg';
 import slugify from 'slugify';
+import Image from 'next/image';
 
 import style from './index.module.scss';
 import styleDetail from '../components/Detail/Detail.module.scss';
@@ -29,8 +30,6 @@ export default function Home({ fields }) {
 		posts,
 	} = fields;
 
-	console.log(projects);
-
 	return (
 		<Layout>
 			<main className={style['index']}>
@@ -53,9 +52,12 @@ export default function Home({ fields }) {
 				<section className={style['services']}>
 					<Container className={style['container']}>
 						<div className={style['left']}>
-							<img
+							<Image
 								src={introduction_services.introduction.image.url}
 								alt={introduction_services.introduction.image.alt}
+								width={360}
+								height={240}
+								layout="responsive"
 							/>
 							<HtmlContent className={style['texte']}>
 								{introduction_services.introduction.texte}
