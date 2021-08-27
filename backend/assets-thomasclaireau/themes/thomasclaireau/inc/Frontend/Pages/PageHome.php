@@ -99,6 +99,7 @@ class PageHome {
 					$datas[ $key ][ $_key ]['introduction'] = get_field( 'introduction', $project->ID );
 					$datas[ $key ][ $_key ]['tags']         = self::get_taxonomy_items( $project->ID, 'project_tag' );
 					$datas[ $key ][ $_key ]['date']         = get_field( 'annee', $project->ID );
+					$datas[ $key ][ $_key ]['url']          = get_field( 'url', $project->ID );
 
 				}
 			} else {

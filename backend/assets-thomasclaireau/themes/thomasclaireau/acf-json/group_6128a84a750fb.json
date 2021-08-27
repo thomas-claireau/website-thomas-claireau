@@ -61,6 +61,22 @@
             "display_format": "Y",
             "return_format": "Y",
             "first_day": 1
+        },
+        {
+            "key": "field_6128f01bfb5b1",
+            "label": "Url",
+            "name": "url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -80,5 +96,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1630058277
+    "modified": 1630072872
 }

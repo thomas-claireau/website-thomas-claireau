@@ -10,10 +10,7 @@ export default function Projects({ fields }) {
 			{fields.length &&
 				fields.map((field, index) => (
 					<li key={index}>
-						<a
-							href="https://github.com/thomas-claireau/feeling-good-bakery"
-							target="_blank"
-						>
+						<a href={field.url} target="_blank">
 							<h3>{field.title}</h3>
 							<div>
 								<FontAwesomeIcon
