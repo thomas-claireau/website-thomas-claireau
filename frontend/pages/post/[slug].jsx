@@ -38,11 +38,11 @@ export default function Post({ post }) {
 					</div>
 				</div>
 				{post.thumbnail.url && (
-					<Image
+					<img
 						className={style['thumbnail']}
 						src={post.thumbnail.url}
 						alt={post.thumbnail.alt}
-						width={1280}
+						width={process.env.NEXT_PUBLIC_VP_WIDTH || 1280}
 						height={720}
 						layout="responsive"
 					/>

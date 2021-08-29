@@ -5,7 +5,17 @@ import { container } from './Container.module.scss';
 export default function Container({ tag = 'div', children, className }) {
 	const Tag = tag;
 
-	return <Tag className={`${className} ${container}`}>{children}</Tag>;
+	return (
+		<Tag className={`container ${className} ${container}`}>
+			{children}
+			<style jsx>{`
+				.container {
+					max-width: ${(process.env.NEXT_PUBLIC_VP_WIDTH || 1280) / 10 +
+					'rem'};
+				}
+			`}</style>
+		</Tag>
+	);
 }
 
 Container.propTypes = {

@@ -35,7 +35,13 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 			className={`${className} ${style['posts']} ${style[layout]}`}
 		>
 			{posts.map((post, index) => (
-				<Post key={index} index={index} layout={layout} item={post} />
+				<Post
+					key={index}
+					index={index}
+					layout={layout}
+					item={post}
+					last={posts.length == items.length}
+				/>
 			))}
 		</InfiniteScroll>
 	) : (
