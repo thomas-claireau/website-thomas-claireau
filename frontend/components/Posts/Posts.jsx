@@ -5,6 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import style from './Posts.module.scss';
 
 import Post from '../Post/Post';
+import Loader from '../Loader/Loader';
 
 export default function Posts({ className, layout, items, nbStarterPosts }) {
 	const [posts, setPosts] = useState([]);
@@ -33,6 +34,7 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 			next={fetchData}
 			hasMore={true}
 			className={`${className} ${style['posts']} ${style[layout]}`}
+			loader={<Loader last={posts.length == items.length} />}
 		>
 			{posts.map((post, index) => (
 				<Post
