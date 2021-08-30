@@ -1,40 +1,18 @@
 import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faLinkedinIn,
-	faInstagram,
-	faGithub,
-	faFacebook,
-} from '@fortawesome/free-brands-svg-icons';
+import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 import { menu } from './Menu.module.scss';
-import {
-	blog,
-	icon,
-	contact,
-	toggleTheme,
-	light,
-	dark,
-	lightImg,
-	darkImg,
-	icons,
-} from '../MenuItem/MenuItem.module.scss';
+import style, { light, dark } from '../MenuItem/MenuItem.module.scss';
 
 import MenuItem from '../MenuItem/MenuItem';
 import Button from '../Button/Button';
 
 import Sun from 'public/assets/img/sun.svg';
 import Moon from 'public/assets/img/moon.svg';
-import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
-import { useThemeContext } from '../ThemeProvider';
 
-export default function Menu() {
+export default function Menu({ items }) {
 	const [toggle, setToggle] = useState(light);
-
-	const { header } = useThemeContext();
-
-	console.log(header);
 
 	function handleClick() {
 		setToggle(toggle == light ? dark : light);
@@ -42,52 +20,44 @@ export default function Menu() {
 
 	return (
 		<nav className={menu}>
-			<MenuItem className={icon}>
-				<a
-					href="https://www.linkedin.com/in/thomas-claireau/"
-					target="_blank"
-				>
-					<FontAwesomeIcon icon={faLinkedinIn} />
-				</a>
-			</MenuItem>
-			<MenuItem className={icon}>
-				<a href="https://www.instagram.com/thomasclaireau/" target="_blank">
-					<FontAwesomeIcon icon={faInstagram} />
-				</a>
-			</MenuItem>
-			<MenuItem className={icon}>
-				<a
-					href="https://www.facebook.com/thomasclaireau.dev"
-					target="_blank"
-				>
-					<FontAwesomeIcon icon={faFacebook} />
-				</a>
-			</MenuItem>
-			<MenuItem className={icon}>
-				<a href="https://github.com/thomas-claireau" target="_blank">
-					<FontAwesomeIcon icon={faGithub} />
-				</a>
-			</MenuItem>
-			<MenuItem className={contact}>
+			{items &&
+				items.length &&
+				items.map((item, index) => {
+					return (
+						<MenuItem className={style['icon']} key={index}>
+							<a title={item.title} href={item.url} target={item.target}>
+								<i className={item.class}></i>
+							</a>
+						</MenuItem>
+					);
+				})}
+			<MenuItem className={style['contact']}>
 				<Button
-					icon={<FontAwesomeIcon icon={faEnvelopeOpen} />}
+					icon={<i className="far fa-envelope-open" />}
 					text="Contactez-moi"
 					url="#contact"
 					type="cta"
 				/>
 			</MenuItem>
-			<MenuItem className={blog}>
+			<MenuItem className={style['blog']}>
 				<Link href="/blog/">
 					<a>Blog</a>
 				</Link>
 			</MenuItem>
-			<MenuItem className={`${toggleTheme} ${toggle}`} onClick={handleClick}>
-				<div className={icons}>
-					<Sun className={lightImg} />
-					<Moon className={darkImg} />
+			<MenuItem
+				className={`${style['toggleTheme']} ${toggle}`}
+				onClick={handleClick}
+			>
+				<div className={style['icons']}>
+					<Sun className={style['lightImg']} />
+					<Moon className={style['darkImg']} />
 				</div>
 				<span></span>
 			</MenuItem>
 		</nav>
 	);
 }
+
+Menu.propTypes = {
+	items: PropTypes.array,
+};

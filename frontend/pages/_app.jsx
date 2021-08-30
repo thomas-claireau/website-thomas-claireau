@@ -3,8 +3,7 @@ import moment from 'moment';
 import axios from 'axios';
 import https from 'https';
 
-import { useState } from 'react';
-
+import Head from 'next/head';
 import { ThemeProvider } from '../components/ThemeProvider';
 
 import '../styles/global.scss';
@@ -25,6 +24,17 @@ export default function MyApp({ Component, pageProps }) {
 
 	return (
 		<ThemeProvider value={global}>
+			<Head>
+				<link
+					rel="stylesheet"
+					href="/assets/css/fontawesome.min.css"
+					referrerpolicy="no-referrer"
+				/>
+				<script
+					src="/assets/js/fontawesome.min.js"
+					referrerpolicy="no-referrer"
+				></script>
+			</Head>
 			<Component {...pageProps} />
 		</ThemeProvider>
 	);

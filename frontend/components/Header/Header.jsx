@@ -10,6 +10,8 @@ import { useThemeContext } from '../ThemeProvider';
 export default function Header() {
 	const [scrolled, setScrolled] = useState(0);
 
+	const { header } = useThemeContext();
+
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
 
@@ -34,8 +36,8 @@ export default function Header() {
 						Claireau
 					</a>
 				</Link>
-				<Menu />
-				<MenuMobile />
+				<Menu items={header.menus.items} />
+				<MenuMobile items={header.menus.items} />
 			</Container>
 		</header>
 	);
