@@ -219,7 +219,7 @@ export default function Home({ fields }) {
 							className={style['cta']}
 							icon={<FontAwesomeIcon icon={faTv} />}
 							text={projects.cta.title}
-							url={`https://github.com/thomas-claireau?tab=repositories&q=topic%3Acompleted-project&type=&language=&sort=`}
+							url={projects.cta.url}
 							type="cta"
 							blank={projects.cta.target == '_blank'}
 						/>
