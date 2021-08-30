@@ -27,9 +27,14 @@ import Sun from 'public/assets/img/sun.svg';
 import Moon from 'public/assets/img/moon.svg';
 import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import { useThemeContext } from '../ThemeProvider';
 
 export default function Menu() {
 	const [toggle, setToggle] = useState(light);
+
+	const { header } = useThemeContext();
+
+	console.log(header);
 
 	function handleClick() {
 		setToggle(toggle == light ? dark : light);

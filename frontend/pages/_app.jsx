@@ -3,6 +3,10 @@ import moment from 'moment';
 import axios from 'axios';
 import https from 'https';
 
+import { useState } from 'react';
+
+import { ThemeProvider } from '../components/ThemeProvider';
+
 import '../styles/global.scss';
 
 if (process.env.NODE_ENV === 'development') {
@@ -17,7 +21,13 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; // TODO: temporaire -> attendre le
 export default function MyApp({ Component, pageProps }) {
 	moment.locale('fr');
 
-	return <Component {...pageProps} />;
+	const { global } = pageProps;
+
+	return (
+		<ThemeProvider value={global}>
+			<Component {...pageProps} />
+		</ThemeProvider>
+	);
 }
 
 MyApp.propTypes = {

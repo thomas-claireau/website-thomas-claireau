@@ -251,7 +251,9 @@ export async function getStaticProps() {
 		`${process.env.NEXT_PUBLIC_API_URL}/pages?post_id=22`
 	);
 
-	return { props: { fields: fields.data } };
+	const global = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/global`);
+
+	return { props: { fields: fields.data, global: global.data } };
 }
 
 function Languages({ languages, interval }) {
