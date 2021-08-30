@@ -1,13 +1,14 @@
-import { header, left, scrolled } from './Header.module.scss';
+import style from './Header.module.scss';
 
 import Menu from '../Menu/Menu';
 import MenuMobile from '../MenuMobile/MenuMobile';
 import Container from '../Container/Container';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useThemeContext } from '../ThemeProvider';
 
 export default function Header() {
-	const [scroll, setScroll] = useState(0);
+	const [scrolled, setScrolled] = useState(0);
 
 	useEffect(() => {
 		window.addEventListener('scroll', handleScroll);
@@ -18,14 +19,16 @@ export default function Header() {
 	}, []);
 
 	function handleScroll() {
-		setScroll(window.scrollY);
+		setScrolled(window.scrollY > 0);
 	}
 
 	return (
-		<header className={`${header} ${scroll > 0 ? scrolled : ''}`}>
+		<header
+			className={`${style['header']} ${scrolled ? style['scrolled'] : ''}`}
+		>
 			<Container>
 				<Link href="/">
-					<a className={left}>
+					<a className={style['left']}>
 						Thomas
 						<span>/</span>
 						Claireau
