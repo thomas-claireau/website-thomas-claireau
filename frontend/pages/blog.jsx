@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
 import Button from '../components/Button/Button';
 import Container from '../components/Container/Container';
@@ -36,6 +37,10 @@ export default function Blog({ posts }) {
 		</Layout>
 	);
 }
+
+Blog.propTypes = {
+	posts: PropTypes.array.isRequired,
+};
 
 export async function getStaticProps() {
 	const posts = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`);

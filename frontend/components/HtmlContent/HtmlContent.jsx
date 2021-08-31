@@ -6,6 +6,7 @@ import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-bash.js';
 import 'prismjs/components/prism-markup-templating.js';
 import 'dracula-prism/dist/css/dracula-prism.css';
+import PropTypes from 'prop-types';
 
 import style from './HtmlContent.module.scss';
 
@@ -50,6 +51,12 @@ export default function HtmlContent({
 
 	return htmlContent;
 }
+
+HtmlContent.propTypes = {
+	tag: PropTypes.string,
+	children: PropTypes.node.isRequired,
+	className: PropTypes.string,
+};
 
 function addTitleToBlockCode() {
 	const blockCodes = document.querySelectorAll('.wp-block-code');

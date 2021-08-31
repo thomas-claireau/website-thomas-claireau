@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
@@ -60,6 +61,10 @@ export default function Post({ post }) {
 		</Layout>
 	);
 }
+
+Post.propTypes = {
+	post: PropTypes.object.isRequired,
+};
 
 export async function getStaticPaths() {
 	const posts = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`);

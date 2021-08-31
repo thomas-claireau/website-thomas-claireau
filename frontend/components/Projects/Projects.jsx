@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 import { projects } from './Projects.module.scss';
 
@@ -29,3 +30,7 @@ export default function Projects({ fields }) {
 		</ul>
 	);
 }
+
+Projects.propTypes = {
+	fields: PropTypes.array.isRequired,
+};
