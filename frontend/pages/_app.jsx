@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { ThemeProvider } from '../components/ThemeProvider';
 
 import '../styles/global.scss';
+import 'public/assets/css/fontawesome.min.css';
 
 if (process.env.NODE_ENV === 'development') {
 	axios.defaults.httpsAgent = new https.Agent({
@@ -24,14 +25,10 @@ export default function MyApp({ Component, pageProps }) {
 	return (
 		<ThemeProvider value={global}>
 			<Head>
-				<link
-					rel="stylesheet"
-					href="/assets/css/fontawesome.min.css"
-					referrerpolicy="no-referrer"
-				/>
 				<script
 					src="/assets/js/fontawesome.min.js"
 					referrerpolicy="no-referrer"
+					defer
 				></script>
 			</Head>
 			<Component {...pageProps} />
