@@ -1,13 +1,11 @@
-import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../Button/Button';
 import Container from '../Container/Container';
 
-import { hireMe } from './HireMe.module.scss';
+import style from './HireMe.module.scss';
 
 export default function HireMe() {
 	return (
-		<div className={hireMe}>
+		<div className={style['hire-me']}>
 			<Container>
 				<div>
 					<h2>Démarrons un projet</h2>
@@ -17,7 +15,7 @@ export default function HireMe() {
 						Rencontrons nous !
 					</p>
 					<Button
-						icon={<FontAwesomeIcon icon={faEnvelopeOpen} />}
+						icon={<i className="far fa-envelope-open"></i>}
 						text="Me contacter"
 						url="#contact"
 						type="cta"

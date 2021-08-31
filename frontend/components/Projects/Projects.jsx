@@ -1,8 +1,6 @@
 import Image from 'next/image';
 
-import { faEye } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import style, { projects } from './Projects.module.scss';
+import { projects } from './Projects.module.scss';
 
 export default function Projects({ fields }) {
 	return (
@@ -13,10 +11,7 @@ export default function Projects({ fields }) {
 						<a href={field.url} target="_blank">
 							<h3>{field.title}</h3>
 							<div>
-								<FontAwesomeIcon
-									className={style['fa-eye']}
-									icon={faEye}
-								/>
+								<i className="far fa-eye"></i>
 								<Image
 									src={field.image.url}
 									alt={field.image.alt}

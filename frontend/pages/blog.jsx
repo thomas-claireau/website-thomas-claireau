@@ -1,13 +1,12 @@
 import axios from 'axios';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Head from 'next/head';
+
 import Button from '../components/Button/Button';
 import Container from '../components/Container/Container';
 import Layout from '../components/Layout/Layout';
 import Posts from '../components/Posts/Posts';
 
-import { blog, searchBar, cta } from './blog.module.scss';
+import style from './blog.module.scss';
 
 const NB_STARTER_POSTS = 10;
 
@@ -17,12 +16,12 @@ export default function Blog({ posts }) {
 			<Head>
 				<title>Blog - Thomas Claireau, développeur web</title>
 			</Head>
-			<Container className={blog}>
-				<div className={searchBar}>
+			<Container className={style['blog']}>
+				<div className={style['search-bar']}>
 					<input type="text" />
 					<Button
-						className={cta}
-						icon={<FontAwesomeIcon icon={faSearch} />}
+						className={style['cta']}
+						icon={<i className="fas fa-search"></i>}
 						text=""
 						url="#"
 						type="cta"
@@ -40,6 +39,7 @@ export default function Blog({ posts }) {
 
 export async function getStaticProps() {
 	const posts = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+	const global = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/global`);
 
-	return { props: { posts: posts.data } };
+	return { props: { posts: posts.data, global: global.data } };
 }

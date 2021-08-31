@@ -2,6 +2,7 @@ import axios from 'axios';
 import { ReactSVG } from 'react-svg';
 import slugify from 'slugify';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 import style from './index.module.scss';
 import styleDetail from '../components/Detail/Detail.module.scss';
@@ -15,10 +16,6 @@ import HireMe from '../components/HireMe/HireMe';
 import Posts from '../components/Posts/Posts';
 import HtmlContent from '../components/HtmlContent/HtmlContent';
 import Button from '../components/Button/Button';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faEdit, faTv } from '@fortawesome/free-solid-svg-icons';
 
 export default function Home({ fields }) {
 	const {
@@ -67,7 +64,6 @@ export default function Home({ fields }) {
 							<Service>
 								<div>
 									<ReactSVG
-										className="js-inject-me"
 										src={introduction_services.bloc_1.icon.url}
 										alt={introduction_services.bloc_1.icon.alt}
 									/>
@@ -80,7 +76,6 @@ export default function Home({ fields }) {
 							<Service>
 								<div>
 									<ReactSVG
-										className="js-inject-me"
 										src={introduction_services.bloc_2.icon.url}
 										alt={introduction_services.bloc_2.icon.alt}
 									/>
@@ -93,7 +88,6 @@ export default function Home({ fields }) {
 							<Service>
 								<div className={style['icon']}>
 									<ReactSVG
-										className="js-inject-me"
 										src={introduction_services.bloc_3.icon.url}
 										alt={introduction_services.bloc_3.icon.alt}
 									/>
@@ -106,7 +100,6 @@ export default function Home({ fields }) {
 							<Service>
 								<div>
 									<ReactSVG
-										className="js-inject-me"
 										src={introduction_services.bloc_4.icon.url}
 										alt={introduction_services.bloc_4.icon.alt}
 									/>
@@ -144,7 +137,7 @@ export default function Home({ fields }) {
 									alt={services.bloc_1.logos.logo_2.alt}
 								/>
 								<Button
-									icon={<FontAwesomeIcon icon={faGithub} />}
+									icon={<i className="fab fa-github"></i>}
 									text={services.bloc_1.cta.title}
 									url={services.bloc_1.cta.url}
 									type="github"
@@ -207,17 +200,14 @@ export default function Home({ fields }) {
 					</Container>
 				</section>
 				<section className={style['projects-container']}>
-					<FontAwesomeIcon
-						className={style['fa-github']}
-						icon={faGithub}
-					/>
+					<i className={`fab fa-github ${style['fa-github']}`}></i>
 					<Container className={style['container']}>
 						<h2>{projects.title}</h2>
 						<HtmlContent>{projects.introduction}</HtmlContent>
 						<Projects fields={projects.projects} />
 						<Button
 							className={style['cta']}
-							icon={<FontAwesomeIcon icon={faTv} />}
+							icon={<i className="fas fa-tv"></i>}
 							text={projects.cta.title}
 							url={projects.cta.url}
 							type="cta"
@@ -233,7 +223,7 @@ export default function Home({ fields }) {
 							<Posts items={posts.articles} className={style['posts']} />
 						)}
 						<Button
-							icon={<FontAwesomeIcon icon={faEdit} />}
+							icon={<i className="far fa-edit"></i>}
 							text={posts.cta.title}
 							url={posts.cta.url}
 							type="cta"
@@ -245,6 +235,10 @@ export default function Home({ fields }) {
 		</Layout>
 	);
 }
+
+Home.propTypes = {
+	fields: PropTypes.object.isRequired,
+};
 
 export async function getStaticProps() {
 	const fields = await axios.get(

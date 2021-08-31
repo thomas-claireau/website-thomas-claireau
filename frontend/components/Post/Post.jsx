@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Image from 'next/image';
-
-import { post, thumbnail, content, categories } from './Post.module.scss';
-import stylePosts from '../Posts/Posts.module.scss';
-import Author from '../Author/Author';
 import { useEffect, useRef } from 'react';
+
+import Author from '../Author/Author';
+
+import style from './Post.module.scss';
+import stylePosts from '../Posts/Posts.module.scss';
 
 export default function Post({ index, item, layout, last }) {
 	if (!item) return <div>Chargement</div>;
@@ -29,20 +30,22 @@ export default function Post({ index, item, layout, last }) {
 		item.thumbnail.url && (
 			<Link href={`/post/${item.slug}`}>
 				<a
-					className={`post ${post} ${
+					className={`post ${style['post']} ${
 						layout == 'full' && index % 6 == 0 ? stylePosts['large'] : ''
 					}`}
 					ref={$el}
 				>
-					<div className={`${thumbnail} ${stylePosts['thumbnail']}`}>
+					<div
+						className={`${style['thumbnail']} ${stylePosts['thumbnail']}`}
+					>
 						<Image
 							src={item.thumbnail.url}
 							alt={item.thumbnail.alt}
 							layout="fill"
 						/>
 					</div>
-					<div className={content}>
-						<span className={categories}>
+					<div className={style['content']}>
+						<span className={style['categories']}>
 							{item.categories.join(', ')}
 						</span>
 						<h3>{item.title}</h3>

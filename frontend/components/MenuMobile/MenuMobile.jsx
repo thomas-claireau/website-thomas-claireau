@@ -1,16 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faFacebook,
-	faGithub,
-	faInstagram,
-	faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons';
+import MenuItem from '../MenuItem/MenuItem';
 
 import { menuMobile, contact } from './MenuMobile.module.scss';
 import { icon, mobile } from '../MenuItem/MenuItem.module.scss';
-
-import MenuItem from '../MenuItem/MenuItem';
-import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
 
 export default function MenuMobile() {
 	return (
@@ -20,17 +11,17 @@ export default function MenuMobile() {
 					href="https://www.linkedin.com/in/thomas-claireau/"
 					target="_blank"
 				>
-					<FontAwesomeIcon icon={faLinkedinIn} />
+					<i className="fab fa-linkedin-in"></i>
 				</a>
 			</MenuItem>
 			<MenuItem className={`${icon} ${mobile}`}>
 				<a href="https://www.instagram.com/thomasclaireau/" target="_blank">
-					<FontAwesomeIcon icon={faInstagram} />
+					<i className="fab fa-instagram"></i>
 				</a>
 			</MenuItem>
 			<MenuItem className={`${contact} ${mobile}`}>
 				<a href="https://github.com/thomas-claireau" target="_blank">
-					<FontAwesomeIcon icon={faEnvelopeOpen} />
+					<i className="far fa-envelope-open"></i>
 				</a>
 			</MenuItem>
 			<MenuItem className={`${icon} ${mobile}`}>
@@ -38,12 +29,12 @@ export default function MenuMobile() {
 					href="https://www.facebook.com/thomasclaireau.dev"
 					target="_blank"
 				>
-					<FontAwesomeIcon icon={faFacebook} />
+					<i className="fab fa-facebook"></i>
 				</a>
 			</MenuItem>
 			<MenuItem className={`${icon} ${mobile}`}>
 				<a href="https://github.com/thomas-claireau" target="_blank">
-					<FontAwesomeIcon icon={faGithub} />
+					<i className="fab fa-github"></i>
 				</a>
 			</MenuItem>
 		</nav>

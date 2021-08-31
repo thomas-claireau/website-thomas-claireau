@@ -6,6 +6,7 @@ import 'prismjs/components/prism-json';
 import 'prismjs/components/prism-bash.js';
 import 'prismjs/components/prism-markup-templating.js';
 import 'dracula-prism/dist/css/dracula-prism.css';
+
 import style from './HtmlContent.module.scss';
 
 export default function HtmlContent({

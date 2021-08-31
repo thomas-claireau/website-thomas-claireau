@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import style from './SocialShare.module.scss';
-
 import {
 	EmailShareButton,
 	EmailIcon,
@@ -13,6 +11,7 @@ import {
 } from 'react-share';
 import { useState, useEffect } from 'react';
 
+import style from './SocialShare.module.scss';
 export default function SocialShare({ direction }) {
 	const [url, setUrl] = useState(null);
 

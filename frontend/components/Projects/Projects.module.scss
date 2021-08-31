@@ -73,19 +73,19 @@
 					transition: all 0.3s ease-in-out;
 				}
 
-				> *:not(img):not(.fa-eye) {
+				> *:not(img):not(svg) {
 					opacity: 1;
 					transition: all 0.3s ease-in-out;
 				}
 
-				.fa-eye {
+				svg {
 					opacity: 0;
 					transition: all 0.3s ease-in-out;
 				}
 			}
 		}
 
-		> *:not(div):not(.fa-eye) {
+		> *:not(div):not(svg) {
 			position: relative;
 			color: #fff;
 			z-index: 10;
@@ -97,8 +97,8 @@
 			}
 		}
 
-		.fa-eye {
-			width: 20%;
+		svg {
+			width: 20% !important;
 			height: 20%;
 			position: absolute;
 			top: 50%;

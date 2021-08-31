@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import { ReactSVG } from 'react-svg';
 
 import style from './Like.module.scss';
-import LikeSVG from 'public/assets/img/heart.svg';
-import { useEffect, useState } from 'react';
 
 export default function Like({ direction, onClick }) {
 	const [count, setCount] = useState(0);
@@ -14,7 +14,7 @@ export default function Like({ direction, onClick }) {
 	return (
 		<div className={`${style['like']} ${style[direction]}`} onClick={onClick}>
 			{count !== 0 && <span>{count < 100 ? count : '99+'}</span>}
-			<LikeSVG />
+			<ReactSVG src="/assets/img/heart.svg" alt="like" />
 		</div>
 	);
 }

@@ -100,11 +100,11 @@
 			display: flex;
 			justify-content: space-between;
 
-			> svg {
-				width: 40%;
+			svg {
+				width: 80%;
 				opacity: 1;
-				transform: rotate(20deg);
-				transition: transform 0.3s ease-in-out;
+				position: relative;
+				top: 0.1rem;
 			}
 
 			.lightImg {
@@ -113,6 +113,10 @@
 
 			.darkImg {
 				fill: #fff;
+
+				svg {
+					left: 0.3rem;
+				}
 			}
 		}
 

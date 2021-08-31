@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-
-import { menu } from './Menu.module.scss';
-import style, { light, dark } from '../MenuItem/MenuItem.module.scss';
+import { ReactSVG } from 'react-svg';
 
 import MenuItem from '../MenuItem/MenuItem';
 import Button from '../Button/Button';
 
-import Sun from 'public/assets/img/sun.svg';
-import Moon from 'public/assets/img/moon.svg';
+import { menu } from './Menu.module.scss';
+import style, { light, dark } from '../MenuItem/MenuItem.module.scss';
 
 export default function Menu({ items }) {
 	const [toggle, setToggle] = useState(light);
@@ -49,8 +47,16 @@ export default function Menu({ items }) {
 				onClick={handleClick}
 			>
 				<div className={style['icons']}>
-					<Sun className={style['lightImg']} />
-					<Moon className={style['darkImg']} />
+					<ReactSVG
+						className={style['lightImg']}
+						src="/assets/img/sun.svg"
+						alt="sun"
+					/>
+					<ReactSVG
+						className={style['darkImg']}
+						src="/assets/img/moon.svg"
+						alt="moon"
+					/>
 				</div>
 				<span></span>
 			</MenuItem>

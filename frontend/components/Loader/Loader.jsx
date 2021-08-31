@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 
 import style from './Loader.module.scss';
 
@@ -11,3 +12,7 @@ export default function Loader({ last }) {
 		)
 	);
 }
+
+Loader.propTypes = {
+	last: PropTypes.bool.isRequired,
+};

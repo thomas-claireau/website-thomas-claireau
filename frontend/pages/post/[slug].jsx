@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import axios from 'axios';
 
 import Container from '../../components/Container/Container';
 import Layout from '../../components/Layout/Layout';
@@ -11,7 +12,6 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import Posts from '../../components/Posts/Posts';
 
 import style from './post.module.scss';
-import axios from 'axios';
 
 export default function Post({ post }) {
 	return (
@@ -38,7 +38,7 @@ export default function Post({ post }) {
 					</div>
 				</div>
 				{post.thumbnail.url && (
-					<img
+					<Image
 						className={style['thumbnail']}
 						src={post.thumbnail.url}
 						alt={post.thumbnail.alt}
@@ -76,5 +76,7 @@ export async function getStaticProps({ params }) {
 		`${process.env.NEXT_PUBLIC_API_URL}/posts?slug=${params.slug}`
 	);
 
-	return { props: { post: posts.data[0] } };
+	const global = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/global`);
+
+	return { props: { post: posts.data[0], global: global.data } };
 }

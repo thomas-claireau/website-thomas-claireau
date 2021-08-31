@@ -15,4 +15,5 @@ export default function SocialProof({ direction, onClick }) {
 
 SocialProof.propTypes = {
 	direction: PropTypes.string.isRequired,
+	onClick: PropTypes.func,
 };

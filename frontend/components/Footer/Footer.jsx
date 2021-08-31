@@ -1,33 +1,19 @@
 import Image from 'next/image';
 
-import {
-	faFacebook,
-	faGithub,
-	faInstagram,
-	faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons';
-import { faEnvelopeOpen } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Container from '../Container/Container';
-import {
-	footer,
-	container,
-	top,
-	left,
-	memoji,
-	right,
-} from './Footer.module.scss';
+
+import style from './Footer.module.scss';
 
 export default function Footer() {
 	const now = new Date();
 
 	return (
-		<footer className={footer}>
-			<Container className={container}>
-				<div className={top}>
-					<div className={left}>
+		<footer className={style['footer']}>
+			<Container className={style['container']}>
+				<div className={style['top']}>
+					<div className={style['left']}>
 						<Image
-							className={memoji}
+							className={style['memoji']}
 							src="/assets/img/memoji.png"
 							alt="memoji-thomas-claireau"
 							width={54}
@@ -35,13 +21,13 @@ export default function Footer() {
 						/>
 						<h2>Restons en contact !</h2>
 					</div>
-					<ul className={right}>
+					<ul className={style['right']}>
 						<li>
 							<a
 								href="https://www.linkedin.com/in/thomas-claireau/"
 								target="_blank"
 							>
-								<FontAwesomeIcon icon={faLinkedinIn} />
+								<i className="fab fa-linkedin-in"></i>
 							</a>
 						</li>
 						<li>
@@ -49,7 +35,7 @@ export default function Footer() {
 								href="https://www.instagram.com/thomasclaireau/"
 								target="_blank"
 							>
-								<FontAwesomeIcon icon={faInstagram} />
+								<i className="fab fa-instagram"></i>
 							</a>
 						</li>
 						<li>
@@ -57,7 +43,7 @@ export default function Footer() {
 								href="https://www.facebook.com/thomasclaireau.dev"
 								target="_blank"
 							>
-								<FontAwesomeIcon icon={faFacebook} />
+								<i className="fab fa-facebook"></i>
 							</a>
 						</li>
 						<li>
@@ -65,12 +51,12 @@ export default function Footer() {
 								href="https://github.com/thomas-claireau"
 								target="_blank"
 							>
-								<FontAwesomeIcon icon={faGithub} />
+								<i className="fab fa-github"></i>
 							</a>
 						</li>
 						<li className="contact">
 							<a href="#contact" target="_blank">
-								<FontAwesomeIcon icon={faEnvelopeOpen} />
+								<i className="far fa-envelope-open"></i>
 							</a>
 						</li>
 					</ul>

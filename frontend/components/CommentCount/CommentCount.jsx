@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
+import { ReactSVG } from 'react-svg';
 
 import style from './CommentCount.module.scss';
-import CommentSVG from 'public/assets/img/comment.svg';
-import { useEffect, useState } from 'react';
-
 export default function CommentCount({ direction }) {
 	const [count, setCount] = useState(0);
 
@@ -14,7 +13,7 @@ export default function CommentCount({ direction }) {
 	return (
 		<div className={`${style['comment-count']} ${style[direction]}`}>
 			{count !== 0 && <span>{count < 100 ? count : '99+'}</span>}
-			<CommentSVG />
+			<ReactSVG src="/assets/img/comment.svg" alt="comment svg" />
 		</div>
 	);
 }

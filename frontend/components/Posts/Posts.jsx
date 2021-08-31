@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-import style from './Posts.module.scss';
-
 import Post from '../Post/Post';
 import Loader from '../Loader/Loader';
+
+import style from './Posts.module.scss';
 
 export default function Posts({ className, layout, items, nbStarterPosts }) {
 	const [posts, setPosts] = useState([]);
@@ -59,4 +59,5 @@ Posts.propTypes = {
 	className: PropTypes.string,
 	layout: PropTypes.string,
 	items: PropTypes.array.isRequired,
+	nbStarterPosts: PropTypes.number,
 };

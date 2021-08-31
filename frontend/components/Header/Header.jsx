@@ -1,11 +1,13 @@
-import style from './Header.module.scss';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+
+import { useThemeContext } from '../ThemeProvider';
 
 import Menu from '../Menu/Menu';
 import MenuMobile from '../MenuMobile/MenuMobile';
 import Container from '../Container/Container';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { useThemeContext } from '../ThemeProvider';
+
+import style from './Header.module.scss';
 
 export default function Header() {
 	const [scrolled, setScrolled] = useState(0);
