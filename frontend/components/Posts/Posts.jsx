@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Post from '../Post/Post';
-import Loader from '../Loader/Loader';
+import InfiniteLoader from '../InfiniteLoader/InfiniteLoader';
 
 import style from './Posts.module.scss';
 
@@ -34,7 +34,7 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 			next={fetchData}
 			hasMore={true}
 			className={`${className} ${style['posts']} ${style[layout]}`}
-			loader={<Loader last={posts.length == items.length} />}
+			loader={<InfiniteLoader last={posts.length == items.length} />}
 		>
 			{posts.map((post, index) => (
 				<Post
