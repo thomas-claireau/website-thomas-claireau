@@ -213,7 +213,7 @@
                     "key": "field_611ccfe87ea83",
                     "label": "Copyright",
                     "name": "copyright",
-                    "type": "text",
+                    "type": "group",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -222,11 +222,47 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_612f6e4eb857d",
+                            "label": "Gauche",
+                            "name": "left",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_612f6e52b857e",
+                            "label": "Droite",
+                            "name": "right",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
                 }
             ]
         }
@@ -259,5 +295,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1629291244
+    "modified": 1630498399
 }

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import moment from 'moment';
 import axios from 'axios';
 import https from 'https';
 import 'moment/locale/fr';

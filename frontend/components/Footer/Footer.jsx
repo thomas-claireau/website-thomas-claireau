@@ -1,11 +1,16 @@
 import Image from 'next/image';
 
+import { useThemeContext } from '../ThemeProvider';
+
 import Container from '../Container/Container';
 
 import style from './Footer.module.scss';
 
 export default function Footer() {
+	const { footer } = useThemeContext();
 	const now = new Date();
+
+	console.log(footer);
 
 	return (
 		<footer className={style['footer']}>
@@ -14,56 +19,33 @@ export default function Footer() {
 					<div className={style['left']}>
 						<Image
 							className={style['memoji']}
-							src="/assets/img/memoji.png"
-							alt="memoji-thomas-claireau"
+							src={footer.logo.url}
+							alt={footer.logo.alt}
 							width={54}
 							height={70}
 						/>
-						<h2>Restons en contact !</h2>
+						<h2>{footer.cta}</h2>
 					</div>
 					<ul className={style['right']}>
-						<li>
-							<a
-								href="https://www.linkedin.com/in/thomas-claireau/"
-								target="_blank"
-							>
-								<i className="fab fa-linkedin-in"></i>
-							</a>
-						</li>
-						<li>
-							<a
-								href="https://www.instagram.com/thomasclaireau/"
-								target="_blank"
-							>
-								<i className="fab fa-instagram"></i>
-							</a>
-						</li>
-						<li>
-							<a
-								href="https://www.facebook.com/thomasclaireau.dev"
-								target="_blank"
-							>
-								<i className="fab fa-facebook"></i>
-							</a>
-						</li>
-						<li>
-							<a
-								href="https://github.com/thomas-claireau"
-								target="_blank"
-							>
-								<i className="fab fa-github"></i>
-							</a>
-						</li>
-						<li className="contact">
-							<a href="#contact" target="_blank">
-								<i className="far fa-envelope-open"></i>
-							</a>
-						</li>
+						{footer.menus.items.map((item, index) => {
+							return (
+								<li key={index}>
+									<a
+										href={item.url}
+										target={item.target}
+										title={item.title}
+									>
+										<i className={item.class}></i>
+									</a>
+								</li>
+							);
+						})}
 					</ul>
 				</div>
 				<p>
-					Copyright © {now.getFullYear()} <span className="date"></span>-
-					Thomas Claireau
+					{footer.copyright.left}
+					{now.getFullYear()}
+					{footer.copyright.right}
 				</p>
 			</Container>
 		</footer>
