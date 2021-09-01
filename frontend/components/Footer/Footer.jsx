@@ -10,8 +10,6 @@ export default function Footer() {
 	const { footer } = useThemeContext();
 	const now = new Date();
 
-	console.log(footer);
-
 	return (
 		<footer className={style['footer']}>
 			<Container className={style['container']}>
