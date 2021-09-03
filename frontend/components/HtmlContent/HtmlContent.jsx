@@ -16,40 +16,17 @@ export default function HtmlContent({
 	className,
 	...props
 }) {
-	const [htmlContent, setHtmlContent] = useState(<div></div>);
-
-	const isDomReady = typeof window !== 'undefined';
-	const useIsomorphicLayoutEffect = isDomReady ? useLayoutEffect : useEffect;
-
-	useIsomorphicLayoutEffect(() => {
-		Prism.highlightAll();
-
-		addTitleToBlockCode();
-
-		// exterial link -> target blank
-		const links = document.querySelectorAll('.html-content a');
-
-		links.forEach((link) => {
-			if (!link.href.includes(window.location.hostname))
-				link.target = '_blank';
-		});
-	}, [htmlContent]);
-
 	const Tag = tag;
 
-	useIsomorphicLayoutEffect(() => {
-		setHtmlContent(
-			<Tag
-				{...props}
-				className={`html-content ${style['html-content']} ${className}`}
-				dangerouslySetInnerHTML={{
-					__html: children,
-				}}
-			/>
-		);
-	}, []);
-
-	return htmlContent;
+	return (
+		<Tag
+			{...props}
+			className={`html-content ${style['html-content']} ${className}`}
+			dangerouslySetInnerHTML={{
+				__html: children,
+			}}
+		/>
+	);
 }
 
 HtmlContent.propTypes = {
@@ -57,19 +34,3 @@ HtmlContent.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 };
-
-function addTitleToBlockCode() {
-	const blockCodes = document.querySelectorAll('.wp-block-code');
-
-	blockCodes.forEach((blockCode) => {
-		const span = blockCode.querySelector('span.title');
-
-		if (!span && blockCode.hasAttribute('title')) {
-			const span = document.createElement('span');
-			span.classList.add('title');
-			span.innerHTML = `~ ${blockCode.title}`;
-
-			blockCode.prepend(span);
-		}
-	});
-}

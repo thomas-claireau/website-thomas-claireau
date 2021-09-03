@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import style from './index.module.scss';
 import styleDetail from '../components/Detail/Detail.module.scss';
+import styleService from '../components/Service/Service.module.scss';
 
 import Layout from '../components/Layout/Layout';
 import Container from '../components/Container/Container';
@@ -16,6 +17,8 @@ import HireMe from '../components/HireMe/HireMe';
 import Posts from '../components/Posts/Posts';
 import HtmlContent from '../components/HtmlContent/HtmlContent';
 import Button from '../components/Button/Button';
+import FantomImage from '../components/FantomImage/FantomImage';
+import FantomText from '../components/FantomText/FantomText';
 
 export default function Home({ fields }) {
 	const {
@@ -41,7 +44,15 @@ export default function Home({ fields }) {
 							playsInline
 						></video>
 					</div>
+					{/* <h1
+						dangerouslySetInnerHTML={{
+							__html: 'coucou',
+						}}
+					></h1> */}
 					<HtmlContent tag="h1">{header.titre}</HtmlContent>
+					{/* <FantomText isHtml tag="h1">
+						{header.titre}
+					</FantomText> */}
 					<HtmlContent className={style['description']}>
 						{header.introduction}
 					</HtmlContent>
@@ -49,63 +60,59 @@ export default function Home({ fields }) {
 				<section className={style['services']}>
 					<Container className={style['container']}>
 						<div className={style['left']}>
-							<Image
+							<FantomImage
 								src={introduction_services.introduction.image.url}
 								alt={introduction_services.introduction.image.alt}
 								width={360}
 								height={240}
 								layout="responsive"
-							/>
+							></FantomImage>
 							<HtmlContent className={style['texte']}>
 								{introduction_services.introduction.texte}
 							</HtmlContent>
 						</div>
 						<div className={style['right']}>
 							<Service>
-								<div>
-									<ReactSVG
-										src={introduction_services.bloc_1.icon.url}
-										alt={introduction_services.bloc_1.icon.alt}
-									/>
-								</div>
+								<ReactSVG
+									className={styleService['icon']}
+									src={introduction_services.bloc_1.icon.url}
+									alt={introduction_services.bloc_1.icon.alt}
+								/>
 								<h3>{introduction_services.bloc_1.title}</h3>
-								<HtmlContent tag="p">
+								<HtmlContent>
 									{introduction_services.bloc_1.text}
 								</HtmlContent>
 							</Service>
 							<Service>
-								<div>
-									<ReactSVG
-										src={introduction_services.bloc_2.icon.url}
-										alt={introduction_services.bloc_2.icon.alt}
-									/>
-								</div>
+								<ReactSVG
+									className={styleService['icon']}
+									src={introduction_services.bloc_2.icon.url}
+									alt={introduction_services.bloc_2.icon.alt}
+								/>
 								<h3>{introduction_services.bloc_2.title}</h3>
-								<HtmlContent tag="p">
+								<HtmlContent>
 									{introduction_services.bloc_2.text}
 								</HtmlContent>
 							</Service>
 							<Service>
-								<div className={style['icon']}>
-									<ReactSVG
-										src={introduction_services.bloc_3.icon.url}
-										alt={introduction_services.bloc_3.icon.alt}
-									/>
-								</div>
+								<ReactSVG
+									className={styleService['icon']}
+									src={introduction_services.bloc_3.icon.url}
+									alt={introduction_services.bloc_3.icon.alt}
+								/>
 								<h3>{introduction_services.bloc_3.title}</h3>
-								<HtmlContent tag="p">
+								<HtmlContent>
 									{introduction_services.bloc_2.text}
 								</HtmlContent>
 							</Service>
 							<Service>
-								<div>
-									<ReactSVG
-										src={introduction_services.bloc_4.icon.url}
-										alt={introduction_services.bloc_4.icon.alt}
-									/>
-								</div>
+								<ReactSVG
+									className={styleService['icon']}
+									src={introduction_services.bloc_4.icon.url}
+									alt={introduction_services.bloc_4.icon.alt}
+								/>
 								<h3>{introduction_services.bloc_4.title}</h3>
-								<HtmlContent tag="p">
+								<HtmlContent>
 									{introduction_services.bloc_2.text}
 								</HtmlContent>
 							</Service>
