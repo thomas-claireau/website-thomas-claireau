@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import Image from 'next/image';
 
 import style from './Author.module.scss';
+
+import FantomImage from '../FantomImage/FantomImage';
 
 export default function Author({ className, post }) {
 	return (
 		<div className={`${className} ${style['author']}`}>
 			<div className={style['avatar']}>
-				<Image
+				<FantomImage
 					src={post.author.avatar.url}
 					alt={post.author.avatar.alt}
 					width={50}

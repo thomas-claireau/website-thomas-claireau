@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { ReactSVG } from 'react-svg';
 import slugify from 'slugify';
-import Image from 'next/image';
 import PropTypes from 'prop-types';
 
 import style from './index.module.scss';
@@ -18,7 +17,6 @@ import Posts from '../components/Posts/Posts';
 import HtmlContent from '../components/HtmlContent/HtmlContent';
 import Button from '../components/Button/Button';
 import FantomImage from '../components/FantomImage/FantomImage';
-import FantomText from '../components/FantomText/FantomText';
 
 export default function Home({ fields }) {
 	const {
@@ -44,15 +42,7 @@ export default function Home({ fields }) {
 							playsInline
 						></video>
 					</div>
-					{/* <h1
-						dangerouslySetInnerHTML={{
-							__html: 'coucou',
-						}}
-					></h1> */}
 					<HtmlContent tag="h1">{header.titre}</HtmlContent>
-					{/* <FantomText isHtml tag="h1">
-						{header.titre}
-					</FantomText> */}
 					<HtmlContent className={style['description']}>
 						{header.introduction}
 					</HtmlContent>

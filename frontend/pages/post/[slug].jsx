@@ -11,6 +11,7 @@ import HtmlContent from '../../components/HtmlContent/HtmlContent';
 import SocialProof from '../../components/SocialProof/SocialProof';
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Posts from '../../components/Posts/Posts';
+import FantomImage from '../../components/FantomImage/FantomImage';
 
 import style from './post.module.scss';
 
@@ -39,7 +40,7 @@ export default function Post({ post }) {
 					</div>
 				</div>
 				{post.thumbnail.url && (
-					<Image
+					<FantomImage
 						className={style['thumbnail']}
 						src={post.thumbnail.url}
 						alt={post.thumbnail.alt}

@@ -1,8 +1,7 @@
-import Image from 'next/image';
-
 import { useThemeContext } from '../ThemeProvider';
 
 import Container from '../Container/Container';
+import FantomImage from '../FantomImage/FantomImage';
 
 import style from './Footer.module.scss';
 
@@ -15,7 +14,7 @@ export default function Footer() {
 			<Container className={style['container']}>
 				<div className={style['top']}>
 					<div className={style['left']}>
-						<Image
+						<FantomImage
 							className={style['memoji']}
 							src={footer.logo.url}
 							alt={footer.logo.alt}
