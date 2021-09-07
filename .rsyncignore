@@ -5,11 +5,17 @@ deploy_rsa.enc
 .rsyncignore
 README.md
 
-backend/node_modules
-backend/.env
+backend/assets-thomasclaireau/upgrade
+backend/assets-thomasclaireau/uploads
+backend/assets-thomasclaireau/debug.log
+backend/wp-admin
+backend/wp-includes
 backend/.gitignore
+backend/.htaccess
+backend/wp-config.php
 
 frontend/.next
 frontend/node_modules
 frontend/.env.local
 frontend/.gitignore
+frontend/README.md
