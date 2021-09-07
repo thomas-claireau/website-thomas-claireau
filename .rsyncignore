@@ -4,6 +4,7 @@ ci
 deploy_rsa.enc
 .rsyncignore
 README.md
+.htpasswd
 
 backend/assets-thomasclaireau/upgrade
 backend/assets-thomasclaireau/uploads
