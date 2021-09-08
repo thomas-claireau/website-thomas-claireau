@@ -43,8 +43,21 @@ Blog.propTypes = {
 };
 
 export async function getStaticProps() {
-	const posts = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
-	const global = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/global`);
+	const auth = {
+		auth: {
+			username: process.env.NEXT_PUBLIC_API_USERNAME,
+			password: process.env.NEXT_PUBLIC_API_PASSWORD,
+		},
+	};
+
+	const posts = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/posts`,
+		auth
+	);
+	const global = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/global`,
+		auth
+	);
 
 	return { props: { posts: posts.data, global: global.data } };
 }

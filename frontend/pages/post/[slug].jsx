@@ -68,7 +68,17 @@ Post.propTypes = {
 };
 
 export async function getStaticPaths() {
-	const posts = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`);
+	const auth = {
+		auth: {
+			username: process.env.NEXT_PUBLIC_API_USERNAME,
+			password: process.env.NEXT_PUBLIC_API_PASSWORD,
+		},
+	};
+
+	const posts = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/posts`,
+		auth
+	);
 
 	const paths = posts.data.map((post) => {
 		return { params: { slug: post.slug } };
@@ -78,11 +88,22 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+	const auth = {
+		auth: {
+			username: process.env.NEXT_PUBLIC_API_USERNAME,
+			password: process.env.NEXT_PUBLIC_API_PASSWORD,
+		},
+	};
+
 	const posts = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/posts?slug=${params.slug}`
+		`${process.env.NEXT_PUBLIC_API_URL}/posts?slug=${params.slug}`,
+		auth
 	);
 
-	const global = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/global`);
+	const global = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/global`,
+		auth
+	);
 
 	return { props: { post: posts.data[0], global: global.data } };
 }

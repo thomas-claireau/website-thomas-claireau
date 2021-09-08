@@ -238,11 +238,22 @@ Home.propTypes = {
 };
 
 export async function getStaticProps() {
+	const auth = {
+		auth: {
+			username: process.env.NEXT_PUBLIC_API_USERNAME,
+			password: process.env.NEXT_PUBLIC_API_PASSWORD,
+		},
+	};
+
 	const fields = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/pages?post_id=22`
+		`${process.env.NEXT_PUBLIC_API_URL}/pages?post_id=22`,
+		auth
 	);
 
-	const global = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/global`);
+	const global = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/global`,
+		auth
+	);
 
 	return { props: { fields: fields.data, global: global.data } };
 }
