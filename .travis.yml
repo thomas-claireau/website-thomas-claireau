@@ -13,6 +13,6 @@ before_install:
 script:
   - if [ "$TRAVIS_BRANCH" = "master" ]; then ./ci/deploy-production; fi
   - if [ "$TRAVIS_BRANCH" = "recette-2021" ]; then ./ci/deploy-recette; fi
-  - node -v
-  - cd "$PROJET_RECETTE"/frontend && npm install
-  - pm2 restart recette-frontend
+  - pwd
+  # - cd "$PROJET_RECETTE"/frontend && npm install
+  # - pm2 restart recette-frontend
