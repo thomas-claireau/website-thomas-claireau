@@ -7,7 +7,6 @@ README.md
 .gitignore
 phpcs.xml
 .htpasswd
-package-lock.json
 node_modules
 rsyncignore.txt
 
