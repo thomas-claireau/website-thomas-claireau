@@ -42,7 +42,7 @@ export default function Menu({ items }) {
 					<a>Blog</a>
 				</Link>
 			</MenuItem>
-			<MenuItem
+			{/* <MenuItem
 				className={`${style['toggleTheme']} ${toggle}`}
 				onClick={handleClick}
 			>
@@ -59,7 +59,7 @@ export default function Menu({ items }) {
 					/>
 				</div>
 				<span></span>
-			</MenuItem>
+			</MenuItem> */}
 		</nav>
 	);
 }
