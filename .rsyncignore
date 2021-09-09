@@ -15,8 +15,7 @@ backend/.gitignore
 backend/.htaccess
 backend/wp-config.php
 
-frontend/.next
-frontend/node_modules
-frontend/.env.local
-frontend/.gitignore
-frontend/README.md
+frontend/*
+!frontend/.next
+!frontend/package.json
+!frontend/package-lock.json

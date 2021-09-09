@@ -11,8 +11,6 @@ before_install:
   - chmod +x ./ci/deploy-production
   - chmod +x ./ci/deploy-recette
 script:
+  - cd frontend && npm run build
   - if [ "$TRAVIS_BRANCH" = "master" ]; then ./ci/deploy-production; fi
   - if [ "$TRAVIS_BRANCH" = "recette-2021" ]; then ./ci/deploy-recette; fi
-  - pwd
-  # - cd "$PROJET_RECETTE"/frontend && npm install
-  # - pm2 restart recette-frontend
