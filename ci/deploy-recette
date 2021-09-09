@@ -1,7 +1,6 @@
 #!/bin/sh
 rsync -az -O --force --delete --progress --filter="merge rsyncignore.txt" -e "ssh -p $PORT" ./ "$USERNAME"@"$HOST":"$PROJET_RECETTE"
 ssh -p $PORT $USERNAME@$HOST "
-	source ~/.bashrc
 	cd $PROJET_RECETTE/frontend && npm install && npm run start;
 	pm2 restart recette-frontend
 	exit;
