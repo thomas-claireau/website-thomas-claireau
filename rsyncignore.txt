@@ -9,7 +9,7 @@
 - .htpasswd
 - package-lock.json
 - node_modules
-- .rsyncignore.txt
+- rsyncignore.txt
 
 - backend/assets-thomasclaireau/upgrade
 - backend/assets-thomasclaireau/uploads
@@ -20,7 +20,6 @@
 - backend/.htaccess
 - backend/wp-config.php
 
-+ frontend/.next/
-+ frontend/package.json
-+ frontend/package-lock.json
-- frontend/*
+- frontend/.next/
+- frontend/node_modules
+- frontend/.env.local
