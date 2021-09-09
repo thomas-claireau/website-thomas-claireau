@@ -32,10 +32,11 @@ export default function FantomImage({
 }
 
 FantomImage.propTypes = {
+	className: PropTypes.string,
 	src: PropTypes.string.isRequired,
 	alt: PropTypes.string,
-	width: PropTypes.number.isRequired,
-	height: PropTypes.number.isRequired,
+	width: PropTypes.number,
+	height: PropTypes.number,
 	layout: PropTypes.string,
 	circle: PropTypes.bool,
 };
