@@ -9,6 +9,7 @@
 - .htpasswd
 - package-lock.json
 - node_modules
+- .rsyncignore.txt
 
 - backend/assets-thomasclaireau/upgrade
 - backend/assets-thomasclaireau/uploads
