@@ -36,7 +36,7 @@ export default function Post({ post }) {
 					<span className={style['separator']}></span>
 					<div className={style['bottom']}>
 						<Author className={style['author']} post={post} />
-						<SocialProof direction="horizontal" />
+						{/* <SocialProof direction="horizontal" /> */}
 					</div>
 				</div>
 				{post.thumbnail.url && (

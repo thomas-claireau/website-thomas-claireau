@@ -8,7 +8,7 @@ export default function Sidebar() {
 		<Sticky offsetTop={85}>
 			<div>
 				<SocialShare direction="vertical" />
-				<SocialProof direction="vertical" />
+				{/* <SocialProof direction="vertical" /> */}
 			</div>
 		</Sticky>
 	);
