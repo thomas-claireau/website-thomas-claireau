@@ -19,4 +19,9 @@ backend/.gitignore
 backend/.htaccess
 backend/wp-config.php
 
+!frontend/
+
 frontend/*
+!frontend/.next/
+!frontend/package.json
+!frontend/package-lock.json
