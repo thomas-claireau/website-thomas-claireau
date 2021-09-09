@@ -4,7 +4,11 @@ ci
 deploy_rsa.enc
 .rsyncignore
 README.md
+.gitignore
+phpcs.xml
 .htpasswd
+package-lock.json
+node_modules
 
 backend/assets-thomasclaireau/upgrade
 backend/assets-thomasclaireau/uploads
