@@ -18,6 +18,7 @@ export default function Post({ index, item, layout, last }) {
 		// fix bug post large in the end of infinite scroll
 		if (
 			last &&
+			$el.current &&
 			$el.current.clientWidth == vpWidth &&
 			!$el.current.classList.contains(stylePosts['large'])
 		) {
