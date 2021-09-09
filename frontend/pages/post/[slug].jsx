@@ -44,7 +44,7 @@ export default function Post({ post }) {
 						className={style['thumbnail']}
 						src={post.thumbnail.url}
 						alt={post.thumbnail.alt}
-						width={process.env.NEXT_PUBLIC_VP_WIDTH || 1280}
+						width={Number(process.env.NEXT_PUBLIC_VP_WIDTH) || 1280}
 						height={720}
 						layout="responsive"
 					/>
