@@ -67,7 +67,9 @@ Post.propTypes = {
 	post: PropTypes.object.isRequired,
 };
 
-export async function getStaticPaths() {
+export async function getServerSideProps(context) {
+	const { slug } = context.query;
+
 	const auth = {
 		auth: {
 			username: process.env.NEXT_PUBLIC_API_USERNAME,
@@ -76,27 +78,7 @@ export async function getStaticPaths() {
 	};
 
 	const posts = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/posts`,
-		auth
-	);
-
-	const paths = posts.data.map((post) => {
-		return { params: { slug: post.slug } };
-	});
-
-	return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
-	const auth = {
-		auth: {
-			username: process.env.NEXT_PUBLIC_API_USERNAME,
-			password: process.env.NEXT_PUBLIC_API_PASSWORD,
-		},
-	};
-
-	const posts = await axios.get(
-		`${process.env.NEXT_PUBLIC_API_URL}/posts?slug=${params.slug}`,
+		`${process.env.NEXT_PUBLIC_API_URL}/posts?slug=${slug}`,
 		auth
 	);
 

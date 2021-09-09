@@ -237,7 +237,7 @@ Home.propTypes = {
 	fields: PropTypes.object.isRequired,
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const auth = {
 		auth: {
 			username: process.env.NEXT_PUBLIC_API_USERNAME,
