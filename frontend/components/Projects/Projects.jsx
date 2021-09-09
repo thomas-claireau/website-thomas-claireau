@@ -1,11 +1,11 @@
-import Image from 'next/image';
 import PropTypes from 'prop-types';
+import FantomImage from '../FantomImage/FantomImage';
 
-import { projects } from './Projects.module.scss';
+import style from './Projects.module.scss';
 
 export default function Projects({ fields }) {
 	return (
-		<ul className={projects}>
+		<ul className={style['projects']}>
 			{fields.length &&
 				fields.map((field, index) => (
 					<li key={index}>
@@ -13,7 +13,8 @@ export default function Projects({ fields }) {
 							<h3>{field.title}</h3>
 							<div>
 								<i className="far fa-eye"></i>
-								<Image
+								<FantomImage
+									className={style['img-container']}
 									src={field.image.url}
 									alt={field.image.alt}
 									layout="fill"

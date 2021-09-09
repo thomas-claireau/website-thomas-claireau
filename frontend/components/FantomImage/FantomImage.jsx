@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import style from './FantomImage.module.scss';
 
 export default function FantomImage({
+	className,
 	src,
 	alt,
 	width,
@@ -16,7 +17,7 @@ export default function FantomImage({
 	const [loading, setLoading] = useState(true);
 
 	return (
-		<div className={style['fantom-image']}>
+		<div className={`${style['fantom-image']} ${className}`}>
 			{loading && <Skeleton className={style['skeleton']} circle={circle} />}
 			<Image
 				src={src}

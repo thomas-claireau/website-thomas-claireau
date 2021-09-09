@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import Author from '../Author/Author';
 
 import style from './Post.module.scss';
 import stylePosts from '../Posts/Posts.module.scss';
+import FantomImage from '../FantomImage/FantomImage';
 
 export default function Post({ index, item, layout, last }) {
 	if (!item) return <div>Chargement</div>;
@@ -35,15 +35,12 @@ export default function Post({ index, item, layout, last }) {
 					}`}
 					ref={$el}
 				>
-					<div
+					<FantomImage
 						className={`${style['thumbnail']} ${stylePosts['thumbnail']}`}
-					>
-						<Image
-							src={item.thumbnail.url}
-							alt={item.thumbnail.alt}
-							layout="fill"
-						/>
-					</div>
+						src={item.thumbnail.url}
+						alt={item.thumbnail.alt}
+						layout="fill"
+					/>
 					<div className={style['content']}>
 						<span className={style['categories']}>
 							{item.categories.join(', ')}
