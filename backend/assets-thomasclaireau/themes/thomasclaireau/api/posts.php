@@ -45,6 +45,7 @@ if ( ! function_exists( 'thomasclaireau_post_api_callback' ) ) :
 			'numberposts' => $request->get_param( 'limit' ) ? (int) $request->get_param( 'limit' ) : -1,
 			'post_type'   => 'post',
 			'post_status' => 'publish',
+			'orderby'     => 'title',
 		);
 
 		$posts = get_posts( $args );
