@@ -18,7 +18,7 @@ export default function Blog({ posts }) {
 				<title>Blog - Thomas Claireau, développeur web</title>
 			</Head>
 			<Container className={style['blog']}>
-				<div className={style['search-bar']}>
+				{/* <div className={style['search-bar']}>
 					<input type="text" />
 					<Button
 						className={style['cta']}
@@ -27,7 +27,7 @@ export default function Blog({ posts }) {
 						url="#"
 						type="cta"
 					/>
-				</div>
+				</div> */}
 				<Posts
 					layout="full"
 					items={posts}
