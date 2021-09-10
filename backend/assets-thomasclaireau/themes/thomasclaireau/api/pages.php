@@ -57,6 +57,10 @@ if ( ! function_exists( 'thomasclaireau_page_api_callback' ) ) :
 
 		$class = 'App\\Frontend\\Pages\\' . Pages::call_page_class( $post->ID );
 
+		if ( ! class_exists( $class ) ) {
+			return wp_send_json( array( 'error' => 'Page not found' ), 404 );
+		}
+
 		$datas = call_user_func_array( array( $class, 'datas' ), array( $post->ID ) );
 
 		wp_send_json( $datas );
