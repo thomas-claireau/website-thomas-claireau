@@ -32,7 +32,7 @@ export default function MyApp({ Component, pageProps }) {
 				></script>
 			</Head>
 			<Component {...pageProps} />
-			<Contact />
+			{/* <Contact /> */}
 		</ThemeProvider>
 	);
 }
