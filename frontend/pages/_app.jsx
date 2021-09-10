@@ -3,6 +3,8 @@ import axios from 'axios';
 import https from 'https';
 import 'moment/locale/fr';
 import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
 
 import { ThemeProvider } from '../components/ThemeProvider';
 import Contact from '../components/Contact/Contact';
@@ -31,6 +33,7 @@ export default function MyApp({ Component, pageProps }) {
 					defer
 				></script>
 			</Head>
+			<DefaultSeo {...SEO} />
 			<Component {...pageProps} />
 			{/* <Contact /> */}
 		</ThemeProvider>
