@@ -14,13 +14,16 @@ import Posts from '../../components/Posts/Posts';
 import FantomImage from '../../components/FantomImage/FantomImage';
 
 import style from './post.module.scss';
+import { NextSeo } from 'next-seo';
 
 export default function Post({ post }) {
+	console.log(post);
 	return (
 		<Layout>
 			<Head>
 				<title>{post.title} - Thomas Claireau, développeur web</title>
 			</Head>
+			<NextSeo title="" />
 			<Container className={style['post']}>
 				<div className={style['header']}>
 					{post.categories && (

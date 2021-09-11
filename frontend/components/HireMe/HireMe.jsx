@@ -17,7 +17,7 @@ export default function HireMe() {
 					<Button
 						icon={<i className="far fa-envelope-open"></i>}
 						text="Me contacter"
-						url="#contact"
+						url="mailto:pro.thomas.claireau@gmail.com?subject=Demande de contact&body=Nom et prénom : %0D%0A%0D%0ABudget : %0D%0A%0D%0A Description du projet : %0D%0A"
 						type="cta"
 					/>
 				</div>

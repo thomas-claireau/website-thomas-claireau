@@ -22,7 +22,7 @@ export default function MenuMobile({ items }) {
 					if (index == 1) {
 						content.push(
 							<MenuItem className={`${contact} ${mobile}`} key="contact">
-								<a href="#contact">
+								<a href="mailto:pro.thomas.claireau@gmail.com?subject=Demande de contact&body=Nom et prénom : %0D%0A%0D%0ABudget : %0D%0A%0D%0A Description du projet : %0D%0A">
 									<i className="far fa-envelope-open"></i>
 								</a>
 							</MenuItem>

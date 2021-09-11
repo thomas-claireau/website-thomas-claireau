@@ -33,7 +33,7 @@ export default function Menu({ items }) {
 				<Button
 					icon={<i className="far fa-envelope-open" />}
 					text="Contactez-moi"
-					url="#contact"
+					url="mailto:pro.thomas.claireau@gmail.com?subject=Demande de contact&body=Nom et prénom : %0D%0A%0D%0ABudget : %0D%0A%0D%0A Description du projet : %0D%0A"
 					type="cta"
 				/>
 			</MenuItem>
