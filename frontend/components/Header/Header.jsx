@@ -1,13 +1,10 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-
-import { useThemeContext } from '../ThemeProvider';
-
-import Menu from '../Menu/Menu';
-import MenuMobile from '../MenuMobile/MenuMobile';
+import { useEffect, useState } from 'react';
 import Container from '../Container/Container';
 import HtmlContent from '../HtmlContent/HtmlContent';
-
+import Menu from '../Menu/Menu';
+import MenuMobile from '../MenuMobile/MenuMobile';
+import { useThemeContext } from '../ThemeProvider';
 import style from './Header.module.scss';
 
 export default function Header() {

@@ -1,7 +1,5 @@
 import Sticky from 'react-sticky-box';
-
 import SocialShare from '../SocialShare/SocialShare';
-import SocialProof from '../SocialProof/SocialProof';
 
 export default function Sidebar() {
 	return (

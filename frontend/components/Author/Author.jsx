@@ -1,9 +1,7 @@
-import PropTypes from 'prop-types';
 import moment from 'moment';
-
-import style from './Author.module.scss';
-
+import PropTypes from 'prop-types';
 import FantomImage from '../FantomImage/FantomImage';
+import style from './Author.module.scss';
 
 export default function Author({ className, post }) {
 	return (

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { ReactSVG } from 'react-svg';
-
 import style from './CommentCount.module.scss';
+
 export default function CommentCount({ direction }) {
 	const [count, setCount] = useState(0);
 

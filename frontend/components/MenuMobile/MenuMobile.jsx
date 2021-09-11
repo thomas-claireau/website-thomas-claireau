@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
-
 import MenuItem from '../MenuItem/MenuItem';
-
-import { menuMobile, contact } from './MenuMobile.module.scss';
 import { icon, mobile } from '../MenuItem/MenuItem.module.scss';
+import { contact, menuMobile } from './MenuMobile.module.scss';
 
 export default function MenuMobile({ items }) {
 	return (

@@ -1,20 +1,16 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import axios from 'axios';
-import PropTypes from 'prop-types';
-
-import Container from '../../components/Container/Container';
-import Layout from '../../components/Layout/Layout';
-import SocialShare from '../../components/SocialShare/SocialShare';
-import Author from '../../components/Author/Author';
-import HtmlContent from '../../components/HtmlContent/HtmlContent';
-import SocialProof from '../../components/SocialProof/SocialProof';
-import Sidebar from '../../components/Sidebar/Sidebar';
-import Posts from '../../components/Posts/Posts';
-import FantomImage from '../../components/FantomImage/FantomImage';
-
-import style from './post.module.scss';
 import { NextSeo } from 'next-seo';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
+import Author from '../../components/Author/Author';
+import Container from '../../components/Container/Container';
+import FantomImage from '../../components/FantomImage/FantomImage';
+import HtmlContent from '../../components/HtmlContent/HtmlContent';
+import Layout from '../../components/Layout/Layout';
+import Posts from '../../components/Posts/Posts';
+import Sidebar from '../../components/Sidebar/Sidebar';
+import SocialShare from '../../components/SocialShare/SocialShare';
+import style from './post.module.scss';
 
 export default function Post({ post }) {
 	return (

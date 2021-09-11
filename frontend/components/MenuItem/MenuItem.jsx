@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import { menuItem } from './MenuItem.module.scss';
 
 export default function Menu({ className, children, onClick }) {

@@ -1,6 +1,5 @@
 import Button from '../Button/Button';
 import Container from '../Container/Container';
-
 import style from './HireMe.module.scss';
 
 export default function HireMe() {

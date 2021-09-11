@@ -1,12 +1,10 @@
-import PropTypes from 'prop-types';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
-
 import Author from '../Author/Author';
-
-import style from './Post.module.scss';
-import stylePosts from '../Posts/Posts.module.scss';
 import FantomImage from '../FantomImage/FantomImage';
+import stylePosts from '../Posts/Posts.module.scss';
+import style from './Post.module.scss';
 
 export default function Post({ index, item, layout, last }) {
 	if (!item) return <div>Chargement</div>;

@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import { detail } from './Detail.module.scss';
 
 export default function Detail({ type, children }) {

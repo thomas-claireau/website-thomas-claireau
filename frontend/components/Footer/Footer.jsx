@@ -1,8 +1,6 @@
-import { useThemeContext } from '../ThemeProvider';
-
 import Container from '../Container/Container';
 import FantomImage from '../FantomImage/FantomImage';
-
+import { useThemeContext } from '../ThemeProvider';
 import style from './Footer.module.scss';
 
 export default function Footer() {

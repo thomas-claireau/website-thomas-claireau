@@ -1,22 +1,20 @@
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { ReactSVG } from 'react-svg';
 import slugify from 'slugify';
-import PropTypes from 'prop-types';
-
-import style from './index.module.scss';
-import styleDetail from '../components/Detail/Detail.module.scss';
-import styleService from '../components/Service/Service.module.scss';
-
-import Layout from '../components/Layout/Layout';
-import Container from '../components/Container/Container';
-import Service from '../components/Service/Service';
-import Detail from '../components/Detail/Detail';
-import Projects from '../components/Projects/Projects';
-import HireMe from '../components/HireMe/HireMe';
-import Posts from '../components/Posts/Posts';
-import HtmlContent from '../components/HtmlContent/HtmlContent';
 import Button from '../components/Button/Button';
+import Container from '../components/Container/Container';
+import Detail from '../components/Detail/Detail';
+import styleDetail from '../components/Detail/Detail.module.scss';
 import FantomImage from '../components/FantomImage/FantomImage';
+import HireMe from '../components/HireMe/HireMe';
+import HtmlContent from '../components/HtmlContent/HtmlContent';
+import Layout from '../components/Layout/Layout';
+import Posts from '../components/Posts/Posts';
+import Projects from '../components/Projects/Projects';
+import Service from '../components/Service/Service';
+import styleService from '../components/Service/Service.module.scss';
+import style from './index.module.scss';
 
 export default function Home({ fields }) {
 	const {

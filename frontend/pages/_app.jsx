@@ -1,16 +1,13 @@
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import https from 'https';
 import 'moment/locale/fr';
-import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
-import SEO from '../next-seo.config';
-
-import { ThemeProvider } from '../components/ThemeProvider';
-import Contact from '../components/Contact/Contact';
-
-import '../styles/global.scss';
+import Head from 'next/head';
+import PropTypes from 'prop-types';
 import 'public/assets/css/fontawesome.min.css';
+import { ThemeProvider } from '../components/ThemeProvider';
+import SEO from '../next-seo.config';
+import '../styles/global.scss';
 
 if (process.env.NODE_ENV === 'development') {
 	axios.defaults.httpsAgent = new https.Agent({

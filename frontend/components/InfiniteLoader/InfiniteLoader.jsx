@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-
 import style from './InfiniteLoader.module.scss';
 
 export default function InfiniteLoader({ last }) {

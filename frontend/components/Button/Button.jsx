@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-
 import styles, { button } from './Button.module.scss';
 
 export default function Button({ className, icon, text, url, type, blank }) {

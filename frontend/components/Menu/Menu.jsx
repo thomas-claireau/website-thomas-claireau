@@ -1,13 +1,10 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { ReactSVG } from 'react-svg';
-
-import MenuItem from '../MenuItem/MenuItem';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 import Button from '../Button/Button';
-
+import MenuItem from '../MenuItem/MenuItem';
+import style, { dark, light } from '../MenuItem/MenuItem.module.scss';
 import { menu } from './Menu.module.scss';
-import style, { light, dark } from '../MenuItem/MenuItem.module.scss';
 
 export default function Menu({ items }) {
 	const [toggle, setToggle] = useState(light);

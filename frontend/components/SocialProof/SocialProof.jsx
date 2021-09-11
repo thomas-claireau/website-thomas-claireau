@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-
-import style from './SocialProof.module.scss';
-import Like from '../Like/Like';
 import CommentCount from '../CommentCount/CommentCount';
+import Like from '../Like/Like';
+import style from './SocialProof.module.scss';
 
 export default function SocialProof({ direction, onClick }) {
 	return (

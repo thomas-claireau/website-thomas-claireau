@@ -1,12 +1,9 @@
 import axios from 'axios';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-
-import Button from '../components/Button/Button';
 import Container from '../components/Container/Container';
 import Layout from '../components/Layout/Layout';
 import Posts from '../components/Posts/Posts';
-
 import style from './blog.module.scss';
 
 const NB_STARTER_POSTS = 10;

@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-
-import Post from '../Post/Post';
 import InfiniteLoader from '../InfiniteLoader/InfiniteLoader';
-
+import Post from '../Post/Post';
 import style from './Posts.module.scss';
 
 export default function Posts({ className, layout, items, nbStarterPosts }) {

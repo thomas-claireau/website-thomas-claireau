@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import {
-	EmailShareButton,
 	EmailIcon,
-	FacebookShareButton,
+	EmailShareButton,
 	FacebookIcon,
-	LinkedinShareButton,
+	FacebookShareButton,
 	LinkedinIcon,
-	TwitterShareButton,
+	LinkedinShareButton,
 	TwitterIcon,
+	TwitterShareButton,
 } from 'react-share';
-import { useState, useEffect } from 'react';
-
 import style from './SocialShare.module.scss';
+
 export default function SocialShare({ direction }) {
 	const [url, setUrl] = useState(null);
 

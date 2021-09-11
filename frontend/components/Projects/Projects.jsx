@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import FantomImage from '../FantomImage/FantomImage';
-
 import style from './Projects.module.scss';
 
 export default function Projects({ fields }) {

@@ -1,8 +1,7 @@
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
-import PropTypes from 'prop-types';
-
 import style from './FantomImage.module.scss';
 
 export default function FantomImage({

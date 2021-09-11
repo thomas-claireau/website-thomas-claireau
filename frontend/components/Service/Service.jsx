@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import { service } from './Service.module.scss';
 
 export default function Service({ children }) {

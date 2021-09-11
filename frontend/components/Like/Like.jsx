@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { ReactSVG } from 'react-svg';
-
 import style from './Like.module.scss';
 
 export default function Like({ direction, onClick }) {
