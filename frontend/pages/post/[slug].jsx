@@ -17,7 +17,6 @@ import style from './post.module.scss';
 import { NextSeo } from 'next-seo';
 
 export default function Post({ post }) {
-	console.log(post);
 	return (
 		<Layout>
 			<Head>

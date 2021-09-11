@@ -19,6 +19,8 @@ export default function HtmlContent({
 	const Tag = tag;
 
 	useEffect(() => {
+		Prism.highlightAll();
+
 		const wpBlockCodes = document.querySelectorAll('.wp-block-code');
 
 		wpBlockCodes.forEach((wpBlockCode) => {
