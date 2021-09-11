@@ -67,6 +67,10 @@ require_once get_template_directory() . '/inc/acf-settings.php';
  */
 require_once get_template_directory() . '/inc/acf-filters.php';
 
+/**
+ * Seopress enable preview
+ */
+require_once get_template_directory() . '/inc/seopress-filters.php';
 
 /**
  * Frontend redirection
