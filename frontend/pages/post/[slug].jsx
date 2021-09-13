@@ -51,6 +51,12 @@ export default function Post({ post, global }) {
 				publisherName={post.author.name}
 				description={seo.description}
 			/>
+			<SocialProfileJsonLd
+				type="Person"
+				name="Thomas Claireau"
+				url={global.seo.home_url}
+				sameAs={global.header.menus.items.map((item) => item.url)}
+			/>
 			<Container className={style['post']}>
 				<div className={style['header']}>
 					{post.categories && (

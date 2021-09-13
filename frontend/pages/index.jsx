@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SocialProfileJsonLd } from 'next-seo';
 import PropTypes from 'prop-types';
 import { ReactSVG } from 'react-svg';
 import slugify from 'slugify';
@@ -16,7 +17,7 @@ import Service from '../components/Service/Service';
 import styleService from '../components/Service/Service.module.scss';
 import style from './index.module.scss';
 
-export default function Home({ fields }) {
+export default function Home({ fields, global }) {
 	const {
 		header,
 		introduction_services,
@@ -24,11 +25,16 @@ export default function Home({ fields }) {
 		projects,
 		cta_contact,
 		posts,
-		seo,
 	} = fields;
 
 	return (
 		<Layout>
+			<SocialProfileJsonLd
+				type="Person"
+				name="Thomas Claireau"
+				url={global.seo.home_url}
+				sameAs={global.header.menus.items.map((item) => item.url)}
+			/>
 			<main className={style['index']}>
 				<Container tag="section" className={style['introduction']}>
 					<div className={style['memoji']}>

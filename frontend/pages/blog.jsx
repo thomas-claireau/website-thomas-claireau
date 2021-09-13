@@ -26,6 +26,12 @@ export default function Blog({ fields, posts, global }) {
 				authorName={seo.author_name}
 				description={seo.description}
 			/>
+			<SocialProfileJsonLd
+				type="Person"
+				name="Thomas Claireau"
+				url={global.seo.home_url}
+				sameAs={global.header.menus.items.map((item) => item.url)}
+			/>
 			<Container className={style['blog']}>
 				{/* <div className={style['search-bar']}>
 					<input type="text" />
