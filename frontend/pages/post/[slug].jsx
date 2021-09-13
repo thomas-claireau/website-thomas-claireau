@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ArticleJsonLd, NextSeo } from 'next-seo';
+import { ArticleJsonLd, NextSeo, SocialProfileJsonLd } from 'next-seo';
 import PropTypes from 'prop-types';
 import Author from '../../components/Author/Author';
 import Container from '../../components/Container/Container';

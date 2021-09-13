@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { BlogJsonLd, NextSeo } from 'next-seo';
+import { BlogJsonLd, NextSeo, SocialProfileJsonLd } from 'next-seo';
 import PropTypes from 'prop-types';
 import Container from '../components/Container/Container';
 import Layout from '../components/Layout/Layout';
