@@ -13,6 +13,10 @@ module.exports = withReactSvg({
 		return config;
 	},
 	images: {
-		domains: ['thomas-claireau.local', 'recette.api.thomas-claireau.com'],
+		domains: [
+			'thomas-claireau.local',
+			'recette.api.thomas-claireau.com',
+			'api.thomas-claireau.com',
+		],
 	},
 });
