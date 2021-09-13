@@ -7,6 +7,8 @@
 
 namespace App\Frontend\Posts;
 
+use App\Frontend\Functions;
+
 /**
  * Retrieve datas for post
  */
@@ -26,8 +28,10 @@ class Post {
 			return null;
 		}
 
-		$datas                  = self::get_formatted_post_datas( $post );
-		$datas['related_posts'] = self::get_related_posts( $post->ID );
+		$datas                       = self::get_formatted_post_datas( $post );
+		$datas['seo']['description'] = get_field( 'description', $post_id );
+		$datas['seo']['canonical']   = Functions::get_front_url( $post_id );
+		$datas['related_posts']      = self::get_related_posts( $post->ID );
 
 		return $datas;
 	}
@@ -53,6 +57,7 @@ class Post {
 		$datas['author']['name']   = get_the_author_meta( 'display_name', $post->post_author );
 		$datas['author']['avatar'] = get_field( 'avatar', 'user_' . $post->post_author );
 
+		$datas['created_at'] = get_the_date( 'c', $post );
 		$datas['updated_at'] = get_the_modified_date( 'c', $post );
 
 		$datas['content'] = $post->post_content;

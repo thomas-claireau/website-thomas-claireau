@@ -1,6 +1,5 @@
 import axios from 'axios';
-import { NextSeo } from 'next-seo';
-import Head from 'next/head';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
 import Author from '../../components/Author/Author';
 import Container from '../../components/Container/Container';
@@ -12,13 +11,46 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import SocialShare from '../../components/SocialShare/SocialShare';
 import style from './post.module.scss';
 
-export default function Post({ post }) {
+export default function Post({ post, global }) {
+	const { seo } = post;
+
 	return (
 		<Layout>
-			<Head>
-				<title>{post.title} - Thomas Claireau, développeur web</title>
-			</Head>
-			<NextSeo title="" />
+			<NextSeo
+				title={`${post.title} - ${global.seo.site_name}`}
+				description={seo.description}
+				canonical={seo.canonical}
+				openGraph={{
+					url: seo.canonical,
+					title: `${post.title} - ${global.seo.site_name}`,
+					site_name: global.seo.site_name,
+					type: 'article',
+					article: {
+						publishedTime: post.created_at,
+						modifiedTime: post.updated_at,
+						authors: [post.author.name],
+						tags: post.categories,
+					},
+					images: [
+						{
+							url: post.thumbnail.url,
+							width: process.env.NEXT_PUBLIC_VP_WIDTH || 1280,
+							height: 720,
+							alt: post.thumbnail.alt,
+						},
+					],
+				}}
+			/>
+			<ArticleJsonLd
+				url={seo.canonical}
+				title={`${post.title} - ${global.seo.site_name}`}
+				images={[post.thumbnail.url]}
+				datePublished={post.created_at}
+				dateModified={post.updated_at}
+				authorName={[post.author.name]}
+				publisherName={post.author.name}
+				description={seo.description}
+			/>
 			<Container className={style['post']}>
 				<div className={style['header']}>
 					{post.categories && (
@@ -63,6 +95,7 @@ export default function Post({ post }) {
 
 Post.propTypes = {
 	post: PropTypes.object.isRequired,
+	global: PropTypes.object,
 };
 
 export async function getServerSideProps(context) {

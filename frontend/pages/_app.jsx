@@ -1,7 +1,7 @@
 import axios from 'axios';
 import https from 'https';
 import 'moment/locale/fr';
-import { DefaultSeo } from 'next-seo';
+import { DefaultSeo, SocialProfileJsonLd } from 'next-seo';
 import Head from 'next/head';
 import PropTypes from 'prop-types';
 import 'public/assets/css/fontawesome.min.css';
@@ -31,6 +31,12 @@ export default function MyApp({ Component, pageProps }) {
 				></script>
 			</Head>
 			<DefaultSeo {...SEO} />
+			<SocialProfileJsonLd
+				type="Person"
+				name="Thomas Claireau"
+				url={global.seo.home_url}
+				sameAs={global.header.menus.items.map((item) => item.url)}
+			/>
 			<Component {...pageProps} />
 			{/* <Contact /> */}
 		</ThemeProvider>

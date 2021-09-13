@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Head from 'next/head';
+import { BlogJsonLd, NextSeo } from 'next-seo';
 import PropTypes from 'prop-types';
 import Container from '../components/Container/Container';
 import Layout from '../components/Layout/Layout';
@@ -8,12 +8,24 @@ import style from './blog.module.scss';
 
 const NB_STARTER_POSTS = 10;
 
-export default function Blog({ posts }) {
+export default function Blog({ fields, posts, global }) {
+	const { seo } = fields;
+
 	return (
 		<Layout>
-			<Head>
-				<title>Blog - Thomas Claireau, développeur web</title>
-			</Head>
+			<NextSeo
+				title={`${seo.title} - ${global.seo.site_name}`}
+				description={seo.description}
+			/>
+			<BlogJsonLd
+				url={seo.canonical}
+				title={`${seo.title} - ${global.seo.site_name}`}
+				images={posts.map((post) => post.thumbnail.url)}
+				datePublished={fields.created_at}
+				dateModified={fields.updated_at}
+				authorName={seo.author_name}
+				description={seo.description}
+			/>
 			<Container className={style['blog']}>
 				{/* <div className={style['search-bar']}>
 					<input type="text" />
@@ -36,7 +48,9 @@ export default function Blog({ posts }) {
 }
 
 Blog.propTypes = {
+	fields: PropTypes.object,
 	posts: PropTypes.array.isRequired,
+	global: PropTypes.object,
 };
 
 export async function getServerSideProps() {
@@ -47,6 +61,11 @@ export async function getServerSideProps() {
 		},
 	};
 
+	const fields = await axios.get(
+		`${process.env.NEXT_PUBLIC_API_URL}/pages?post_id=23`,
+		auth
+	);
+
 	const posts = await axios.get(
 		`${process.env.NEXT_PUBLIC_API_URL}/posts`,
 		auth
@@ -56,5 +75,7 @@ export async function getServerSideProps() {
 		auth
 	);
 
-	return { props: { posts: posts.data, global: global.data } };
+	return {
+		props: { fields: fields.data, posts: posts.data, global: global.data },
+	};
 }

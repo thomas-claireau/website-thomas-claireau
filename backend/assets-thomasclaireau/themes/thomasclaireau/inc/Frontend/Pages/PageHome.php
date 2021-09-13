@@ -21,6 +21,7 @@ class PageHome {
 	public static function datas( $post_id ) {
 		$datas = array();
 
+		$datas['seo']['description']    = get_field( 'description', $post_id );
 		$datas['header']                = get_field( 'header', $post_id );
 		$datas['introduction_services'] = get_field( 'introduction_services', $post_id );
 		$datas['services']              = get_field( 'services', $post_id );

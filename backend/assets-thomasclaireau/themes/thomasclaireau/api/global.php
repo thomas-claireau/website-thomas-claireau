@@ -5,6 +5,7 @@
  * @package thomasclaireau
  */
 
+use App\Frontend\Functions;
 use App\Frontend\Menu;
 
 add_action( 'rest_api_init', 'thomasclaireau_global_api' );
@@ -45,6 +46,9 @@ if ( ! function_exists( 'thomasclaireau_global_api_callback' ) ) :
 
 		$data['header']['menus'] = Menu::get_menus_as_array( 'main' );
 		$data['footer']['menus'] = Menu::get_menus_as_array( 'footer' );
+
+		$data['seo']['site_name'] = get_bloginfo( 'name' );
+		$data['seo']['home_url']  = FRONTEND_URL;
 
 		wp_send_json( $data );
 	}

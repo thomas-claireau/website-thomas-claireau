@@ -24,6 +24,7 @@ export default function Home({ fields }) {
 		projects,
 		cta_contact,
 		posts,
+		seo,
 	} = fields;
 
 	return (

@@ -1,6 +1,8 @@
 <?php
 /**
  * Global functions for frontend treatement
+ *
+ * @package thomasclaireau
  */
 
 namespace App\Frontend;
@@ -30,5 +32,19 @@ class Functions {
 		$template = implode( '', $template );
 
 		return $template;
+	}
+
+	/**
+	 * Return front url from back
+	 *
+	 * @param mixed $post_id - Post id.
+	 *
+	 * @return string
+	 */
+	public static function get_front_url( $post_id ) {
+		$host = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'];
+		$link = get_permalink( $post_id );
+
+		return str_replace( $host, FRONTEND_URL, $link );
 	}
 }
