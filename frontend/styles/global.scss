@@ -10,12 +10,13 @@ html {
 	}
 
 	@media screen and (max-width: $break-medium) {
-		font-size: 8.5px;
+		font-size: 8px;
 	}
 }
 
 body {
 	color: $bleuFonce;
+	overflow-x: hidden;
 }
 
 // code highlight

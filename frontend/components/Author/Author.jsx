@@ -20,9 +20,6 @@ export default function Author({ className, post }) {
 					<span className={style['date']}>
 						{moment(post.updated_at).format('D MMMM YYYY')}
 					</span>
-					<span className={style['time']}>
-						&nbsp;&nbsp;{post.read} min read
-					</span>
 				</div>
 			</div>
 		</div>

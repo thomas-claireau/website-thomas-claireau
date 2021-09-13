@@ -1,0 +1,5 @@
+.sidebar {
+	@media screen and (max-width: $break-tablet) {
+		display: none;
+	}
+}

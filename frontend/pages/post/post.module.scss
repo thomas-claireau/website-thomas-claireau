@@ -1,6 +1,10 @@
 .post {
 	position: relative;
-	padding: 20rem 0 25rem 0;
+	padding: 20rem 0 15rem 0;
+
+	@media screen and (max-width: $break-tablet) {
+		padding: 5rem 0 17rem 0;
+	}
 
 	.header {
 		margin-bottom: 5rem;
@@ -9,6 +13,12 @@
 			display: flex;
 			justify-content: space-between;
 			gap: 10rem;
+
+			@media screen and (max-width: $break-tablet) {
+				flex-direction: column;
+				align-items: center;
+				gap: 5rem;
+			}
 		}
 	}
 
@@ -26,6 +36,10 @@
 		margin-right: auto;
 		margin-left: auto;
 		width: 70%;
+
+		@media screen and (max-width: $break-tablet) {
+			width: 100%;
+		}
 	}
 
 	h1 {
@@ -33,6 +47,10 @@
 		font-size: 6rem;
 		line-height: 6.5rem;
 		font-weight: 700;
+
+		@media screen and (max-width: $break-tablet) {
+			font-size: 5rem;
+		}
 	}
 
 	.categories {
