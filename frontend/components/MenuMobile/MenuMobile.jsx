@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import MenuItem from '../MenuItem/MenuItem';
 import { icon, mobile } from '../MenuItem/MenuItem.module.scss';
@@ -11,7 +12,7 @@ export default function MenuMobile({ items }) {
 					let content = [
 						<MenuItem className={`${icon} ${mobile}`} key={index}>
 							<a title={item.title} href={item.url} target={item.target}>
-								<i className={item.class}></i>
+								<FontAwesomeIcon icon={item.class.split(' ')} />
 							</a>
 						</MenuItem>,
 					];
@@ -21,7 +22,7 @@ export default function MenuMobile({ items }) {
 						content.push(
 							<MenuItem className={`${contact} ${mobile}`} key="contact">
 								<a href="mailto:pro.thomas.claireau@gmail.com?subject=Demande de contact&body=Nom et prénom : %0D%0A%0D%0ABudget : %0D%0A%0D%0A Description du projet : %0D%0A">
-									<i className="far fa-envelope-open"></i>
+									<FontAwesomeIcon icon={['far', 'envelope-open']} />
 								</a>
 							</MenuItem>
 						);

@@ -24,10 +24,6 @@
 		&:hover {
 			background-color: darken($vert, 2%);
 		}
-
-		svg {
-			color: #fff;
-		}
 	}
 
 	&.github {
@@ -37,6 +33,16 @@
 		&:hover {
 			background-color: #1a212b;
 			color: #fff;
+
+			svg path {
+				fill: #fff;
+				transition: all 0.3s ease-in-out;
+			}
+		}
+
+		svg path {
+			fill: #1a212b;
+			transition: all 0.3s ease-in-out;
 		}
 	}
 
@@ -49,6 +55,13 @@
 	}
 
 	svg {
-		margin-right: 0.4rem;
+		width: 2rem;
+		position: relative;
+		top: 0.2rem;
+		margin-right: 1rem;
+
+		path {
+			fill: #fff;
+		}
 	}
 }

@@ -37,7 +37,7 @@ export default function Blog({ fields, posts, global }) {
 					<input type="text" />
 					<Button
 						className={style['cta']}
-						icon={<i className="fas fa-search"></i>}
+						icon={<FontAwesomeIcon icon={['fas', 'search']} />}
 						text=""
 						url="#"
 						type="cta"

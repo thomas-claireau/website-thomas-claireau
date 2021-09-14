@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
@@ -21,14 +22,14 @@ export default function Menu({ items }) {
 					return (
 						<MenuItem className={style['icon']} key={index}>
 							<a title={item.title} href={item.url} target={item.target}>
-								<i className={item.class}></i>
+								<FontAwesomeIcon icon={item.class.split(' ')} />
 							</a>
 						</MenuItem>
 					);
 				})}
 			<MenuItem className={style['contact']}>
 				<Button
-					icon={<i className="far fa-envelope-open" />}
+					icon={<FontAwesomeIcon icon={['far', 'envelope-open']} />}
 					text="Contactez-moi"
 					url="mailto:pro.thomas.claireau@gmail.com?subject=Demande de contact&body=Nom et prénom : %0D%0A%0D%0ABudget : %0D%0A%0D%0A Description du projet : %0D%0A"
 					type="cta"

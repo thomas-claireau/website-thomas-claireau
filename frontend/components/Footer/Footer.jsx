@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Container from '../Container/Container';
 import FantomImage from '../FantomImage/FantomImage';
 import { useThemeContext } from '../ThemeProvider';
@@ -30,7 +31,7 @@ export default function Footer() {
 										target={item.target}
 										title={item.title}
 									>
-										<i className={item.class}></i>
+										<FontAwesomeIcon icon={item.class.split(' ')} />
 									</a>
 								</li>
 							);

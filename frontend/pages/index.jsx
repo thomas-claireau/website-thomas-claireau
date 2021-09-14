@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { SocialProfileJsonLd } from 'next-seo';
 import PropTypes from 'prop-types';
@@ -139,7 +140,7 @@ export default function Home({ fields, global }) {
 									alt={services.bloc_1.logos.logo_2.alt}
 								/>
 								<Button
-									icon={<i className="fab fa-github"></i>}
+									icon={<FontAwesomeIcon icon={['fab', 'github']} />}
 									text={services.bloc_1.cta.title}
 									url={services.bloc_1.cta.url}
 									type="github"
@@ -202,14 +203,17 @@ export default function Home({ fields, global }) {
 					</Container>
 				</section>
 				<section className={style['projects-container']}>
-					<i className={`fab fa-github ${style['fa-github']}`}></i>
+					<FontAwesomeIcon
+						className={style['fa-github']}
+						icon={['fab', 'github']}
+					/>
 					<Container className={style['container']}>
 						<h2>{projects.title}</h2>
 						<HtmlContent>{projects.introduction}</HtmlContent>
 						<Projects fields={projects.projects} />
 						<Button
 							className={style['cta']}
-							icon={<i className="fas fa-tv"></i>}
+							icon={<FontAwesomeIcon icon={['fas', 'tv']} />}
 							text={projects.cta.title}
 							url={projects.cta.url}
 							type="cta"
@@ -225,7 +229,7 @@ export default function Home({ fields, global }) {
 							<Posts items={posts.articles} className={style['posts']} />
 						)}
 						<Button
-							icon={<i className="far fa-edit"></i>}
+							icon={<FontAwesomeIcon icon={['far', 'edit']} />}
 							text={posts.cta.title}
 							url={posts.cta.url}
 							type="cta"

@@ -1,10 +1,12 @@
+import { config, library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fas } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import https from 'https';
 import 'moment/locale/fr';
 import { DefaultSeo } from 'next-seo';
 import PropTypes from 'prop-types';
-import 'public/assets/css/fontawesome.min.css';
-import 'public/assets/js/fontawesome.min.js';
 import { ThemeProvider } from '../components/ThemeProvider';
 import SEO from '../next-seo.config';
 import '../styles/global.scss';
@@ -14,8 +16,12 @@ if (process.env.NODE_ENV === 'development') {
 		rejectUnauthorized: false,
 	});
 
-	process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 }
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+
+config.autoAddCss = false;
+
+library.add(fas, far, fab);
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {

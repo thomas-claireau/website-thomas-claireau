@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import FantomImage from '../FantomImage/FantomImage';
 import style from './Projects.module.scss';
@@ -11,7 +12,7 @@ export default function Projects({ fields }) {
 						<a href={field.url} target="_blank">
 							<h3>{field.title}</h3>
 							<div>
-								<i className="far fa-eye"></i>
+								<FontAwesomeIcon icon={['far', 'eye']} />
 								<FantomImage
 									className={style['img-container']}
 									src={field.image.url}
