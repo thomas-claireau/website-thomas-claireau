@@ -47,6 +47,7 @@ class PageHome {
 				array(
 					'post_type'   => 'post',
 					'numberposts' => 2,
+					'orderby'     => 'title',
 				)
 			);
 		}
