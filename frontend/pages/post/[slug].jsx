@@ -17,12 +17,12 @@ export default function Post({ post, global }) {
 	return (
 		<Layout>
 			<NextSeo
-				title={`${post.title} - ${global.seo.site_name}`}
+				title={`${post.title} | ${global.seo.site_name}`}
 				description={seo.description}
 				canonical={seo.canonical}
 				openGraph={{
 					url: seo.canonical,
-					title: `${post.title} - ${global.seo.site_name}`,
+					title: `${post.title} | ${global.seo.site_name}`,
 					site_name: global.seo.site_name,
 					type: 'article',
 					article: {

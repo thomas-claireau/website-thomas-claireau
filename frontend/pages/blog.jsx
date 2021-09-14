@@ -14,8 +14,13 @@ export default function Blog({ fields, posts, global }) {
 	return (
 		<Layout>
 			<NextSeo
-				title={`${seo.title} - ${global.seo.site_name}`}
+				title={`${seo.title} | ${global.seo.site_name}`}
 				description={seo.description}
+				openGraph={{
+					url: seo.canonical,
+					title: `${seo.title} | ${global.seo.site_name}`,
+					site_name: global.seo.site_name,
+				}}
 			/>
 			<BlogJsonLd
 				url={seo.canonical}
