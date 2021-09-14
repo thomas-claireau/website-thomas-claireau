@@ -18,20 +18,26 @@ export default function HtmlContent({
 	const Tag = tag;
 
 	useEffect(() => {
-		Prism.highlightAll();
+		const timer = setTimeout(() => {
+			Prism.highlightAll();
 
-		const wpBlockCodes = document.querySelectorAll('.wp-block-code');
+			const wpBlockCodes = document.querySelectorAll('.wp-block-code');
 
-		wpBlockCodes.forEach((wpBlockCode) => {
-			const title = wpBlockCode.title;
+			wpBlockCodes.forEach((wpBlockCode) => {
+				const title = wpBlockCode.title;
 
-			if (title && !wpBlockCode.querySelector('span.title')) {
-				wpBlockCode.insertAdjacentHTML(
-					'afterbegin',
-					`<span class="title">${title}</span>`
-				);
-			}
-		});
+				if (title && !wpBlockCode.querySelector('span.title')) {
+					wpBlockCode.insertAdjacentHTML(
+						'afterbegin',
+						`<span class="title">${title}</span>`
+					);
+				}
+			});
+		}, 1000);
+
+		return () => {
+			clearTimeout(timer);
+		};
 	}, []);
 
 	return (
