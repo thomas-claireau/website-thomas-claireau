@@ -35,3 +35,11 @@ pre.wp-block-code {
 		}
 	}
 }
+
+#axeptio_overlay {
+	> * {
+		@media screen and (max-width: $break-tablet) {
+			transform: translateY(-8rem);
+		}
+	}
+}
