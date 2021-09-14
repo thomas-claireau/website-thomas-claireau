@@ -9,13 +9,7 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		if (items) {
-			if (nbStarterPosts) {
-				setPosts(items.slice(0, nbStarterPosts));
-			} else {
-				setPosts(items);
-			}
-		}
+		if (items && nbStarterPosts) setPosts(items.slice(0, nbStarterPosts));
 	}, []);
 
 	if (!items.length) return <div>Chargement</div>;
@@ -46,7 +40,7 @@ export default function Posts({ className, layout, items, nbStarterPosts }) {
 		</InfiniteScroll>
 	) : (
 		<div className={`${className} ${style['posts']} ${style[layout]}`}>
-			{posts.map((post, index) => (
+			{items.map((post, index) => (
 				<Post key={index} index={index} layout={layout} item={post} />
 			))}
 		</div>
