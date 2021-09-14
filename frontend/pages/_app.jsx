@@ -2,9 +2,9 @@ import axios from 'axios';
 import https from 'https';
 import 'moment/locale/fr';
 import { DefaultSeo } from 'next-seo';
-import Head from 'next/head';
 import PropTypes from 'prop-types';
 import 'public/assets/css/fontawesome.min.css';
+import 'public/assets/js/fontawesome.min.js';
 import { ThemeProvider } from '../components/ThemeProvider';
 import SEO from '../next-seo.config';
 import '../styles/global.scss';
@@ -71,13 +71,6 @@ export default function MyApp({ Component, pageProps }) {
 
 	return (
 		<ThemeProvider value={global}>
-			<Head>
-				<script
-					src="/assets/js/fontawesome.min.js"
-					referrerPolicy="no-referrer"
-					defer
-				></script>
-			</Head>
 			<DefaultSeo {...SEO} />
 			<Component {...pageProps} />
 			{/* <Contact /> */}
