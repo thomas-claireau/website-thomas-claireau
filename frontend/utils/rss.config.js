@@ -13,8 +13,8 @@ export const generateRssFeed = async (data) => {
 		title: "Thomas Claireau | Blog d'un développeur fullstack",
 		description:
 			"Je m'appelle Thomas Claireau et je suis développeur web fullstack. Sur ce site, je présente mes projets et des articles destinés à partager mon expérience",
-		id: process.env.NEXT_APP_URL,
-		link: process.env.NEXT_APP_URL,
+		id: process.env.NEXT_APP_URL + '/blog',
+		link: process.env.NEXT_APP_URL + '/blog',
 		// image: `${process.env.NEXT_APP_URL}/logo.svg`,
 		// favicon: `${process.env.NEXT_APP_URL}/favicon.png`,
 		copyright: `Tous droits réservés ${date.getFullYear()}, Thomas Claireau`,
