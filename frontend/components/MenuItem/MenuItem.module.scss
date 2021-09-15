@@ -1,8 +1,22 @@
 .menuItem {
 	&.blog {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 2rem;
+
 		a {
 			font-weight: 500;
 			letter-spacing: 0.05rem;
+		}
+
+		.svg-container {
+			width: 2rem;
+			height: 2rem;
+
+			svg path {
+				fill: $gris;
+			}
 		}
 	}
 

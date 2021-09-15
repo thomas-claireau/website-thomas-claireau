@@ -39,6 +39,11 @@ export default function Menu({ items }) {
 				<Link href="/blog/">
 					<a>Blog</a>
 				</Link>
+				<Link href="/rss/feed.xml">
+					<a className={style['svg-container']} target="_blank">
+						<FontAwesomeIcon icon={['fas', 'rss-square']} />
+					</a>
+				</Link>
 			</MenuItem>
 			{/* <MenuItem
 				className={`${style['toggleTheme']} ${toggle}`}
