@@ -16,10 +16,10 @@ html {
 
 body {
 	color: $bleuFonce;
-}
 
-body:not(.post) {
-	overflow-x: hidden;
+	@media screen and (max-width: $break-tablet) {
+		overflow-x: hidden;
+	}
 }
 
 // code highlight
