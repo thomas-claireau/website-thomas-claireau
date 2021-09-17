@@ -33,7 +33,7 @@ export default function HtmlContent({
 					);
 				}
 			});
-		}, 2000);
+		}, 1500);
 
 		return () => {
 			clearTimeout(timer);
