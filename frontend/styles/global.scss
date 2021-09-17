@@ -16,6 +16,9 @@ html {
 
 body {
 	color: $bleuFonce;
+}
+
+body:not(.post) {
 	overflow-x: hidden;
 }
 

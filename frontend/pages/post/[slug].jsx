@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ArticleJsonLd, NextSeo, SocialProfileJsonLd } from 'next-seo';
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import Author from '../../components/Author/Author';
 import Container from '../../components/Container/Container';
 import FantomImage from '../../components/FantomImage/FantomImage';
@@ -13,6 +14,11 @@ import style from './post.module.scss';
 
 export default function Post({ post, global }) {
 	const { seo } = post;
+
+	useEffect(() => {
+		if (!document.body.classList.contains('post'))
+			document.body.classList.add('post');
+	}, []);
 
 	return (
 		<Layout>
