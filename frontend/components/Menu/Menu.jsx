@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Button from '../Button/Button';
@@ -9,6 +10,8 @@ import { menu } from './Menu.module.scss';
 
 export default function Menu({ items }) {
 	const [toggle, setToggle] = useState(light);
+
+	const router = useRouter();
 
 	function handleClick() {
 		setToggle(toggle == light ? dark : light);
@@ -36,9 +39,11 @@ export default function Menu({ items }) {
 				/>
 			</MenuItem>
 			<MenuItem className={style['blog']}>
-				<Link href="/blog/">
-					<a>Blog</a>
-				</Link>
+				{router.pathname !== '/blog' && (
+					<Link href="/blog/">
+						<a>Blog</a>
+					</Link>
+				)}
 				<Link href="/rss/feed.xml">
 					<a className={style['svg-container']} target="_blank">
 						<FontAwesomeIcon icon={['fas', 'rss-square']} />
