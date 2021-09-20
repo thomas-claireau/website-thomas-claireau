@@ -47,8 +47,11 @@ function hide_settings_page( $query ) {
 	}
 	global $typenow;
 	if ( 'page' === $typenow ) {
-		$settings_page = get_page_by_path( 'site-settings', null, 'page' )->ID;
-		$query->set( 'post__not_in', array( $settings_page ) );
+		$settings_page = get_page_by_path( 'site-settings', null, 'page' );
+
+		if ( $settings_page ) {
+			$query->set( 'post__not_in', array( $settings_page->ID ) );
+		}
 	}
 
 	return null;
