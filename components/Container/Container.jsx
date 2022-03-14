@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { container } from './Container.module.scss';
 
@@ -15,4 +16,9 @@ Container.propTypes = {
   tag: PropTypes.string,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+};
+
+Container.defaultProps = {
+  tag: 'div',
+  className: '',
 };

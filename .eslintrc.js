@@ -21,5 +21,6 @@ module.exports = {
     'max-len': 'off',
     'react/no-unescaped-entities': 'off',
     'no-underscore-dangle': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 };

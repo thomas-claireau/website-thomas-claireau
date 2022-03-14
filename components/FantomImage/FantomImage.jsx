@@ -1,6 +1,6 @@
+import React, { useState } from 'react';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import style from './FantomImage.module.scss';
 
@@ -38,4 +38,13 @@ FantomImage.propTypes = {
   height: PropTypes.number,
   layout: PropTypes.string,
   circle: PropTypes.bool,
+};
+
+FantomImage.defaultProps = {
+  className: '',
+  alt: '',
+  width: null,
+  height: null,
+  layout: 'fill',
+  circle: false,
 };

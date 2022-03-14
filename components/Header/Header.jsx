@@ -29,7 +29,7 @@ export default function Header() {
           <a className={style.left}>
             Thomas
             {' '}
-            <span />
+            <span>/</span>
             {' '}
             Claireau
           </a>
