@@ -1,0 +1,4 @@
+Sitemap: https://thomas-claireau.com/sitemap.xml
+
+User-agent: *
+Allow: /*

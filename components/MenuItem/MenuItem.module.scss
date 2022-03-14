@@ -1,0 +1,129 @@
+.menuItem {
+  &.icon {
+    &:not(.mobile) {
+      @media screen and (max-width: $break-tablet) {
+        display: none;
+      }
+    }
+
+    &:hover {
+      svg {
+        color: $bleuFonce;
+        transition: all 0.3s ease-in-out;
+      }
+    }
+
+    svg {
+      width: 1.8rem;
+      color: $gris;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &.contact {
+    @media screen and (max-width: $break-tablet) {
+      display: none;
+    }
+  }
+
+  &.toggleTheme {
+    --width: 7rem;
+    --height: 4rem;
+    $light: #ffbb52;
+    $dark: $bleuFonce;
+
+    width: var(--width);
+    min-width: var(--width);
+    height: var(--height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    position: relative;
+    border: 0.3rem solid lighten($gris, 20%);
+    border-radius: var(--width);
+    cursor: pointer;
+
+    &.light {
+      .icons {
+        .light {
+          opacity: 1;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .dark {
+          opacity: 0;
+        }
+      }
+
+      span {
+        left: 55%;
+        border-color: $light;
+        background-color: lighten($light, 20%);
+      }
+    }
+
+    &.dark {
+      border-color: lighten($dark, 10%);
+      background-color: $dark;
+
+      .icons {
+        > svg {
+          transform: rotate(0);
+        }
+
+        .lightImg {
+          opacity: 0;
+        }
+
+        .darkImg {
+          opacity: 1;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+
+      span {
+        left: 10%;
+        border-color: #fff;
+        background-color: lighten($dark, 20%);
+      }
+    }
+
+    .icons {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      svg {
+        width: 80%;
+        opacity: 1;
+        position: relative;
+        top: 0.1rem;
+      }
+
+      .lightImg {
+        fill: $light;
+      }
+
+      .darkImg {
+        fill: #fff;
+
+        svg {
+          left: 0.3rem;
+        }
+      }
+    }
+
+    span {
+      --size: calc(var(--height) - 2rem);
+      width: var(--size);
+      height: var(--size);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 0.3rem solid black;
+      border-radius: var(--size);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	list-style-type: none;
+	gap: 3rem;
+
+	@media screen and (max-width: $break-small) {
+		justify-content: flex-end;
+		gap: 1rem;
+	}
+}
