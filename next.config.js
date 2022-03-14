@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-unused-vars */
 const path = require('path');
 const withReactSvg = require('next-react-svg');
 
@@ -18,5 +20,8 @@ module.exports = withReactSvg({
       'recette.api.thomas-claireau.com',
       'api.thomas-claireau.com',
     ],
+  },
+  env: {
+    PASSWORD_PROTECT: process.env.VERCEL_ENV !== 'production',
   },
 });

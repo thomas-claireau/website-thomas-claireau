@@ -9,6 +9,7 @@ import https from 'https';
 import 'moment/locale/fr';
 import { DefaultSeo } from 'next-seo';
 import PropTypes from 'prop-types';
+import { withPasswordProtect } from '@storyofams/next-password-protect';
 import SEO from '../next-seo.config';
 import '../styles/global.scss';
 import { insertAnalytics, insertAxeptio } from '../axeptio';
@@ -26,7 +27,7 @@ config.autoAddCss = false;
 library.add(fas, far, fab);
 
 // This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component }) {
+function App({ Component }) {
   if (typeof window !== 'undefined') {
     if (!window.axeptioSettings) {
       window.axeptioSettings = {
@@ -63,6 +64,14 @@ export default function MyApp({ Component }) {
   );
 }
 
-MyApp.propTypes = {
+App.propTypes = {
   Component: PropTypes.func.isRequired,
 };
+
+// Before: export default App;
+export default process.env.PASSWORD_PROTECT
+  ? withPasswordProtect(App, {
+    // Options go here (optional)
+    loginApiUrl: '/api/login',
+  })
+  : App;
