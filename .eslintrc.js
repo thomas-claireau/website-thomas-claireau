@@ -19,6 +19,7 @@ module.exports = {
   ],
   rules: {
     'max-len': 'off',
-		'react/no-unescaped-entities': 'off',
+    'react/no-unescaped-entities': 'off',
+    'no-underscore-dangle': 'off',
   },
 };
