@@ -2,11 +2,11 @@ export default {
 	title: 'Thomas Claireau - Développeur web fullstack',
 	description:
 		"Je m'appelle Thomas Claireau et je suis développeur web fullstack. Sur ce site, je présente mes projets et des articles destinés à partager mon expérience",
-	canonical: process.env.NEXT_APP_URL,
+	canonical: process.env.VERCEL_URL,
 	openGraph: {
 		type: 'website',
 		locale: 'fr_FR',
-		url: process.env.NEXT_APP_URL,
+		url: process.env.VERCEL_URL,
 		title: 'Thomas Claireau - Développeur web fullstack',
 		site_name: 'Thomas Claireau - Développeur web fullstack',
 	},

@@ -21,7 +21,7 @@ export default function Home() {
       <SocialProfileJsonLd
         type="Person"
         name="Thomas Claireau"
-        url={process.env.NEXT_APP_URL}
+        url={process.env.VERCEL_URL}
       />
       <main className={style.index}>
         <Container tag="section" className={style.introduction}>

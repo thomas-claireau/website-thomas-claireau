@@ -15,7 +15,7 @@ export async function getServerSideProps({ res }) {
 		.map((staticPagePath) => {
 			if (staticPagePath == 'index.jsx') staticPagePath = ''; // home page
 
-			return `${process.env.NEXT_APP_URL}/${staticPagePath.replace(
+			return `${process.env.VERCEL_URL}/${staticPagePath.replace(
 				'.jsx',
 				''
 			)}`;
