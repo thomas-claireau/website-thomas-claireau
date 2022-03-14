@@ -25,12 +25,12 @@ Button.propTypes = {
   text: PropTypes.string,
   url: PropTypes.string.isRequired,
   type: PropTypes.string,
-  blank: PropTypes.bool,
+  blank: PropTypes.string,
 };
 
 Button.defaultProps = {
   className: '',
   text: '',
   type: '',
-  blank: false,
+  blank: '',
 };

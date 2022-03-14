@@ -7,8 +7,8 @@ import style from './Projects.module.scss';
 export default function Projects({ fields }) {
   return (
     <ul className={style.projects}>
-      {fields.map((field, index) => (
-        <li key={index.title}>
+      {fields.map((field) => (
+        <li key={field.title}>
           <a href={field.url} target="_blank" rel="noreferrer">
             <h3>{field.title}</h3>
             <div>

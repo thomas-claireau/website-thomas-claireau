@@ -55,6 +55,7 @@ export default function Home() {
                 width={360}
                 height={240}
                 layout="responsive"
+                priority
               />
               <div className={style.texte}>
                 <h2>Création de sites web ou d’applications en PHP, sous le framework Symfony</h2>

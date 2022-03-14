@@ -12,6 +12,7 @@ export default function FantomImage({
   height,
   layout,
   circle,
+  priority,
 }) {
   const [loading, setLoading] = useState(true);
 
@@ -25,6 +26,7 @@ export default function FantomImage({
         height={height}
         layout={layout}
         onLoad={() => setLoading(false)}
+        priority={priority}
       />
     </div>
   );
@@ -38,6 +40,7 @@ FantomImage.propTypes = {
   height: PropTypes.number,
   layout: PropTypes.string,
   circle: PropTypes.bool,
+  priority: PropTypes.bool,
 };
 
 FantomImage.defaultProps = {
@@ -45,6 +48,7 @@ FantomImage.defaultProps = {
   alt: '',
   width: null,
   height: null,
-  layout: 'fill',
+  layout: '',
   circle: false,
+  priority: false,
 };
