@@ -50,7 +50,7 @@ export default function Home() {
           <Container className={style.container}>
             <div className={style.left}>
               <FantomImage
-                src="/assets/img/service.webp"
+                src="/assets/img/service.jpeg"
                 alt="service"
                 width={360}
                 height={240}
