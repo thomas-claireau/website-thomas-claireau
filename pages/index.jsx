@@ -259,11 +259,11 @@ export default function Home() {
                 date: '2022',
               },
               {
-                title: 'SnowTricks',
-                introduction: 'Application Symfony de gestion de figure de snow board',
-                url: 'https://github.com/thomas-claireau/snowtricks',
-                image: '/assets/img/snowtricks.jpg',
-                date: '2020',
+                title: 'HomeJungle',
+                introduction: 'E-commerce front-end sur React',
+                url: 'https://homejungle.vercel.app/',
+                image: '/assets/img/homejungle.png',
+                date: '2021',
               },
             ]}
             />
